@@ -31,7 +31,7 @@ const Hero = () => {
       display="flex"
       alignItems="center"
       justifyContent="center"
-      bgImage="linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1920&h=1080&fit=crop')"
+      bgImage="linear-gradient(135deg, rgba(80, 10, 20, 0.75) 0%, rgba(25, 20, 35, 0.65) 50%, rgba(15, 15, 25, 0.7) 100%), url('/images/hero-image.png')"
       bgSize="cover"
       bgPosition="center"
     >
@@ -49,7 +49,7 @@ const Hero = () => {
               lineHeight="1.2"
               fontWeight="700"
             >
-              Welcome to St James Zongoro Primary School
+              Welcome to St James The Great, Zongoro Primary School
             </Heading>
           </Box>
 
