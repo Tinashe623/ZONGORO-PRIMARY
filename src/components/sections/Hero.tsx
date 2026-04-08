@@ -36,7 +36,7 @@ const Hero = () => {
       bgPosition="center"
     >
       <Container maxW="1400px" textAlign="center">
-        <VStack spacing={6}>
+        <VStack spacing={8}>
           <Box
             as={motion.div}
             variants={fadeInUp}
@@ -89,15 +89,16 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
           >
-            <HStack spacing={4} flexWrap="wrap" justify="center">
+            <HStack spacing={6} flexWrap="wrap" justify="center">
               <Button
                 as={RouterLink}
                 to="/admissions"
-                bg="maroon.500"
+                bgGradient="linear(to-r, maroon.500, maroon.600)"
                 color="white"
                 size="lg"
-                px={8}
-                _hover={{ bg: 'maroon.600', transform: 'translateY(-2px)' }}
+                px={10}
+                fontWeight="600"
+                _hover={{ bgGradient: 'linear(to-r, maroon.600, maroon.700)', transform: 'translateY(-2px)' }}
               >
                 Apply for Admission
               </Button>
@@ -107,21 +108,11 @@ const Hero = () => {
                   borderColor="white"
                   color="white"
                   size="lg"
-                  px={8}
+                  px={10}
+                  fontWeight="600"
                   _hover={{ bg: 'white', color: 'maroon.500' }}
                 >
                   Contact Us
-                </Button>
-              </ScrollLink>
-              <ScrollLink to="about" smooth={true} offset={-70}>
-                <Button
-                  variant="ghost"
-                  color="white"
-                  size="lg"
-                  px={8}
-                  _hover={{ bg: 'whiteAlpha.200' }}
-                >
-                  Learn More
                 </Button>
               </ScrollLink>
             </HStack>
