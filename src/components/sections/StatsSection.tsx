@@ -1,28 +1,52 @@
-import { useRef } from 'react';
-import { Box, SimpleGrid, Text, Flex } from '@chakra-ui/react';
-import { motion, useInView } from 'framer-motion';
+import { useRef, useEffect, useState } from 'react';
+import { Box, SimpleGrid, Text, Flex, Icon, Heading } from '@chakra-ui/react';
+import { useInView } from 'framer-motion';
+import { FaSchool, FaChalkboardTeacher, FaGraduationCap, FaBible } from 'react-icons/fa';
+import type { IconType } from 'react-icons';
 
-const MotionFlex = motion(Flex);
+interface StatItem {
+  value: number;
+  suffix: string;
+  label: string;
+  icon: IconType;
+}
 
-const MotionText = ({ value, suffix = '' }: { value: number; suffix?: string }) => {
+const stats: StatItem[] = [
+  { value: 500, suffix: '+', label: 'Students Enrolled', icon: FaSchool },
+  { value: 30, suffix: '+', label: 'Qualified Staff', icon: FaChalkboardTeacher },
+  { value: 95, suffix: '%', label: 'Grade 7 Pass Rate', icon: FaGraduationCap },
+  { value: 100, suffix: '+', label: 'Years of Excellence', icon: FaBible },
+];
+
+const AnimatedCounter = ({ value, suffix, inView }: { value: number; suffix: string; inView: boolean }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!inView) return;
+    
+    let start = 0;
+    const duration = 2000;
+    const increment = value / (duration / 16);
+    
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= value) {
+        setCount(value);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 16);
+
+    return () => clearInterval(timer);
+  }, [inView, value]);
+
   return (
-    <Text
-      fontSize="4xl"
-      fontWeight="700"
-      color="white"
-    >
-      {value}
-      {suffix}
-    </Text>
+    <Heading size="xl" fontWeight="700" color="white">
+      {count}{suffix}
+    </Heading>
   );
 };
-
-const stats = [
-  { value: 500, suffix: '+', label: 'Students Enrolled' },
-  { value: 30, suffix: '+', label: 'Qualified Staff' },
-  { value: 95, suffix: '%', label: 'Grade 7 Pass Rate' },
-  { value: 39, suffix: '+', label: 'Years of Excellence' },
-];
 
 const StatsSection = () => {
   const containerRef = useRef(null);
@@ -31,40 +55,52 @@ const StatsSection = () => {
   return (
     <Box
       ref={containerRef}
-      bgGradient="linear(135deg, maroon.500, maroon.700)"
+      bgGradient="linear(135deg, maroon.500 0%, maroon.700 100%)"
       py={16}
       px={4}
       position="relative"
       overflow="hidden"
+      boxShadow="0 10px 40px rgba(128, 0, 32, 0.3)"
     >
       <Box
         position="absolute"
-        top={0}
-        left={0}
-        right={0}
-        bottom={0}
-        opacity={0.1}
-        backgroundImage="radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 30%, white 1px, transparent 1px)"
-        backgroundSize="60px 60px"
+        top={-50}
+        right={-50}
+        w="200px"
+        h="200px"
+        borderRadius="full"
+        bg="rgba(255, 255, 255, 0.1)"
+      />
+      <Box
+        position="absolute"
+        bottom={-30}
+        left={-30}
+        w="150px"
+        h="150px"
+        borderRadius="full"
+        bg="rgba(255, 255, 255, 0.05)"
       />
       
       <Box maxW="1400px" mx="auto" position="relative" zIndex={1}>
         <SimpleGrid columns={{ base: 2, md: 4 }} spacing={8}>
           {stats.map((stat, index) => (
-            <MotionFlex
-              key={index}
-              direction="column"
-              align="center"
-              textAlign="center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
-            >
-              {inView && <MotionText value={stat.value} suffix={stat.suffix} />}
-              <Text color="whiteAlpha.900" fontSize="lg" fontWeight="500" mt={2}>
+            <Flex key={index} direction="column" align="center" textAlign="center">
+              <Flex
+                align="center"
+                justify="center"
+                w="60px"
+                h="60px"
+                borderRadius="full"
+                bg="rgba(255, 255, 255, 0.2)"
+                mb={3}
+              >
+                <Icon as={stat.icon} color="white" fontSize="xl" />
+              </Flex>
+              <AnimatedCounter value={stat.value} suffix={stat.suffix} inView={inView} />
+              <Text color="whiteAlpha.900" fontSize="sm" fontWeight="500" mt={2}>
                 {stat.label}
               </Text>
-            </MotionFlex>
+            </Flex>
           ))}
         </SimpleGrid>
       </Box>
