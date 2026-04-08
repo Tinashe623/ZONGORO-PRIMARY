@@ -25,3 +25,18 @@ body {
   width: 100%;
   min-height: 100vh;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chakra-menu__menu-list {
+  animation: fadeIn 0.2s ease-in-out !important;
+}

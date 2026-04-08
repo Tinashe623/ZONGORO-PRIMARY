@@ -1,20 +1,36 @@
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import ChurchPage from './pages/ChurchPage';
+import CommunityPage from './pages/CommunityPage';
+import AcademicsPage from './pages/AcademicsPage';
+import ResultsPage from './pages/ResultsPage';
 import StaffPage from './pages/StaffPage';
 import AdmissionsPage from './pages/AdmissionsPage';
 import BoardingPage from './pages/BoardingPage';
 import ActivitiesPage from './pages/ActivitiesPage';
+import TransportPage from './pages/TransportPage';
+import GalleryPage from './pages/GalleryPage';
+import ContactPage from './pages/ContactPage';
 
 function App() {
   return (
     <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/church" element={<ChurchPage />} />
+        <Route path="/community" element={<CommunityPage />} />
+        <Route path="/academics" element={<AcademicsPage />} />
+        <Route path="/results" element={<ResultsPage />} />
         <Route path="/staff" element={<StaffPage />} />
         <Route path="/admissions" element={<AdmissionsPage />} />
         <Route path="/boarding" element={<BoardingPage />} />
         <Route path="/activities" element={<ActivitiesPage />} />
+        <Route path="/transport" element={<TransportPage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </Layout>
   );
