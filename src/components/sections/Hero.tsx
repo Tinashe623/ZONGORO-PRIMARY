@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
+import { Link as RouterLink } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 
 const fadeInUp: Variants = {
@@ -89,17 +90,17 @@ const Hero = () => {
             animate="visible"
           >
             <HStack spacing={4} flexWrap="wrap" justify="center">
-              <ScrollLink to="contact" smooth={true} offset={-70}>
-                <Button
-                  bg="maroon.500"
-                  color="white"
-                  size="lg"
-                  px={8}
-                  _hover={{ bg: 'maroon.600', transform: 'translateY(-2px)' }}
-                >
-                  Apply for Admission
-                </Button>
-              </ScrollLink>
+              <Button
+                as={RouterLink}
+                to="/admissions"
+                bg="maroon.500"
+                color="white"
+                size="lg"
+                px={8}
+                _hover={{ bg: 'maroon.600', transform: 'translateY(-2px)' }}
+              >
+                Apply for Admission
+              </Button>
               <ScrollLink to="contact" smooth={true} offset={-70}>
                 <Button
                   variant="outline"

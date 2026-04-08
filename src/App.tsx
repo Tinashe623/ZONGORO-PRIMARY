@@ -1,32 +1,21 @@
+import { Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
-import Hero from './components/sections/Hero';
-import About from './components/sections/About';
-import ChurchSection from './components/sections/ChurchSection';
-import CommunitySection from './components/sections/CommunitySection';
-import Academics from './components/sections/Academics';
-import ResultsSection from './components/sections/ResultsSection';
-import Testimonials from './components/sections/Testimonials';
-import Transport from './components/sections/Transport';
-import Gallery from './components/sections/Gallery';
-import Announcements from './components/sections/Announcements';
-import Contact from './components/sections/Contact';
-import BackToTop from './components/ui/BackToTop';
+import HomePage from './pages/HomePage';
+import StaffPage from './pages/StaffPage';
+import AdmissionsPage from './pages/AdmissionsPage';
+import BoardingPage from './pages/BoardingPage';
+import ActivitiesPage from './pages/ActivitiesPage';
 
 function App() {
   return (
     <Layout>
-      <Hero />
-      <About />
-      <ChurchSection />
-      <CommunitySection />
-      <Academics />
-      <ResultsSection />
-      <Testimonials />
-      <Transport />
-      <Gallery />
-      <Announcements />
-      <Contact />
-      <BackToTop />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/staff" element={<StaffPage />} />
+        <Route path="/admissions" element={<AdmissionsPage />} />
+        <Route path="/boarding" element={<BoardingPage />} />
+        <Route path="/activities" element={<ActivitiesPage />} />
+      </Routes>
     </Layout>
   );
 }

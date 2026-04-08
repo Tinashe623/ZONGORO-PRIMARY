@@ -1,0 +1,143 @@
+export interface Activity {
+  id: number;
+  name: string;
+  category: 'sports' | 'arts' | 'clubs' | 'academic';
+  description: string;
+  icon: string;
+  schedule: string;
+  achievements?: string[];
+}
+
+export const activities: Activity[] = [
+  {
+    id: 1,
+    name: 'Soccer',
+    category: 'sports',
+    description: 'Our school soccer team competes in local and district leagues, fostering teamwork and physical fitness.',
+    icon: 'FaFutbol',
+    schedule: 'Mon, Wed, Fri - 3:30 PM',
+    achievements: ['District Champions 2024', '3 Provincial Finals'],
+  },
+  {
+    id: 2,
+    name: 'Netball',
+    category: 'sports',
+    description: 'Netball is popular among our female students, promoting agility and strategic thinking.',
+    icon: 'FaBasketball',
+    schedule: 'Tue, Thu - 3:30 PM',
+    achievements: ['Provincial Silver Medal 2024'],
+  },
+  {
+    id: 3,
+    name: 'Athletics',
+    category: 'sports',
+    description: 'Track and field events for students of all abilities, focusing on speed, strength, and coordination.',
+    icon: 'FaRunning',
+    schedule: 'Tuesdays - 4:00 PM',
+    achievements: ['District Relay Champions'],
+  },
+  {
+    id: 4,
+    name: 'Cricket',
+    category: 'sports',
+    description: 'Learn the fundamentals of cricket, from bowling techniques to batting strategies.',
+    icon: 'FaBaseballBall',
+    schedule: 'Saturdays - 9:00 AM',
+  },
+  {
+    id: 5,
+    name: 'Swimming',
+    category: 'sports',
+    description: 'Swimming lessons and competitive training for all skill levels.',
+    icon: 'FaSwimmer',
+    schedule: 'Saturdays - 10:00 AM',
+    achievements: ['Provincial Meet Participants'],
+  },
+  {
+    id: 6,
+    name: 'Choir',
+    category: 'arts',
+    description: 'Our award-winning choir performs at school events, church services, and competitions.',
+    icon: 'FaMusic',
+    schedule: 'Wed, Fri - 4:00 PM',
+    achievements: ['Provincial Choir Competition - 1st Place'],
+  },
+  {
+    id: 7,
+    name: 'Drama Club',
+    category: 'arts',
+    description: 'Explore acting, stagecraft, and performance through plays and presentations.',
+    icon: 'FaTheaterMasks',
+    schedule: 'Thursdays - 4:00 PM',
+    achievements: ['District Drama Festival Winners'],
+  },
+  {
+    id: 8,
+    name: 'Traditional Dance',
+    category: 'arts',
+    description: 'Learn traditional Shona and Ndebele dances, preserving our cultural heritage.',
+    icon: 'FaPeopleCarry',
+    schedule: 'Tuesdays - 4:00 PM',
+    achievements: ['Cultural Festival Performers'],
+  },
+  {
+    id: 9,
+    name: 'Scripture Union',
+    category: 'clubs',
+    description: 'Bible study and Christian fellowship activities for spiritual growth.',
+    icon: 'FaBible',
+    schedule: 'Sundays - 8:00 AM',
+  },
+  {
+    id: 10,
+    name: 'Debate Club',
+    category: 'clubs',
+    description: 'Develop public speaking and critical thinking skills through competitive debates.',
+    icon: 'FaComments',
+    schedule: 'Thursdays - 4:00 PM',
+    achievements: ['District Debate Winners 2024'],
+  },
+  {
+    id: 11,
+    name: 'Environmental Club',
+    category: 'clubs',
+    description: 'Promote environmental awareness through tree planting and conservation projects.',
+    icon: 'FaLeaf',
+    schedule: 'Fridays - 3:30 PM',
+  },
+  {
+    id: 12,
+    name: 'Reading Club',
+    category: 'clubs',
+    description: 'Foster a love for reading through book discussions and library activities.',
+    icon: 'FaBookReader',
+    schedule: 'Mondays - 4:00 PM',
+  },
+  {
+    id: 13,
+    name: 'Quiz Team',
+    category: 'academic',
+    description: 'Test knowledge across various subjects in inter-school quiz competitions.',
+    icon: 'FaQuestionCircle',
+    schedule: 'Wednesdays - 4:00 PM',
+    achievements: ['Regional Quiz Champions 2024'],
+  },
+  {
+    id: 14,
+    name: 'Science Fair',
+    category: 'academic',
+    description: 'Explore scientific concepts through hands-on experiments and projects.',
+    icon: 'FaFlask',
+    schedule: 'Fridays - 4:00 PM',
+    achievements: ['Provincial Science Fair - 2nd Place'],
+  },
+  {
+    id: 15,
+    name: 'Mathematics Olympiad',
+    category: 'academic',
+    description: 'Challenge mathematical abilities through problem-solving and competitions.',
+    icon: 'FaCalculator',
+    schedule: 'Tuesdays - 4:00 PM',
+    achievements: ['Provincial Maths Olympiad - 3 Gold Medals'],
+  },
+];
