@@ -1,4 +1,4 @@
-import { Box, Flex, Text, IconButton, Link, Hide, Show } from '@chakra-ui/react';
+import { Box, Flex, Text, IconButton, Link, Hide } from '@chakra-ui/react';
 import { FaPhone, FaEnvelope, FaFacebook } from 'react-icons/fa';
 
 const TopBar = () => {
