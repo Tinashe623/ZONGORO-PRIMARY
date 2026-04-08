@@ -94,7 +94,7 @@ const HomePage = () => {
                   environment where every child can succeed.
                 </Text>
                 <Text color="gray.600" lineHeight="1.8" fontSize="lg">
-                  Together with Chief Zongoro, we're building a brighter future for our children 
+                  Together with Chief Mutasa, we're building a brighter future for our children 
                   through quality education and community engagement.
                 </Text>
                 <Button

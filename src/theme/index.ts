@@ -31,6 +31,27 @@ const theme = extendTheme({
     global: {
       'html': { scrollBehavior: 'smooth' },
       'body': { color: 'dark.500', bg: 'white' },
+      '::-webkit-scrollbar': {
+        width: '10px',
+        height: '10px',
+      },
+      '::-webkit-scrollbar-track': {
+        background: 'rgba(128, 0, 32, 0.1)',
+        borderRadius: 'full',
+        border: '2px solid transparent',
+        backgroundClip: 'padding-box',
+      },
+      '::-webkit-scrollbar-thumb': {
+        background: 'linear-gradient(180deg, #800020 0%, #a01030 50%, #800020 100%)',
+        borderRadius: 'full',
+        border: '2px solid transparent',
+        backgroundClip: 'padding-box',
+        boxShadow: '0 0 10px rgba(128, 0, 32, 0.5), 0 0 20px rgba(128, 0, 32, 0.3)',
+      },
+      '::-webkit-scrollbar-thumb:hover': {
+        background: 'linear-gradient(180deg, #6b001a 0%, #800020 50%, #6b001a 100%)',
+        boxShadow: '0 0 15px rgba(128, 0, 32, 0.7), 0 0 30px rgba(128, 0, 32, 0.4)',
+      },
     },
   },
   components: {
