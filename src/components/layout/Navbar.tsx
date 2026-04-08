@@ -12,9 +12,12 @@ import {
   DrawerBody,
   VStack,
   Text,
+  Button,
+  Icon,
 } from '@chakra-ui/react';
 import { HamburgerIcon, ChevronDownIcon } from '@chakra-ui/icons';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { FaSchool } from 'react-icons/fa';
 
 interface NavbarProps {
   scrollPosition: number;
@@ -38,14 +41,14 @@ const Navbar = ({ scrollPosition }: NavbarProps) => {
 
   const isActive = (path: string) => {
     if (path.startsWith('/#')) {
-      return false; // Hash links don't highlight dropdowns
+      return false;
     }
     return location.pathname === path;
   };
 
   const isDropdownActive = (items: DropdownItem[]) => {
     return items.some(item => {
-      if (item.to.startsWith('/#')) return false; // Ignore hash links
+      if (item.to.startsWith('/#')) return false;
       return isActive(item.to);
     });
   };
@@ -84,45 +87,56 @@ const Navbar = ({ scrollPosition }: NavbarProps) => {
       top={0}
       zIndex={1000}
       bg={isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'white'}
-      boxShadow={isScrolled ? 'md' : 'none'}
+      boxShadow={isScrolled ? '0 4px 20px rgba(0,0,0,0.08)' : 'none'}
       backdropFilter={isScrolled ? 'blur(10px)' : 'none'}
       transition="all 0.3s ease"
+      borderBottom={isScrolled ? 'none' : '1px solid'}
+      borderColor="gray.100"
     >
       <Flex
         justify="space-between"
         align="center"
         maxW="1400px"
         mx="auto"
-        py={4}
+        py={3}
         px={4}
       >
         <RouterLink to="/" style={{ textDecoration: 'none' }}>
-          <Text fontSize="xl" fontWeight="700" color="maroon.500" _hover={{ textDecoration: 'none' }}>
-            St James Zongoro Primary
-          </Text>
+          <Flex align="center" gap={3} cursor="pointer">
+            <Flex
+              align="center"
+              justify="center"
+              w="45px"
+              h="45px"
+              borderRadius="xl"
+              bgGradient="linear(135deg, maroon.500 0%, maroon.700 100%)"
+              boxShadow="0 4px 14px rgba(128, 0, 32, 0.3)"
+            >
+              <Icon as={FaSchool} color="white" fontSize="lg" />
+            </Flex>
+            <Box display={{ base: 'none', md: 'block' }}>
+              <Text fontSize="lg" fontWeight="700" color="maroon.600" lineHeight="1.2">
+                St James Zongoro
+              </Text>
+              <Text fontSize="xs" fontWeight="500" color="gray.500" letterSpacing="0.5px">
+                PRIMARY SCHOOL
+              </Text>
+            </Box>
+          </Flex>
         </RouterLink>
 
-        <HStack spacing={3} display={{ base: 'none', lg: 'flex' }}>
+        <HStack spacing={1} display={{ base: 'none', lg: 'flex' }}>
           <RouterLink to="/">
-            <Text 
-              fontWeight="500" 
-              color={isActive('/') ? 'maroon.500' : 'dark.500'} 
-              _hover={{ color: 'maroon.500' }}
-              cursor="pointer"
-              position="relative"
-              _after={{
-                content: '""',
-                position: 'absolute',
-                bottom: '-4px',
-                left: 0,
-                width: isActive('/') ? '100%' : '0%',
-                height: '2px',
-                bg: 'maroon.500',
-                transition: 'width 0.2s ease',
-              }}
+            <Button
+              variant="ghost"
+              fontWeight="500"
+              color={isActive('/') ? 'maroon.500' : 'gray.600'}
+              _hover={{ bg: 'maroon.50', color: 'maroon.500' }}
+              size="sm"
+              px={3}
             >
               Home
-            </Text>
+            </Button>
           </RouterLink>
 
           {dropdowns.map((dropdown) => (
@@ -132,19 +146,20 @@ const Navbar = ({ scrollPosition }: NavbarProps) => {
               onMouseEnter={() => setOpenDropdown(dropdown.name)}
               onMouseLeave={() => setOpenDropdown(null)}
             >
-              <HStack 
-                cursor="pointer" 
+              <Button
+                variant="ghost"
                 fontWeight="500"
-                color={isDropdownActive(dropdown.items) || openDropdown === dropdown.name ? 'maroon.500' : 'dark.500'}
-                _hover={{ color: 'maroon.500' }}
-                spacing={1}
-              >
-                <Text>{dropdown.name}</Text>
-                <ChevronDownIcon 
+                color={isDropdownActive(dropdown.items) || openDropdown === dropdown.name ? 'maroon.500' : 'gray.600'}
+                _hover={{ bg: 'maroon.50', color: 'maroon.500' }}
+                size="sm"
+                px={3}
+                rightIcon={<ChevronDownIcon 
                   transition="all 0.2s" 
                   transform={openDropdown === dropdown.name ? 'rotate(180deg)' : 'rotate(0)'} 
-                />
-              </HStack>
+                />}
+              >
+                {dropdown.name}
+              </Button>
 
               <Box
                 position="absolute"
@@ -152,16 +167,17 @@ const Navbar = ({ scrollPosition }: NavbarProps) => {
                 left={0}
                 minW="180px"
                 bg="white"
-                borderRadius="lg"
-                shadow="xl"
+                borderRadius="xl"
+                shadow="0 10px 40px rgba(0,0,0,0.12)"
                 border="1px"
-                borderColor="gray.200"
+                borderColor="gray.100"
                 opacity={openDropdown === dropdown.name ? 1 : 0}
                 visibility={openDropdown === dropdown.name ? 'visible' : 'hidden'}
                 transform={openDropdown === dropdown.name ? 'translateY(0)' : 'translateY(-10px)'}
                 transition="all 0.2s ease-in-out"
                 zIndex={999}
                 py={2}
+                mt={1}
               >
                 {dropdown.items.map((item, idx) => (
                   <RouterLink 
@@ -173,11 +189,13 @@ const Navbar = ({ scrollPosition }: NavbarProps) => {
                       px={4}
                       py={2}
                       fontWeight="500"
-                      color={isActive(item.to) ? 'maroon.500' : 'gray.700'}
-                      bg={isActive(item.to) ? 'maroon.50' : 'transparent'}
+                      fontSize="sm"
+                      color={isActive(item.to) ? 'white' : 'gray.700'}
+                      bg={isActive(item.to) ? 'maroon.500' : 'transparent'}
                       cursor="pointer"
                       _hover={{ bg: 'maroon.500', color: 'white' }}
                       transition="all 0.2s"
+                      borderRadius="0"
                     >
                       {item.name}
                     </Text>
@@ -188,79 +206,67 @@ const Navbar = ({ scrollPosition }: NavbarProps) => {
           ))}
 
           <RouterLink to="/staff">
-            <Text 
-              fontWeight="500" 
-              color={isActive('/staff') ? 'maroon.500' : 'dark.500'} 
-              _hover={{ color: 'maroon.500' }} 
-              cursor="pointer"
-              position="relative"
-              _after={{
-                content: '""',
-                position: 'absolute',
-                bottom: '-4px',
-                left: 0,
-                width: isActive('/staff') ? '100%' : '0%',
-                height: '2px',
-                bg: 'maroon.500',
-                transition: 'width 0.2s ease',
-              }}
+            <Button
+              variant="ghost"
+              fontWeight="500"
+              color={isActive('/staff') ? 'maroon.500' : 'gray.600'}
+              _hover={{ bg: 'maroon.50', color: 'maroon.500' }}
+              size="sm"
+              px={3}
             >
               Our Team
-            </Text>
+            </Button>
           </RouterLink>
 
           <RouterLink to="/gallery">
-            <Text 
-              fontWeight="500" 
-              color={isActive('/gallery') ? 'maroon.500' : 'dark.500'} 
-              _hover={{ color: 'maroon.500' }} 
-              cursor="pointer"
-              position="relative"
-              _after={{
-                content: '""',
-                position: 'absolute',
-                bottom: '-4px',
-                left: 0,
-                width: isActive('/gallery') ? '100%' : '0%',
-                height: '2px',
-                bg: 'maroon.500',
-                transition: 'width 0.2s ease',
-              }}
+            <Button
+              variant="ghost"
+              fontWeight="500"
+              color={isActive('/gallery') ? 'maroon.500' : 'gray.600'}
+              _hover={{ bg: 'maroon.50', color: 'maroon.500' }}
+              size="sm"
+              px={3}
             >
               Gallery
-            </Text>
+            </Button>
           </RouterLink>
 
           <RouterLink to="/contact">
-            <Text 
-              fontWeight="500" 
-              color={isActive('/contact') ? 'maroon.500' : 'dark.500'} 
-              _hover={{ color: 'maroon.500' }} 
-              cursor="pointer"
-              position="relative"
-              _after={{
-                content: '""',
-                position: 'absolute',
-                bottom: '-4px',
-                left: 0,
-                width: isActive('/contact') ? '100%' : '0%',
-                height: '2px',
-                bg: 'maroon.500',
-                transition: 'width 0.2s ease',
-              }}
+            <Button
+              variant="ghost"
+              fontWeight="500"
+              color={isActive('/contact') ? 'maroon.500' : 'gray.600'}
+              _hover={{ bg: 'maroon.50', color: 'maroon.500' }}
+              size="sm"
+              px={3}
             >
               Contact
-            </Text>
+            </Button>
           </RouterLink>
         </HStack>
 
-        <IconButton
-          aria-label="Open menu"
-          icon={<HamburgerIcon />}
-          variant="ghost"
-          display={{ base: 'flex', lg: 'none' }}
-          onClick={onOpen}
-        />
+        <HStack spacing={2}>
+          <Button
+            as={RouterLink}
+            to="/admissions"
+            size="sm"
+            bgGradient="linear(to-r, maroon.500, maroon.600)"
+            color="white"
+            fontWeight="600"
+            display={{ base: 'none', md: 'flex' }}
+            _hover={{ bgGradient: 'linear(to-r, maroon.600, maroon.700)', transform: 'translateY(-1px)' }}
+          >
+            Apply Now
+          </Button>
+          
+          <IconButton
+            aria-label="Open menu"
+            icon={<HamburgerIcon />}
+            variant="ghost"
+            display={{ base: 'flex', lg: 'none' }}
+            onClick={onOpen}
+          />
+        </HStack>
       </Flex>
 
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
