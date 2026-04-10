@@ -5,13 +5,12 @@ import {
   HStack,
   Heading,
   Text,
-  Card,
-  CardBody,
   Icon,
   Flex,
   Button,
+  Circle,
 } from '@chakra-ui/react';
-import { FaGraduationCap, FaChurch, FaUsers, FaBus, FaHome, FaBullseye, FaArrowRight } from 'react-icons/fa';
+import { FaGraduationCap, FaChurch, FaUsers, FaHeart, FaArrowRight, FaBus, FaHome, FaBullseye } from 'react-icons/fa';
 import SectionHeading from '../ui/SectionHeading';
 import ScrollReveal from '../ui/ScrollReveal';
 import { Link as RouterLink } from 'react-router-dom';
@@ -51,23 +50,14 @@ const features = [
 
 const WhyChooseUs = () => {
   return (
-    <Box
-      py={20}
-      px={4}
-      bgGradient="linear(135deg, #fdf2f4 0%, #fff9f0 25%, #f8f4ff 50%, #f0f7f4 75%, #fdf2f4 100%)"
-      position="relative"
-      _before={{
-        content: '""',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        bgGradient: 'radial(circle at 20% 80%, rgba(128, 0, 32, 0.03) 0%, transparent 50%)',
-        pointerEvents: 'none',
-      }}
-    >
-      <Box maxW="1400px" mx="auto">
+    <Box py={20} px={4} bg="cream.50" position="relative" overflow="hidden">
+      <Box position="absolute" top={0} left={0} right={0} bottom={0} opacity={0.4}>
+        <Box position="absolute" top="10%" right="5%" w="400px" h="400px" borderRadius="full" bg="maroon.500" opacity={0.03} filter="blur(100px)" />
+        <Box position="absolute" bottom="10%" left="5%" w="300px" h="300px" borderRadius="full" bg="#00ff88" opacity={0.03} filter="blur(80px)" />
+      </Box>
+      <Box position="absolute" top={0} left={0} right={0} h="1px" bgGradient="linear(to-r, transparent, maroon.100, transparent)" />
+      
+      <Box maxW="1400px" mx="auto" position="relative" zIndex={1}>
         <ScrollReveal>
           <SectionHeading
             title="Why Choose St James Zongoro?"
@@ -78,23 +68,23 @@ const WhyChooseUs = () => {
         <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} spacing={8}>
           {features.map((feature, index) => (
             <ScrollReveal key={index} delay={0.1 * index}>
-              <Card
-                bg="rgba(255, 255, 255, 0.85)"
-                backdropFilter="blur(10px)"
+              <Box
+                p={8}
                 borderRadius="2xl"
-                boxShadow="0 4px 20px rgba(0,0,0,0.04)"
+                bg="white"
                 border="1px solid"
-                borderColor="whiteAlpha.700"
+                borderColor="gray.100"
+                boxShadow="0 4px 20px rgba(0,0,0,0.04)"
                 transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
                 _hover={{
                   transform: 'translateY(-8px)',
                   boxShadow: '0 20px 40px rgba(128, 0, 32, 0.15)',
                   borderColor: 'maroon.200',
-                  bg: 'rgba(255, 255, 255, 0.95)',
                 }}
                 h="100%"
                 position="relative"
                 overflow="hidden"
+                role="group"
               >
                 <Box
                   position="absolute"
@@ -102,43 +92,36 @@ const WhyChooseUs = () => {
                   left={0}
                   right={0}
                   h="4px"
-                  bgGradient="linear(to-r, maroon.500, maroon.600)"
-                  opacity={0}
-                  transition="opacity 0.3s ease"
-                  _groupHover={{ opacity: 1 }}
-                  sx={{
-                    '.chakra-card:hover &': {
-                      opacity: 1,
-                    },
-                  }}
+                  bgGradient="linear(to-r, maroon.400, maroon.600)"
+                  transform="scaleX(0)"
+                  _groupHover={{ transform: 'scaleX(1)' }}
+                  transition="transform 0.3s ease"
+                  transformOrigin="left"
                 />
-                <CardBody p={8}>
-                  <VStack align="start" spacing={4}>
-                    <Flex
-                      align="center"
-                      justify="center"
-                      w="64px"
-                      h="64px"
-                      borderRadius="xl"
-                      bgGradient="linear(135deg, maroon.500 0%, maroon.700 100%)"
-                      boxShadow="0 4px 14px rgba(128, 0, 32, 0.3)"
-                    >
-                      <Icon as={feature.icon} color="white" fontSize="xl" />
-                    </Flex>
-                    <Heading
-                      size="md"
-                      fontWeight="600"
-                      color="gray.800"
-                      letterSpacing="-0.01em"
-                    >
-                      {feature.title}
-                    </Heading>
-                    <Text color="gray.500" lineHeight="1.7" fontSize="sm">
-                      {feature.description}
-                    </Text>
-                  </VStack>
-                </CardBody>
-              </Card>
+                <VStack align="start" spacing={4}>
+                  <Flex
+                    align="center"
+                    justify="center"
+                    w="64px"
+                    h="64px"
+                    borderRadius="xl"
+                    bgGradient="linear(135deg, maroon.500 0%, maroon.700 100%)"
+                    boxShadow="0 4px 14px rgba(128, 0, 32, 0.3)"
+                  >
+                    <Icon as={feature.icon} color="white" fontSize="xl" />
+                  </Flex>
+                  <Heading
+                    size="md"
+                    fontWeight="700"
+                    color="gray.800"
+                  >
+                    {feature.title}
+                  </Heading>
+                  <Text color="gray.500" lineHeight="1.7" fontSize="sm">
+                    {feature.description}
+                  </Text>
+                </VStack>
+              </Box>
             </ScrollReveal>
           ))}
         </SimpleGrid>
@@ -147,13 +130,14 @@ const WhyChooseUs = () => {
           <Box
             mt={16}
             p={{ base: 8, md: 12 }}
-            bgGradient="linear(135deg, maroon.500 0%, maroon.700 100%)"
+            bgGradient="linear(135deg, maroon.600 0%, maroon.700 100%)"
             borderRadius="3xl"
             textAlign="center"
             position="relative"
             overflow="hidden"
             boxShadow="0 10px 40px rgba(128, 0, 32, 0.3)"
           >
+            <Box position="absolute" top={0} left={0} right={0} h="4px" bg="#00ff88" boxShadow="0 0 20px rgba(0, 255, 136, 0.5)" />
             <Box
               position="absolute"
               top={-50}
@@ -162,6 +146,7 @@ const WhyChooseUs = () => {
               h="200px"
               borderRadius="full"
               bg="rgba(255, 255, 255, 0.1)"
+              filter="blur(40px)"
             />
             <Box
               position="absolute"
@@ -171,30 +156,50 @@ const WhyChooseUs = () => {
               h="150px"
               borderRadius="full"
               bg="rgba(255, 255, 255, 0.05)"
+              filter="blur(30px)"
             />
-            <VStack spacing={4} position="relative" zIndex={1}>
+            <VStack spacing={8} position="relative" zIndex={1}>
               <Heading size="xl" color="white" fontWeight="700">
-                Ready to Join Our Community?
+                Start Your Child's Journey Today
               </Heading>
               <Text color="whiteAlpha.900" fontSize="lg" maxW="600px">
-                Give your child the gift of quality education rooted in faith, excellence, and community.
+                Join over 500 students who have built successful futures at St James Zongoro
               </Text>
-              <HStack spacing={4} pt={2}>
+              
+              <SimpleGrid columns={{ base: 2, md: 4 }} spacing={6} w="100%" pt={4}>
+                {[
+                  { icon: FaGraduationCap, number: '99%', label: 'Pass Rate' },
+                  { icon: FaUsers, number: '500+', label: 'Students' },
+                  { icon: FaChurch, number: '100+', label: 'Years Legacy' },
+                  { icon: FaHeart, number: '50+', label: 'Staff & Teachers' },
+                ].map((stat, index) => (
+                  <VStack key={index} spacing={1}>
+                    <Circle size="50px" bg="rgba(255,255,255,0.15)" color="white">
+                      <Icon as={stat.icon} fontSize="xl" />
+                    </Circle>
+                    <Text color="white" fontWeight="800" fontSize="2xl">{stat.number}</Text>
+                    <Text color="whiteAlpha.800" fontSize="xs">{stat.label}</Text>
+                  </VStack>
+                ))}
+              </SimpleGrid>
+
+              <HStack spacing={4} pt={4}>
                 <Button
                   as={RouterLink}
                   to="/admissions"
                   size="lg"
-                  bg="white"
-                  color="maroon.600"
-                  fontWeight="600"
+                  bg="#00ff88"
+                  color="maroon.700"
+                  fontWeight="700"
                   px={8}
                   _hover={{
-                    bg: 'gray.100',
+                    bg: '#00dd77',
                     transform: 'translateY(-2px)',
+                    boxShadow: '0 8px 20px rgba(0, 255, 136, 0.4)',
                   }}
                   rightIcon={<FaArrowRight />}
                 >
-                  Apply Now
+                  Enroll Now
                 </Button>
                 <Button
                   as={RouterLink}
@@ -209,7 +214,7 @@ const WhyChooseUs = () => {
                     bg: 'whiteAlpha.200',
                   }}
                 >
-                  Contact Us
+                  Learn More
                 </Button>
               </HStack>
             </VStack>

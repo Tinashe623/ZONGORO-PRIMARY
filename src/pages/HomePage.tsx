@@ -21,19 +21,16 @@ const HomePage = () => {
       <Box
         py={{ base: 12, md: 20 }}
         px={4}
-        bgGradient="linear(135deg, #fdf2f4 0%, #fff9f0 25%, #f8f4ff 50%, #f0f7f4 75%, #fdf2f4 100%)"
+        bg="cream.50"
         position="relative"
-        _before={{
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          bgGradient: 'radial(circle at 80% 20%, rgba(128, 0, 32, 0.03) 0%, transparent 50%)',
-          pointerEvents: 'none',
-        }}
+        overflow="hidden"
       >
+        <Box position="absolute" top={0} left={0} right={0} bottom={0} opacity={0.4}>
+          <Box position="absolute" top="10%" right="5%" w="400px" h="400px" borderRadius="full" bg="maroon.500" opacity={0.03} filter="blur(100px)" />
+          <Box position="absolute" bottom="10%" left="5%" w="300px" h="300px" borderRadius="full" bg="#00ff88" opacity={0.03} filter="blur(80px)" />
+        </Box>
+        <Box position="absolute" top={0} left={0} right={0} h="1px" bgGradient="linear(to-r, transparent, maroon.100, transparent)" />
+        
         <Box maxW="1400px" mx="auto" position="relative" zIndex={1}>
           <ScrollReveal>
             <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={{ base: 8, md: 16 }} alignItems="center">
@@ -89,12 +86,12 @@ const HomePage = () => {
                 </Heading>
                 <Box w="60px" h="4px" bgGradient="linear(to-r, maroon.500, maroon.600)" borderRadius="full" />
                 <Text color="gray.600" lineHeight="1.8" fontSize="lg">
-                  St James Zongoro Primary School is deeply rooted in the Zongoro community. 
+                  St James Zongoro Primary School is deeply rooted in the Ndorikanda community. 
                   Our partnership with local leaders, parents, and villagers creates a supportive 
                   environment where every child can succeed.
                 </Text>
                 <Text color="gray.600" lineHeight="1.8" fontSize="lg">
-                  Together with Chief Mutasa, we're building a brighter future for our children 
+                  Together with Chief James Mutasa, we're building a brighter future for our children 
                   through quality education and community engagement.
                 </Text>
                 <Button
