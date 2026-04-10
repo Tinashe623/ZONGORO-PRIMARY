@@ -84,7 +84,7 @@ const TermsPage = () => {
               <Text color="gray.600" mt={2}>
                 Email: info@stjameszongoro.ac.zw<br />
                 Phone: +263 772 123 456<br />
-                Address: Zongoro Village, Gutu District, Masvingo, Zimbabwe
+                Address: Ndorikanda Village, Mutasa District, Mutare, Zimbabwe
               </Text>
             </Box>
 

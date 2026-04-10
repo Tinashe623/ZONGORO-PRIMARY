@@ -25,7 +25,7 @@ const ContactInfo = () => {
     {
       icon: FaMapMarkerAlt,
       title: 'Address',
-      content: 'Zongoro Village, Gutu District, Masvingo, Zimbabwe',
+      content: 'Ndorikanda Village, Mutasa District, Mutare, Zimbabwe',
     },
     {
       icon: FaPhone,

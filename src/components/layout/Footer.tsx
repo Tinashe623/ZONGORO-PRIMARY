@@ -157,7 +157,7 @@ const Footer = () => {
             <Flex align="start" gap={3}>
               <Icon as={FaMapMarkerAlt} color="whiteAlpha.700" mt={1} />
               <Text fontSize="sm" color="whiteAlpha.800">
-                Zongoro Village, Gutu District, Masvingo, Zimbabwe
+                Ndorikanda Village, Mutasa District, Mutare, Zimbabwe
               </Text>
             </Flex>
             <Flex align="center" gap={3}>

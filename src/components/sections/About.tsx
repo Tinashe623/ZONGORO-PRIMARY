@@ -29,9 +29,9 @@ const About = () => {
                 Our History
               </Heading>
               <Text color="gray.600" lineHeight="1.8">
-                St James Zongoro Primary School was established in 1985 as a small
-                community school serving the rural village of Zongoro in Gutu District,
-                Masvingo Province. What began as a modest initiative has grown into a
+                St James Zongoro Primary School was established in 1925 by the 
+                Anglican Diocese serving Ndorikanda Village in Mutasa District, 
+                Mutare Province. What began as a modest initiative has grown into a
                 respected institution that has produced generations of successful
                 students.
               </Text>
