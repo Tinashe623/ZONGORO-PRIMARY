@@ -24,7 +24,7 @@ const Layout = ({ children }: LayoutProps) => {
     <Box minH="100vh" display="flex" flexDirection="column" overflowX="hidden">
       <TopBar />
       <Navbar scrollPosition={scrollPosition} />
-      <Box as="main" flex="1">
+      <Box as="main" flex="1" pt="100px">
         {children}
       </Box>
       <Footer />

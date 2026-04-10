@@ -83,15 +83,17 @@ const Navbar = ({ scrollPosition }: NavbarProps) => {
 
   return (
     <Box
-      position="sticky"
-      top={0}
+      position="fixed"
+      top="40px"
+      left={0}
+      right={0}
       zIndex={1000}
-      bg={isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'white'}
+      bg="cream.50"
       boxShadow={isScrolled ? '0 4px 20px rgba(0,0,0,0.08)' : 'none'}
       backdropFilter={isScrolled ? 'blur(10px)' : 'none'}
       transition="all 0.3s ease"
       borderBottom={isScrolled ? 'none' : '1px solid'}
-      borderColor="gray.100"
+      borderColor="maroon.100"
     >
       <Flex
         justify="space-between"
@@ -118,7 +120,7 @@ const Navbar = ({ scrollPosition }: NavbarProps) => {
               <Text fontSize="lg" fontWeight="700" color="maroon.600" lineHeight="1.2">
                 St James Zongoro
               </Text>
-              <Text fontSize="xs" fontWeight="500" color="gray.500" letterSpacing="0.5px">
+              <Text fontSize="xs" fontWeight="600" color="gray.500" letterSpacing="0.5px">
                 PRIMARY SCHOOL
               </Text>
             </Box>
@@ -126,14 +128,15 @@ const Navbar = ({ scrollPosition }: NavbarProps) => {
         </RouterLink>
 
         <HStack spacing={1} display={{ base: 'none', lg: 'flex' }}>
-          <RouterLink to="/">
+<RouterLink to="/">
             <Button
               variant="ghost"
-              fontWeight="500"
+              fontWeight="600"
               color={isActive('/') ? 'maroon.500' : 'gray.600'}
-              _hover={{ bg: 'maroon.50', color: 'maroon.500' }}
+              _hover={{ color: 'maroon.500', transform: 'translateY(-2px)' }}
               size="sm"
               px={3}
+              transition="all 0.2s ease"
             >
               Home
             </Button>
@@ -148,11 +151,12 @@ const Navbar = ({ scrollPosition }: NavbarProps) => {
             >
               <Button
                 variant="ghost"
-                fontWeight="500"
+                fontWeight="600"
                 color={isDropdownActive(dropdown.items) || openDropdown === dropdown.name ? 'maroon.500' : 'gray.600'}
-                _hover={{ bg: 'maroon.50', color: 'maroon.500' }}
+                _hover={{ color: 'maroon.500', transform: 'translateY(-2px)' }}
                 size="sm"
                 px={3}
+                transition="all 0.2s ease"
                 rightIcon={<ChevronDownIcon 
                   transition="all 0.2s" 
                   transform={openDropdown === dropdown.name ? 'rotate(180deg)' : 'rotate(0)'} 
@@ -165,12 +169,12 @@ const Navbar = ({ scrollPosition }: NavbarProps) => {
                 position="absolute"
                 top="100%"
                 left={0}
-                minW="180px"
-                bg="white"
+                minW="200px"
+                bg="cream.50"
                 borderRadius="xl"
-                shadow="0 10px 40px rgba(0,0,0,0.12)"
+                shadow="0 10px 40px rgba(128, 0, 32, 0.15)"
                 border="1px"
-                borderColor="gray.100"
+                borderColor="maroon.100"
                 opacity={openDropdown === dropdown.name ? 1 : 0}
                 visibility={openDropdown === dropdown.name ? 'visible' : 'hidden'}
                 transform={openDropdown === dropdown.name ? 'translateY(0)' : 'translateY(-10px)'}
@@ -178,6 +182,7 @@ const Navbar = ({ scrollPosition }: NavbarProps) => {
                 zIndex={999}
                 py={2}
                 mt={1}
+                overflow="hidden"
               >
                 {dropdown.items.map((item, idx) => (
                   <RouterLink 
@@ -185,20 +190,20 @@ const Navbar = ({ scrollPosition }: NavbarProps) => {
                     to={item.to}
                     style={{ textDecoration: 'none' }}
                   >
-                    <Text
+                    <Box
                       px={4}
-                      py={2}
-                      fontWeight="500"
+                      py={3}
+                      fontWeight="600"
                       fontSize="sm"
                       color={isActive(item.to) ? 'white' : 'gray.700'}
                       bg={isActive(item.to) ? 'maroon.500' : 'transparent'}
                       cursor="pointer"
                       _hover={{ bg: 'maroon.500', color: 'white' }}
                       transition="all 0.2s"
-                      borderRadius="0"
+                      position="relative"
                     >
                       {item.name}
-                    </Text>
+                    </Box>
                   </RouterLink>
                 ))}
               </Box>
@@ -208,11 +213,12 @@ const Navbar = ({ scrollPosition }: NavbarProps) => {
           <RouterLink to="/staff">
             <Button
               variant="ghost"
-              fontWeight="500"
+              fontWeight="600"
               color={isActive('/staff') ? 'maroon.500' : 'gray.600'}
-              _hover={{ bg: 'maroon.50', color: 'maroon.500' }}
+              _hover={{ color: 'maroon.500', transform: 'translateY(-2px)' }}
               size="sm"
               px={3}
+              transition="all 0.2s ease"
             >
               Our Team
             </Button>
@@ -221,11 +227,12 @@ const Navbar = ({ scrollPosition }: NavbarProps) => {
           <RouterLink to="/gallery">
             <Button
               variant="ghost"
-              fontWeight="500"
+              fontWeight="600"
               color={isActive('/gallery') ? 'maroon.500' : 'gray.600'}
-              _hover={{ bg: 'maroon.50', color: 'maroon.500' }}
+              _hover={{ color: 'maroon.500', transform: 'translateY(-2px)' }}
               size="sm"
               px={3}
+              transition="all 0.2s ease"
             >
               Gallery
             </Button>
@@ -234,11 +241,12 @@ const Navbar = ({ scrollPosition }: NavbarProps) => {
           <RouterLink to="/contact">
             <Button
               variant="ghost"
-              fontWeight="500"
+              fontWeight="600"
               color={isActive('/contact') ? 'maroon.500' : 'gray.600'}
-              _hover={{ bg: 'maroon.50', color: 'maroon.500' }}
+              _hover={{ color: 'maroon.500', transform: 'translateY(-2px)' }}
               size="sm"
               px={3}
+              transition="all 0.2s ease"
             >
               Contact
             </Button>
@@ -254,7 +262,7 @@ const Navbar = ({ scrollPosition }: NavbarProps) => {
             color="white"
             fontWeight="600"
             display={{ base: 'none', md: 'flex' }}
-            _hover={{ bgGradient: 'linear(to-r, maroon.600, maroon.700)', transform: 'translateY(-1px)' }}
+            _hover={{ transform: 'translateY(-2px)', boxShadow: '0 6px 20px rgba(128, 0, 32, 0.3)' }}
           >
             Apply Now
           </Button>
@@ -276,51 +284,51 @@ const Navbar = ({ scrollPosition }: NavbarProps) => {
           <DrawerBody pt={12}>
             <VStack spacing={4} align="stretch">
               <RouterLink to="/" onClick={onClose}>
-                <Text fontWeight="500" fontSize="lg" color={isActive('/') ? 'maroon.500' : 'dark.500'} _hover={{ color: 'maroon.500' }}>Home</Text>
+                <Text fontWeight="600" fontSize="lg" color={isActive('/') ? 'maroon.500' : 'dark.500'} _hover={{ color: 'maroon.500' }}>Home</Text>
               </RouterLink>
 
               <Text fontWeight="600" fontSize="sm" color="gray.500" pt={2}>About</Text>
               <RouterLink to="/about" onClick={onClose}>
-                <Text pl={4} fontWeight="500" color={isActive('/about') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Our School</Text>
+                <Text pl={4} fontWeight="600" color={isActive('/about') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Our School</Text>
               </RouterLink>
               <RouterLink to="/church" onClick={onClose}>
-                <Text pl={4} fontWeight="500" color={isActive('/church') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Anglican Heritage</Text>
+                <Text pl={4} fontWeight="600" color={isActive('/church') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Anglican Heritage</Text>
               </RouterLink>
               <RouterLink to="/community" onClick={onClose}>
-                <Text pl={4} fontWeight="500" color={isActive('/community') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Community</Text>
+                <Text pl={4} fontWeight="600" color={isActive('/community') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Community</Text>
               </RouterLink>
               <RouterLink to="/gallery" onClick={onClose}>
-                <Text pl={4} fontWeight="500" color={isActive('/gallery') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Gallery</Text>
+                <Text pl={4} fontWeight="600" color={isActive('/gallery') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Gallery</Text>
               </RouterLink>
 
               <Text fontWeight="600" fontSize="sm" color="gray.500" pt={2}>Academics</Text>
               <RouterLink to="/academics" onClick={onClose}>
-                <Text pl={4} fontWeight="500" color={isActive('/academics') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Curriculum</Text>
+                <Text pl={4} fontWeight="600" color={isActive('/academics') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Curriculum</Text>
               </RouterLink>
               <RouterLink to="/results" onClick={onClose}>
-                <Text pl={4} fontWeight="500" color={isActive('/results') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Grade 7 Results</Text>
+                <Text pl={4} fontWeight="600" color={isActive('/results') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Grade 7 Results</Text>
               </RouterLink>
               <RouterLink to="/activities" onClick={onClose}>
-                <Text pl={4} fontWeight="500" color={isActive('/activities') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Activities</Text>
+                <Text pl={4} fontWeight="600" color={isActive('/activities') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Activities</Text>
               </RouterLink>
 
               <Text fontWeight="600" fontSize="sm" color="gray.500" pt={2}>Admissions</Text>
               <RouterLink to="/admissions" onClick={onClose}>
-                <Text pl={4} fontWeight="500" color={isActive('/admissions') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Admissions</Text>
+                <Text pl={4} fontWeight="600" color={isActive('/admissions') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Admissions</Text>
               </RouterLink>
               <RouterLink to="/boarding" onClick={onClose}>
-                <Text pl={4} fontWeight="500" color={isActive('/boarding') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Boarding</Text>
+                <Text pl={4} fontWeight="600" color={isActive('/boarding') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Boarding</Text>
               </RouterLink>
               <RouterLink to="/transport" onClick={onClose}>
-                <Text pl={4} fontWeight="500" color={isActive('/transport') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Transport</Text>
+                <Text pl={4} fontWeight="600" color={isActive('/transport') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Transport</Text>
               </RouterLink>
 
               <RouterLink to="/staff" onClick={onClose}>
-                <Text fontWeight="500" fontSize="lg" color={isActive('/staff') ? 'maroon.500' : 'dark.500'} _hover={{ color: 'maroon.500' }}>Our Team</Text>
+                <Text fontWeight="600" fontSize="lg" color={isActive('/staff') ? 'maroon.500' : 'dark.500'} _hover={{ color: 'maroon.500' }}>Our Team</Text>
               </RouterLink>
 
               <RouterLink to="/contact" onClick={onClose}>
-                <Text fontWeight="500" fontSize="lg" color={isActive('/contact') ? 'maroon.500' : 'dark.500'} _hover={{ color: 'maroon.500' }}>Contact</Text>
+                <Text fontWeight="600" fontSize="lg" color={isActive('/contact') ? 'maroon.500' : 'dark.500'} _hover={{ color: 'maroon.500' }}>Contact</Text>
               </RouterLink>
             </VStack>
           </DrawerBody>
