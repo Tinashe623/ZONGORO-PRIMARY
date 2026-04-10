@@ -3,7 +3,6 @@ import { Box, SimpleGrid, VStack, Heading, Text, List, ListItem, ListIcon } from
 import { FaCheck } from 'react-icons/fa';
 import PageHero from '../components/ui/PageHero';
 import ScrollReveal from '../components/ui/ScrollReveal';
-import NeonDivider from '../components/ui/NeonDivider';
 
 const AboutPage = () => {
   useEffect(() => {
@@ -24,7 +23,6 @@ const AboutPage = () => {
         title="About Our School" 
         subtitle="Building a legacy of educational excellence since 1985"
       />
-      <NeonDivider />
       
       <Box py={16} px={4} bg="white">
         <Box maxW="1400px" mx="auto">
@@ -84,7 +82,7 @@ const AboutPage = () => {
         </Box>
       </Box>
 
-      <Box py={16} px={4} bg="cream.50">
+      <Box py={16} px={4} bg="cream.50" mt={0}>
         <Box maxW="1400px" mx="auto" textAlign="center">
           <ScrollReveal>
             <Heading size="xl" color="dark.500" mb={4}>

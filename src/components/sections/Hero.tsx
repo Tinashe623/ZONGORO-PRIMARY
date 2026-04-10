@@ -27,10 +27,13 @@ const Hero = () => {
     <Box id="home" position="relative">
       <Flex
         position="relative"
-        py={{ base: 16, md: 24 }}
+        h="100vh"
+        minH="600px"
         alignItems="center"
         justifyContent="center"
-        bg="maroon.500"
+        bgImage="linear-gradient(135deg, rgba(128, 0, 32, 0.8) 0%, rgba(26, 26, 26, 0.7) 100%), url('/images/hero-image.png')"
+        bgSize="cover"
+        bgPosition="center"
         zIndex={1}
       >
         <Container maxW="1400px" textAlign="center">
@@ -42,7 +45,7 @@ const Hero = () => {
               animate="visible"
             >
               <Heading
-                size="2xl"
+                size="3xl"
                 color="white"
                 lineHeight="1.2"
                 fontWeight="700"

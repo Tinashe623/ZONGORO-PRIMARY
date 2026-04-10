@@ -3,11 +3,11 @@ import { extendTheme } from '@chakra-ui/react';
 const theme = extendTheme({
   colors: {
     maroon: {
-      50: '#fdf2f4',
-      100: '#f5d0d6',
-      500: '#800020',
-      600: '#6b001a',
-      700: '#560015',
+      50: '#fff5f5',
+      100: '#fed7d7',
+      500: '#D40000', // Brighter red as per screenshot
+      600: '#B80000',
+      700: '#9B0000',
     },
     cream: {
       50: '#FAF3E0',
@@ -36,21 +36,21 @@ const theme = extendTheme({
         height: '10px',
       },
       '::-webkit-scrollbar-track': {
-        background: 'rgba(128, 0, 32, 0.1)',
+        background: 'rgba(212, 0, 0, 0.1)',
         borderRadius: 'full',
         border: '2px solid transparent',
         backgroundClip: 'padding-box',
       },
       '::-webkit-scrollbar-thumb': {
-        background: 'linear-gradient(180deg, #800020 0%, #a01030 50%, #800020 100%)',
+        background: 'linear-gradient(180deg, #D40000 0%, #F54242 50%, #D40000 100%)',
         borderRadius: 'full',
         border: '2px solid transparent',
         backgroundClip: 'padding-box',
-        boxShadow: '0 0 10px rgba(128, 0, 32, 0.5), 0 0 20px rgba(128, 0, 32, 0.3)',
+        boxShadow: '0 0 10px rgba(212, 0, 0, 0.5), 0 0 20px rgba(212, 0, 0, 0.3)',
       },
       '::-webkit-scrollbar-thumb:hover': {
-        background: 'linear-gradient(180deg, #6b001a 0%, #800020 50%, #6b001a 100%)',
-        boxShadow: '0 0 15px rgba(128, 0, 32, 0.7), 0 0 30px rgba(128, 0, 32, 0.4)',
+        background: 'linear-gradient(180deg, #B80000 0%, #D40000 50%, #B80000 100%)',
+        boxShadow: '0 0 15px rgba(212, 0, 0, 0.7), 0 0 30px rgba(212, 0, 0, 0.4)',
       },
     },
   },
