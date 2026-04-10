@@ -5,9 +5,9 @@ const theme = extendTheme({
     maroon: {
       50: '#fff5f5',
       100: '#fed7d7',
-      500: '#D40000', // Brighter red as per screenshot
-      600: '#B80000',
-      700: '#9B0000',
+      500: '#820000', // rgb(130, 0, 0)
+      600: '#6b0000',
+      700: '#540000',
     },
     cream: {
       50: '#FAF3E0',
@@ -36,21 +36,21 @@ const theme = extendTheme({
         height: '10px',
       },
       '::-webkit-scrollbar-track': {
-        background: 'rgba(212, 0, 0, 0.1)',
+        background: 'rgba(130, 0, 0, 0.1)',
         borderRadius: 'full',
         border: '2px solid transparent',
         backgroundClip: 'padding-box',
       },
       '::-webkit-scrollbar-thumb': {
-        background: 'linear-gradient(180deg, #D40000 0%, #F54242 50%, #D40000 100%)',
+        background: 'linear-gradient(180deg, #820000 0%, #A60000 50%, #820000 100%)',
         borderRadius: 'full',
         border: '2px solid transparent',
         backgroundClip: 'padding-box',
-        boxShadow: '0 0 10px rgba(212, 0, 0, 0.5), 0 0 20px rgba(212, 0, 0, 0.3)',
+        boxShadow: '0 0 10px rgba(130, 0, 0, 0.5), 0 0 20px rgba(130, 0, 0, 0.3)',
       },
       '::-webkit-scrollbar-thumb:hover': {
-        background: 'linear-gradient(180deg, #B80000 0%, #D40000 50%, #B80000 100%)',
-        boxShadow: '0 0 15px rgba(212, 0, 0, 0.7), 0 0 30px rgba(212, 0, 0, 0.4)',
+        background: 'linear-gradient(180deg, #6b0000 0%, #820000 50%, #6b0000 100%)',
+        boxShadow: '0 0 15px rgba(130, 0, 0, 0.7), 0 0 30px rgba(130, 0, 0, 0.4)',
       },
     },
   },

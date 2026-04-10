@@ -31,7 +31,7 @@ const Hero = () => {
         minH="600px"
         alignItems="center"
         justifyContent="center"
-        bgImage="linear-gradient(135deg, rgba(128, 0, 32, 0.8) 0%, rgba(26, 26, 26, 0.7) 100%), url('/images/hero-image.png')"
+        bgImage="linear-gradient(135deg, rgba(130, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.7) 100%), url('/images/hero-image.png')"
         bgSize="cover"
         bgPosition="center"
         zIndex={1}
@@ -121,20 +121,6 @@ const Hero = () => {
           </VStack>
         </Container>
       </Flex>
-      {/* Downward triangle pointer */}
-      <Box
-        position="absolute"
-        bottom="-20px"
-        left="50%"
-        transform="translateX(-50%)"
-        w="0"
-        h="0"
-        borderLeft="20px solid transparent"
-        borderRight="20px solid transparent"
-        borderTop="20px solid"
-        borderTopColor="maroon.500"
-        zIndex={2}
-      />
     </Box>
   );
 };
