@@ -1,6 +1,4 @@
-import { Box, Heading, Text, Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
-import { ChevronRightIcon } from '@chakra-ui/icons';
+import { Box, Heading, Text, Flex } from '@chakra-ui/react';
 
 interface PageHeroProps {
   title: string;
@@ -8,58 +6,41 @@ interface PageHeroProps {
 }
 
 const PageHero = ({ title, subtitle }: PageHeroProps) => {
-  const location = useLocation();
-  const currentPath = location.pathname;
-
-  const getBreadcrumbText = () => {
-    switch (currentPath) {
-      case '/staff': return 'Our Team';
-      case '/admissions': return 'Admissions';
-      case '/boarding': return 'Boarding';
-      case '/activities': return 'Activities';
-      default: return 'Page';
-    }
-  };
 
   return (
-    <Box
-      position="relative"
-      h="40vh"
-      minH="300px"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      bgImage="linear-gradient(rgba(128, 0, 32, 0.85), rgba(26, 26, 26, 0.95)), url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1920&h=600&fit=crop')"
-      bgSize="cover"
-      bgPosition="center"
-    >
-      <Box textAlign="center" color="white" px={4}>
-        <Breadcrumb
-          spacing="8px"
-          separator={<ChevronRightIcon color="whiteAlpha.700" />}
-          justifyContent="center"
-          mb={4}
-        >
-          <BreadcrumbItem>
-            <BreadcrumbLink as={RouterLink} to="/" color="whiteAlpha.800" _hover={{ color: 'white' }}>
-              Home
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbItem isCurrentPage>
-            <BreadcrumbLink color="white" fontWeight="600">
-              {getBreadcrumbText()}
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-        </Breadcrumb>
-        <Heading size="2xl" fontWeight="700" mb={3}>
+    <Box position="relative">
+      <Flex
+        position="relative"
+        h={{ base: "140px", md: "180px" }}
+        alignItems="center"
+        justifyContent="center"
+        flexDirection="column"
+        bg="maroon.500"
+        zIndex={1}
+      >
+        <Heading size="2xl" color="white" fontWeight="700">
           {title}
         </Heading>
         {subtitle && (
-          <Text fontSize="lg" color="whiteAlpha.900" maxW="600px" mx="auto">
+          <Text fontSize="md" color="whiteAlpha.900" mt={2} textAlign="center">
             {subtitle}
           </Text>
         )}
-      </Box>
+      </Flex>
+      {/* Downward triangle pointer */}
+      <Box
+        position="absolute"
+        bottom="-15px"
+        left="50%"
+        transform="translateX(-50%)"
+        w="0"
+        h="0"
+        borderLeft="15px solid transparent"
+        borderRight="15px solid transparent"
+        borderTop="15px solid"
+        borderTopColor="maroon.500"
+        zIndex={2}
+      />
     </Box>
   );
 };
