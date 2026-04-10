@@ -21,7 +21,7 @@ const Layout = ({ children }: LayoutProps) => {
   }, []);
 
   return (
-    <Box minH="100vh" display="flex" flexDirection="column">
+    <Box minH="100vh" display="flex" flexDirection="column" overflowX="hidden">
       <TopBar />
       <Navbar scrollPosition={scrollPosition} />
       <Box as="main" flex="1">
