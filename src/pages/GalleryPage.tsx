@@ -20,7 +20,6 @@ import { galleryImages } from '../data/gallery';
 import type { GalleryImage } from '../data/gallery';
 import PageHero from '../components/ui/PageHero';
 import ScrollReveal from '../components/ui/ScrollReveal';
-import CTABanner from '../components/ui/CTABanner';
 
 const categories = ['All', 'School Activities', 'Church Events', 'Sports', 'Projects', 'Activities', 'Achievements'];
 
@@ -112,13 +111,13 @@ const GalleryPage = () => {
       
       <Box py={16} px={4} bg="cream.50">
         <Box maxW="1400px" mx="auto">
-        <ScrollReveal>
+          <ScrollReveal>
             <Tabs
               variant="soft-rounded"
               colorScheme="maroon"
               index={categories.indexOf(selectedCategory)}
               onChange={(index) => setSelectedCategory(categories[index])}
-              mb={10}
+              mb={8}
             >
               <TabList justifyContent="center" flexWrap="wrap" gap={2}>
                 {categories.map((category) => (
@@ -137,6 +136,10 @@ const GalleryPage = () => {
               </TabList>
             </Tabs>
           </ScrollReveal>
+
+          <Text textAlign="center" color="gray.500" fontSize="sm" mb={6}>
+            Click on any image to view full screen
+          </Text>
 
           <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={6}>
             {filteredImages.map((image, index) => (
@@ -201,13 +204,6 @@ const GalleryPage = () => {
           </ModalBody>
         </ModalContent>
       </Modal>
-
-      <CTABanner 
-        title="Visit Our School" 
-        subtitle="See our facilities firsthand by scheduling a tour"
-        buttonText="Contact Us"
-        buttonLink="/contact"
-      />
     </Box>
   );
 };
