@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Box, SimpleGrid, VStack, Heading, Text, Flex } from '@chakra-ui/react';
+import { Box, SimpleGrid, Heading, Text } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import PageHero from '../components/ui/PageHero';
 import AdmissionRequirements from '../components/sections/AdmissionRequirements';

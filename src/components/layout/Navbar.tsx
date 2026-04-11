@@ -21,6 +21,7 @@ import { FaSchool } from 'react-icons/fa';
 
 interface NavbarProps {
   scrollPosition: number;
+  isScrolled?: boolean;
 }
 
 interface DropdownItem {
@@ -33,10 +34,10 @@ interface DropdownGroup {
   items: DropdownItem[];
 }
 
-const Navbar = ({ scrollPosition }: NavbarProps) => {
+const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const location = useLocation();
-  const isScrolled = scrollPosition > 50;
+  const isScrolled = isScrolledProp ?? scrollPosition > 50;
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const isActive = (path: string) => {

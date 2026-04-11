@@ -1,15 +1,12 @@
 import { useEffect } from 'react';
 import { Box, SimpleGrid, VStack, Heading, Text, Flex, Icon } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
-import { FaHome, FaGraduationCap, FaUsers, FaHeart, FaShieldAlt } from 'react-icons/fa';
+import { FaGraduationCap, FaUsers, FaHeart, FaShieldAlt } from 'react-icons/fa';
 import PageHero from '../components/ui/PageHero';
 import BoardingFacilities from '../components/sections/BoardingFacilities';
 import DailySchedule from '../components/sections/DailySchedule';
 import BoardingRules from '../components/sections/BoardingRules';
 import { boardingFees } from '../data/boarding';
 import ScrollReveal from '../components/ui/ScrollReveal';
-
-const MotionBox = motion(Box);
 
 const BoardingPage = () => {
   useEffect(() => {

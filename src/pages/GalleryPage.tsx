@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback, memo } from 'react';
 import {
   Box,
   SimpleGrid,
@@ -15,6 +15,7 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  Skeleton,
 } from '@chakra-ui/react';
 import { galleryImages } from '../data/gallery';
 import type { GalleryImage } from '../data/gallery';
@@ -23,8 +24,14 @@ import ScrollReveal from '../components/ui/ScrollReveal';
 
 const categories = ['All', 'School Activities', 'Church Events', 'Sports', 'Projects', 'Activities', 'Achievements'];
 
-const ImageCard = ({ image, onClick }: { image: GalleryImage; onClick: () => void }) => {
+interface ImageCardProps {
+  image: GalleryImage;
+  onClick: () => void;
+}
+
+const ImageCard = memo(({ image, onClick }: ImageCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <Box
@@ -33,7 +40,7 @@ const ImageCard = ({ image, onClick }: { image: GalleryImage; onClick: () => voi
       overflow="hidden"
       cursor="pointer"
       bg="white"
-      boxShadow={isHovered ? '0 8px 30px rgba(130, 0, 0, 0.15)' : '0 4px 20px rgba(0,0,0,0.08)'}
+      boxShadow={isHovered ? 'cardHover' : 'card'}
       border="2px solid"
       borderColor={isHovered ? 'maroon.500' : 'transparent'}
       transition="all 0.3s ease"
@@ -45,9 +52,21 @@ const ImageCard = ({ image, onClick }: { image: GalleryImage; onClick: () => voi
       onClick={onClick}
       role="button"
       tabIndex={0}
+      aria-label={`View ${image.alt}`}
       _focus={{ outline: '2px solid', outlineColor: 'maroon.500' }}
     >
-        <Image
+      {!isLoaded && (
+        <Skeleton 
+          position="absolute" 
+          top={0} 
+          left={0} 
+          right={0} 
+          h="250px" 
+          startColor="cream.50" 
+          endColor="gray.100" 
+        />
+      )}
+      <Image
         src={image.src}
         alt={image.alt}
         w="100%"
@@ -57,6 +76,9 @@ const ImageCard = ({ image, onClick }: { image: GalleryImage; onClick: () => voi
         transition="transform 0.3s ease"
         transform={isHovered ? 'scale(1.02)' : 'scale(1)'}
         loading="lazy"
+        decoding="async"
+        onLoad={() => setIsLoaded(true)}
+        opacity={isLoaded ? 1 : 0}
       />
       <Flex
         position="absolute"
@@ -81,7 +103,9 @@ const ImageCard = ({ image, onClick }: { image: GalleryImage; onClick: () => voi
       </Flex>
     </Box>
   );
-};
+});
+
+ImageCard.displayName = 'ImageCard';
 
 const GalleryPage = () => {
   useEffect(() => {
@@ -92,15 +116,18 @@ const GalleryPage = () => {
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const filteredImages =
-    selectedCategory === 'All'
-      ? galleryImages
-      : galleryImages.filter((img) => img.category === selectedCategory);
+  const filteredImages = selectedCategory === 'All'
+    ? galleryImages
+    : galleryImages.filter((img) => img.category === selectedCategory);
 
-  const handleImageClick = (image: GalleryImage) => {
+  const handleImageClick = useCallback((image: GalleryImage) => {
     setSelectedImage(image);
     onOpen();
-  };
+  }, [onOpen]);
+
+  const handleCategoryChange = useCallback((index: number) => {
+    setSelectedCategory(categories[index]);
+  }, []);
 
   return (
     <Box>
@@ -116,7 +143,7 @@ const GalleryPage = () => {
               variant="soft-rounded"
               colorScheme="maroon"
               index={categories.indexOf(selectedCategory)}
-              onChange={(index) => setSelectedCategory(categories[index])}
+              onChange={handleCategoryChange}
               mb={8}
             >
               <TabList justifyContent="center" flexWrap="wrap" gap={2}>
@@ -145,7 +172,7 @@ const GalleryPage = () => {
 
           <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={6}>
             {filteredImages.map((image, index) => (
-              <ScrollReveal key={index} delay={0.05 * index}>
+              <ScrollReveal key={`${image.src}-${index}`} delay={0.05 * index}>
                 <ImageCard image={image} onClick={() => handleImageClick(image)} />
               </ScrollReveal>
             ))}

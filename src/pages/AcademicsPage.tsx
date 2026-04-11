@@ -21,7 +21,6 @@ const MotionBox = motion(Box);
 import { academicCards } from '../data/academics';
 import PageHero from '../components/ui/PageHero';
 import ScrollReveal from '../components/ui/ScrollReveal';
-import SectionDivider from '../components/ui/SectionDivider';
 
 const iconMap: Record<string, React.ComponentType> = {
   FaGraduationCap,

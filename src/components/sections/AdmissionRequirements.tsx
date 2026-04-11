@@ -3,8 +3,6 @@ import {
   VStack,
   Heading,
   Text,
-  Card,
-  CardBody,
   Badge,
   List,
   ListItem,

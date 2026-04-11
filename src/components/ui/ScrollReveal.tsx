@@ -5,37 +5,24 @@ import type { ReactNode } from 'react';
 
 interface ScrollRevealProps {
   children: ReactNode;
-  direction?: 'up' | 'left' | 'right';
   delay?: number;
   duration?: number;
 }
 
 const ScrollReveal = ({
   children,
-  direction = 'up',
   delay = 0,
-  duration = 0.6,
+  duration = 0.5,
 }: ScrollRevealProps) => {
-  const getInitialState = (): { opacity: number; x?: number; y?: number } => {
-    switch (direction) {
-      case 'left':
-        return { opacity: 0, x: -30 };
-      case 'right':
-        return { opacity: 0, x: 30 };
-      default:
-        return { opacity: 0, y: 30 };
-    }
-  };
-
   const variants: Variants = {
-    hidden: getInitialState(),
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
-      x: 0,
       y: 0,
       transition: {
         duration,
         delay,
+        ease: 'easeOut',
       },
     },
   };
@@ -45,7 +32,11 @@ const ScrollReveal = ({
       as={motion.div}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-50px' }}
+      viewport={{ 
+        once: true, 
+        margin: '-50px',
+        amount: 0.1 
+      }}
       variants={variants}
     >
       {children}
