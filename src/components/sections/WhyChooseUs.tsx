@@ -163,15 +163,15 @@ const WhyChooseUs = () => {
                 Start Your Child's Journey Today
               </Heading>
               <Text color="whiteAlpha.900" fontSize="lg" maxW="600px">
-                Join over 500 students who have built successful futures at St James Zongoro
+                Join over 700 students who have built successful futures at St James Zongoro
               </Text>
               
               <SimpleGrid columns={{ base: 2, md: 4 }} spacing={6} w="100%" pt={4}>
                 {[
-                  { icon: FaGraduationCap, number: '99%', label: 'Pass Rate' },
-                  { icon: FaUsers, number: '500+', label: 'Students' },
+                  { icon: FaGraduationCap, number: '88%', label: 'Pass Rate' },
+                  { icon: FaUsers, number: '711', label: 'Students' },
                   { icon: FaChurch, number: '100+', label: 'Years Legacy' },
-                  { icon: FaHeart, number: '50+', label: 'Staff & Teachers' },
+                  { icon: FaHeart, number: '25+', label: 'Staff & Teachers' },
                 ].map((stat, index) => (
                   <VStack key={index} spacing={1}>
                     <Circle size="50px" bg="rgba(255,255,255,0.15)" color="white">
