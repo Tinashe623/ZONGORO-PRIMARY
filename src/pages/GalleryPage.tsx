@@ -124,11 +124,13 @@ const GalleryPage = () => {
                   <Tab
                     key={category}
                     bg="white"
+                    color="gray.600"
                     _selected={{ bg: 'maroon.500', color: 'white' }}
-                    _hover={{ bg: 'cream.100' }}
+                    _hover={{ bg: 'maroon.100', color: 'maroon.700' }}
                     px={6}
                     borderRadius="full"
                     fontWeight="500"
+                    transition="all 0.2s ease"
                   >
                     {category}
                   </Tab>
