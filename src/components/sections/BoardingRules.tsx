@@ -10,54 +10,98 @@ import {
   List,
   ListItem,
   ListIcon,
+  VStack,
+  Flex,
 } from '@chakra-ui/react';
-import { FaCheckCircle } from 'react-icons/fa';
+import { FaCheckCircle, FaSchool, FaUserShield, FaClock, FaHeart } from 'react-icons/fa';
 import { boardingRules } from '../../data/boarding';
 import ScrollReveal from '../ui/ScrollReveal';
 
+const categoryIcons: Record<string, React.ComponentType> = {
+  'General Rules': FaSchool,
+  'Health & Safety': FaUserShield,
+  'Study & Academic': FaClock,
+  'Social & Pastoral': FaHeart,
+};
+
 const BoardingRules = () => {
   return (
-    <Box py={16} px={4} bg="white">
-      <Box maxW="800px" mx="auto">
+    <Box py={20} px={4} bg="white">
+      <Box maxW="900px" mx="auto">
         <ScrollReveal>
-          <Heading size="xl" textAlign="center" mb={12} color="dark.500">
-            Boarding Rules & Expectations
-          </Heading>
+          <VStack spacing={4} textAlign="center" mb={16}>
+            <Heading size="2xl" color="maroon.500" fontWeight="700">
+              Boarding Rules & Expectations
+            </Heading>
+            <Text color="gray.600" fontSize="lg" maxW="700px" lineHeight="1.8">
+              Our boarding community operates on principles of respect, discipline, and personal growth.
+            </Text>
+          </VStack>
         </ScrollReveal>
 
         <ScrollReveal>
           <Accordion allowMultiple>
-            {boardingRules.map((rule, index) => (
-              <AccordionItem
-                key={index}
-                border="none"
-                mb={4}
-              >
-                <AccordionButton
-                  bg="maroon.500"
-                  color="white"
-                  borderRadius="xl"
-                  _hover={{ bg: 'maroon.600' }}
-                  _expanded={{ bg: 'maroon.600', borderBottomRadius: 0 }}
-                  p={4}
+            {boardingRules.map((rule, index) => {
+              const CategoryIcon = categoryIcons[rule.category] || FaSchool;
+              return (
+                <AccordionItem
+                  key={index}
+                  border="none"
+                  mb={5}
                 >
-                  <Heading size="md" flex="1" textAlign="left">
-                    {rule.category}
-                  </Heading>
-                  <AccordionIcon />
-                </AccordionButton>
-                <AccordionPanel bg="cream.50" borderRadius="xl" borderTopRadius={0} p={6}>
-                  <List spacing={3}>
-                    {rule.rules.map((r, i) => (
-                      <ListItem key={i} display="flex" alignItems="start">
-                        <ListIcon as={FaCheckCircle} color="maroon.500" mt={1} />
-                        <Text color="gray.700">{r}</Text>
-                      </ListItem>
-                    ))}
-                  </List>
-                </AccordionPanel>
-              </AccordionItem>
-            ))}
+                  <AccordionButton
+                    bgGradient="linear(to-r, maroon.500, maroon.600)"
+                    color="white"
+                    borderRadius="xl"
+                    _hover={{ bgGradient: 'linear(to-r, maroon.600, maroon.700)' }}
+                    _expanded={{ bgGradient: 'linear(to-r, maroon.600, maroon.700)', borderBottomRadius: 0 }}
+                    p={5}
+                    boxShadow="0 4px 15px rgba(128,0,0,0.2)"
+                  >
+                    <Flex align="center" gap={3} flex="1" textAlign="left">
+                      <Box 
+                        w="40px" 
+                        h="40px" 
+                        borderRadius="lg" 
+                        bg="whiteAlpha.200" 
+                        display="flex" 
+                        alignItems="center" 
+                        justifyContent="center"
+                      >
+                        <Box as={CategoryIcon} />
+                      </Box>
+                      <Heading size="md" fontWeight="700">
+                        {rule.category}
+                      </Heading>
+                    </Flex>
+                    <AccordionIcon fontSize="2xl" />
+                  </AccordionButton>
+                  <AccordionPanel 
+                    bg="cream.50" 
+                    borderRadius="xl" 
+                    borderTopRadius={0} 
+                    p={8}
+                    boxShadow="0 4px 20px rgba(0,0,0,0.08)"
+                  >
+                    <List spacing={4}>
+                      {rule.rules.map((r, i) => (
+                        <ListItem 
+                          key={i} 
+                          display="flex" 
+                          alignItems="start"
+                          p={3}
+                          _hover={{ bg: 'white', borderRadius: 'lg' }}
+                          transition="all 0.2s ease"
+                        >
+                          <ListIcon as={FaCheckCircle} color="forest.500" mt={1} fontSize="lg" />
+                          <Text color="gray.700" fontSize="md" lineHeight="1.7">{r}</Text>
+                        </ListItem>
+                      ))}
+                    </List>
+                  </AccordionPanel>
+                </AccordionItem>
+              );
+            })}
           </Accordion>
         </ScrollReveal>
       </Box>

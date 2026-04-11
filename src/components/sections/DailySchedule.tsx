@@ -22,12 +22,17 @@ const DailySchedule = () => {
   };
 
   return (
-    <Box py={16} px={4} bg="cream.50">
+    <Box py={20} px={4} bg="cream.50">
       <Box maxW="1400px" mx="auto">
         <ScrollReveal>
-          <Heading size="xl" textAlign="center" mb={12} color="dark.500">
-            Daily Schedule
-          </Heading>
+          <VStack spacing={4} textAlign="center" mb={16}>
+            <Heading size="2xl" color="maroon.500" fontWeight="700">
+              Daily Schedule
+            </Heading>
+            <Text color="gray.600" fontSize="lg" maxW="700px" lineHeight="1.8">
+              Our structured daily routine ensures a balanced mix of studies, meals, and recreation.
+            </Text>
+          </VStack>
         </ScrollReveal>
 
         <Box position="relative">
@@ -37,7 +42,7 @@ const DailySchedule = () => {
             top="60px"
             left="50%"
             transform="translateX(-50%)"
-            w="4px"
+            w="2px"
             h="calc(100% - 120px)"
             bg="maroon.200"
             borderRadius="full"
@@ -51,25 +56,28 @@ const DailySchedule = () => {
                     <Flex
                       bg="white"
                       borderRadius="2xl"
-                      boxShadow="0 4px 20px rgba(0,0,0,0.08)"
+                      boxShadow="0 6px 25px rgba(0,0,0,0.1)"
                       p={5}
                       gap={4}
                       align="center"
+                      _hover={{ transform: 'translateX(4px)', boxShadow: '0 8px 30px rgba(130,0,0,0.12)' }}
+                      transition="all 0.3s ease"
                     >
                       <Box
-                        w="80px"
+                        w="90px"
                         textAlign="center"
-                        py={2}
-                        bg={isMealTime(item.activity) ? 'forest.500' : 'maroon.500'}
-                        borderRadius="lg"
+                        py={3}
+                        bgGradient={isMealTime(item.activity) ? 'linear(to-r, forest.500, forest.600)' : 'linear(to-r, maroon.500, maroon.700)'}
+                        borderRadius="xl"
                         color="white"
-                        fontWeight="600"
+                        fontWeight="700"
                         fontSize="sm"
                         flexShrink={0}
+                        boxShadow={isMealTime(item.activity) ? '0 4px 15px rgba(45,106,79,0.3)' : '0 4px 15px rgba(128,0,0,0.3)'}
                       >
                         {item.time}
                       </Box>
-                      <Text color="gray.700" fontWeight="500">
+                      <Text color="gray.700" fontWeight="600" fontSize="md">
                         {item.activity}
                       </Text>
                     </Flex>
@@ -85,25 +93,28 @@ const DailySchedule = () => {
                     <Flex
                       bg="white"
                       borderRadius="2xl"
-                      boxShadow="0 4px 20px rgba(0,0,0,0.08)"
+                      boxShadow="0 6px 25px rgba(0,0,0,0.1)"
                       p={5}
                       gap={4}
                       align="center"
+                      _hover={{ transform: 'translateX(4px)', boxShadow: '0 8px 30px rgba(130,0,0,0.12)' }}
+                      transition="all 0.3s ease"
                     >
                       <Box
-                        w="80px"
+                        w="90px"
                         textAlign="center"
-                        py={2}
-                        bg={isMealTime(item.activity) ? 'forest.500' : 'maroon.500'}
-                        borderRadius="lg"
+                        py={3}
+                        bgGradient={isMealTime(item.activity) ? 'linear(to-r, forest.500, forest.600)' : 'linear(to-r, maroon.500, maroon.700)'}
+                        borderRadius="xl"
                         color="white"
-                        fontWeight="600"
+                        fontWeight="700"
                         fontSize="sm"
                         flexShrink={0}
+                        boxShadow={isMealTime(item.activity) ? '0 4px 15px rgba(45,106,79,0.3)' : '0 4px 15px rgba(128,0,0,0.3)'}
                       >
                         {item.time}
                       </Box>
-                      <Text color="gray.700" fontWeight="500">
+                      <Text color="gray.700" fontWeight="600" fontSize="md">
                         {item.activity}
                       </Text>
                     </Flex>
@@ -119,25 +130,28 @@ const DailySchedule = () => {
                     <Flex
                       bg="white"
                       borderRadius="2xl"
-                      boxShadow="0 4px 20px rgba(0,0,0,0.08)"
+                      boxShadow="0 6px 25px rgba(0,0,0,0.1)"
                       p={5}
                       gap={4}
                       align="center"
+                      _hover={{ transform: 'translateX(4px)', boxShadow: '0 8px 30px rgba(130,0,0,0.12)' }}
+                      transition="all 0.3s ease"
                     >
                       <Box
-                        w="80px"
+                        w="90px"
                         textAlign="center"
-                        py={2}
-                        bg={isMealTime(item.activity) ? 'forest.500' : 'maroon.500'}
-                        borderRadius="lg"
+                        py={3}
+                        bgGradient={isMealTime(item.activity) ? 'linear(to-r, forest.500, forest.600)' : 'linear(to-r, maroon.500, maroon.700)'}
+                        borderRadius="xl"
                         color="white"
-                        fontWeight="600"
+                        fontWeight="700"
                         fontSize="sm"
                         flexShrink={0}
+                        boxShadow={isMealTime(item.activity) ? '0 4px 15px rgba(45,106,79,0.3)' : '0 4px 15px rgba(128,0,0,0.3)'}
                       >
                         {item.time}
                       </Box>
-                      <Text color="gray.700" fontWeight="500">
+                      <Text color="gray.700" fontWeight="600" fontSize="md">
                         {item.activity}
                       </Text>
                     </Flex>
