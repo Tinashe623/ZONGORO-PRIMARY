@@ -67,7 +67,7 @@ const Navbar = ({ scrollPosition }: NavbarProps) => {
       name: 'Academics',
       items: [
         { name: 'Curriculum', to: '/academics' },
-        { name: 'Grade 7 Results', to: '/results' },
+        { name: 'Assessment & Analysis', to: '/assessment' },
         { name: 'Activities', to: '/activities' },
       ],
     },
@@ -307,8 +307,8 @@ const Navbar = ({ scrollPosition }: NavbarProps) => {
               <RouterLink to="/academics" onClick={onClose}>
                 <Text pl={4} fontWeight="600" color={isActive('/academics') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Curriculum</Text>
               </RouterLink>
-              <RouterLink to="/results" onClick={onClose}>
-                <Text pl={4} fontWeight="600" color={isActive('/results') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Grade 7 Results</Text>
+              <RouterLink to="/assessment" onClick={onClose}>
+                <Text pl={4} fontWeight="600" color={isActive('/assessment') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Assessment & Analysis</Text>
               </RouterLink>
               <RouterLink to="/activities" onClick={onClose}>
                 <Text pl={4} fontWeight="600" color={isActive('/activities') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Activities</Text>

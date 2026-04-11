@@ -5,7 +5,7 @@ import AboutPage from './pages/AboutPage';
 import ChurchPage from './pages/ChurchPage';
 import CommunityPage from './pages/CommunityPage';
 import AcademicsPage from './pages/AcademicsPage';
-import ResultsPage from './pages/ResultsPage';
+import AssessmentPage from './pages/AssessmentPage';
 import StaffPage from './pages/StaffPage';
 import AdmissionsPage from './pages/AdmissionsPage';
 import BoardingPage from './pages/BoardingPage';
@@ -25,7 +25,7 @@ function App() {
         <Route path="/church" element={<ChurchPage />} />
         <Route path="/community" element={<CommunityPage />} />
         <Route path="/academics" element={<AcademicsPage />} />
-        <Route path="/results" element={<ResultsPage />} />
+        <Route path="/assessment" element={<AssessmentPage />} />
         <Route path="/staff" element={<StaffPage />} />
         <Route path="/admissions" element={<AdmissionsPage />} />
         <Route path="/boarding" element={<BoardingPage />} />
