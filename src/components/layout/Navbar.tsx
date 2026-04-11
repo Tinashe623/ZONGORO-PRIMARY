@@ -107,11 +107,12 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
         <RouterLink to="/" style={{ textDecoration: 'none' }}>
           <Flex align="center" gap={3} cursor="pointer">
             <Box 
-              w="45px"
-              h="45px"
-              borderRadius="xl"
+              w="40px"
+              h="40px"
+              borderRadius="lg"
               overflow="hidden"
               boxShadow="0 4px 14px rgba(128, 0, 32, 0.3)"
+              flexShrink={0}
             >
               <Image 
                 src="/images/st-james-promary-logo.jpg" 
@@ -121,11 +122,11 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                 objectFit="cover"
               />
             </Box>
-            <Box display={{ base: 'none', lg: 'block' }}>
-              <Text fontSize="lg" fontWeight="700" color="maroon.600" lineHeight="1.2">
+            <Box flexShrink={0}>
+              <Text fontSize={{ base: 'sm', md: 'lg' }} fontWeight="700" color="maroon.600" lineHeight="1.2">
                 St James Zongoro
               </Text>
-              <Text fontSize="xs" fontWeight="600" color="gray.500" letterSpacing="0.5px">
+              <Text fontSize="xs" fontWeight="600" color="gray.500" letterSpacing="0.5px" display={{ base: 'none', sm: 'block' }}>
                 PRIMARY SCHOOL
               </Text>
             </Box>
