@@ -16,11 +16,11 @@ import {
 } from '@chakra-ui/react';
 import { FaGraduationCap, FaBookOpen, FaLightbulb, FaStar, FaCheckCircle } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-
-const MotionBox = motion(Box);
 import { academicCards } from '../data/academics';
 import PageHero from '../components/ui/PageHero';
 import ScrollReveal from '../components/ui/ScrollReveal';
+
+const MotionBox = motion(Box);
 
 const iconMap: Record<string, React.ComponentType> = {
   FaGraduationCap,
@@ -75,7 +75,6 @@ const AcademicsPage = () => {
                     position="relative"
                     overflow="hidden"
                   >
-                    {/* Decorative top bar */}
                     <Box 
                       position="absolute" 
                       top={0} 
@@ -155,6 +154,7 @@ const AcademicsPage = () => {
                 </Box>
               </VStack>
             </ScrollReveal>
+            
             <ScrollReveal delay={0.2}>
               <Box 
                 bg="white" 
@@ -195,7 +195,7 @@ const AcademicsPage = () => {
                   <Heading size="md" color="maroon.500" textAlign="center">
                     Our Learning Goals
                   </Heading>
-                  <Box as="ul" listStyleType="none" pl={0} spacing={4}>
+                  <VStack align="start" spacing={4} w="100%">
                     {[
                       'Develop strong literacy and numeracy skills',
                       'Foster critical thinking and problem-solving',
@@ -216,7 +216,7 @@ const AcademicsPage = () => {
                         <Text color="gray.700">{goal}</Text>
                       </Flex>
                     ))}
-                  </Box>
+                  </VStack>
                 </VStack>
               </Box>
             </ScrollReveal>
@@ -232,7 +232,6 @@ const AcademicsPage = () => {
         position="relative"
         overflow="hidden"
       >
-        {/* Animated Orbs */}
         <MotionBox 
           position="absolute" 
           top="-100px" 

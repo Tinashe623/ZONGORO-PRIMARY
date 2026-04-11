@@ -13,7 +13,6 @@ import {
   VStack,
   Text,
   Button,
-  Icon,
   Image,
 } from '@chakra-ui/react';
 import { HamburgerIcon, ChevronDownIcon } from '@chakra-ui/icons';

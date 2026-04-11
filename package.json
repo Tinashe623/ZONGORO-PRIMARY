@@ -1,7 +1,8 @@
 {
-  "name": "vite-app",
+  "name": "st-james-zongoro-website",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "St James Zongoro Primary School Website",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -28,6 +29,7 @@
     "@types/react-dom": "^19.2.3",
     "@types/react-scroll": "^1.8.10",
     "@vitejs/plugin-react": "^6.0.1",
+    "esbuild": "^0.28.0",
     "eslint": "^9.39.4",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",
