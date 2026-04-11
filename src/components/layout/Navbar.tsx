@@ -198,9 +198,11 @@ const Navbar = ({ scrollPosition }: NavbarProps) => {
                       color={isActive(item.to) ? 'white' : 'gray.700'}
                       bg={isActive(item.to) ? 'maroon.500' : 'transparent'}
                       cursor="pointer"
-                      _hover={{ bg: 'maroon.500', color: 'white' }}
+                      _hover={{ bg: 'maroon.600', color: 'white', transform: 'translateX(4px)' }}
                       transition="all 0.2s"
                       position="relative"
+                      borderLeft={isActive(item.to) ? '3px solid' : '3px solid'}
+                      borderLeftColor={isActive(item.to) ? '#00ff88' : 'transparent'}
                     >
                       {item.name}
                     </Box>
