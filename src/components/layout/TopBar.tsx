@@ -17,7 +17,7 @@ const TopBar = () => {
             </Flex>
             <Flex align="center" gap={2}>
               <Icon as={FaMapMarkerAlt} fontSize="xs" color="#00ff88" />
-              <Text fontSize="sm" fontWeight="600">Ndorikanda Village, Mutasa District</Text>
+              <Text fontSize="sm" fontWeight="600">P.O.Box 313, Mutare</Text>
             </Flex>
           </HStack>
         </Hide>

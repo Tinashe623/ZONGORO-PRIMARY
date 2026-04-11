@@ -69,7 +69,7 @@ const PrivacyPage = () => {
               </Heading>
               <Text color="gray.600" lineHeight="1.8">
                 If you have any questions about this Privacy Policy, please contact us at 
-                info@stjameszongoro.ac.zw or call +263 772 123 456.
+                zongoro.primary@gmail.com or call +263 77 321 1929 / +263 71 854 6070.
               </Text>
             </Box>
 

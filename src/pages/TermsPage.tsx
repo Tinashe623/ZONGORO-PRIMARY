@@ -82,9 +82,9 @@ const TermsPage = () => {
                 For questions about these Terms of Service, please contact us at:
               </Text>
               <Text color="gray.600" mt={2}>
-                Email: info@stjameszongoro.ac.zw<br />
-                Phone: +263 772 123 456<br />
-                Address: Ndorikanda Village, Mutasa District, Mutare, Zimbabwe
+                Email: zongoro.primary@gmail.com<br />
+                Phone: +263 77 321 1929 / +263 71 854 6070<br />
+                Address: St James Zongoro Primary School, P.O.Box 313, Mutare, Zimbabwe
               </Text>
             </Box>
 

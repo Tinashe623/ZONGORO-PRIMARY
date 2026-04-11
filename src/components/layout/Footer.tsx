@@ -157,19 +157,19 @@ const Footer = () => {
             <Flex align="start" gap={3}>
               <Icon as={FaMapMarkerAlt} color="whiteAlpha.700" mt={1} />
               <Text fontSize="sm" color="whiteAlpha.800">
-                Ndorikanda Village, Mutasa District, Mutare, Zimbabwe
+                St James Zongoro Primary School, P.O.Box 313, Mutare, Zimbabwe
               </Text>
             </Flex>
             <Flex align="center" gap={3}>
               <Icon as={FaPhone} color="whiteAlpha.700" />
               <Text fontSize="sm" color="whiteAlpha.800">
-                +263 772 123 456
+                +263 77 321 1929 / +263 71 854 6070
               </Text>
             </Flex>
             <Flex align="center" gap={3}>
               <Icon as={FaEnvelope} color="whiteAlpha.700" />
               <Text fontSize="sm" color="whiteAlpha.800">
-                info@stjameszongoro.ac.zw
+                zongoro.primary@gmail.com
               </Text>
             </Flex>
           </VStack>

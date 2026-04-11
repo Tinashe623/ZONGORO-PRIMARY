@@ -25,17 +25,17 @@ const ContactInfo = () => {
     {
       icon: FaMapMarkerAlt,
       title: 'Address',
-      content: 'Ndorikanda Village, Mutasa District, Mutare, Zimbabwe',
+      content: 'St James Zongoro Primary School, P.O.Box 313, Mutare, Zimbabwe',
     },
     {
       icon: FaPhone,
       title: 'Phone',
-      content: '+263 772 123 456',
+      content: '+263 77 321 1929 / +263 71 854 6070',
     },
     {
       icon: FaEnvelope,
       title: 'Email',
-      content: 'info@stjameszongoro.ac.zw',
+      content: 'zongoro.primary@gmail.com',
     },
   ];
 
