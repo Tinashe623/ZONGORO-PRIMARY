@@ -154,9 +154,13 @@ const ChurchPage = () => {
       </Box>
 
       <Box py={16} px={4} bg="cream.50" position="relative" overflow="hidden">
+        <Box position="absolute" top={0} left={0} right={0} bottom={0} opacity={0.4}>
+          <Box position="absolute" top="10%" right="5%" w="400px" h="400px" borderRadius="full" bg="maroon.500" opacity={0.03} filter="blur(100px)" />
+          <Box position="absolute" bottom="10%" left="5%" w="300px" h="300px" borderRadius="full" bg="#00ff88" opacity={0.03} filter="blur(80px)" />
+        </Box>
         <Box position="absolute" top={0} left={0} right={0} h="1px" bgGradient="linear(to-r, transparent, maroon.100, transparent)" />
         
-        <Box maxW="1400px" mx="auto">
+        <Box maxW="1400px" mx="auto" position="relative" zIndex={1}>
           <ScrollReveal>
             <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={12} alignItems="center">
               <Box>
@@ -192,12 +196,14 @@ const ChurchPage = () => {
 
                 <Box 
                   p={6} 
-                  bg="white" 
+                  bgGradient="linear(135deg, maroon.600, maroon.700)"
                   borderRadius="xl"
-                  border="1px solid"
-                  borderColor="maroon.100"
                   w="100%"
+                  boxShadow="0 8px 30px rgba(128, 0, 32, 0.2)"
+                  position="relative"
+                  overflow="hidden"
                 >
+                  <Box position="absolute" top={0} left={0} right={0} h="3px" bg="#00ff88" />
                   <Flex direction={{ base: 'column', md: 'row' }} align="center" gap={4}>
                     <Image 
                       src="/images/anglican-logo.png" 
@@ -207,7 +213,7 @@ const ChurchPage = () => {
                     />
                     <Text 
                       flex={1}
-                      color="gray.700" 
+                      color="white" 
                       fontSize="md" 
                       fontStyle="italic" 
                       fontWeight="500"
@@ -224,11 +230,12 @@ const ChurchPage = () => {
                       key={value.text}
                       p={4} 
                       borderRadius="xl" 
-                      bg="cream.50"
+                      bg="white"
                       border="1px solid"
                       borderColor="maroon.100"
-                      _hover={{ borderColor: 'maroon.300', bg: 'white' }}
+                      _hover={{ borderColor: 'maroon.300', transform: 'translateY(-4px)', boxShadow: 'lg' }}
                       transition="all 0.3s ease"
+                      role="group"
                     >
                       <Flex align="center" gap={3}>
                         <Flex
@@ -239,6 +246,8 @@ const ChurchPage = () => {
                           borderRadius="full"
                           bgGradient="linear(135deg, maroon.500, maroon.600)"
                           flexShrink={0}
+                          transition="all 0.3s ease"
+                          _groupHover={{ bg: '#00ff88' }}
                         >
                           <Icon as={value.icon} color="white" fontSize="md" />
                         </Flex>
