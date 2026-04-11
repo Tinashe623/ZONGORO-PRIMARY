@@ -3,7 +3,7 @@ import { Box, SimpleGrid, VStack, Heading, Text, Button, Image } from '@chakra-u
 import { Link as RouterLink } from 'react-router-dom';
 import Hero from '../components/sections/Hero';
 import WhyChooseUs from '../components/sections/WhyChooseUs';
-import StatsSection from '../components/sections/StatsSection';
+import FacilitiesSection from '../components/sections/FacilitiesSection';
 import Testimonials from '../components/sections/Testimonials';
 import ScrollReveal from '../components/ui/ScrollReveal';
 
@@ -16,7 +16,7 @@ const HomePage = () => {
     <Box>
       <Hero />
       <WhyChooseUs />
-      <StatsSection />
+      <FacilitiesSection />
       
       <Box
         py={{ base: 12, md: 20 }}
