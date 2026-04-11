@@ -5,6 +5,7 @@ import {
   VStack,
   Heading,
   Text,
+  Button,
   Table,
   Thead,
   Tbody,
@@ -15,9 +16,12 @@ import {
   Icon,
 } from '@chakra-ui/react';
 import { FaUsers, FaChartLine, FaArrowUp } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 import { enrollmentData, passRateData, enrollmentComment, passRateComment } from '../data/assessment';
 import PageHero from '../components/ui/PageHero';
 import ScrollReveal from '../components/ui/ScrollReveal';
+
+const MotionBox = motion(Box);
 
 const AssessmentPage = () => {
   useEffect(() => {
@@ -218,8 +222,32 @@ const AssessmentPage = () => {
       </Box>
 
       {/* Analysis Section - Maroon Background */}
-      <Box py={20} px={4} bgGradient="linear(135deg, maroon.500 0%, maroon.700 100%)">
-        <Box maxW="1000px" mx="auto">
+      <Box py={20} px={4} bgGradient="linear(135deg, maroon.500 0%, maroon.700 100%)" position="relative" overflow="hidden">
+        {/* Animated Orbs */}
+        <MotionBox
+          position="absolute"
+          top="-100px"
+          right="-100px"
+          w="300px"
+          h="300px"
+          borderRadius="full"
+          bg="rgba(255,255,255,0.03)"
+          animate={{ scale: [1, 1.15, 1], rotate: [0, 15, 0] }}
+          transition={{ duration: 10, repeat: Infinity }}
+        />
+        <MotionBox
+          position="absolute"
+          bottom="-150px"
+          left="-50px"
+          w="400px"
+          h="400px"
+          borderRadius="full"
+          bg="rgba(0,255,136,0.05)"
+          animate={{ scale: [1.1, 1, 1.1], rotate: [0, -20, 0] }}
+          transition={{ duration: 12, repeat: Infinity }}
+        />
+        
+        <Box maxW="1000px" mx="auto" position="relative" zIndex={1}>
           <ScrollReveal>
             <VStack spacing={8} align="start">
               <Heading size="xl" color="white" fontWeight="700">
@@ -277,7 +305,7 @@ ${enrollmentComment}`}
               boxShadow="0 8px 30px rgba(0,0,0,0.1)"
               border="1px solid"
               borderColor="gray.100"
-              maxW="600px"
+              maxW="800px"
               mx="auto"
             >
               <Box 
@@ -379,6 +407,82 @@ ${enrollmentComment}`}
               </Text>
             </Box>
           </ScrollReveal>
+        </Box>
+      </Box>
+
+      {/* CTA Section */}
+      <Box 
+        py={20} 
+        px={4} 
+        bgGradient="linear(135deg, forest.500 0%, forest.600 100%)"
+        position="relative"
+        overflow="hidden"
+      >
+        <MotionBox
+          position="absolute"
+          top="-80px"
+          right="-80px"
+          w="250px"
+          h="250px"
+          borderRadius="full"
+          bg="rgba(255,255,255,0.05)"
+          animate={{ scale: [1, 1.2, 1], rotate: [0, 10, 0] }}
+          transition={{ duration: 8, repeat: Infinity }}
+        />
+        <MotionBox
+          position="absolute"
+          bottom="-100px"
+          left="-50px"
+          w="300px"
+          h="300px"
+          borderRadius="full"
+          bg="rgba(130,0,0,0.1)"
+          animate={{ scale: [1.1, 1, 1.1], rotate: [0, -15, 0] }}
+          transition={{ duration: 10, repeat: Infinity }}
+        />
+        
+        <Box maxW="800px" mx="auto" textAlign="center" position="relative" zIndex={1}>
+          <VStack spacing={6}>
+            <Heading size="2xl" color="white" fontWeight="700">
+              Join Our Learning Community
+            </Heading>
+            <Text color="whiteAlpha.900" fontSize="lg" maxW="600px" lineHeight="1.8">
+              Enroll your child at St James Zongoro Primary School and give them 
+              the opportunity to excel academically and grow in faith.
+            </Text>
+            <Flex gap={4} mt={4} direction={{ base: 'column', md: 'row' }}>
+              <Button
+                as="a"
+                href="/admissions"
+                bg="white"
+                color="forest.500"
+                size="lg"
+                px={10}
+                fontWeight="700"
+                borderRadius="full"
+                _hover={{ transform: 'translateY(-2px)', boxShadow: '0 10px 30px rgba(0,0,0,0.2)' }}
+                transition="all 0.3s ease"
+              >
+                Apply Now
+              </Button>
+              <Button
+                as="a"
+                href="/contact"
+                bg="transparent"
+                color="white"
+                size="lg"
+                px={10}
+                fontWeight="700"
+                borderRadius="full"
+                border="2px solid"
+                borderColor="whiteAlpha.400"
+                _hover={{ bg: 'whiteAlpha.200', borderColor: 'white' }}
+                transition="all 0.3s ease"
+              >
+                Contact Us
+              </Button>
+            </Flex>
+          </VStack>
         </Box>
       </Box>
     </Box>
