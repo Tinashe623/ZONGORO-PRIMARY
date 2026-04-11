@@ -14,10 +14,10 @@ import {
   Text,
   Button,
   Icon,
+  Image,
 } from '@chakra-ui/react';
 import { HamburgerIcon, ChevronDownIcon } from '@chakra-ui/icons';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
-import { FaSchool } from 'react-icons/fa';
 
 interface NavbarProps {
   scrollPosition: number;
@@ -106,18 +106,22 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
       >
         <RouterLink to="/" style={{ textDecoration: 'none' }}>
           <Flex align="center" gap={3} cursor="pointer">
-            <Flex
-              align="center"
-              justify="center"
+            <Box 
               w="45px"
               h="45px"
               borderRadius="xl"
-              bgGradient="linear(135deg, maroon.500 0%, maroon.700 100%)"
+              overflow="hidden"
               boxShadow="0 4px 14px rgba(128, 0, 32, 0.3)"
             >
-              <Icon as={FaSchool} color="white" fontSize="lg" />
-            </Flex>
-            <Box display={{ base: 'none', md: 'block' }}>
+              <Image 
+                src="/images/st-james-promary-logo.jpg" 
+                alt="School Logo" 
+                w="100%" 
+                h="100%" 
+                objectFit="cover"
+              />
+            </Box>
+            <Box display={{ base: 'none', lg: 'block' }}>
               <Text fontSize="lg" fontWeight="700" color="maroon.600" lineHeight="1.2">
                 St James Zongoro
               </Text>
@@ -280,60 +284,244 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
         </HStack>
       </Flex>
 
-      <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerBody pt={12}>
-            <VStack spacing={4} align="stretch">
-              <RouterLink to="/" onClick={onClose}>
-                <Text fontWeight="600" fontSize="lg" color={isActive('/') ? 'maroon.500' : 'dark.500'} _hover={{ color: 'maroon.500' }}>Home</Text>
-              </RouterLink>
+      <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="full">
+        <DrawerOverlay bg="blackAlpha.700" backdropFilter="blur(4px)" />
+        <DrawerContent bg="white">
+          {/* Drawer Header with Logo */}
+          <Flex 
+            align="center" 
+            justify="space-between"
+            px={6}
+            py={4}
+            borderBottom="1px solid"
+            borderColor="gray.100"
+            bg="cream.50"
+          >
+            <Flex align="center" gap={3}>
+              <Image 
+                src="/images/st-james-promary-logo.jpg" 
+                alt="School Logo" 
+                h="45px"
+                objectFit="contain"
+              />
+              <Box>
+                <Text fontSize="md" fontWeight="700" color="maroon.600" lineHeight="1.2">
+                  St James Zongoro
+                </Text>
+                <Text fontSize="xs" fontWeight="600" color="gray.500" letterSpacing="0.5px">
+                  PRIMARY SCHOOL
+                </Text>
+              </Box>
+            </Flex>
+            <DrawerCloseButton 
+              size="lg" 
+              color="maroon.500"
+              _hover={{ bg: 'maroon.100' }}
+            />
+          </Flex>
+          
+          {/* Navigation Links */}
+          <DrawerBody px={0} py={4}>
+            <VStack spacing={0} align="stretch">
+              {/* Main Links */}
+              {[
+                { name: 'Home', to: '/' },
+                { name: 'Contact', to: '/contact' },
+              ].map((item) => (
+                <RouterLink key={item.to} to={item.to} onClick={onClose}>
+                  <Flex 
+                    px={6} 
+                    py={4} 
+                    align="center" 
+                    justify="space-between"
+                    bg={isActive(item.to) ? 'cream.50' : 'transparent'}
+                    borderLeft="3px solid"
+                    borderLeftColor={isActive(item.to) ? 'maroon.500' : 'transparent'}
+                    _hover={{ bg: 'cream.50' }}
+                    transition="all 0.2s ease"
+                  >
+                    <Text 
+                      fontWeight="600" 
+                      fontSize="md"
+                      color={isActive(item.to) ? 'maroon.500' : 'dark.500'}
+                    >
+                      {item.name}
+                    </Text>
+                  </Flex>
+                </RouterLink>
+              ))}
 
-              <Text fontWeight="600" fontSize="sm" color="gray.500" pt={2}>About</Text>
-              <RouterLink to="/about" onClick={onClose}>
-                <Text pl={4} fontWeight="600" color={isActive('/about') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Our School</Text>
-              </RouterLink>
-              <RouterLink to="/church" onClick={onClose}>
-                <Text pl={4} fontWeight="600" color={isActive('/church') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Anglican Heritage</Text>
-              </RouterLink>
-              <RouterLink to="/community" onClick={onClose}>
-                <Text pl={4} fontWeight="600" color={isActive('/community') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Community</Text>
-              </RouterLink>
-              <RouterLink to="/gallery" onClick={onClose}>
-                <Text pl={4} fontWeight="600" color={isActive('/gallery') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Gallery</Text>
-              </RouterLink>
+              {/* About Section */}
+              <Box pt={4}>
+                <Text 
+                  fontWeight="700" 
+                  fontSize="xs" 
+                  color="maroon.500" 
+                  textTransform="uppercase" 
+                  letterSpacing="1px"
+                  px={6}
+                  pb={2}
+                >
+                  About
+                </Text>
+                {[
+                  { name: 'Our School', to: '/about' },
+                  { name: 'Anglican Heritage', to: '/church' },
+                  { name: 'Community', to: '/community' },
+                  { name: 'Gallery', to: '/gallery' },
+                ].map((item) => (
+                  <RouterLink key={item.to} to={item.to} onClick={onClose}>
+                    <Flex 
+                      px={6} 
+                      py={3}
+                      align="center"
+                      bg={isActive(item.to) ? 'cream.50' : 'transparent'}
+                      borderLeft="3px solid"
+                      borderLeftColor={isActive(item.to) ? 'maroon.500' : 'transparent'}
+                      _hover={{ bg: 'cream.50' }}
+                      transition="all 0.2s ease"
+                    >
+                      <Text 
+                        fontWeight="500" 
+                        fontSize="md"
+                        color={isActive(item.to) ? 'maroon.500' : 'gray.600'}
+                      >
+                        {item.name}
+                      </Text>
+                    </Flex>
+                  </RouterLink>
+                ))}
+              </Box>
 
-              <Text fontWeight="600" fontSize="sm" color="gray.500" pt={2}>Academics</Text>
-              <RouterLink to="/academics" onClick={onClose}>
-                <Text pl={4} fontWeight="600" color={isActive('/academics') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Curriculum</Text>
-              </RouterLink>
-              <RouterLink to="/assessment" onClick={onClose}>
-                <Text pl={4} fontWeight="600" color={isActive('/assessment') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Assessment & Analysis</Text>
-              </RouterLink>
-              <RouterLink to="/activities" onClick={onClose}>
-                <Text pl={4} fontWeight="600" color={isActive('/activities') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Activities</Text>
-              </RouterLink>
+              {/* Academics Section */}
+              <Box pt={4}>
+                <Text 
+                  fontWeight="700" 
+                  fontSize="xs" 
+                  color="maroon.500" 
+                  textTransform="uppercase" 
+                  letterSpacing="1px"
+                  px={6}
+                  pb={2}
+                >
+                  Academics
+                </Text>
+                {[
+                  { name: 'Curriculum', to: '/academics' },
+                  { name: 'Assessment & Analysis', to: '/assessment' },
+                  { name: 'Activities', to: '/activities' },
+                ].map((item) => (
+                  <RouterLink key={item.to} to={item.to} onClick={onClose}>
+                    <Flex 
+                      px={6} 
+                      py={3}
+                      align="center"
+                      bg={isActive(item.to) ? 'cream.50' : 'transparent'}
+                      borderLeft="3px solid"
+                      borderLeftColor={isActive(item.to) ? 'maroon.500' : 'transparent'}
+                      _hover={{ bg: 'cream.50' }}
+                      transition="all 0.2s ease"
+                    >
+                      <Text 
+                        fontWeight="500" 
+                        fontSize="md"
+                        color={isActive(item.to) ? 'maroon.500' : 'gray.600'}
+                      >
+                        {item.name}
+                      </Text>
+                    </Flex>
+                  </RouterLink>
+                ))}
+              </Box>
 
-              <Text fontWeight="600" fontSize="sm" color="gray.500" pt={2}>Admissions</Text>
-              <RouterLink to="/admissions" onClick={onClose}>
-                <Text pl={4} fontWeight="600" color={isActive('/admissions') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Admissions</Text>
-              </RouterLink>
-              <RouterLink to="/boarding" onClick={onClose}>
-                <Text pl={4} fontWeight="600" color={isActive('/boarding') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Boarding</Text>
-              </RouterLink>
-              <RouterLink to="/transport" onClick={onClose}>
-                <Text pl={4} fontWeight="600" color={isActive('/transport') ? 'maroon.500' : 'gray.600'} _hover={{ color: 'maroon.500' }}>Transport</Text>
-              </RouterLink>
+              {/* Admissions Section */}
+              <Box pt={4}>
+                <Text 
+                  fontWeight="700" 
+                  fontSize="xs" 
+                  color="maroon.500" 
+                  textTransform="uppercase" 
+                  letterSpacing="1px"
+                  px={6}
+                  pb={2}
+                >
+                  Admissions
+                </Text>
+                {[
+                  { name: 'Admissions', to: '/admissions' },
+                  { name: 'Boarding', to: '/boarding' },
+                  { name: 'Transport', to: '/transport' },
+                ].map((item) => (
+                  <RouterLink key={item.to} to={item.to} onClick={onClose}>
+                    <Flex 
+                      px={6} 
+                      py={3}
+                      align="center"
+                      bg={isActive(item.to) ? 'cream.50' : 'transparent'}
+                      borderLeft="3px solid"
+                      borderLeftColor={isActive(item.to) ? 'maroon.500' : 'transparent'}
+                      _hover={{ bg: 'cream.50' }}
+                      transition="all 0.2s ease"
+                    >
+                      <Text 
+                        fontWeight="500" 
+                        fontSize="md"
+                        color={isActive(item.to) ? 'maroon.500' : 'gray.600'}
+                      >
+                        {item.name}
+                      </Text>
+                    </Flex>
+                  </RouterLink>
+                ))}
+              </Box>
 
-              <RouterLink to="/staff" onClick={onClose}>
-                <Text fontWeight="600" fontSize="lg" color={isActive('/staff') ? 'maroon.500' : 'dark.500'} _hover={{ color: 'maroon.500' }}>Our Team</Text>
-              </RouterLink>
-
-              <RouterLink to="/contact" onClick={onClose}>
-                <Text fontWeight="600" fontSize="lg" color={isActive('/contact') ? 'maroon.500' : 'dark.500'} _hover={{ color: 'maroon.500' }}>Contact</Text>
-              </RouterLink>
+              {/* Team */}
+              <Box pt={4}>
+                <RouterLink to="/staff" onClick={onClose}>
+                  <Flex 
+                    px={6} 
+                    py={3}
+                    align="center"
+                    bg={isActive('/staff') ? 'cream.50' : 'transparent'}
+                    borderLeft="3px solid"
+                    borderLeftColor={isActive('/staff') ? 'maroon.500' : 'transparent'}
+                    _hover={{ bg: 'cream.50' }}
+                    transition="all 0.2s ease"
+                  >
+                    <Text 
+                      fontWeight="600" 
+                      fontSize="md"
+                      color={isActive('/staff') ? 'maroon.500' : 'dark.500'}
+                    >
+                      Our Team
+                    </Text>
+                  </Flex>
+                </RouterLink>
+              </Box>
             </VStack>
+
+            {/* CTA Button */}
+            <Box px={6} pt={8}>
+              <Button
+                as={RouterLink}
+                to="/admissions"
+                onClick={onClose}
+                w="100%"
+                size="lg"
+                bgGradient="linear(to-r, maroon.500, maroon.600)"
+                color="white"
+                fontWeight="700"
+                borderRadius="xl"
+                _hover={{ 
+                  bgGradient: 'linear(to-r, maroon.600, maroon.700)',
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 6px 20px rgba(128, 0, 32, 0.3)'
+                }}
+                transition="all 0.3s ease"
+              >
+                Apply Now
+              </Button>
+            </Box>
           </DrawerBody>
         </DrawerContent>
       </Drawer>

@@ -13,8 +13,9 @@ import {
   InputRightElement,
   IconButton,
   HStack,
+  Image,
 } from '@chakra-ui/react';
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaPaperPlane, FaSchool, FaCode } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaPaperPlane, FaCode } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
 
 const Footer = () => {
@@ -69,21 +70,31 @@ const Footer = () => {
       <Box maxW="1400px" mx="auto" px={4} position="relative" zIndex={1}>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
           <VStack align="start" spacing={4}>
-            <Flex align="center" gap={3}>
-              <Flex
-                align="center"
-                justify="center"
-                w="50px"
-                h="50px"
+            <Flex align="center" gap={3} flexWrap="wrap">
+              <Box
+                w="60px"
+                h="60px"
                 borderRadius="xl"
-                bgGradient="linear(135deg, whiteAlpha.200 0%, whiteAlpha.100 100%)"
-                backdropFilter="blur(10px)"
+                overflow="hidden"
+                border="2px solid"
+                borderColor="whiteAlpha.300"
               >
-                <Icon as={FaSchool} color="white" fontSize="xl" />
-              </Flex>
-              <Heading size="md" color="white" fontWeight="700">
-                St James Zongoro
-              </Heading>
+                <Image 
+                  src="/images/st-james-promary-logo.jpg" 
+                  alt="School Logo" 
+                  w="100%" 
+                  h="100%" 
+                  objectFit="cover"
+                />
+              </Box>
+              <Box>
+                <Heading size="md" color="white" fontWeight="700">
+                  St James Zongoro
+                </Heading>
+                <Text fontSize="xs" color="whiteAlpha.600" letterSpacing="0.5px">
+                  PRIMARY SCHOOL
+                </Text>
+              </Box>
             </Flex>
             <Text fontSize="sm" color="whiteAlpha.800" lineHeight="1.8">
               Providing quality education rooted in Anglican values and community 
