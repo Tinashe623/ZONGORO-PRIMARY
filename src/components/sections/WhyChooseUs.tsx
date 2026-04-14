@@ -182,7 +182,13 @@ const WhyChooseUs = () => {
                 ))}
               </SimpleGrid>
 
-              <VStack spacing={{ base: 3, md: 4 }} pt={4} w="100%">
+              <Flex
+                direction={{ base: "column", md: "row" }}
+                gap={{ base: 3, md: 4 }}
+                pt={4}
+                w="100%"
+                justify={{ md: "center" }}
+              >
                 <Button
                   as={RouterLink}
                   to="/admissions"
@@ -191,7 +197,8 @@ const WhyChooseUs = () => {
                   color="maroon.700"
                   fontWeight="700"
                   px={{ base: 6, md: 8 }}
-                  w="100%"
+                  w={{ base: "100%", md: "auto" }}
+                  minW={{ md: "160px" }}
                   _hover={{
                     bg: '#00dd77',
                     transform: 'translateY(-2px)',
@@ -210,14 +217,15 @@ const WhyChooseUs = () => {
                   color="white"
                   fontWeight="600"
                   px={{ base: 6, md: 8 }}
-                  w="100%"
+                  w={{ base: "100%", md: "auto" }}
+                  minW={{ md: "160px" }}
                   _hover={{
                     bg: 'whiteAlpha.200',
                   }}
                 >
                   Learn More
                 </Button>
-              </VStack>
+              </Flex>
             </VStack>
           </Box>
         </ScrollReveal>
