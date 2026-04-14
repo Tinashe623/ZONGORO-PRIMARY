@@ -24,7 +24,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
   return (
     <Box
       role="group"
-      h="300px"
+      h={{ base: "280px", md: "300px" }}
       position="relative"
       cursor="pointer"
       onMouseEnter={() => setIsOpen(true)}
@@ -180,14 +180,14 @@ const Testimonials = () => {
         <ScrollReveal>
           <VStack spacing={3} textAlign="center" mb={12}>
             <Heading
-              size="xl"
+              size={{ base: "lg", md: "xl" }}
               color="white"
               fontWeight="700"
             >
               What People Say
             </Heading>
             <Box w="60px" h="4px" bg="whiteAlpha.400" borderRadius="full" />
-            <Text color="whiteAlpha.900" fontSize="lg" fontWeight="500">
+            <Text color="whiteAlpha.900" fontSize={{ base: "md", md: "lg" }} fontWeight="500">
               Hear from our community
             </Text>
           </VStack>

@@ -45,7 +45,7 @@ const Hero = () => {
               animate="visible"
             >
               <Heading
-                size="3xl"
+                size={{ base: "xl", md: "3xl" }}
                 color="white"
                 lineHeight="1.2"
                 fontWeight="700"
@@ -68,7 +68,7 @@ const Hero = () => {
               animate="visible"
             >
               <Text
-                fontSize="xl"
+                fontSize={{ base: "lg", md: "xl" }}
                 color="whiteAlpha.900"
                 maxW="700px"
               >
@@ -90,14 +90,14 @@ const Hero = () => {
               initial="hidden"
               animate="visible"
             >
-              <HStack spacing={6} flexWrap="wrap" justify="center">
+              <HStack spacing={{ base: 4, md: 6 }} flexWrap="wrap" justify="center">
                 <Button
                   as={RouterLink}
                   to="/admissions"
                   bg="white"
                   color="maroon.500"
                   size="lg"
-                  px={10}
+                  px={{ base: 6, md: 10 }}
                   fontWeight="600"
                   _hover={{ bg: 'whiteAlpha.900', transform: 'translateY(-2px)' }}
                 >
@@ -109,7 +109,7 @@ const Hero = () => {
                     borderColor="white"
                     color="white"
                     size="lg"
-                    px={10}
+                    px={{ base: 6, md: 10 }}
                     fontWeight="600"
                     _hover={{ bg: 'whiteAlpha.200' }}
                   >

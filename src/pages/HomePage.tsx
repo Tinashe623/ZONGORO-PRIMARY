@@ -59,12 +59,12 @@ const HomePage = () => {
                 </Box>
                 <Box
                   position="absolute"
-                  bottom={8}
-                  left={8}
+                  bottom={{ base: 4, md: 8 }}
+                  left={{ base: 4, md: 8 }}
                   bg="white"
                   borderRadius="xl"
-                  px={4}
-                  py={2}
+                  px={{ base: 3, md: 4 }}
+                  py={{ base: 1.5, md: 2 }}
                   boxShadow="0 4px 20px rgba(0,0,0,0.15)"
                 >
                   <Text color="maroon.500" fontWeight="700" fontSize="sm">
@@ -75,25 +75,25 @@ const HomePage = () => {
                   </Text>
                 </Box>
               </Box>
-              <VStack align="start" spacing={6}>
-                <Heading
-                  size="xl"
-                  bgGradient="linear(to-r, maroon.500, maroon.700)"
-                  bgClip="text"
-                  fontWeight="700"
-                >
-                  Our Community Partnership
-                </Heading>
-                <Box w="60px" h="4px" bgGradient="linear(to-r, maroon.500, maroon.600)" borderRadius="full" />
-                <Text color="gray.600" lineHeight="1.8" fontSize="lg">
-                  St James Zongoro Primary School is deeply rooted in the Ndorikanda community. 
-                  Our partnership with local leaders, parents, and villagers creates a supportive 
-                  environment where every child can succeed.
-                </Text>
-                <Text color="gray.600" lineHeight="1.8" fontSize="lg">
-                  Together with Chief James Mutasa, we're building a brighter future for our children 
-                  through quality education and community engagement.
-                </Text>
+               <VStack align="start" spacing={6}>
+                 <Heading
+                   size={{ base: "lg", md: "xl" }}
+                   bgGradient="linear(to-r, maroon.500, maroon.700)"
+                   bgClip="text"
+                   fontWeight="700"
+                 >
+                   Our Community Partnership
+                 </Heading>
+                 <Box w="60px" h="4px" bgGradient="linear(to-r, maroon.500, maroon.600)" borderRadius="full" />
+                 <Text color="gray.600" lineHeight="1.8" fontSize={{ base: "md", md: "lg" }}>
+                   St James Zongoro Primary School is deeply rooted in the Ndorikanda community.
+                   Our partnership with local leaders, parents, and villagers creates a supportive
+                   environment where every child can succeed.
+                 </Text>
+                 <Text color="gray.600" lineHeight="1.8" fontSize={{ base: "md", md: "lg" }}>
+                   Together with Chief James Mutasa, we're building a brighter future for our children
+                   through quality education and community engagement.
+                 </Text>
                 <Button
                   as={RouterLink}
                   to="/community"

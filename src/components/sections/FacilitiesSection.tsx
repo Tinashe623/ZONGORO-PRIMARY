@@ -23,15 +23,15 @@ const StatsSection = () => {
       
       <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
         <ScrollReveal>
-          <VStack spacing={12}>
-            <VStack spacing={3} textAlign="center">
-              <Heading size="xl" color="white" fontWeight="800">
-                Our Facilities
-              </Heading>
-              <Text color="whiteAlpha.800" fontSize="lg" maxW="500px">
-                Modern infrastructure supporting holistic education
-              </Text>
-            </VStack>
+            <VStack spacing={12}>
+             <VStack spacing={3} textAlign="center">
+               <Heading size={{ base: "lg", md: "xl" }} color="white" fontWeight="800">
+                 Our Facilities
+               </Heading>
+               <Text color="whiteAlpha.800" fontSize={{ base: "md", md: "lg" }} maxW="500px">
+                 Modern infrastructure supporting holistic education
+               </Text>
+             </VStack>
 
             <SimpleGrid columns={{ base: 2, md: 3 }} spacing={6} w="100%">
               {facilities.map((item, index) => (

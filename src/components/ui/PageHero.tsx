@@ -11,18 +11,19 @@ const PageHero = ({ title, subtitle }: PageHeroProps) => {
     <Box position="relative">
       <Flex
         position="relative"
-        h={{ base: "140px", md: "180px" }}
+        h={{ base: "170px", md: "180px" }}
         alignItems="center"
         justifyContent="center"
         flexDirection="column"
         bg="maroon.500"
         zIndex={1}
+        py={{ base: 4, md: 6 }}
       >
-        <Heading size="2xl" color="white" fontWeight="700">
+        <Heading size={{ base: "lg", md: "2xl" }} color="white" fontWeight="700">
           {title}
         </Heading>
         {subtitle && (
-          <Text fontSize="md" color="whiteAlpha.900" mt={2} textAlign="center">
+          <Text fontSize={{ base: "sm", md: "md" }} color="whiteAlpha.900" mt={{ base: 1, md: 2 }} textAlign="center" px={4}>
             {subtitle}
           </Text>
         )}

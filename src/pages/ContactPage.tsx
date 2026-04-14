@@ -52,7 +52,7 @@ const ContactInfo = () => {
         <Box
           key={index}
           bg="white"
-          p={6}
+          p={{ base: 4, md: 6 }}
           borderRadius="2xl"
           boxShadow="0 6px 25px rgba(0,0,0,0.08)"
           border="1px solid"
@@ -60,24 +60,24 @@ const ContactInfo = () => {
           _hover={{ transform: 'translateX(4px)', boxShadow: '0 10px 35px rgba(130,0,0,0.12)', borderColor: 'maroon.200' }}
           transition="all 0.3s ease"
         >
-          <Flex align="center" gap={5}>
+          <Flex align="center" gap={{ base: 3, md: 5 }} flexWrap="wrap">
             <Flex
               align="center"
               justify="center"
-              w="55px"
-              h="55px"
+              w={{ base: "45px", md: "55px" }}
+              h={{ base: "45px", md: "55px" }}
               borderRadius="2xl"
               bgGradient="linear(135deg, maroon.500, maroon.700)"
               boxShadow="0 4px 15px rgba(128, 0, 32, 0.3)"
               flexShrink={0}
             >
-              <Icon as={item.icon} color="white" fontSize="lg" />
+              <Icon as={item.icon} color="white" fontSize={{ base: "md", md: "lg" }} />
             </Flex>
-            <Box>
-              <Text fontWeight="700" color="dark.500" fontSize="md">
+            <Box minW={0} flex={1}>
+              <Text fontWeight="700" color="dark.500" fontSize={{ base: "sm", md: "md" }}>
                 {item.title}
               </Text>
-              <Text color="gray.600" fontSize="md">
+              <Text color="gray.600" fontSize={{ base: "sm", md: "md" }} wordBreak="break-word">
                 {item.content}
               </Text>
             </Box>
@@ -118,16 +118,16 @@ const ContactForm = () => {
       border="1px solid"
       borderColor="gray.100"
     >
-      <Box 
-        bgGradient="linear(to-r, maroon.500, maroon.700)" 
-        py={5} 
-        px={8}
+      <Box
+        bgGradient="linear(to-r, maroon.500, maroon.700)"
+        py={{ base: 4, md: 5 }}
+        px={{ base: 6, md: 8 }}
       >
-        <Heading size="md" color="white" fontWeight="600">
+        <Heading size={{ base: "sm", md: "md" }} color="white" fontWeight="600">
           Send us a Message
         </Heading>
       </Box>
-      <Box p={8}>
+      <Box p={{ base: 6, md: 8 }}>
         <form onSubmit={handleSubmit}>
           <VStack spacing={6}>
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5} w="100%">
@@ -139,7 +139,7 @@ const ContactForm = () => {
                   borderRadius="xl"
                   borderColor="gray.200"
                   bg="cream.50"
-                  py={6}
+                  py={{ base: 4, md: 6 }}
                   _focus={{ borderColor: 'maroon.500', boxShadow: '0 0 0 2px rgba(130,0,0,0.2)', bg: 'white' }}
                   _placeholder={{ color: 'gray.400' }}
                 />
@@ -153,7 +153,7 @@ const ContactForm = () => {
                   borderRadius="xl"
                   borderColor="gray.200"
                   bg="cream.50"
-                  py={6}
+                  py={{ base: 4, md: 6 }}
                   _focus={{ borderColor: 'maroon.500', boxShadow: '0 0 0 2px rgba(130,0,0,0.2)', bg: 'white' }}
                   _placeholder={{ color: 'gray.400' }}
                 />
@@ -168,7 +168,7 @@ const ContactForm = () => {
                 borderRadius="xl"
                 borderColor="gray.200"
                 bg="cream.50"
-                py={6}
+                py={{ base: 4, md: 6 }}
                 _focus={{ borderColor: 'maroon.500', boxShadow: '0 0 0 2px rgba(130,0,0,0.2)', bg: 'white' }}
                 _placeholder={{ color: 'gray.400' }}
               />
@@ -191,14 +191,14 @@ const ContactForm = () => {
               type="submit"
               bgGradient="linear(to-r, forest.500, forest.600)"
               color="white"
-              size="lg"
+              size={{ base: "md", md: "lg" }}
               width="100%"
               leftIcon={<FaPaperPlane />}
               isLoading={isSubmitting}
               fontWeight="700"
               borderRadius="full"
-              px={10}
-              _hover={{ 
+              px={{ base: 6, md: 10 }}
+              _hover={{
                 bg: 'forest.600',
                 transform: 'translateY(-2px)',
                 boxShadow: '0 10px 30px rgba(45,106,79,0.3)'
@@ -237,10 +237,10 @@ const ContactPage = () => {
             <ScrollReveal>
               <VStack align="start" spacing={8}>
                 <Box>
-                  <Heading size="2xl" color="maroon.500" fontWeight="700" mb={4}>
+                  <Heading size={{ base: "xl", md: "2xl" }} color="maroon.500" fontWeight="700" mb={4}>
                     Get in Touch
                   </Heading>
-                  <Text color="gray.600" fontSize="lg" lineHeight="1.9">
+                  <Text color="gray.600" fontSize={{ base: "md", md: "lg" }} lineHeight="1.9">
                     Have questions about admissions, academics, or our school? Feel
                     free to reach out to us using the form or contact information below.
                     Our team is here to help!

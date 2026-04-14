@@ -2,7 +2,6 @@ import {
   Box,
   SimpleGrid,
   VStack,
-  HStack,
   Heading,
   Text,
   Icon,
@@ -159,10 +158,10 @@ const WhyChooseUs = () => {
               filter="blur(30px)"
             />
             <VStack spacing={8} position="relative" zIndex={1}>
-              <Heading size="xl" color="white" fontWeight="700">
+              <Heading size={{ base: "lg", md: "xl" }} color="white" fontWeight="700">
                 Start Your Child's Journey Today
               </Heading>
-              <Text color="whiteAlpha.900" fontSize="lg" maxW="600px">
+              <Text color="whiteAlpha.900" fontSize={{ base: "md", md: "lg" }} maxW="600px">
                 Join over 700 students who have built successful futures at St James Zongoro
               </Text>
               
@@ -183,15 +182,16 @@ const WhyChooseUs = () => {
                 ))}
               </SimpleGrid>
 
-              <HStack spacing={4} pt={4}>
+              <VStack spacing={{ base: 3, md: 4 }} pt={4} w="100%">
                 <Button
                   as={RouterLink}
                   to="/admissions"
-                  size="lg"
+                  size={{ base: "md", md: "lg" }}
                   bg="#00ff88"
                   color="maroon.700"
                   fontWeight="700"
-                  px={8}
+                  px={{ base: 6, md: 8 }}
+                  w="100%"
                   _hover={{
                     bg: '#00dd77',
                     transform: 'translateY(-2px)',
@@ -204,19 +204,20 @@ const WhyChooseUs = () => {
                 <Button
                   as={RouterLink}
                   to="/contact"
-                  size="lg"
+                  size={{ base: "md", md: "lg" }}
                   variant="outline"
                   borderColor="white"
                   color="white"
                   fontWeight="600"
-                  px={8}
+                  px={{ base: 6, md: 8 }}
+                  w="100%"
                   _hover={{
                     bg: 'whiteAlpha.200',
                   }}
                 >
                   Learn More
                 </Button>
-              </HStack>
+              </VStack>
             </VStack>
           </Box>
         </ScrollReveal>

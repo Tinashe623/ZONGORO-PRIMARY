@@ -144,19 +144,19 @@ const Footer = () => {
             <Heading size="sm" color="white" fontWeight="600" mb={1}>
               Quick Links
             </Heading>
-            <Link as={RouterLink} to="/" color="whiteAlpha.800" fontSize="sm" fontWeight="500" _hover={{ color: 'white', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
+            <Link as={RouterLink} to="/" color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'white', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
               Home
             </Link>
-            <Link as={RouterLink} to="/about" color="whiteAlpha.800" fontSize="sm" fontWeight="500" _hover={{ color: 'white', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
+            <Link as={RouterLink} to="/about" color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'white', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
               About Us
             </Link>
-            <Link as={RouterLink} to="/admissions" color="whiteAlpha.800" fontSize="sm" fontWeight="500" _hover={{ color: 'white', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
+            <Link as={RouterLink} to="/admissions" color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'white', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
               Admissions
             </Link>
-            <Link as={RouterLink} to="/academics" color="whiteAlpha.800" fontSize="sm" fontWeight="500" _hover={{ color: 'white', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
+            <Link as={RouterLink} to="/academics" color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'white', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
               Academics
             </Link>
-            <Link as={RouterLink} to="/contact" color="whiteAlpha.800" fontSize="sm" fontWeight="500" _hover={{ color: 'white', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
+            <Link as={RouterLink} to="/contact" color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'white', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
               Contact
             </Link>
           </VStack>
@@ -167,19 +167,19 @@ const Footer = () => {
             </Heading>
             <Flex align="start" gap={3}>
               <Icon as={FaMapMarkerAlt} color="whiteAlpha.700" mt={1} />
-              <Text fontSize="sm" color="whiteAlpha.800">
+              <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.800">
                 St James Zongoro Primary School, P.O.Box 313, Mutare, Zimbabwe
               </Text>
             </Flex>
             <Flex align="center" gap={3}>
               <Icon as={FaPhone} color="whiteAlpha.700" />
-              <Text fontSize="sm" color="whiteAlpha.800">
+              <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.800">
                 +263 77 321 1929 / +263 71 854 6070
               </Text>
             </Flex>
             <Flex align="center" gap={3}>
               <Icon as={FaEnvelope} color="whiteAlpha.700" />
-              <Text fontSize="sm" color="whiteAlpha.800">
+              <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.800">
                 zongoro.primary@gmail.com
               </Text>
             </Flex>
@@ -189,7 +189,7 @@ const Footer = () => {
             <Heading size="sm" color="white" fontWeight="600" mb={1}>
               Stay Updated
             </Heading>
-            <Text fontSize="sm" color="whiteAlpha.800">
+            <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.800">
               Subscribe to our newsletter for latest updates and news.
             </Text>
             <InputGroup size="md">
@@ -241,14 +241,14 @@ const Footer = () => {
             align="center"
             gap={4}
           >
-            <Text fontSize="sm" color="whiteAlpha.600">
+            <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.600">
               © 2026 St James Zongoro Primary School. All rights reserved.
             </Text>
             <HStack spacing={4}>
-              <Link as={RouterLink} to="/privacy" fontSize="sm" color="whiteAlpha.600" _hover={{ color: '#00ff88' }} transition="all 0.3s ease">
+              <Link as={RouterLink} to="/privacy" fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.600" _hover={{ color: '#00ff88' }} transition="all 0.3s ease">
                 Privacy Policy
               </Link>
-              <Link as={RouterLink} to="/terms" fontSize="sm" color="whiteAlpha.600" _hover={{ color: '#00ff88' }} transition="all 0.3s ease">
+              <Link as={RouterLink} to="/terms" fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.600" _hover={{ color: '#00ff88' }} transition="all 0.3s ease">
                 Terms of Service
               </Link>
             </HStack>
