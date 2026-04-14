@@ -9,7 +9,6 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  DrawerBody,
   VStack,
   Text,
   Button,
@@ -284,245 +283,263 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
         </HStack>
       </Flex>
 
-      <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="full">
-        <DrawerOverlay bg="blackAlpha.700" backdropFilter="blur(4px)" />
-        <DrawerContent bg="white">
-          {/* Drawer Header with Logo */}
-          <Flex 
-            align="center" 
+      <Drawer isOpen={isOpen} placement="top" onClose={onClose} size="full">
+        <DrawerOverlay bg="blackAlpha.600" />
+        <DrawerContent bg="white" maxH="100vh">
+          {/* Simple Header */}
+          <Flex
+            align="center"
             justify="space-between"
             px={6}
             py={4}
             borderBottom="1px solid"
-            borderColor="gray.100"
+            borderColor="gray.200"
             bg="cream.50"
           >
             <Flex align="center" gap={3}>
-              <Image 
-                src="/images/st-james-promary-logo.jpg" 
-                alt="School Logo" 
-                h="45px"
-                objectFit="contain"
-              />
+              <Box
+                w="40px"
+                h="40px"
+                borderRadius="lg"
+                overflow="hidden"
+                boxShadow="0 2px 8px rgba(0,0,0,0.1)"
+              >
+                <Image
+                  src="/images/st-james-promary-logo.jpg"
+                  alt="School Logo"
+                  w="100%"
+                  h="100%"
+                  objectFit="cover"
+                />
+              </Box>
               <Box>
-                <Text fontSize="md" fontWeight="700" color="maroon.600" lineHeight="1.2">
+                <Text fontSize="md" fontWeight="700" color="maroon.600">
                   St James Zongoro
                 </Text>
-                <Text fontSize="xs" fontWeight="600" color="gray.500" letterSpacing="0.5px">
-                  PRIMARY SCHOOL
+                <Text fontSize="xs" fontWeight="500" color="gray.500" textTransform="uppercase" letterSpacing="0.5px">
+                  Primary School
                 </Text>
               </Box>
             </Flex>
-            <DrawerCloseButton 
-              size="lg" 
-              color="maroon.500"
-              _hover={{ bg: 'maroon.100' }}
-            />
+            <DrawerCloseButton size="lg" color="maroon.500" _hover={{ bg: 'maroon.50' }} />
           </Flex>
-          
-          {/* Navigation Links */}
-          <DrawerBody px={0} py={4}>
-            <VStack spacing={0} align="stretch">
+
+          {/* Clean Navigation */}
+          <Box flex={1} overflowY="auto" px={{ base: 4, md: 6 }} py={{ base: 4, md: 6 }} pb={{ base: 24, md: 12 }}>
+            <VStack spacing={{ base: 4, md: 6 }} align="stretch">
               {/* Main Links */}
-              {[
-                { name: 'Home', to: '/' },
-                { name: 'Contact', to: '/contact' },
-              ].map((item) => (
-                <RouterLink key={item.to} to={item.to} onClick={onClose}>
-                  <Flex 
-                    px={6} 
-                    py={4} 
-                    align="center" 
-                    justify="space-between"
-                    bg={isActive(item.to) ? 'cream.50' : 'transparent'}
-                    borderLeft="3px solid"
-                    borderLeftColor={isActive(item.to) ? 'maroon.500' : 'transparent'}
-                    _hover={{ bg: 'cream.50' }}
+              <VStack spacing={1} align="stretch">
+                <RouterLink to="/" onClick={onClose}>
+                  <Box
+                    p={{ base: 3, md: 4 }}
+                    borderRadius="lg"
+                    bg={isActive('/') ? 'maroon.50' : 'transparent'}
+                    _hover={{ bg: 'gray.50', transform: 'translateX(4px)' }}
                     transition="all 0.2s ease"
+                    borderLeft={isActive('/') ? '4px solid' : '4px solid'}
+                    borderLeftColor={isActive('/') ? 'maroon.500' : 'transparent'}
+                    minH={{ base: "48px", md: "auto" }}
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    cursor="pointer"
+                    role="button"
+                    tabIndex={0}
                   >
-                    <Text 
-                      fontWeight="600" 
-                      fontSize="md"
-                      color={isActive(item.to) ? 'maroon.500' : 'dark.500'}
-                    >
-                      {item.name}
+                    <Text fontWeight="600" color={isActive('/') ? 'maroon.600' : 'gray.700'} fontSize={{ base: "md", md: "lg" }}>
+                      🏠 Home
                     </Text>
-                  </Flex>
+                    <Text fontSize="lg" color="gray.400" opacity={0.7}>›</Text>
+                  </Box>
                 </RouterLink>
-              ))}
+
+                <RouterLink to="/contact" onClick={onClose}>
+                  <Box
+                    p={{ base: 3, md: 4 }}
+                    borderRadius="lg"
+                    bg={isActive('/contact') ? 'maroon.50' : 'transparent'}
+                    _hover={{ bg: 'gray.50', transform: 'translateX(4px)' }}
+                    transition="all 0.2s ease"
+                    borderLeft={isActive('/contact') ? '4px solid' : '4px solid'}
+                    borderLeftColor={isActive('/contact') ? 'maroon.500' : 'transparent'}
+                    minH={{ base: "48px", md: "auto" }}
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    cursor="pointer"
+                    role="button"
+                    tabIndex={0}
+                  >
+                    <Text fontWeight="600" color={isActive('/contact') ? 'maroon.600' : 'gray.700'} fontSize={{ base: "md", md: "lg" }}>
+                      📞 Contact Us
+                    </Text>
+                    <Text fontSize="lg" color="gray.400" opacity={0.7}>›</Text>
+                  </Box>
+                </RouterLink>
+              </VStack>
 
               {/* About Section */}
-              <Box pt={4}>
-                <Text 
-                  fontWeight="700" 
-                  fontSize="xs" 
-                  color="maroon.500" 
-                  textTransform="uppercase" 
+              <Box>
+                <Text
+                  fontWeight="700"
+                  fontSize="sm"
+                  color="maroon.500"
+                  textTransform="uppercase"
                   letterSpacing="1px"
-                  px={6}
-                  pb={2}
+                  mb={2}
                 >
-                  About
+                  About Our School
                 </Text>
-                {[
-                  { name: 'Our School', to: '/about' },
-                  { name: 'Anglican Heritage', to: '/church' },
-                  { name: 'Community', to: '/community' },
-                  { name: 'Gallery', to: '/gallery' },
-                ].map((item) => (
-                  <RouterLink key={item.to} to={item.to} onClick={onClose}>
-                    <Flex 
-                      px={6} 
-                      py={3}
-                      align="center"
-                      bg={isActive(item.to) ? 'cream.50' : 'transparent'}
-                      borderLeft="3px solid"
-                      borderLeftColor={isActive(item.to) ? 'maroon.500' : 'transparent'}
-                      _hover={{ bg: 'cream.50' }}
-                      transition="all 0.2s ease"
-                    >
-                      <Text 
-                        fontWeight="500" 
-                        fontSize="md"
-                        color={isActive(item.to) ? 'maroon.500' : 'gray.600'}
+                <VStack spacing={1} align="stretch">
+                  {[
+                    { name: 'Our Story', to: '/about', emoji: '📖' },
+                    { name: 'Church Heritage', to: '/church', emoji: '⛪' },
+                    { name: 'Our Community', to: '/community', emoji: '🤝' },
+                    { name: 'Photo Gallery', to: '/gallery', emoji: '📸' },
+                  ].map((item) => (
+                    <RouterLink key={item.to} to={item.to} onClick={onClose}>
+                      <Box
+                        p={{ base: 2.5, md: 3 }}
+                        borderRadius="lg"
+                        bg={isActive(item.to) ? 'cream.50' : 'transparent'}
+                        _hover={{ bg: 'cream.50', transform: 'translateX(2px)' }}
+                        transition="all 0.2s ease"
+                        borderLeft={isActive(item.to) ? '3px solid' : '3px solid'}
+                        borderLeftColor={isActive(item.to) ? 'maroon.500' : 'transparent'}
+                        minH={{ base: "44px", md: "auto" }}
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="space-between"
+                        cursor="pointer"
+                        role="button"
+                        tabIndex={0}
                       >
-                        {item.name}
-                      </Text>
-                    </Flex>
-                  </RouterLink>
-                ))}
+                        <Text fontWeight="500" color={isActive(item.to) ? 'maroon.600' : 'gray.600'} fontSize={{ base: "sm", md: "md" }}>
+                          {item.emoji} {item.name}
+                        </Text>
+                        <Text fontSize="md" color="gray.400" opacity={0.6}>›</Text>
+                      </Box>
+                    </RouterLink>
+                  ))}
+                </VStack>
               </Box>
 
               {/* Academics Section */}
-              <Box pt={4}>
-                <Text 
-                  fontWeight="700" 
-                  fontSize="xs" 
-                  color="maroon.500" 
-                  textTransform="uppercase" 
+              <Box>
+                <Text
+                  fontWeight="700"
+                  fontSize="sm"
+                  color="maroon.500"
+                  textTransform="uppercase"
                   letterSpacing="1px"
-                  px={6}
-                  pb={2}
+                  mb={2}
                 >
                   Academics
                 </Text>
-                {[
-                  { name: 'Curriculum', to: '/academics' },
-                  { name: 'Assessment & Analysis', to: '/assessment' },
-                  { name: 'Activities', to: '/activities' },
-                ].map((item) => (
-                  <RouterLink key={item.to} to={item.to} onClick={onClose}>
-                    <Flex 
-                      px={6} 
-                      py={3}
-                      align="center"
-                      bg={isActive(item.to) ? 'cream.50' : 'transparent'}
-                      borderLeft="3px solid"
-                      borderLeftColor={isActive(item.to) ? 'maroon.500' : 'transparent'}
-                      _hover={{ bg: 'cream.50' }}
-                      transition="all 0.2s ease"
-                    >
-                      <Text 
-                        fontWeight="500" 
-                        fontSize="md"
-                        color={isActive(item.to) ? 'maroon.500' : 'gray.600'}
+                <VStack spacing={1} align="stretch">
+                  {[
+                    { name: 'Our Curriculum', to: '/academics', emoji: '📚' },
+                    { name: 'Assessment & Results', to: '/assessment', emoji: '📊' },
+                    { name: 'School Activities', to: '/activities', emoji: '⚽' },
+                  ].map((item) => (
+                    <RouterLink key={item.to} to={item.to} onClick={onClose}>
+                      <Box
+                        p={{ base: 2.5, md: 3 }}
+                        borderRadius="lg"
+                        bg={isActive(item.to) ? 'cream.50' : 'transparent'}
+                        _hover={{ bg: 'cream.50', transform: 'translateX(2px)' }}
+                        transition="all 0.2s ease"
+                        borderLeft={isActive(item.to) ? '3px solid' : '3px solid'}
+                        borderLeftColor={isActive(item.to) ? 'maroon.500' : 'transparent'}
+                        minH={{ base: "44px", md: "auto" }}
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="space-between"
+                        cursor="pointer"
+                        role="button"
+                        tabIndex={0}
                       >
-                        {item.name}
-                      </Text>
-                    </Flex>
-                  </RouterLink>
-                ))}
+                        <Text fontWeight="500" color={isActive(item.to) ? 'maroon.600' : 'gray.600'} fontSize={{ base: "sm", md: "md" }}>
+                          {item.emoji} {item.name}
+                        </Text>
+                        <Text fontSize="md" color="gray.400" opacity={0.6}>›</Text>
+                      </Box>
+                    </RouterLink>
+                  ))}
+                </VStack>
               </Box>
 
               {/* Admissions Section */}
-              <Box pt={4}>
-                <Text 
-                  fontWeight="700" 
-                  fontSize="xs" 
-                  color="maroon.500" 
-                  textTransform="uppercase" 
+              <Box>
+                <Text
+                  fontWeight="700"
+                  fontSize="sm"
+                  color="maroon.500"
+                  textTransform="uppercase"
                   letterSpacing="1px"
-                  px={6}
-                  pb={2}
+                  mb={2}
                 >
-                  Admissions
+                  Join Our School
                 </Text>
-                {[
-                  { name: 'Admissions', to: '/admissions' },
-                  { name: 'Boarding', to: '/boarding' },
-                  { name: 'Transport', to: '/transport' },
-                ].map((item) => (
-                  <RouterLink key={item.to} to={item.to} onClick={onClose}>
-                    <Flex 
-                      px={6} 
-                      py={3}
-                      align="center"
-                      bg={isActive(item.to) ? 'cream.50' : 'transparent'}
-                      borderLeft="3px solid"
-                      borderLeftColor={isActive(item.to) ? 'maroon.500' : 'transparent'}
-                      _hover={{ bg: 'cream.50' }}
-                      transition="all 0.2s ease"
-                    >
-                      <Text 
-                        fontWeight="500" 
-                        fontSize="md"
-                        color={isActive(item.to) ? 'maroon.500' : 'gray.600'}
+                <VStack spacing={1} align="stretch">
+                  {[
+                    { name: 'How to Apply', to: '/admissions', emoji: '📝' },
+                    { name: 'Boarding Life', to: '/boarding', emoji: '🏠' },
+                    { name: 'School Transport', to: '/transport', emoji: '🚌' },
+                  ].map((item) => (
+                    <RouterLink key={item.to} to={item.to} onClick={onClose}>
+                      <Box
+                        p={{ base: 2.5, md: 3 }}
+                        borderRadius="lg"
+                        bg={isActive(item.to) ? 'cream.50' : 'transparent'}
+                        _hover={{ bg: 'cream.50', transform: 'translateX(2px)' }}
+                        transition="all 0.2s ease"
+                        borderLeft={isActive(item.to) ? '3px solid' : '3px solid'}
+                        borderLeftColor={isActive(item.to) ? 'maroon.500' : 'transparent'}
+                        minH={{ base: "44px", md: "auto" }}
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="space-between"
+                        cursor="pointer"
+                        role="button"
+                        tabIndex={0}
                       >
-                        {item.name}
-                      </Text>
-                    </Flex>
-                  </RouterLink>
-                ))}
+                        <Text fontWeight="500" color={isActive(item.to) ? 'maroon.600' : 'gray.600'} fontSize={{ base: "sm", md: "md" }}>
+                          {item.emoji} {item.name}
+                        </Text>
+                        <Text fontSize="md" color="gray.400" opacity={0.6}>›</Text>
+                      </Box>
+                    </RouterLink>
+                  ))}
+                </VStack>
               </Box>
 
-              {/* Team */}
-              <Box pt={4}>
-                <RouterLink to="/staff" onClick={onClose}>
-                  <Flex 
-                    px={6} 
-                    py={3}
-                    align="center"
-                    bg={isActive('/staff') ? 'cream.50' : 'transparent'}
-                    borderLeft="3px solid"
-                    borderLeftColor={isActive('/staff') ? 'maroon.500' : 'transparent'}
-                    _hover={{ bg: 'cream.50' }}
-                    transition="all 0.2s ease"
-                  >
-                    <Text 
-                      fontWeight="600" 
-                      fontSize="md"
-                      color={isActive('/staff') ? 'maroon.500' : 'dark.500'}
-                    >
-                      Our Team
-                    </Text>
-                  </Flex>
-                </RouterLink>
-              </Box>
+              {/* Our Team */}
+              <RouterLink to="/staff" onClick={onClose}>
+                <Box
+                  p={{ base: 3, md: 4 }}
+                  borderRadius="lg"
+                  bg={isActive('/staff') ? 'maroon.50' : 'transparent'}
+                  _hover={{ bg: 'gray.50', transform: 'translateX(4px)' }}
+                  transition="all 0.2s ease"
+                  borderLeft={isActive('/staff') ? '4px solid' : '4px solid'}
+                  borderLeftColor={isActive('/staff') ? 'maroon.500' : 'transparent'}
+                  minH={{ base: "48px", md: "auto" }}
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="space-between"
+                  cursor="pointer"
+                  role="button"
+                  tabIndex={0}
+                >
+                  <Text fontWeight="600" color={isActive('/staff') ? 'maroon.600' : 'gray.700'} fontSize={{ base: "md", md: "lg" }}>
+                    👥 Meet Our Team
+                  </Text>
+                  <Text fontSize="lg" color="gray.400" opacity={0.7}>›</Text>
+                </Box>
+              </RouterLink>
             </VStack>
-
-            {/* CTA Button */}
-            <Box px={6} pt={8}>
-              <Button
-                as={RouterLink}
-                to="/admissions"
-                onClick={onClose}
-                w="100%"
-                size="lg"
-                bgGradient="linear(to-r, maroon.500, maroon.600)"
-                color="white"
-                fontWeight="700"
-                borderRadius="xl"
-                _hover={{ 
-                  bgGradient: 'linear(to-r, maroon.600, maroon.700)',
-                  transform: 'translateY(-2px)',
-                  boxShadow: '0 6px 20px rgba(128, 0, 32, 0.3)'
-                }}
-                transition="all 0.3s ease"
-              >
-                Apply Now
-              </Button>
-            </Box>
-          </DrawerBody>
+          </Box>
         </DrawerContent>
       </Drawer>
     </Box>
