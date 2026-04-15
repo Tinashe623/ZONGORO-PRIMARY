@@ -101,7 +101,6 @@ const AboutPage = () => {
                      <Box
                        position="relative"
                        p={0}
-                       overflow="hidden"
                      >
                        <Box
                          position="relative"
@@ -188,20 +187,9 @@ const AboutPage = () => {
                              {item.description}
                            </Text>
                          </Box>
-                         <Box
-                           position="absolute"
-                           bottom={0}
-                           left={0}
-                           right={0}
-                           h="4px"
-                           bgGradient="linear(to-r, transparent, gray.200, transparent)"
-                         />
+
                        </Box>
-                       {index < schoolHistory.length - 1 && (
-                         <Box display={{ base: 'none', md: 'block' }} position="absolute" top="50%" right="-24px" transform="translateY(-50%)" zIndex={2}>
-                           <Box w="48px" h="2px" bg="gray.200" borderRadius="full" />
-                         </Box>
-                       )}
+
                      </Box>
                    </ScrollReveal>
                 ))}
