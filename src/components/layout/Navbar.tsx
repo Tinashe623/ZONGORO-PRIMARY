@@ -325,7 +325,36 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
           </Flex>
 
           {/* Clean Navigation */}
-          <Box flex={1} overflowY="auto" px={{ base: 4, md: 6 }} py={{ base: 4, md: 6 }} pb={{ base: 24, md: 12 }}>
+          <Box
+            flex={1}
+            overflowY="auto"
+            px={{ base: 4, md: 6 }}
+            py={{ base: 4, md: 6 }}
+            pb={{ base: 24, md: 12 }}
+            sx={{
+              '&::-webkit-scrollbar': {
+                width: '6px',
+              },
+              '&::-webkit-scrollbar-track': {
+                background: 'rgba(0,0,0,0.05)',
+                borderRadius: '10px',
+                margin: '4px',
+              },
+              '&::-webkit-scrollbar-thumb': {
+                background: 'rgba(128,0,32,0.4)',
+                borderRadius: '10px',
+                border: '2px solid rgba(255,255,255,0.3)',
+                backdropFilter: 'blur(4px)',
+              },
+              '&::-webkit-scrollbar-thumb:hover': {
+                background: 'rgba(128,0,32,0.6)',
+                border: '2px solid rgba(255,255,255,0.5)',
+              },
+              '&::-webkit-scrollbar-corner': {
+                background: 'transparent',
+              },
+            }}
+          >
             <VStack spacing={{ base: 4, md: 6 }} align="stretch">
               {/* Main Links */}
               <VStack spacing={1} align="stretch">
