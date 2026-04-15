@@ -22,7 +22,7 @@ const CTABanner = ({ title, subtitle, buttonText = 'Contact Us', buttonLink = '/
   };
 
   return (
-    <Box position="relative" overflow="hidden" bgGradient="linear(to-r, maroon.500, maroon.600)" py={20} px={4}>
+    <Box position="relative" overflow="hidden" bg="maroon.500" py={20} px={4}>
       {/* Decorative Orbs */}
       <MotionBox
         position="absolute"

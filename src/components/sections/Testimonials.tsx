@@ -65,7 +65,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
               w="80px"
               h="80px"
               borderRadius="full"
-              bgGradient="linear(135deg, maroon.500 0%, maroon.700 100%)"
+              bg="maroon.500"
               boxShadow="0 6px 20px rgba(128, 0, 32, 0.4)"
             >
               <Icon as={getRoleIcon(testimonial.role)} color="white" fontSize="2xl" />
@@ -99,7 +99,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
         <Box
           w="100%"
           h="100%"
-          bgGradient="linear(135deg, maroon.600 0%, maroon.800 100%)"
+          bg="maroon.500"
           borderRadius="2xl"
           boxShadow="0 20px 50px rgba(128, 0, 32, 0.4)"
           overflow="hidden"
@@ -152,7 +152,7 @@ const Testimonials = () => {
       id="testimonials"
       py={{ base: 16, md: 24 }}
       px={4}
-      bgGradient="linear(135deg, maroon.500 0%, maroon.700 100%)"
+      bg="maroon.500"
       position="relative"
       overflow="hidden"
       boxShadow="0 10px 40px rgba(128, 0, 32, 0.3)"

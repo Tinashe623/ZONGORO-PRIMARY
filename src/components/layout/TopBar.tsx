@@ -3,7 +3,7 @@ import { FaPhone, FaEnvelope, FaFacebook, FaMapMarkerAlt } from 'react-icons/fa'
 
 const TopBar = () => {
   return (
-    <Box bg="maroon.600" color="white" py={{ base: 1.5, md: 1 }} px={4} position="fixed" top={0} left={0} right={0} zIndex={1100}>
+    <Box bg="maroon.500" color="white" py={{ base: 1.5, md: 1 }} px={4} position="fixed" top={0} left={0} right={0} zIndex={1100}>
       <Flex justify="space-between" align="center" maxW="1400px" mx="auto" gap={4}>
         {/* Contact Information - Horizontal scrolling marquee */}
         <Box flex={1} overflow="hidden" position="relative">

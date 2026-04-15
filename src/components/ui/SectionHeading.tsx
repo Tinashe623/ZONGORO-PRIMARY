@@ -15,7 +15,7 @@ const SectionHeading = ({
     <VStack spacing={3} textAlign={textAlign} mb={10}>
       <Heading
         size="xl"
-        bgGradient="linear(to-r, maroon.500, maroon.700)"
+        bg="maroon.500"
         bgClip="text"
         fontWeight="700"
         letterSpacing="-0.02em"
@@ -25,7 +25,7 @@ const SectionHeading = ({
       <Box
         w="60px"
         h="4px"
-        bgGradient="linear(to-r, maroon.500, maroon.600)"
+        bg="maroon.500"
         borderRadius="full"
       />
       {subtitle && (

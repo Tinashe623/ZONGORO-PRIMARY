@@ -21,7 +21,7 @@ import { Link as RouterLink } from 'react-router-dom';
 const Footer = () => {
   return (
     <Box
-      bgGradient="linear(135deg, maroon.500 0%, maroon.700 100%)"
+      bg="maroon.500"
       pt={16}
       pb={6}
       position="relative"
@@ -106,7 +106,7 @@ const Footer = () => {
                 icon={<FaFacebook />}
                 variant="ghost"
                 color="whiteAlpha.800"
-                _hover={{ bg: '#00ff88', color: 'maroon.600', transform: 'translateY(-3px)' }}
+                _hover={{ bg: '#00ff88', color: 'maroon.500', transform: 'translateY(-3px)' }}
                 size="sm"
                 transition="all 0.3s ease"
               />
@@ -115,7 +115,7 @@ const Footer = () => {
                 icon={<FaTwitter />}
                 variant="ghost"
                 color="whiteAlpha.800"
-                _hover={{ bg: '#00ff88', color: 'maroon.600', transform: 'translateY(-3px)' }}
+                _hover={{ bg: '#00ff88', color: 'maroon.500', transform: 'translateY(-3px)' }}
                 size="sm"
                 transition="all 0.3s ease"
               />
@@ -124,7 +124,7 @@ const Footer = () => {
                 icon={<FaInstagram />}
                 variant="ghost"
                 color="whiteAlpha.800"
-                _hover={{ bg: '#00ff88', color: 'maroon.600', transform: 'translateY(-3px)' }}
+                _hover={{ bg: '#00ff88', color: 'maroon.500', transform: 'translateY(-3px)' }}
                 size="sm"
                 transition="all 0.3s ease"
               />
@@ -133,7 +133,7 @@ const Footer = () => {
                 icon={<FaYoutube />}
                 variant="ghost"
                 color="whiteAlpha.800"
-                _hover={{ bg: '#00ff88', color: 'maroon.600', transform: 'translateY(-3px)' }}
+                _hover={{ bg: '#00ff88', color: 'maroon.500', transform: 'translateY(-3px)' }}
                 size="sm"
                 transition="all 0.3s ease"
               />
@@ -209,7 +209,7 @@ const Footer = () => {
                   icon={<FaPaperPlane />}
                   size="sm"
                   bgGradient="linear(to-r, white, gray.100)"
-                  color="maroon.600"
+                  color="maroon.500"
                   _hover={{ bgGradient: 'linear(to-r, gray.100, gray.200)' }}
                 />
               </InputRightElement>
@@ -220,7 +220,7 @@ const Footer = () => {
               size="sm"
               w="100%"
               bgGradient="linear(to-r, white, gray.100)"
-              color="maroon.600"
+              color="maroon.500"
               fontWeight="600"
               _hover={{ bgGradient: 'linear(to-r, gray.100, gray.200)', transform: 'translateY(-2px)' }}
             >

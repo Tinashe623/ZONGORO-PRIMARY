@@ -129,7 +129,7 @@ const ChurchPage = () => {
                   position="relative"
                   overflow="hidden"
                 >
-                  <Box position="absolute" top={0} left={0} h="4px" w="100%" bgGradient="linear(to-r, maroon.400, maroon.600)" />
+                  <Box position="absolute" top={0} left={0} h="4px" w="100%" bg="maroon.500" />
                   <Flex direction={{ base: 'column', md: 'row' }} align="center" gap={6}>
                     <Image 
                       src="/images/anglican-logo.png" 
@@ -196,7 +196,7 @@ const ChurchPage = () => {
 
                 <Box 
                   p={6} 
-                  bgGradient="linear(135deg, maroon.600, maroon.700)"
+                  bg="maroon.500"
                   borderRadius="xl"
                   w="100%"
                   boxShadow="0 8px 30px rgba(128, 0, 32, 0.2)"
@@ -244,7 +244,7 @@ const ChurchPage = () => {
                           w="40px"
                           h="40px"
                           borderRadius="full"
-                          bgGradient="linear(135deg, maroon.500, maroon.600)"
+                          bg="maroon.500"
                           flexShrink={0}
                           transition="all 0.3s ease"
                           _groupHover={{ bg: '#00ff88' }}

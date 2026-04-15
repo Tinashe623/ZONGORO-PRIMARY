@@ -57,7 +57,7 @@ const ApplicationSteps = () => {
                     w="60px"
                     h="60px"
                     borderRadius="2xl"
-                    bgGradient="linear(135deg, maroon.500, maroon.700)"
+                    bg="maroon.500"
                     boxShadow="0 4px 15px rgba(128, 0, 32, 0.3)"
                     flexShrink={0}
                   >
@@ -99,7 +99,7 @@ const ApplicationSteps = () => {
                       w="70px"
                       h="70px"
                       borderRadius="2xl"
-                      bgGradient="linear(135deg, maroon.500, maroon.700)"
+                      bg="maroon.500"
                       boxShadow="0 8px 25px rgba(128, 0, 32, 0.4)"
                     >
                       <Icon as={iconMap[step.step]} color="white" fontSize="2xl" />

@@ -139,7 +139,7 @@ const AboutPage = () => {
                                w={{ base: "50px", md: "60px" }}
                                h={{ base: "50px", md: "60px" }}
                                borderRadius="xl"
-                               bgGradient="linear(135deg, maroon.500, maroon.600)"
+                               bg="maroon.500"
                                boxShadow="0 4px 14px rgba(128, 0, 32, 0.3)"
                                transition="all 0.4s ease"
                                _groupHover={{
@@ -211,7 +211,7 @@ const AboutPage = () => {
         </Box>
       </Box>
 
-      <Box py={16} px={4} bgGradient="linear(135deg, maroon.600 0%, maroon.700 100%)" position="relative" overflow="hidden">
+      <Box py={16} px={4} bg="maroon.500" position="relative" overflow="hidden">
         <Box position="absolute" top={0} left={0} right={0} bottom={0} opacity={0.1}>
           <Box position="absolute" top="20%" left="10%" w="300px" h="300px" borderRadius="full" bg="white" filter="blur(80px)" />
           <Box position="absolute" bottom="20%" right="10%" w="250px" h="250px" borderRadius="full" bg="white" filter="blur(60px)" />
@@ -399,7 +399,7 @@ const AboutPage = () => {
                           w={{ base: "48px", md: "56px" }}
                           h={{ base: "48px", md: "56px" }}
                           borderRadius="xl"
-                          bgGradient="linear(135deg, maroon.500, maroon.600)"
+                          bg="maroon.500"
                           boxShadow="0 4px 14px rgba(128, 0, 32, 0.25)"
                           transition="all 0.4s ease"
                           _groupHover={{
@@ -478,7 +478,7 @@ const AboutPage = () => {
                            w={{ base: "48px", md: "56px" }}
                            h={{ base: "48px", md: "56px" }}
                            borderRadius="xl"
-                           bgGradient="linear(135deg, maroon.500, maroon.600)"
+                           bg="maroon.500"
                            boxShadow="0 4px 14px rgba(128, 0, 32, 0.25)"
                            transition="all 0.4s ease"
                            _groupHover={{
@@ -557,7 +557,7 @@ const AboutPage = () => {
                            w={{ base: "48px", md: "56px" }}
                            h={{ base: "48px", md: "56px" }}
                            borderRadius="xl"
-                           bgGradient="linear(135deg, maroon.500, maroon.600)"
+                           bg="maroon.500"
                            boxShadow="0 4px 14px rgba(128, 0, 32, 0.25)"
                            transition="all 0.4s ease"
                            _groupHover={{
@@ -598,7 +598,7 @@ const AboutPage = () => {
         </Box>
       </Box>
 
-      <Box py={20} px={4} bgGradient="linear(135deg, maroon.600 0%, maroon.700 100%)" position="relative" overflow="hidden">
+      <Box py={20} px={4} bg="maroon.500" position="relative" overflow="hidden">
         <Box position="absolute" top={0} left={0} right={0} bottom={0} opacity={0.1}>
           <Box position="absolute" top="-20%" right="-10%" w="600px" h="600px" borderRadius="full" bg="white" filter="blur(100px)" />
           <Box position="absolute" bottom="-30%" left="-10%" w="500px" h="500px" borderRadius="full" bg="white" filter="blur(80px)" />
@@ -699,7 +699,7 @@ const AboutPage = () => {
                   to="/admissions"
                   px={{ base: 6, md: 8 }}
                   py={{ base: 3, md: 4 }}
-                  bgGradient="linear(135deg, maroon.500, maroon.600)"
+                  bg="maroon.500"
                   color="white"
                   fontWeight="700"
                   fontSize={{ base: "md", md: "lg" }}

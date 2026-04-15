@@ -58,7 +58,7 @@ const BoardingFacilities = () => {
                   {/* Gradient top bar */}
                   <Box 
                     h="4px" 
-                    bgGradient="linear(to-r, maroon.500, forest.500)" 
+                    bg="maroon.500" 
                   />
                   <Box p={8}>
                     <VStack align="start" spacing={5}>
@@ -68,7 +68,7 @@ const BoardingFacilities = () => {
                         w="70px"
                         h="70px"
                         borderRadius="2xl"
-                        bgGradient="linear(135deg, maroon.500, maroon.700)"
+                        bg="maroon.500"
                         boxShadow="0 6px 20px rgba(128, 0, 32, 0.3)"
                       >
                         {IconComponent && <Icon as={IconComponent} color="white" fontSize="2xl" />}

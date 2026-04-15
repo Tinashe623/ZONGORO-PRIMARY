@@ -45,7 +45,7 @@ const AdmissionRequirements = () => {
                 {/* Colored top bar */}
                 <Box 
                   h="6px" 
-                  bgGradient="linear(to-r, maroon.500, forest.500)" 
+                  bg="maroon.500" 
                 />
                 <Box p={8}>
                   <VStack align="start" spacing={5}>

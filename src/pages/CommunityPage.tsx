@@ -138,7 +138,7 @@ const CommunityPage = () => {
               
               <Box 
                 p={6} 
-                bgGradient="linear(135deg, maroon.600, maroon.700)"
+                bg="maroon.500"
                 borderRadius="xl"
                 w="100%"
                 boxShadow="0 8px 30px rgba(128, 0, 32, 0.2)"
@@ -174,7 +174,7 @@ const CommunityPage = () => {
                         w="64px"
                         h="64px"
                         borderRadius="full"
-                        bgGradient="linear(135deg, maroon.500, maroon.600)"
+                        bg="maroon.500"
                         boxShadow="0 6px 20px rgba(128, 0, 32, 0.3)"
                       >
                         <Icon as={highlight.icon} color="white" fontSize="2xl" />
@@ -230,7 +230,7 @@ const CommunityPage = () => {
                     >
                       <Box 
                         h={{ base: '200px', md: '180px' }} 
-                        bgGradient="linear(135deg, maroon.500, maroon.600)"
+                        bg="maroon.500"
                         display="flex"
                         alignItems="center"
                         justifyContent="center"

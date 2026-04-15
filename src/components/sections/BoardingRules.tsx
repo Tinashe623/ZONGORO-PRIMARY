@@ -50,7 +50,7 @@ const BoardingRules = () => {
                   mb={5}
                 >
                   <AccordionButton
-                    bgGradient="linear(to-r, maroon.500, maroon.600)"
+                    bg="maroon.500"
                     color="white"
                     borderRadius="xl"
                     _hover={{ bgGradient: 'linear(to-r, maroon.600, maroon.700)' }}

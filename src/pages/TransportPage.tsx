@@ -142,7 +142,7 @@ const TransportPage = () => {
                     w="70px" 
                     h="70px" 
                     borderRadius="2xl"
-                    bgGradient="linear(135deg, maroon.500, maroon.700)"
+                    bg="maroon.500"
                     boxShadow="0 6px 20px rgba(128, 0, 32, 0.3)"
                     mx="auto"
                     mb={5}
@@ -166,7 +166,7 @@ const TransportPage = () => {
       <Box 
         py={20} 
         px={4} 
-        bgGradient="linear(135deg, maroon.500 0%, maroon.700 100%)"
+        bg="maroon.500"
         position="relative"
         overflow="hidden"
       >

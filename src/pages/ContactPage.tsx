@@ -67,7 +67,7 @@ const ContactInfo = () => {
               w={{ base: "45px", md: "55px" }}
               h={{ base: "45px", md: "55px" }}
               borderRadius="2xl"
-              bgGradient="linear(135deg, maroon.500, maroon.700)"
+              bg="maroon.500"
               boxShadow="0 4px 15px rgba(128, 0, 32, 0.3)"
               flexShrink={0}
             >
@@ -119,7 +119,7 @@ const ContactForm = () => {
       borderColor="gray.100"
     >
       <Box
-        bgGradient="linear(to-r, maroon.500, maroon.700)"
+        bg="maroon.500"
         py={{ base: 4, md: 5 }}
         px={{ base: 6, md: 8 }}
       >

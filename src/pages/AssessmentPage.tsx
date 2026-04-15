@@ -107,7 +107,7 @@ const AssessmentPage = () => {
               borderColor="gray.100"
             >
               <Box 
-                bgGradient="linear(to-r, maroon.500, maroon.700)" 
+                bg="maroon.500" 
                 py={4} 
                 px={6}
               >
@@ -222,7 +222,7 @@ const AssessmentPage = () => {
       </Box>
 
       {/* Analysis Section - Maroon Background */}
-      <Box py={20} px={4} bgGradient="linear(135deg, maroon.500 0%, maroon.700 100%)" position="relative" overflow="hidden">
+      <Box py={20} px={4} bg="maroon.500" position="relative" overflow="hidden">
         {/* Animated Orbs */}
         <MotionBox
           position="absolute"

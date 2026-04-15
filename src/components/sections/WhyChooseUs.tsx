@@ -91,7 +91,7 @@ const WhyChooseUs = () => {
                   left={0}
                   right={0}
                   h="4px"
-                  bgGradient="linear(to-r, maroon.400, maroon.600)"
+                  bg="maroon.500"
                   transform="scaleX(0)"
                   _groupHover={{ transform: 'scaleX(1)' }}
                   transition="transform 0.3s ease"
@@ -104,7 +104,7 @@ const WhyChooseUs = () => {
                     w="64px"
                     h="64px"
                     borderRadius="xl"
-                    bgGradient="linear(135deg, maroon.500 0%, maroon.700 100%)"
+                    bg="maroon.500"
                     boxShadow="0 4px 14px rgba(128, 0, 32, 0.3)"
                   >
                     <Icon as={feature.icon} color="white" fontSize="xl" />
@@ -129,7 +129,7 @@ const WhyChooseUs = () => {
           <Box
             mt={16}
             p={{ base: 8, md: 12 }}
-            bgGradient="linear(135deg, maroon.600 0%, maroon.700 100%)"
+            bg="maroon.500"
             borderRadius="3xl"
             textAlign="center"
             position="relative"

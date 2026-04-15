@@ -79,7 +79,7 @@ const FeesOverview = () => {
             borderColor="gray.100"
           >
             <Box 
-              bgGradient="linear(to-r, maroon.500, maroon.700)" 
+              bg="maroon.500" 
               py={5} 
               px={8}
             >

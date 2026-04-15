@@ -121,7 +121,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
               />
             </Box>
             <Box flexShrink={0}>
-              <Text fontSize={{ base: 'sm', md: 'lg' }} fontWeight="700" color="maroon.600" lineHeight="1.2">
+              <Text fontSize={{ base: 'sm', md: 'lg' }} fontWeight="700" color="maroon.500" lineHeight="1.2">
                 St James Zongoro
               </Text>
               <Text fontSize="xs" fontWeight="600" color="gray.500" letterSpacing="0.5px" display={{ base: 'none', sm: 'block' }}>
@@ -202,7 +202,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                       color={isActive(item.to) ? 'white' : 'gray.700'}
                       bg={isActive(item.to) ? 'maroon.500' : 'transparent'}
                       cursor="pointer"
-                      _hover={{ bg: 'maroon.600', color: 'white', transform: 'translateX(4px)' }}
+                      _hover={{ bg: 'maroon.500', color: 'white', transform: 'translateX(4px)' }}
                       transition="all 0.2s"
                       position="relative"
                       borderLeft={isActive(item.to) ? '3px solid' : '3px solid'}
@@ -264,7 +264,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
             as={RouterLink}
             to="/admissions"
             size="sm"
-            bgGradient="linear(to-r, maroon.500, maroon.600)"
+            bg="maroon.500"
             color="white"
             fontWeight="600"
             display={{ base: 'none', md: 'flex' }}
@@ -313,7 +313,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                 />
               </Box>
               <Box>
-                <Text fontSize="md" fontWeight="700" color="maroon.600">
+                <Text fontSize="md" fontWeight="700" color="maroon.500">
                   St James Zongoro
                 </Text>
                 <Text fontSize="xs" fontWeight="500" color="gray.500" textTransform="uppercase" letterSpacing="0.5px">
@@ -321,7 +321,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                 </Text>
               </Box>
             </Flex>
-            <DrawerCloseButton size="lg" color="maroon.500" _hover={{ bg: 'maroon.50' }} />
+            <DrawerCloseButton size="lg" color="maroon.500" _hover={{ bg: 'maroon.100' }} />
           </Flex>
 
           {/* Clean Navigation */}
@@ -346,7 +346,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                     role="button"
                     tabIndex={0}
                   >
-                    <Text fontWeight="600" color={isActive('/') ? 'maroon.600' : 'gray.700'} fontSize={{ base: "md", md: "lg" }}>
+                    <Text fontWeight="600" color={isActive('/') ? 'maroon.500' : 'gray.700'} fontSize={{ base: "md", md: "lg" }}>
                       🏠 Home
                     </Text>
                     <Text fontSize="lg" color="gray.400" opacity={0.7}>›</Text>
@@ -370,7 +370,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                     role="button"
                     tabIndex={0}
                   >
-                    <Text fontWeight="600" color={isActive('/contact') ? 'maroon.600' : 'gray.700'} fontSize={{ base: "md", md: "lg" }}>
+                    <Text fontWeight="600" color={isActive('/contact') ? 'maroon.500' : 'gray.700'} fontSize={{ base: "md", md: "lg" }}>
                       📞 Contact Us
                     </Text>
                     <Text fontSize="lg" color="gray.400" opacity={0.7}>›</Text>
@@ -414,7 +414,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                         role="button"
                         tabIndex={0}
                       >
-                        <Text fontWeight="500" color={isActive(item.to) ? 'maroon.600' : 'gray.600'} fontSize={{ base: "sm", md: "md" }}>
+                        <Text fontWeight="500" color={isActive(item.to) ? 'maroon.500' : 'gray.600'} fontSize={{ base: "sm", md: "md" }}>
                           {item.emoji} {item.name}
                         </Text>
                         <Text fontSize="md" color="gray.400" opacity={0.6}>›</Text>
@@ -459,7 +459,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                         role="button"
                         tabIndex={0}
                       >
-                        <Text fontWeight="500" color={isActive(item.to) ? 'maroon.600' : 'gray.600'} fontSize={{ base: "sm", md: "md" }}>
+                        <Text fontWeight="500" color={isActive(item.to) ? 'maroon.500' : 'gray.600'} fontSize={{ base: "sm", md: "md" }}>
                           {item.emoji} {item.name}
                         </Text>
                         <Text fontSize="md" color="gray.400" opacity={0.6}>›</Text>
@@ -504,7 +504,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                         role="button"
                         tabIndex={0}
                       >
-                        <Text fontWeight="500" color={isActive(item.to) ? 'maroon.600' : 'gray.600'} fontSize={{ base: "sm", md: "md" }}>
+                        <Text fontWeight="500" color={isActive(item.to) ? 'maroon.500' : 'gray.600'} fontSize={{ base: "sm", md: "md" }}>
                           {item.emoji} {item.name}
                         </Text>
                         <Text fontSize="md" color="gray.400" opacity={0.6}>›</Text>
@@ -532,7 +532,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                   role="button"
                   tabIndex={0}
                 >
-                  <Text fontWeight="600" color={isActive('/staff') ? 'maroon.600' : 'gray.700'} fontSize={{ base: "md", md: "lg" }}>
+                  <Text fontWeight="600" color={isActive('/staff') ? 'maroon.500' : 'gray.700'} fontSize={{ base: "md", md: "lg" }}>
                     👥 Meet Our Team
                   </Text>
                   <Text fontSize="lg" color="gray.400" opacity={0.7}>›</Text>

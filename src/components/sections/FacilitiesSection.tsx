@@ -14,7 +14,7 @@ const facilities = [
 
 const StatsSection = () => {
   return (
-    <Box py={16} px={4} bgGradient="linear(135deg, maroon.600 0%, maroon.700 100%)" position="relative" overflow="hidden">
+    <Box py={16} px={4} bg="maroon.500" position="relative" overflow="hidden">
       <Box position="absolute" top={0} left={0} right={0} bottom={0} opacity={0.1}>
         <Box position="absolute" top="-20%" right="-10%" w="400px" h="400px" borderRadius="full" bg="white" filter="blur(100px)" />
         <Box position="absolute" bottom="-30%" left="-10%" w="300px" h="300px" borderRadius="full" bg="white" filter="blur(80px)" />

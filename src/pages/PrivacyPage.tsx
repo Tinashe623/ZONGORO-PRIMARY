@@ -78,7 +78,7 @@ const PrivacyPage = () => {
                 as={RouterLink}
                 to="/"
                 leftIcon={<FaArrowLeft />}
-                bgGradient="linear(to-r, maroon.500, maroon.600)"
+                bg="maroon.500"
                 color="white"
                 _hover={{ bgGradient: 'linear(to-r, maroon.600, maroon.700)' }}
               >

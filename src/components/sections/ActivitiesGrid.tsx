@@ -257,7 +257,7 @@ const ActivitiesGrid = () => {
                 size="2xl"
                 color="dark.500"
                 fontWeight="700"
-                bgGradient="linear(to-r, maroon.500, forest.500)"
+                bg="maroon.500"
                 bgClip="text"
               >
                 Explore Our Activities

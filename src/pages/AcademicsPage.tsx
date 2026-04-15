@@ -81,7 +81,7 @@ const AcademicsPage = () => {
                       left={0} 
                       right={0} 
                       h="4px" 
-                      bgGradient="linear(to-r, maroon.500, forest.500)" 
+                      bg="maroon.500" 
                     />
                     <CardBody p={8} pt={10}>
                       <VStack align="start" spacing={5}>
@@ -91,7 +91,7 @@ const AcademicsPage = () => {
                           w="80px"
                           h="80px"
                           borderRadius="2xl"
-                          bgGradient="linear(135deg, maroon.500 0%, maroon.700 100%)"
+                          bg="maroon.500"
                           boxShadow="0 8px 25px rgba(130, 0, 0, 0.3)"
                         >
                           {IconComponent && (
@@ -228,7 +228,7 @@ const AcademicsPage = () => {
       <Box 
         py={24} 
         px={4} 
-        bgGradient="linear(135deg, maroon.500 0%, #5a0000 100%)"
+        bg="maroon.500"
         position="relative"
         overflow="hidden"
       >
