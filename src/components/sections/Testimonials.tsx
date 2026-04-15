@@ -9,7 +9,7 @@ import {
   Flex,
   useBreakpointValue,
 } from '@chakra-ui/react';
-import { FaQuoteLeft, FaUserGraduate, FaUserTie, FaCrown, FaChevronDown } from 'react-icons/fa';
+import { FaUserGraduate, FaUserTie, FaCrown, FaChevronDown } from 'react-icons/fa';
 import { testimonials } from '../../data/testimonials';
 import ScrollReveal from '../ui/ScrollReveal';
 
@@ -53,13 +53,23 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
         <Box
           w="100%"
           h="100%"
-          bgGradient="linear(135deg, #fdf2f4 0%, #fff9f0 100%)"
-          borderRadius={{ base: "xl", md: "2xl" }}
-          boxShadow={{ base: "0 8px 25px rgba(0, 0, 0, 0.12)", md: "0 10px 40px rgba(0, 0, 0, 0.15)" }}
+          bg="rgba(255, 255, 255, 0.9)"
+          backdropFilter="blur(10px)"
+          borderRadius="2xl"
+          boxShadow="0 15px 45px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.2)"
           overflow="hidden"
-          border="2px solid"
-          borderColor="maroon.200"
-          transition="all 0.3s ease"
+          border="1px solid rgba(255, 255, 255, 0.3)"
+          position="relative"
+          _before={{
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            bg: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(128,0,32,0.05) 100%)',
+            borderRadius: 'inherit'
+          }}
         >
             <VStack
               h="100%"
@@ -87,8 +97,8 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
                 {testimonial.role}
               </Text>
               <Box pt={{ base: 2, md: 4 }}>
-                <Icon as={FaChevronDown} color="maroon.400" fontSize={{ base: "lg", md: "xl" }} />
-                <Text color="gray.500" fontSize="xs" mt={1}>{interactionText}</Text>
+                <Icon as={FaChevronDown} color="maroon.500" fontSize={{ base: "lg", md: "xl" }} />
+                <Text color="gray.600" fontSize="xs" mt={1} fontWeight="500">{interactionText}</Text>
               </Box>
           </VStack>
         </Box>
@@ -109,12 +119,27 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
         <Box
           w="100%"
           h="100%"
-          bg="maroon.500"
+          bg="rgba(255, 255, 255, 0.95)"
+          backdropFilter="blur(20px)"
           borderRadius={{ base: "xl", md: "2xl" }}
-          boxShadow={{ base: "0 15px 35px rgba(128, 0, 32, 0.3)", md: "0 20px 50px rgba(128, 0, 32, 0.4)" }}
-          overflow="hidden"
-          border={{ base: "2px", md: "3px" }}
-          borderColor="whiteAlpha.300"
+          boxShadow={{
+            base: "0 25px 50px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.2)",
+            md: "0 35px 70px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.3)"
+          }}
+          border="1px solid rgba(255, 255, 255, 0.4)"
+          position="relative"
+          _before={{
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            bg: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(128,0,32,0.05) 50%, rgba(255,255,255,0.1) 100%)',
+            borderRadius: 'inherit',
+            pointerEvents: 'none',
+            zIndex: 0
+          }}
         >
           <Flex
             h="100%"
@@ -126,42 +151,46 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
               spacing={{ base: 4, md: 5 }}
               maxH="100%"
               overflow="auto"
+              position="relative"
+              zIndex={1}
               sx={{
                 '&::-webkit-scrollbar': {
-                  width: '6px',
+                  width: '8px',
                 },
                 '&::-webkit-scrollbar-track': {
-                  background: 'rgba(255,255,255,0.1)',
-                  borderRadius: '3px',
+                  background: 'rgba(0,0,0,0.05)',
+                  borderRadius: '10px',
+                  margin: '2px',
                 },
                 '&::-webkit-scrollbar-thumb': {
-                  background: 'rgba(255,255,255,0.4)',
-                  borderRadius: '3px',
+                  background: 'rgba(128,0,32,0.4)',
+                  borderRadius: '10px',
+                  border: '2px solid rgba(255,255,255,0.3)',
+                  backdropFilter: 'blur(4px)',
                 },
                 '&::-webkit-scrollbar-thumb:hover': {
-                  background: 'rgba(255,255,255,0.6)',
+                  background: 'rgba(128,0,32,0.6)',
+                  border: '2px solid rgba(255,255,255,0.5)',
+                },
+                '&::-webkit-scrollbar-corner': {
+                  background: 'transparent',
                 },
               }}
             >
-              <Box
-                p={{ base: 2, md: 3 }}
-                borderRadius="full"
-                bg="rgba(255,255,255,0.15)"
-              >
-                <Icon as={FaQuoteLeft} color="white" fontSize={{ base: "2xl", md: "3xl" }} />
-              </Box>
+
               <Text
-                color="white"
+                color="gray.700"
                 fontStyle="italic"
                 lineHeight="1.9"
                 fontSize={{ base: "sm", md: "md" }}
                 textAlign="center"
                 fontWeight="500"
                 px={{ base: 2, md: 4 }}
+                textShadow="0 1px 2px rgba(255,255,255,0.5)"
               >
                 "{testimonial.quote}"
               </Text>
-              <Text color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} mt={2} fontWeight="600">
+              <Text color="maroon.600" fontSize={{ base: "xs", md: "sm" }} mt={2} fontWeight="700">
                 — {testimonial.author}
               </Text>
             </VStack>
@@ -181,17 +210,9 @@ const Testimonials = () => {
       bg="maroon.500"
       position="relative"
       overflow="hidden"
-      boxShadow="0 10px 40px rgba(128, 0, 32, 0.3)"
+
     >
-      <Box
-        position="absolute"
-        top={-50}
-        right={-50}
-        w="200px"
-        h="200px"
-        borderRadius="full"
-        bg="rgba(255, 255, 255, 0.1)"
-      />
+
       <Box
         position="absolute"
         bottom={-30}

@@ -19,7 +19,7 @@ const StatsSection = () => {
         <Box position="absolute" top="-20%" right="-10%" w="400px" h="400px" borderRadius="full" bg="white" filter="blur(100px)" />
         <Box position="absolute" bottom="-30%" left="-10%" w="300px" h="300px" borderRadius="full" bg="white" filter="blur(80px)" />
       </Box>
-      <Box position="absolute" top={0} left={0} right={0} h="4px" bg="#00ff88" boxShadow="0 0 20px rgba(0, 255, 136, 0.5)" />
+
       
       <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
         <ScrollReveal>
