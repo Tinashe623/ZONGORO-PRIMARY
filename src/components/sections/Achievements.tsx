@@ -17,7 +17,7 @@ const achievements = [
 
 const Achievements = () => {
   return (
-    <Box bgGradient="linear(to-r, maroon.500, maroon.600)" py={16} px={4}>
+    <Box bgGradient="linear(to-r, maroon.500, maroon.600)" py={16} px={4} w="full">
       <Box maxW="1400px" mx="auto">
         <ScrollReveal>
           <VStack spacing={12}>

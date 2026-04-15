@@ -13,7 +13,7 @@ export interface StaffMember {
 export const staffMembers: StaffMember[] = [
   {
     id: 1,
-    name: 'Mrs. Margaret Chigumba',
+    name: 'Mr Chigumira',
     title: 'Head Teacher',
     specialisation: 'Educational Leadership & Administration',
     image: 'https://randomuser.me/api/portraits/women/44.jpg',
