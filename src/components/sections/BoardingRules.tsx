@@ -30,7 +30,7 @@ const BoardingRules = () => {
       <Box maxW="900px" mx="auto">
         <ScrollReveal>
           <VStack spacing={4} textAlign="center" mb={16}>
-            <Heading size="2xl" color="maroon.500" fontWeight="700">
+            <Heading size="2xl" color="maroon.600" fontWeight="800">
               Boarding Rules & Expectations
             </Heading>
             <Text color="gray.600" fontSize="lg" maxW="700px" lineHeight="1.8">
@@ -49,15 +49,16 @@ const BoardingRules = () => {
                   border="none"
                   mb={5}
                 >
-                  <AccordionButton
-                    bg="maroon.500"
-                    color="white"
-                    borderRadius="xl"
-                    _hover={{ bgGradient: 'linear(to-r, maroon.600, maroon.700)' }}
-                    _expanded={{ bgGradient: 'linear(to-r, maroon.600, maroon.700)', borderBottomRadius: 0 }}
-                    p={5}
-                    boxShadow="0 4px 15px rgba(128,0,0,0.2)"
-                  >
+                   <AccordionButton
+                     bg="maroon.500"
+                     color="white"
+                     borderRadius="xl"
+                     _hover={{ bgGradient: 'linear(to-r, maroon.600, maroon.700)', boxShadow: '0 6px 20px rgba(128,0,0,0.3)' }}
+                     _expanded={{ bgGradient: 'linear(to-r, maroon.600, maroon.700)', borderBottomRadius: 0, boxShadow: '0 6px 20px rgba(128,0,0,0.3)' }}
+                     p={5}
+                     boxShadow="0 4px 15px rgba(128,0,0,0.2)"
+                     transition="all 0.3s ease"
+                   >
                     <Flex align="center" gap={3} flex="1" textAlign="left">
                       <Box 
                         w="40px" 
@@ -70,9 +71,17 @@ const BoardingRules = () => {
                       >
                         <Box as={CategoryIcon} />
                       </Box>
-                      <Heading size="md" fontWeight="700">
-                        {rule.category}
-                      </Heading>
+                       <Heading
+                         size="md"
+                         fontWeight="700"
+                         color="white"
+                         textShadow="0 2px 4px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.2)"
+                         letterSpacing="wide"
+                         textTransform="uppercase"
+                         fontSize="sm"
+                       >
+                         {rule.category}
+                       </Heading>
                     </Flex>
                     <AccordionIcon fontSize="2xl" />
                   </AccordionButton>

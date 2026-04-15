@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Box, SimpleGrid, VStack, Heading, Text, Flex, Icon } from '@chakra-ui/react';
+import { Box, SimpleGrid, VStack, Heading, Text, Flex, Icon, useBreakpointValue } from '@chakra-ui/react';
 import { FaGraduationCap, FaUsers, FaHeart, FaShieldAlt } from 'react-icons/fa';
 import PageHero from '../components/ui/PageHero';
 import BoardingFacilities from '../components/sections/BoardingFacilities';
@@ -9,6 +9,8 @@ import { boardingFees } from '../data/boarding';
 import ScrollReveal from '../components/ui/ScrollReveal';
 
 const BoardingPage = () => {
+  const isMobile = useBreakpointValue({ base: true, md: false });
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -67,44 +69,157 @@ const BoardingPage = () => {
             </ScrollReveal>
             
             <ScrollReveal delay={0.2}>
-              <Box 
-                bg="white" 
-                borderRadius="2xl" 
+              <Box
+                bg="white"
+                borderRadius="2xl"
                 p={8}
-                boxShadow="0 8px 30px rgba(0,0,0,0.1)"
-                borderLeft="4px solid"
-                borderLeftColor="forest.500"
+                boxShadow="0 10px 40px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.08)"
+                border="1px solid"
+                borderColor="gray.100"
+                position="relative"
+                overflow="hidden"
+                _before={{
+                  content: '""',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  bgGradient: 'linear(to-br, rgba(255,255,255,0.9), rgba(45,106,79,0.02))',
+                  opacity: 0,
+                  transition: 'opacity 0.3s ease',
+                  borderRadius: '2xl'
+                }}
+                _hover={{
+                  transform: 'translateY(-4px)',
+                  boxShadow: '0 20px 60px rgba(0,0,0,0.15), 0 8px 24px rgba(0,0,0,0.1)',
+                  borderColor: 'forest.200',
+                  _before: { opacity: 1 }
+                }}
+                transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
               >
                 <Heading size="md" color="maroon.500" mb={6}>
                   Boarding Fees
                 </Heading>
                 <VStack spacing={4}>
                   {boardingFees.map((fee, index) => (
-                    <Flex 
-                      key={index} 
-                      w="100%" 
-                      justify="space-between" 
-                      align="center"
-                      p={4}
-                      bg="cream.50"
-                      borderRadius="xl"
-                      _hover={{ bg: 'forest.50' }}
-                      transition="all 0.2s ease"
-                    >
-                      <Text color="gray.700" fontWeight="500">{fee.item}</Text>
-                      <Text 
-                        color="forest.500" 
-                        fontWeight="700" 
-                        fontSize="lg"
-                        bg="white"
-                        px={4}
-                        py={2}
-                        borderRadius="full"
-                        boxShadow="sm"
+                    isMobile ? (
+                      <Box
+                        key={index}
+                        w="100%"
+                        p={4}
+                        bg="cream.50"
+                        borderRadius="xl"
+                        border="1px solid"
+                        borderColor="gray.100"
+                        boxShadow="0 2px 8px rgba(0,0,0,0.06)"
+                        position="relative"
+                        overflow="hidden"
+                        _before={{
+                          content: '""',
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          right: 0,
+                          bottom: 0,
+                          bgGradient: 'linear(to-br, rgba(255,255,255,0.8), rgba(45,106,79,0.02))',
+                          opacity: 0,
+                          transition: 'opacity 0.3s ease',
+                          borderRadius: 'xl'
+                        }}
+                        _hover={{
+                          bg: 'forest.50',
+                          borderColor: 'forest.200',
+                          boxShadow: '0 8px 25px rgba(45,106,79,0.15), 0 4px 12px rgba(0,0,0,0.08)',
+                          transform: 'translateY(-2px)',
+                          _before: { opacity: 1 }
+                        }}
+                        transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
                       >
-                        {fee.amount}
-                      </Text>
-                    </Flex>
+                        <VStack align="start" spacing={2}>
+                          <Text color="gray.700" fontWeight="600" fontSize="sm">
+                            {fee.item}
+                          </Text>
+                          <Text
+                            color="forest.500"
+                            fontWeight="700"
+                            fontSize="lg"
+                            bg="white"
+                            px={4}
+                            py={2}
+                            borderRadius="full"
+                            boxShadow="0 4px 12px rgba(45,106,79,0.2), 0 2px 6px rgba(0,0,0,0.1)"
+                            border="1px solid"
+                            borderColor="forest.100"
+                            alignSelf="flex-start"
+                            position="relative"
+                            _hover={{
+                              transform: 'scale(1.05)',
+                              boxShadow: '0 6px 16px rgba(45,106,79,0.3), 0 3px 8px rgba(0,0,0,0.15)'
+                            }}
+                            transition="all 0.2s ease"
+                          >
+                            {fee.amount}
+                          </Text>
+                        </VStack>
+                      </Box>
+                    ) : (
+                      <Flex
+                        key={index}
+                        w="100%"
+                        justify="space-between"
+                        align="center"
+                        p={4}
+                        bg="cream.50"
+                        borderRadius="xl"
+                        border="1px solid"
+                        borderColor="gray.100"
+                        boxShadow="0 2px 8px rgba(0,0,0,0.06)"
+                        position="relative"
+                        overflow="hidden"
+                        _before={{
+                          content: '""',
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          right: 0,
+                          bottom: 0,
+                          bgGradient: 'linear(to-br, rgba(255,255,255,0.8), rgba(45,106,79,0.02))',
+                          opacity: 0,
+                          transition: 'opacity 0.3s ease',
+                          borderRadius: 'xl'
+                        }}
+                        _hover={{
+                          bg: 'forest.50',
+                          borderColor: 'forest.200',
+                          boxShadow: '0 8px 25px rgba(45,106,79,0.15), 0 4px 12px rgba(0,0,0,0.08)',
+                          transform: 'translateY(-2px)',
+                          _before: { opacity: 1 }
+                        }}
+                        transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
+                      >
+                        <Text color="gray.700" fontWeight="500">{fee.item}</Text>
+                        <Text
+                          color="forest.500"
+                          fontWeight="700"
+                          fontSize="lg"
+                          bg="white"
+                          px={4}
+                          py={2}
+                          borderRadius="full"
+                          boxShadow="0 4px 12px rgba(45,106,79,0.2), 0 2px 6px rgba(0,0,0,0.1)"
+                          border="1px solid"
+                          borderColor="forest.100"
+                          _hover={{
+                            transform: 'scale(1.05)',
+                            boxShadow: '0 6px 16px rgba(45,106,79,0.3), 0 3px 8px rgba(0,0,0,0.15)'
+                          }}
+                          transition="all 0.2s ease"
+                        >
+                          {fee.amount}
+                        </Text>
+                      </Flex>
+                    )
                   ))}
                 </VStack>
               </Box>

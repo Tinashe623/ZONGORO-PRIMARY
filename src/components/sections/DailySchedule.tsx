@@ -36,17 +36,6 @@ const DailySchedule = () => {
         </ScrollReveal>
 
         <Box position="relative">
-          <Box
-            display={{ base: 'none', lg: 'block' }}
-            position="absolute"
-            top="60px"
-            left="50%"
-            transform="translateX(-50%)"
-            w="2px"
-            h="calc(100% - 120px)"
-            bg="maroon.200"
-            borderRadius="full"
-          />
 
           <Grid templateColumns={{ base: '1fr', lg: 'repeat(3, 1fr)' }} gap={8}>
             <GridItem>
