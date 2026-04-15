@@ -35,11 +35,11 @@ const AssessmentPage = () => {
 
   return (
     <Box>
-      <PageHero 
-        title="Assessment & Analysis" 
+      <PageHero
+        title="Assessment & Analysis"
         subtitle="Comprehensive evaluation of school performance and growth"
       />
-      
+
       {/* School Enrolment Section - Cream Background */}
       <Box py={20} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
@@ -62,9 +62,9 @@ const AssessmentPage = () => {
               { icon: FaChartLine, label: 'Projected by 2028', value: '1000', color: 'forest.500' },
             ].map((stat, index) => (
               <ScrollReveal key={index} delay={0.1 * index}>
-                <Box 
-                  bg="white" 
-                  borderRadius="2xl" 
+                <Box
+                  bg="white"
+                  borderRadius="2xl"
                   p={6}
                   textAlign="center"
                   boxShadow="0 4px 20px rgba(0,0,0,0.08)"
@@ -73,12 +73,12 @@ const AssessmentPage = () => {
                   _hover={{ boxShadow: '0 8px 30px rgba(130,0,0,0.12)', transform: 'translateY(-2px)' }}
                   transition="all 0.3s ease"
                 >
-                  <Flex 
-                    align="center" 
-                    justify="center" 
-                    w="60px" 
-                    h="60px" 
-                    borderRadius="full" 
+                  <Flex
+                    align="center"
+                    justify="center"
+                    w="60px"
+                    h="60px"
+                    borderRadius="full"
                     bg="cream.50"
                     mx="auto"
                     mb={4}
@@ -98,17 +98,17 @@ const AssessmentPage = () => {
 
           {/* Modern Table */}
           <ScrollReveal delay={0.2}>
-            <Box 
-              bg="white" 
-              borderRadius="2xl" 
+            <Box
+              bg="white"
+              borderRadius="2xl"
               overflow="hidden"
               boxShadow="0 8px 30px rgba(0,0,0,0.1)"
               border="1px solid"
               borderColor="gray.100"
             >
-              <Box 
-                bg="maroon.500" 
-                py={4} 
+              <Box
+                bg="maroon.500"
+                py={4}
                 px={6}
               >
                 <Heading size="md" color="white" fontWeight="600">
@@ -119,9 +119,9 @@ const AssessmentPage = () => {
                 <Table variant="simple" size="lg">
                   <Thead>
                     <Tr bg="cream.50">
-                      <Th 
-                        color="maroon.500" 
-                        fontWeight="700" 
+                      <Th
+                        color="maroon.500"
+                        fontWeight="700"
                         fontSize="md"
                         py={4}
                         textAlign="center"
@@ -130,9 +130,9 @@ const AssessmentPage = () => {
                       >
                         YEAR
                       </Th>
-                      <Th 
-                        color="maroon.500" 
-                        fontWeight="700" 
+                      <Th
+                        color="maroon.500"
+                        fontWeight="700"
                         fontSize="md"
                         py={4}
                         textAlign="center"
@@ -141,9 +141,9 @@ const AssessmentPage = () => {
                       >
                         MALE
                       </Th>
-                      <Th 
-                        color="maroon.500" 
-                        fontWeight="700" 
+                      <Th
+                        color="maroon.500"
+                        fontWeight="700"
                         fontSize="md"
                         py={4}
                         textAlign="center"
@@ -152,9 +152,9 @@ const AssessmentPage = () => {
                       >
                         FEMALE
                       </Th>
-                      <Th 
-                        color="forest.500" 
-                        fontWeight="700" 
+                      <Th
+                        color="forest.500"
+                        fontWeight="700"
                         fontSize="md"
                         py={4}
                         textAlign="center"
@@ -167,14 +167,14 @@ const AssessmentPage = () => {
                   </Thead>
                   <Tbody>
                     {enrollmentData.map((row, index) => (
-                      <Tr 
+                      <Tr
                         key={row.year}
                         _hover={{ bg: 'cream.50' }}
                         transition="all 0.2s ease"
                       >
-                        <Td 
-                          textAlign="center" 
-                          fontWeight="600" 
+                        <Td
+                          textAlign="center"
+                          fontWeight="600"
                           color="maroon.600"
                           py={4}
                           borderBottom="1px solid"
@@ -182,8 +182,8 @@ const AssessmentPage = () => {
                         >
                           {row.year}
                         </Td>
-                        <Td 
-                          textAlign="center" 
+                        <Td
+                          textAlign="center"
                           color="gray.700"
                           py={4}
                           borderBottom="1px solid"
@@ -191,8 +191,8 @@ const AssessmentPage = () => {
                         >
                           {row.male}
                         </Td>
-                        <Td 
-                          textAlign="center" 
+                        <Td
+                          textAlign="center"
                           color="gray.700"
                           py={4}
                           borderBottom="1px solid"
@@ -200,9 +200,9 @@ const AssessmentPage = () => {
                         >
                           {row.female}
                         </Td>
-                        <Td 
-                          textAlign="center" 
-                          fontWeight="700" 
+                        <Td
+                          textAlign="center"
+                          fontWeight="700"
                           color="forest.500"
                           bg={index === 0 ? 'forest.50' : 'transparent'}
                           py={4}
@@ -246,17 +246,17 @@ const AssessmentPage = () => {
           animate={{ scale: [1.1, 1, 1.1], rotate: [0, -20, 0] }}
           transition={{ duration: 12, repeat: Infinity }}
         />
-        
+
         <Box maxW="1000px" mx="auto" position="relative" zIndex={1}>
           <ScrollReveal>
             <VStack spacing={8} align="start">
               <Heading size="xl" color="white" fontWeight="700">
                 Assessment and Analysis
               </Heading>
-              
-              <Box 
-                bg="white" 
-                borderRadius="2xl" 
+
+              <Box
+                bg="white"
+                borderRadius="2xl"
                 p={8}
                 w="100%"
                 boxShadow="0 8px 30px rgba(0,0,0,0.2)"
@@ -266,9 +266,9 @@ const AssessmentPage = () => {
                 <Heading size="md" color="maroon.600" mb={4}>
                   3.1 School Enrolment
                 </Heading>
-                <Text 
-                  color="gray.700" 
-                  lineHeight="2" 
+                <Text
+                  color="gray.700"
+                  lineHeight="2"
                   fontSize="md"
                   whiteSpace="pre-line"
                 >
@@ -298,9 +298,9 @@ ${enrollmentComment}`}
 
           {/* Pass Rate Table */}
           <ScrollReveal delay={0.1}>
-            <Box 
-              bg="white" 
-              borderRadius="2xl" 
+            <Box
+              bg="white"
+              borderRadius="2xl"
               overflow="hidden"
               boxShadow="0 8px 30px rgba(0,0,0,0.1)"
               border="1px solid"
@@ -308,9 +308,9 @@ ${enrollmentComment}`}
               maxW="800px"
               mx="auto"
             >
-              <Box 
-                bgGradient="linear(to-r, forest.500, forest.600)" 
-                py={4} 
+              <Box
+                bgGradient="linear(to-r, forest.500, forest.600)"
+                py={4}
                 px={6}
               >
                 <Heading size="md" color="white" fontWeight="600">
@@ -321,9 +321,9 @@ ${enrollmentComment}`}
                 <Table variant="simple" size="lg">
                   <Thead>
                     <Tr bg="cream.50">
-                      <Th 
-                        color="maroon.500" 
-                        fontWeight="700" 
+                      <Th
+                        color="maroon.500"
+                        fontWeight="700"
                         fontSize="md"
                         py={4}
                         textAlign="center"
@@ -332,9 +332,9 @@ ${enrollmentComment}`}
                       >
                         YEAR
                       </Th>
-                      <Th 
-                        color="forest.500" 
-                        fontWeight="700" 
+                      <Th
+                        color="forest.500"
+                        fontWeight="700"
                         fontSize="md"
                         py={4}
                         textAlign="center"
@@ -347,14 +347,14 @@ ${enrollmentComment}`}
                   </Thead>
                   <Tbody>
                     {passRateData.map((row, index) => (
-                      <Tr 
+                      <Tr
                         key={row.year}
                         _hover={{ bg: 'cream.50' }}
                         transition="all 0.2s ease"
                       >
-                        <Td 
-                          textAlign="center" 
-                          fontWeight="600" 
+                        <Td
+                          textAlign="center"
+                          fontWeight="600"
                           color="maroon.600"
                           py={4}
                           borderBottom="1px solid"
@@ -362,9 +362,9 @@ ${enrollmentComment}`}
                         >
                           {row.year}
                         </Td>
-                        <Td 
-                          textAlign="center" 
-                          fontWeight="700" 
+                        <Td
+                          textAlign="center"
+                          fontWeight="700"
                           color={row.rate >= 80 ? 'forest.500' : row.rate >= 70 ? 'maroon.500' : 'gray.600'}
                           bg={index === 0 ? row.rate >= 80 ? 'forest.50' : 'transparent' : 'transparent'}
                           py={4}
@@ -383,9 +383,9 @@ ${enrollmentComment}`}
 
           {/* Analysis Comment */}
           <ScrollReveal delay={0.2}>
-            <Box 
-              bg="white" 
-              borderRadius="2xl" 
+            <Box
+              bg="white"
+              borderRadius="2xl"
               p={8}
               mt={12}
               boxShadow="0 8px 30px rgba(0,0,0,0.2)"
@@ -397,9 +397,9 @@ ${enrollmentComment}`}
               <Heading size="md" color="forest.600" mb={4}>
                 3.2 ZIMSEC National Grade 7 Pass-rate
               </Heading>
-              <Text 
-                color="gray.700" 
-                lineHeight="2" 
+              <Text
+                color="gray.700"
+                lineHeight="2"
                 fontSize="md"
                 whiteSpace="pre-line"
               >
@@ -411,9 +411,9 @@ ${enrollmentComment}`}
       </Box>
 
       {/* CTA Section */}
-      <Box 
-        py={20} 
-        px={4} 
+      <Box
+        py={20}
+        px={4}
         bgGradient="linear(135deg, forest.500 0%, forest.600 100%)"
         position="relative"
         overflow="hidden"
@@ -440,14 +440,14 @@ ${enrollmentComment}`}
           animate={{ scale: [1.1, 1, 1.1], rotate: [0, -15, 0] }}
           transition={{ duration: 10, repeat: Infinity }}
         />
-        
+
         <Box maxW="800px" mx="auto" textAlign="center" position="relative" zIndex={1}>
           <VStack spacing={6}>
             <Heading size="2xl" color="white" fontWeight="700">
               Join Our Learning Community
             </Heading>
             <Text color="whiteAlpha.900" fontSize="lg" maxW="600px" lineHeight="1.8">
-              Enroll your child at St James Zongoro Primary School and give them 
+              Enroll your child at St James Zongoro Primary School and give them
               the opportunity to excel academically and grow in faith.
             </Text>
             <Flex gap={4} mt={4} direction={{ base: 'column', md: 'row' }}>
