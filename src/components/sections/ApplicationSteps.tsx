@@ -79,17 +79,7 @@ const ApplicationSteps = () => {
             ))}
           </VStack>
         ) : (
-          <Box position="relative">
-            <Box
-              position="absolute"
-              top="60px"
-              left="0"
-              right="0"
-              h="3px"
-              bgGradient="linear(to-r, maroon.300, forest.500, maroon.300)"
-              zIndex={0}
-            />
-            <SimpleGrid columns={5} spacing={4}>
+          <SimpleGrid columns={5} spacing={4}>
               {applicationSteps.map((step, index) => (
                 <ScrollReveal key={step.step} delay={0.1 * index}>
                   <VStack spacing={4} position="relative" zIndex={1}>
@@ -128,7 +118,6 @@ const ApplicationSteps = () => {
                 </ScrollReveal>
               ))}
             </SimpleGrid>
-          </Box>
         )}
       </Box>
     </Box>

@@ -151,23 +151,10 @@ const FeesOverview = () => {
               overflow="hidden"
               border="1px solid"
               borderColor="gray.100"
-              position="relative"
-              _before={{
-                content: '""',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                bgGradient: 'linear(to-br, rgba(255,255,255,0.95), rgba(130,0,32,0.01))',
-                opacity: 0,
-                transition: 'opacity 0.3s ease'
-              }}
               _hover={{
                 transform: 'translateY(-2px)',
                 boxShadow: '0 16px 48px rgba(130,0,32,0.2), 0 8px 24px rgba(0,0,0,0.12)',
-                borderColor: 'maroon.200',
-                _before: { opacity: 1 }
+                borderColor: 'maroon.200'
               }}
               transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
             >

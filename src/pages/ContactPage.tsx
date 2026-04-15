@@ -199,13 +199,8 @@ const ContactForm = () => {
               borderRadius="full"
               px={{ base: 6, md: 10 }}
               _hover={{
-                bg: 'forest.600',
                 transform: 'translateY(-2px)',
-                boxShadow: '0 10px 30px rgba(45,106,79,0.3)'
-              }}
-              _active={{
-                bg: 'forest.700',
-                transform: 'translateY(0)'
+                boxShadow: '0 8px 25px rgba(45,106,79,0.3)'
               }}
               transition="all 0.3s ease"
             >
