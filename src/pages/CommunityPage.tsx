@@ -8,6 +8,7 @@ import {
   Flex,
   Icon,
   Image,
+  Link,
 } from '@chakra-ui/react';
 import { FaUsers, FaBus, FaGift, FaPlay } from 'react-icons/fa';
 import PageHero from '../components/ui/PageHero';
@@ -35,8 +36,8 @@ const activities = [
   {
     title: 'Drama & Performance',
     description: 'Students showcase their talents through plays and performances celebrating our community heritage.',
-    type: 'placeholder',
-    placeholder: 'Video Content Coming Soon',
+    type: 'video',
+    videoId: 'RO3Te5m1ZBQ',
   },
   {
     title: 'Fundraising Events',
@@ -228,24 +229,55 @@ const CommunityPage = () => {
                       _hover={{ borderColor: 'maroon.300', transform: 'translateY(-6px)', boxShadow: '0 12px 40px rgba(128, 0, 32, 0.15)' }}
                       transition="all 0.35s cubic-bezier(0.4, 0, 0.2, 1)"
                     >
-                      <Box 
-                        h={{ base: '200px', md: '180px' }} 
-                        bg="maroon.500"
-                        display="flex"
-                        alignItems="center"
-                        justifyContent="center"
-                        position="relative"
-                        flexDirection="column"
-                        p={4}
-                      >
-                        <Icon as={FaPlay} color="white" fontSize="2xl" mb={2} opacity={0.8} />
-                        <Text color="white" fontWeight="700" fontSize="sm" textAlign="center">
-                          {activity.placeholder}
-                        </Text>
-                        <Text color="whiteAlpha.700" fontSize="xs" mt={2} textAlign="center" maxW="200px">
-                          We're partnering with the school to capture authentic content. School videos will be featured here once available.
-                        </Text>
-                      </Box>
+                      {activity.type === 'video' && activity.videoId ? (
+                        <Link 
+                          href={`https://youtu.be/${activity.videoId}`} 
+                          isExternal 
+                          _hover={{ textDecoration: 'none' }}
+                          w="100%"
+                        >
+                          <Box 
+                            h={{ base: '200px', md: '180px' }} 
+                            bg="maroon.500"
+                            display="flex"
+                            alignItems="center"
+                            justifyContent="center"
+                            position="relative"
+                            flexDirection="column"
+                            p={4}
+                            cursor="pointer"
+                            _hover={{ bg: 'maroon.600' }}
+                            transition="all 0.3s ease"
+                          >
+                            <Icon as={FaPlay} color="white" fontSize="3xl" mb={2} opacity={0.9} />
+                            <Text color="white" fontWeight="700" fontSize="sm" textAlign="center">
+                              Watch on YouTube
+                            </Text>
+                            <Text color="whiteAlpha.700" fontSize="xs" mt={2} textAlign="center" maxW="200px">
+                              Click to view the drama performance
+                            </Text>
+                          </Box>
+                        </Link>
+                      ) : (
+                        <Box 
+                          h={{ base: '200px', md: '180px' }} 
+                          bg="maroon.500"
+                          display="flex"
+                          alignItems="center"
+                          justifyContent="center"
+                          position="relative"
+                          flexDirection="column"
+                          p={4}
+                        >
+                          <Icon as={FaPlay} color="white" fontSize="2xl" mb={2} opacity={0.8} />
+                          <Text color="white" fontWeight="700" fontSize="sm" textAlign="center">
+                            {activity.placeholder}
+                          </Text>
+                          <Text color="whiteAlpha.700" fontSize="xs" mt={2} textAlign="center" maxW="200px">
+                            We're partnering with the school to capture authentic content. School videos will be featured here once available.
+                          </Text>
+                        </Box>
+                      )}
                       <Box p={5}>
                         <Heading size="sm" color="gray.800" mb={2}>
                           {activity.title}
