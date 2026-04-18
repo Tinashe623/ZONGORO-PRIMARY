@@ -8,7 +8,6 @@ import {
   TabList,
   Tab,
   Badge,
-  Flex,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -16,6 +15,8 @@ import {
   ModalCloseButton,
   useDisclosure,
   Skeleton,
+  Button,
+  VStack,
 } from '@chakra-ui/react';
 import { galleryImages } from '../data/gallery';
 import type { GalleryImage } from '../data/gallery';
@@ -30,77 +31,76 @@ interface ImageCardProps {
 }
 
 const ImageCard = memo(({ image, onClick }: ImageCardProps) => {
-  const [isHovered, setIsHovered] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const shortDescription = image.description 
+    ? image.description.slice(0, 80) + (image.description.length > 80 ? '...' : '')
+    : '';
 
   return (
     <Box
-      position="relative"
       borderRadius="2xl"
       overflow="hidden"
-      cursor="pointer"
       bg="white"
-      boxShadow={isHovered ? 'cardHover' : 'card'}
-      border="2px solid"
-      borderColor={isHovered ? 'maroon.500' : 'transparent'}
-      transition="all 0.3s ease"
+      boxShadow="card"
+      transition="all 0.2s ease"
       _hover={{
-        transform: 'translateY(-4px)',
+        transform: 'translateY(-2px)',
+        boxShadow: 'cardHover',
       }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onClick={onClick}
-      role="button"
-      tabIndex={0}
-      aria-label={`View ${image.alt}`}
-      _focus={{ outline: '2px solid', outlineColor: 'maroon.500' }}
     >
-      {!isLoaded && (
-        <Skeleton 
-          position="absolute" 
-          top={0} 
-          left={0} 
-          right={0} 
-          h="250px" 
-          startColor="cream.50" 
-          endColor="gray.100" 
-        />
-      )}
-      <Image
-        src={image.src}
-        alt={image.alt}
-        w="100%"
-        h="250px"
-        objectFit="contain"
-        bg="cream.50"
-        transition="transform 0.3s ease"
-        transform={isHovered ? 'scale(1.02)' : 'scale(1)'}
-        loading="lazy"
-        decoding="async"
-        onLoad={() => setIsLoaded(true)}
-        opacity={isLoaded ? 1 : 0}
-      />
-      <Flex
-        position="absolute"
-        top={0}
-        left={0}
-        right={0}
-        bottom={0}
-        bg="blackAlpha.600"
-        opacity={isHovered ? 1 : 0}
-        transition="opacity 0.3s ease"
-        align="center"
-        justify="center"
-        direction="column"
-        p={4}
+      <Box
+        cursor="pointer"
+        onClick={onClick}
+        role="button"
+        tabIndex={0}
+        aria-label={`View ${image.alt}`}
+        _focus={{ outline: '2px solid', outlineColor: 'maroon.500' }}
       >
-        <Text color="white" fontWeight="600" textAlign="center" textShadow="0 2px 4px rgba(0,0,0,0.5)">
-          {image.alt}
-        </Text>
-        <Badge mt={2} bg="forest.500" color="white" px={3} py={1} borderRadius="full" fontSize="xs">
-          {image.category}
-        </Badge>
-      </Flex>
+        {!isLoaded && (
+          <Skeleton 
+            w="100%" 
+            h="250px" 
+            startColor="cream.50" 
+            endColor="gray.100" 
+          />
+        )}
+        <Image
+          src={image.src}
+          alt={image.alt}
+          w="100%"
+          h="250px"
+          objectFit="contain"
+          bg="cream.50"
+          loading="lazy"
+          decoding="async"
+          onLoad={() => setIsLoaded(true)}
+          opacity={isLoaded ? 1 : 0}
+        />
+      </Box>
+      <Box p={4} bg="gray.50" borderTop="1px" borderColor="gray.100">
+        <VStack align="start" spacing={2}>
+          <Text fontWeight="600" fontSize="md" color="gray.800">
+            {image.alt}
+          </Text>
+          {image.description && (
+            <>
+              <Text fontSize="sm" color="gray.600" noOfLines={isExpanded ? undefined : 2}>
+                {isExpanded ? image.description : shortDescription}
+              </Text>
+              <Button 
+                size="xs" 
+                colorScheme="forest" 
+                variant="link" 
+                onClick={() => setIsExpanded(!isExpanded)}
+              >
+                {isExpanded ? 'Show less' : 'Read more'}
+              </Button>
+            </>
+          )}
+        </VStack>
+      </Box>
     </Box>
   );
 });
@@ -184,12 +184,14 @@ const GalleryPage = () => {
         <ModalOverlay bg="blackAlpha.800" backdropFilter="blur(5px)" />
         <ModalContent bg="transparent" boxShadow="none">
           <ModalCloseButton 
-            color="white" 
+            color="gray.800" 
+            bg="white"
             size="lg" 
             top={4}
             right={4}
             zIndex={10}
-            _hover={{ bg: 'whiteAlpha.300' }}
+            borderRadius="full"
+            _hover={{ bg: 'gray.200' }}
           />
           <ModalBody p={0} display="flex" alignItems="center" justifyContent="center">
             {selectedImage && (

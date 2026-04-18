@@ -4,6 +4,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import Hero from '../components/sections/Hero';
 import WhyChooseUs from '../components/sections/WhyChooseUs';
 import FacilitiesSection from '../components/sections/FacilitiesSection';
+import Announcements from '../components/sections/Announcements';
 import Testimonials from '../components/sections/Testimonials';
 import ScrollReveal from '../components/ui/ScrollReveal';
 
@@ -16,6 +17,7 @@ const HomePage = () => {
     <Box>
       <Hero />
       <WhyChooseUs />
+      <Announcements />
       <FacilitiesSection />
       
       <Box

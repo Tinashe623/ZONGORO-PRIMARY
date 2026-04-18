@@ -2,6 +2,7 @@ export interface GalleryImage {
   src: string;
   alt: string;
   category: 'School Activities' | 'Church Events' | 'Sports' | 'Projects' | 'Activities' | 'Achievements';
+  description?: string;
 }
 
 export const galleryImages: GalleryImage[] = [
@@ -35,8 +36,15 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     src: '/images/gallery/sports/chimanimanni-champions.jpg',
-    alt: 'Chimanimanni Champions',
+    alt: 'Sibongile Mutasa - From Talent to COSSASA Games',
     category: 'Sports',
+    description: 'This photo was taken in 2023 when our school identified Sibongile Mutasa\'s talent in athletics as a sprinter. She was in Grade 5, representing the School, Cluster and District in the Under-12 category at Provincial level—a remarkable achievement. Our school takes pride in not just spotting talent but nurturing it with dedication. Today, Sibongile represents Team Zimbabwe in the COSSASA Games in the Kingdom of Eswatini. A testament to our commitment to developing athletes of tomorrow.',
+  },
+  {
+    src: '/images/gallery/sports/sibo-200m.jpg',
+    alt: 'Sibongile Mutasa - Manicaland Province 200m Under-16 Champion',
+    category: 'Sports',
+    description: 'Congratulations to our very own learner, Sibongile Mutasa for being crowned the 200m U16 Girls Champion in Manicaland Province. Your speed, determination and hard work have made the school proud. Keep flying high!',
   },
   {
     src: '/images/gallery/sports/vollyball.jpg',
@@ -55,18 +63,21 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     src: '/images/gallery/sports/quiz-group.jpg',
-    alt: 'Quiz Competition Team',
+    alt: '2025 Mutasa District Champions - Guidance and Counselling Quiz',
     category: 'Sports',
+    description: 'We continue to shine on the grand stage. It\'s registered on the permanent record that in the Guidance and Counselling Quiz Competitions sponsored by the National Aids Council held on 02/07/2025 in Honde Valley, St James The Great Primary School Zongoro are proudly the 2025 Mutasa District Champions.',
   },
   {
     src: '/images/gallery/sports/sibongile.jpg',
-    alt: 'Sibongile Player',
+    alt: 'Sibongile Mutasa - COSSASA Games 2025 Under 14 Silver Medalist',
     category: 'Sports',
+    description: 'Sibongile Mutasa of St James the Great Primary School Zongoro - The COSSASA Games 2025 Under 14 Girls 100m Silver Medalist, Kingdom of Eswatini',
   },
   {
     src: '/images/gallery/sports/beverly.jpg',
-    alt: 'Beverly Athlete',
+    alt: 'SPEED BIKES Zimbabwe - Platinum Sponsor',
     category: 'Sports',
+    description: 'Thank you very much SPEED BIKES Zimbabwe for being our platinum sponsor. We couldn\'t have reached this far without you. With your continued support, the future is very bright.',
   },
 
   // Projects
@@ -159,5 +170,11 @@ export const galleryImages: GalleryImage[] = [
     src: '/images/gallery/vegetable.jpg',
     alt: 'School Garden',
     category: 'School Activities',
+  },
+  {
+    src: '/images/gallery/pupils-capital.jpg',
+    alt: 'First Capital Bank Zimbabwe - Global Money Week 2026',
+    category: 'School Activities',
+    description: 'We are proud to have hosted First Capital Bank Zimbabwe for the commemoration of the Global Money Week for the year 2026. The event left us richer and more empowered. Thank you First Capital Mutare for the philanthropic and strategic visit. Long live our strategic business partnership!',
   },
 ];

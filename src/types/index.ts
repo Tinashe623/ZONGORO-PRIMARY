@@ -5,6 +5,7 @@ export interface GalleryImage {
   src: string;
   alt: string;
   category: GalleryCategory;
+  description?: string;
 }
 
 export type GalleryCategory = 

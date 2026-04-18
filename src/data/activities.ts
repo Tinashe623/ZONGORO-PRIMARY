@@ -19,6 +19,15 @@ export const activities: Activity[] = [
     achievements: ['District Champions 2024', '3 Provincial Finals'],
   },
   {
+    id: 11,
+    name: 'Athletics',
+    category: 'sports',
+    description: 'Our athletics program develops speed, strength, and endurance through track and field events.',
+    icon: 'FaRunning',
+    schedule: 'After School',
+    achievements: ['Manicaland Province 200m Under-16 Champion - Sibongile Mutasa 2024'],
+  },
+  {
     id: 2,
     name: 'Volleyball',
     category: 'sports',

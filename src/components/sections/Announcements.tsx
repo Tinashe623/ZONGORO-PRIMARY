@@ -7,8 +7,11 @@ import {
   Card,
   CardBody,
   Badge,
+  Button,
+  Collapse,
   Link,
 } from '@chakra-ui/react';
+import { useState } from 'react';
 import { announcements } from '../../data/announcements';
 import SectionHeading from '../ui/SectionHeading';
 import ScrollReveal from '../ui/ScrollReveal';
@@ -22,15 +25,23 @@ const formatDate = (dateString: string) => {
   });
 };
 
+interface Announcement {
+  date: string;
+  title: string;
+  excerpt: string;
+  content?: string;
+  sourceUrl?: string;
+}
+
 const AnnouncementCard = ({
   date,
   title,
   excerpt,
-}: {
-  date: string;
-  title: string;
-  excerpt: string;
-}) => {
+  content,
+  sourceUrl,
+}: Announcement) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <Card
       bg="white"
@@ -38,7 +49,6 @@ const AnnouncementCard = ({
       boxShadow="0 4px 20px rgba(0,0,0,0.08)"
       transition="all 0.3s ease"
       _hover={{ transform: 'translateY(-4px)', boxShadow: '0 8px 30px rgba(0,0,0,0.12)' }}
-      h="100%"
     >
       <CardBody p={6}>
         <VStack align="start" spacing={4}>
@@ -58,13 +68,28 @@ const AnnouncementCard = ({
           <Text color="gray.600" lineHeight="1.7">
             {excerpt}
           </Text>
-          <Link
-            color="maroon.500"
-            fontWeight="600"
-            _hover={{ textDecoration: 'underline' }}
-          >
-            Read More →
-          </Link>
+          {content && (
+            <>
+              <Collapse in={isExpanded} style={{ width: '100%' }}>
+                <Text color="gray.600" lineHeight="1.7" whiteSpace="pre-wrap">
+                  {content}
+                </Text>
+                {sourceUrl && (
+                  <Link href={sourceUrl} isExternal color="maroon.500" fontWeight="600" _hover={{ textDecoration: 'underline' }} mt={2} display="block">
+                    Read full article →
+                  </Link>
+                )}
+              </Collapse>
+              <Button
+                size="sm"
+                colorScheme="maroon"
+                variant="link"
+                onClick={() => setIsExpanded(!isExpanded)}
+              >
+                {isExpanded ? 'Show less' : 'Read More →'}
+              </Button>
+            </>
+          )}
         </VStack>
       </CardBody>
     </Card>
@@ -85,7 +110,13 @@ const Announcements = () => {
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6}>
           {announcements.map((announcement, index) => (
             <ScrollReveal key={index} delay={0.1 * index}>
-              <AnnouncementCard {...announcement} />
+              <AnnouncementCard 
+                date={announcement.date}
+                title={announcement.title}
+                excerpt={announcement.excerpt}
+                content={announcement.content}
+                sourceUrl={announcement.sourceUrl}
+              />
             </ScrollReveal>
           ))}
         </SimpleGrid>
