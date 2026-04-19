@@ -87,8 +87,8 @@ const ActivityCard = ({ activity }: { activity: typeof activities[0] }) => {
       _hover={{
         transform: 'translateY(-2px) scale(1.02)',
         boxShadow: isAcademic
-          ? '0 12px 40px rgba(59, 130, 246, 0.2)'
-          : '0 12px 40px rgba(0,0,0,0.15)',
+          ? '0 10px 32px rgba(59, 130, 246, 0.18)'
+          : '0 10px 32px rgba(0,0,0,0.12)',
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

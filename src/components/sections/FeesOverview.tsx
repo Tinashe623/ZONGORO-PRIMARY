@@ -98,7 +98,7 @@ const FeesOverview = () => {
                   }}
                   _hover={{
                     transform: 'translateY(-4px) scale(1.01)',
-                    boxShadow: '0 16px 48px rgba(45,106,79,0.18), 0 8px 24px rgba(0,0,0,0.12)',
+                    boxShadow: '0 12px 32px rgba(45,106,79,0.15), 0 6px 16px rgba(0,0,0,0.08)',
                     borderColor: 'forest.200',
                     _before: { opacity: 1 }
                   }}
@@ -147,13 +147,13 @@ const FeesOverview = () => {
             <Box
               bg="white"
               borderRadius="2xl"
-              boxShadow="0 12px 40px rgba(0,0,0,0.15), 0 6px 20px rgba(0,0,0,0.08)"
+              boxShadow="0 8px 24px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04)"
               overflow="hidden"
               border="1px solid"
               borderColor="gray.100"
               _hover={{
                 transform: 'translateY(-2px)',
-                boxShadow: '0 16px 48px rgba(130,0,32,0.2), 0 8px 24px rgba(0,0,0,0.12)',
+                boxShadow: '0 12px 32px rgba(130,0,32,0.15), 0 6px 16px rgba(0,0,0,0.08)',
                 borderColor: 'maroon.200'
               }}
               transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"

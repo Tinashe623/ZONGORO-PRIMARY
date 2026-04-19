@@ -35,11 +35,8 @@ const AdmissionRequirements = () => {
               <Box
                 bg="white"
                 borderRadius="2xl"
-                boxShadow="0 8px 30px rgba(0,0,0,0.1)"
-                overflow="hidden"
-                border="1px solid"
-                borderColor="gray.100"
-                _hover={{ transform: 'translateY(-4px)', boxShadow: '0 12px 40px rgba(130,0,0,0.15)', borderColor: 'maroon.200' }}
+                boxShadow="0 6px 20px rgba(0,0,0,0.06)"
+                _hover={{ transform: 'translateY(-4px)', boxShadow: '0 10px 30px rgba(130,0,0,0.1)', borderColor: 'maroon.200' }}
                 transition="all 0.3s ease"
               >
                 {/* Colored top bar */}

@@ -26,7 +26,6 @@ const Footer = () => {
       pb={6}
       position="relative"
       overflow="hidden"
-      boxShadow="0 10px 40px rgba(128, 0, 32, 0.3)"
     >
       <Box
         position="absolute"
@@ -51,9 +50,8 @@ const Footer = () => {
         top={0}
         left={0}
         right={0}
-        h="4px"
-        bgGradient="linear(to-r, #00ff88, #00cc6a, #00ff88)"
-        boxShadow="0 0 20px rgba(0, 255, 136, 0.5), 0 0 40px rgba(0, 255, 136, 0.3)"
+        h="3px"
+        bg="maroon.400"
       />
       <Box
         position="absolute"

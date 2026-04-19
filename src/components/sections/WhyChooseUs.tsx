@@ -77,7 +77,7 @@ const WhyChooseUs = () => {
                 transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
                 _hover={{
                   transform: 'translateY(-8px)',
-                  boxShadow: '0 20px 40px rgba(128, 0, 32, 0.15)',
+                  boxShadow: '0 16px 32px rgba(128, 0, 32, 0.12)',
                   borderColor: 'maroon.200',
                 }}
                 h="100%"

@@ -48,7 +48,7 @@ const ApplicationSteps = () => {
                   p={6}
                   gap={5}
                   align="start"
-                  _hover={{ transform: 'translateX(4px)', boxShadow: '0 12px 40px rgba(130,0,0,0.12)' }}
+                  _hover={{ transform: 'translateX(4px)', boxShadow: '0 10px 30px rgba(130,0,0,0.1)' }}
                   transition="all 0.3s ease"
                 >
                   <Flex
@@ -58,7 +58,7 @@ const ApplicationSteps = () => {
                     h="60px"
                     borderRadius="2xl"
                     bg="maroon.500"
-                    boxShadow="0 4px 15px rgba(128, 0, 32, 0.3)"
+                    boxShadow="0 3px 10px rgba(128, 0, 32, 0.2)"
                     flexShrink={0}
                   >
                     <Icon as={iconMap[step.step]} color="white" fontSize="2xl" />
@@ -98,10 +98,10 @@ const ApplicationSteps = () => {
                       bg="white" 
                       p={6} 
                       borderRadius="2xl" 
-                      boxShadow="0 8px 30px rgba(0,0,0,0.1)" 
+                  boxShadow="0 6px 20px rgba(0,0,0,0.06)"
                       textAlign="center" 
                       w="100%"
-                      _hover={{ transform: 'translateY(-4px)', boxShadow: '0 12px 40px rgba(130,0,0,0.15)' }}
+                      _hover={{ transform: 'translateY(-4px)', boxShadow: '0 10px 30px rgba(130,0,0,0.1)' }}
                       transition="all 0.3s ease"
                     >
                       <Text color="maroon.500" fontWeight="700" fontSize="sm" mb={2}>

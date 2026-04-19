@@ -69,11 +69,11 @@ const AboutPage = () => {
                 overflow="hidden"
                 position="relative"
               >
-                <Image 
-                  src="/images/about.jpg" 
-                  alt="St James Zongoro Primary School" 
-                  w="100%" 
-                  h="100%" 
+                <Image
+                  src="/images/about-image.png"
+                  alt="St James Zongoro Primary School Campus"
+                  w="100%"
+                  h="100%"
                   objectFit="cover"
                 />
                 <Box 

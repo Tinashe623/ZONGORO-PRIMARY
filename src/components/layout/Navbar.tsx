@@ -60,22 +60,23 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
         { name: 'Anglican Heritage', to: '/church' },
         { name: 'Community', to: '/community' },
         { name: 'Gallery', to: '/gallery' },
+        { name: 'Our Team', to: '/staff' },
       ],
     },
     {
       name: 'Academics',
       items: [
         { name: 'Curriculum', to: '/academics' },
-        { name: 'Assessment & Analysis', to: '/assessment' },
-        { name: 'Activities', to: '/activities' },
+        { name: 'Assessment & Results', to: '/assessment' },
+        { name: 'School Activities', to: '/activities' },
       ],
     },
     {
       name: 'Admissions',
       items: [
-        { name: 'Admissions', to: '/admissions' },
-        { name: 'Boarding', to: '/boarding' },
-        { name: 'Transport', to: '/transport' },
+        { name: 'How to Apply', to: '/admissions' },
+        { name: 'Boarding Life', to: '/boarding' },
+        { name: 'School Transport', to: '/transport' },
       ],
     },
   ];
@@ -94,14 +95,23 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
       borderBottom={isScrolled ? 'none' : '1px solid'}
       borderColor="maroon.100"
     >
-        <Flex
-          justify="space-between"
-          align="center"
-          maxW="1400px"
-          mx="auto"
-          py={3}
-          px={4}
-        >
+      <Box
+        position="absolute"
+        top={0}
+        left={0}
+        right={0}
+        h="3px"
+        bg="maroon.500"
+        boxShadow="0 2px 8px rgba(128, 0, 32, 0.3)"
+      />
+      <Flex
+        justify="space-between"
+        align="center"
+        maxW="1400px"
+        mx="auto"
+        py={3}
+        px={4}
+      >
           <RouterLink to="/" style={{ textDecoration: 'none' }}>
             <Flex align="center" gap={4} cursor="pointer">
               <Box
@@ -186,7 +196,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                 minW="200px"
                 bg="cream.50"
                 borderRadius="xl"
-                shadow="0 10px 40px rgba(128, 0, 32, 0.15)"
+                shadow="0 8px 24px rgba(128, 0, 32, 0.12)"
                 border="1px"
                 borderColor="maroon.100"
                 opacity={openDropdown === dropdown.name ? 1 : 0}
@@ -225,34 +235,6 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
               </Box>
             </Box>
           ))}
-
-          <RouterLink to="/staff">
-            <Button
-              variant="ghost"
-              fontWeight="600"
-              color={isActive('/staff') ? 'maroon.500' : 'gray.600'}
-              _hover={{ color: 'maroon.500', transform: 'translateY(-2px)' }}
-              size="sm"
-              px={3}
-              transition="all 0.2s ease"
-            >
-              Our Team
-            </Button>
-          </RouterLink>
-
-          <RouterLink to="/gallery">
-            <Button
-              variant="ghost"
-              fontWeight="600"
-              color={isActive('/gallery') ? 'maroon.500' : 'gray.600'}
-              _hover={{ color: 'maroon.500', transform: 'translateY(-2px)' }}
-              size="sm"
-              px={3}
-              transition="all 0.2s ease"
-            >
-              Gallery
-            </Button>
-          </RouterLink>
 
           <RouterLink to="/contact">
             <Button
@@ -363,58 +345,32 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
             }}
           >
             <VStack spacing={{ base: 4, md: 6 }} align="stretch">
-              {/* Main Links */}
-              <VStack spacing={1} align="stretch">
-                <RouterLink to="/" onClick={onClose}>
-                  <Box
-                    p={{ base: 3, md: 4 }}
-                    borderRadius="lg"
-                    bg={isActive('/') ? 'maroon.50' : 'transparent'}
-                    _hover={{ bg: 'gray.50', transform: 'translateX(4px)' }}
-                    transition="all 0.2s ease"
-                    borderLeft={isActive('/') ? '4px solid' : '4px solid'}
-                    borderLeftColor={isActive('/') ? 'maroon.500' : 'transparent'}
-                    minH={{ base: "48px", md: "auto" }}
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="space-between"
-                    cursor="pointer"
-                    role="button"
-                    tabIndex={0}
-                  >
-                    <Text fontWeight="600" color={isActive('/') ? 'maroon.500' : 'gray.700'} fontSize={{ base: "md", md: "lg" }}>
-                      🏠 Home
-                    </Text>
-                    <Text fontSize="lg" color="gray.400" opacity={0.7}>›</Text>
-                  </Box>
-                </RouterLink>
+              {/* Home Standalone */}
+              <RouterLink to="/" onClick={onClose}>
+                <Box
+                  p={{ base: 3, md: 4 }}
+                  borderRadius="lg"
+                  bg={isActive('/') ? 'maroon.50' : 'transparent'}
+                  _hover={{ bg: 'gray.50', transform: 'translateX(4px)' }}
+                  transition="all 0.2s ease"
+                  borderLeft={isActive('/') ? '4px solid' : '4px solid'}
+                  borderLeftColor={isActive('/') ? 'maroon.500' : 'transparent'}
+                  minH={{ base: "48px", md: "auto" }}
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="space-between"
+                  cursor="pointer"
+                  role="button"
+                  tabIndex={0}
+                >
+                  <Text fontWeight="600" color={isActive('/') ? 'maroon.500' : 'gray.700'} fontSize={{ base: "md", md: "lg" }}>
+                    🏠 Home
+                  </Text>
+                  <Text fontSize="lg" color="gray.400" opacity={0.7}>›</Text>
+                </Box>
+              </RouterLink>
 
-                <RouterLink to="/contact" onClick={onClose}>
-                  <Box
-                    p={{ base: 3, md: 4 }}
-                    borderRadius="lg"
-                    bg={isActive('/contact') ? 'maroon.50' : 'transparent'}
-                    _hover={{ bg: 'gray.50', transform: 'translateX(4px)' }}
-                    transition="all 0.2s ease"
-                    borderLeft={isActive('/contact') ? '4px solid' : '4px solid'}
-                    borderLeftColor={isActive('/contact') ? 'maroon.500' : 'transparent'}
-                    minH={{ base: "48px", md: "auto" }}
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="space-between"
-                    cursor="pointer"
-                    role="button"
-                    tabIndex={0}
-                  >
-                    <Text fontWeight="600" color={isActive('/contact') ? 'maroon.500' : 'gray.700'} fontSize={{ base: "md", md: "lg" }}>
-                      📞 Contact Us
-                    </Text>
-                    <Text fontSize="lg" color="gray.400" opacity={0.7}>›</Text>
-                  </Box>
-                </RouterLink>
-              </VStack>
-
-              {/* About Section */}
+              {/* About Section - With Our Team included */}
               <Box>
                 <Text
                   fontWeight="700"
@@ -428,10 +384,11 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                 </Text>
                 <VStack spacing={1} align="stretch">
                   {[
-                    { name: 'Our Story', to: '/about', emoji: '📖' },
-                    { name: 'Church Heritage', to: '/church', emoji: '⛪' },
-                    { name: 'Our Community', to: '/community', emoji: '🤝' },
-                    { name: 'Photo Gallery', to: '/gallery', emoji: '📸' },
+                    { name: 'Our School', to: '/about', emoji: '📖' },
+                    { name: 'Anglican Heritage', to: '/church', emoji: '⛪' },
+                    { name: 'Community', to: '/community', emoji: '🤝' },
+                    { name: 'Gallery', to: '/gallery', emoji: '📸' },
+                    { name: 'Our Team', to: '/staff', emoji: '👥' },
                   ].map((item) => (
                     <RouterLink key={item.to} to={item.to} onClick={onClose}>
                       <Box
@@ -460,7 +417,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                 </VStack>
               </Box>
 
-              {/* Academics Section */}
+              {/* Academic Programs Section */}
               <Box>
                 <Text
                   fontWeight="700"
@@ -470,11 +427,11 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                   letterSpacing="1px"
                   mb={2}
                 >
-                  Academics
+                  Academic Programs
                 </Text>
                 <VStack spacing={1} align="stretch">
                   {[
-                    { name: 'Our Curriculum', to: '/academics', emoji: '📚' },
+                    { name: 'Curriculum', to: '/academics', emoji: '📚' },
                     { name: 'Assessment & Results', to: '/assessment', emoji: '📊' },
                     { name: 'School Activities', to: '/activities', emoji: '⚽' },
                   ].map((item) => (
@@ -550,28 +507,27 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                 </VStack>
               </Box>
 
-              {/* Our Team */}
-              <RouterLink to="/staff" onClick={onClose}>
+              {/* Contact - Prominent button at bottom */}
+              <RouterLink to="/contact" onClick={onClose}>
                 <Box
-                  p={{ base: 3, md: 4 }}
-                  borderRadius="lg"
-                  bg={isActive('/staff') ? 'maroon.50' : 'transparent'}
-                  _hover={{ bg: 'gray.50', transform: 'translateX(4px)' }}
+                  p={{ base: 4, md: 5 }}
+                  borderRadius="xl"
+                  bg="maroon.500"
+                  color="white"
+                  _hover={{ transform: 'translateY(-2px)', boxShadow: '0 8px 24px rgba(128, 0, 32, 0.3)' }}
                   transition="all 0.2s ease"
-                  borderLeft={isActive('/staff') ? '4px solid' : '4px solid'}
-                  borderLeftColor={isActive('/staff') ? 'maroon.500' : 'transparent'}
-                  minH={{ base: "48px", md: "auto" }}
+                  minH={{ base: "56px", md: "auto" }}
                   display="flex"
                   alignItems="center"
                   justifyContent="space-between"
                   cursor="pointer"
                   role="button"
                   tabIndex={0}
+                  fontWeight="600"
+                  fontSize={{ base: "md", md: "lg" }}
                 >
-                  <Text fontWeight="600" color={isActive('/staff') ? 'maroon.500' : 'gray.700'} fontSize={{ base: "md", md: "lg" }}>
-                    👥 Meet Our Team
-                  </Text>
-                  <Text fontSize="lg" color="gray.400" opacity={0.7}>›</Text>
+                  <Text>📞 Contact Us</Text>
+                  <Text fontSize="lg">›</Text>
                 </Box>
               </RouterLink>
             </VStack>
