@@ -70,34 +70,30 @@ const Footer = () => {
       <Box maxW="1400px" mx="auto" px={4} position="relative" zIndex={1}>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
           <VStack align="start" spacing={4}>
-            <Flex align="center" gap={3} flexWrap="wrap">
+            <Flex align="center" gap={4} flexWrap="wrap">
               <Box
-                w="60px"
-                h="60px"
-                borderRadius="xl"
-                overflow="hidden"
-                border="2px solid"
-                borderColor="whiteAlpha.300"
+                w="64px"
+                h="64px"
               >
-                <Image 
-                  src="/images/st-james-promary-logo.jpg" 
-                  alt="School Logo" 
-                  w="100%" 
-                  h="100%" 
-                  objectFit="cover"
+                <Image
+                  src="/images/st-james-zongoro-primary-logo.png"
+                  alt="St James Zongoro Primary School Logo"
+                  w="100%"
+                  h="100%"
+                  objectFit="contain"
                 />
               </Box>
               <Box>
-                <Heading size="md" color="white" fontWeight="700">
+                <Heading size="md" color="white" fontWeight="700" lineHeight="1.1" letterSpacing="-0.02em">
                   St James Zongoro
                 </Heading>
-                <Text fontSize="xs" color="whiteAlpha.600" letterSpacing="0.5px">
+                <Text fontSize="xs" color="whiteAlpha.600" letterSpacing="0.15em" mt={0.5}>
                   PRIMARY SCHOOL
                 </Text>
               </Box>
             </Flex>
             <Text fontSize="sm" color="whiteAlpha.800" lineHeight="1.8">
-              Providing quality education rooted in Anglican values and community 
+              Providing quality education rooted in Anglican values and community
               partnership for over 100 years.
             </Text>
             <HStack spacing={2} pt={2}>

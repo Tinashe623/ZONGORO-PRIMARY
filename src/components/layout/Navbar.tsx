@@ -94,42 +94,52 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
       borderBottom={isScrolled ? 'none' : '1px solid'}
       borderColor="maroon.100"
     >
-      <Flex
-        justify="space-between"
-        align="center"
-        maxW="1400px"
-        mx="auto"
-        py={3}
-        px={4}
-      >
-        <RouterLink to="/" style={{ textDecoration: 'none' }}>
-          <Flex align="center" gap={3} cursor="pointer">
-            <Box 
-              w="40px"
-              h="40px"
-              borderRadius="lg"
-              overflow="hidden"
-              boxShadow="0 4px 14px rgba(128, 0, 32, 0.3)"
-              flexShrink={0}
-            >
-              <Image 
-                src="/images/st-james-promary-logo.jpg" 
-                alt="School Logo" 
-                w="100%" 
-                h="100%" 
-                objectFit="cover"
-              />
-            </Box>
-            <Box flexShrink={0}>
-              <Text fontSize={{ base: 'sm', md: 'lg' }} fontWeight="700" color="maroon.500" lineHeight="1.2">
-                St James Zongoro
-              </Text>
-              <Text fontSize="xs" fontWeight="600" color="gray.500" letterSpacing="0.5px" display={{ base: 'none', sm: 'block' }}>
-                PRIMARY SCHOOL
-              </Text>
-            </Box>
-          </Flex>
-        </RouterLink>
+        <Flex
+          justify="space-between"
+          align="center"
+          maxW="1400px"
+          mx="auto"
+          py={3}
+          px={4}
+        >
+          <RouterLink to="/" style={{ textDecoration: 'none' }}>
+            <Flex align="center" gap={4} cursor="pointer">
+              <Box
+                w="56px"
+                h="56px"
+                flexShrink={0}
+              >
+                <Image
+                  src="/images/st-james-zongoro-primary-logo.png"
+                  alt="St James Zongoro Primary School Logo"
+                  w="100%"
+                  h="100%"
+                  objectFit="contain"
+                />
+              </Box>
+              <Box flexShrink={0}>
+                <Text
+                  fontSize={{ base: 'lg', md: 'xl' }}
+                  fontWeight="700"
+                  color="maroon.500"
+                  lineHeight="1.1"
+                  letterSpacing="-0.02em"
+                >
+                  St James Zongoro
+                </Text>
+                <Text
+                  fontSize="xs"
+                  fontWeight="600"
+                  color="gray.500"
+                  letterSpacing="0.15em"
+                  mt={0.5}
+                  display={{ base: 'none', sm: 'block' }}
+                >
+                  PRIMARY SCHOOL
+                </Text>
+              </Box>
+            </Flex>
+          </RouterLink>
 
         <HStack spacing={1} display={{ base: 'none', lg: 'flex' }}>
 <RouterLink to="/">
@@ -296,28 +306,25 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
             borderColor="gray.200"
             bg="cream.50"
           >
-            <Flex align="center" gap={3}>
+            <Flex align="center" gap={4}>
               <Box
-                w="40px"
-                h="40px"
-                borderRadius="lg"
-                overflow="hidden"
-                boxShadow="0 2px 8px rgba(0,0,0,0.1)"
+                w="56px"
+                h="56px"
               >
                 <Image
-                  src="/images/st-james-promary-logo.jpg"
-                  alt="School Logo"
+                  src="/images/st-james-zongoro-primary-logo.png"
+                  alt="St James Zongoro Primary School Logo"
                   w="100%"
                   h="100%"
-                  objectFit="cover"
+                  objectFit="contain"
                 />
               </Box>
               <Box>
-                <Text fontSize="md" fontWeight="700" color="maroon.500">
+                <Text fontSize="lg" fontWeight="700" color="maroon.500" lineHeight="1.1" letterSpacing="-0.02em">
                   St James Zongoro
                 </Text>
-                <Text fontSize="xs" fontWeight="500" color="gray.500" textTransform="uppercase" letterSpacing="0.5px">
-                  Primary School
+                <Text fontSize="xs" fontWeight="600" color="gray.500" letterSpacing="0.15em" mt={0.5} display={{ base: 'none', sm: 'block' }}>
+                  PRIMARY SCHOOL
                 </Text>
               </Box>
             </Flex>
