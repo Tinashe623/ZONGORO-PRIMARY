@@ -95,13 +95,8 @@ export const applicationSteps: ApplicationStep[] = [
 ];
 
 export const feeStructure: FeeStructure[] = [
-  { category: 'Registration Fee', amount: '$50', period: 'Once-off' },
-  { category: 'Tuition (ECD)', amount: '$120', period: 'per term' },
-  { category: 'Tuition (Grades 1-3)', amount: '$150', period: 'per term' },
-  { category: 'Tuition (Grades 4-7)', amount: '$180', period: 'per term' },
-  { category: 'School Levies', amount: '$80', period: 'per term' },
-  { category: 'Boarding Fee', amount: '$250', period: 'per term' },
-  { category: 'Transport (optional)', amount: '$60', period: 'per term' },
+  { category: 'Day Scholars', amount: '$50', period: 'per term' },
+  { category: 'Boarding', amount: '$250', period: 'per term' },
 ];
 
 export const requiredDocuments: RequiredDocument[] = [
