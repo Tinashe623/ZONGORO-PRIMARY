@@ -59,7 +59,7 @@ const BoardingPage = () => {
                         align="center" 
                         justify="center"
                       >
-                        <Icon as={item.icon} color="forest.500" fontSize="sm" />
+                        <Icon as={item.icon} color="maroon.500" fontSize="sm" />
                       </Flex>
                       <Text color="dark.500" fontWeight="600" fontSize="sm">{item.text}</Text>
                     </Flex>
@@ -128,7 +128,7 @@ const BoardingPage = () => {
                           borderRadius: 'xl'
                         }}
                         _hover={{
-                          bg: 'forest.50',
+                          bg: 'maroon.50',
                           borderColor: 'forest.200',
                           boxShadow: '0 8px 25px rgba(45,106,79,0.15), 0 4px 12px rgba(0,0,0,0.08)',
                           transform: 'translateY(-2px)',
@@ -141,7 +141,7 @@ const BoardingPage = () => {
                             {fee.item}
                           </Text>
                           <Text
-                            color="forest.500"
+                            color="maroon.500"
                             fontWeight="700"
                             fontSize="lg"
                             bg="white"
@@ -150,7 +150,7 @@ const BoardingPage = () => {
                             borderRadius="full"
                             boxShadow="0 4px 12px rgba(45,106,79,0.2), 0 2px 6px rgba(0,0,0,0.1)"
                             border="1px solid"
-                            borderColor="forest.100"
+                            borderColor="maroon.100"
                             alignSelf="flex-start"
                             position="relative"
                             _hover={{
@@ -190,7 +190,7 @@ const BoardingPage = () => {
                           borderRadius: 'xl'
                         }}
                         _hover={{
-                          bg: 'forest.50',
+                          bg: 'maroon.50',
                           borderColor: 'forest.200',
                           boxShadow: '0 8px 25px rgba(45,106,79,0.15), 0 4px 12px rgba(0,0,0,0.08)',
                           transform: 'translateY(-2px)',
@@ -200,7 +200,7 @@ const BoardingPage = () => {
                       >
                         <Text color="gray.700" fontWeight="500">{fee.item}</Text>
                         <Text
-                          color="forest.500"
+                          color="maroon.500"
                           fontWeight="700"
                           fontSize="lg"
                           bg="white"
@@ -209,7 +209,7 @@ const BoardingPage = () => {
                           borderRadius="full"
                           boxShadow="0 4px 12px rgba(45,106,79,0.2), 0 2px 6px rgba(0,0,0,0.1)"
                           border="1px solid"
-                          borderColor="forest.100"
+                          borderColor="maroon.100"
                           _hover={{
                             transform: 'scale(1.05)',
                             boxShadow: '0 6px 16px rgba(45,106,79,0.3), 0 3px 8px rgba(0,0,0,0.15)'
