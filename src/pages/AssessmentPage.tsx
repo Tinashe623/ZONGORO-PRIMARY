@@ -414,7 +414,7 @@ ${enrollmentComment}`}
       <Box
         py={20}
         px={4}
-        bgGradient="linear(135deg, forest.500 0%, forest.600 100%)"
+        bg="maroon.600"
         position="relative"
         overflow="hidden"
       >
@@ -455,12 +455,12 @@ ${enrollmentComment}`}
                 as="a"
                 href="/admissions"
                 bg="white"
-                color="forest.500"
+                color="maroon.600"
                 size="lg"
                 px={10}
                 fontWeight="700"
                 borderRadius="full"
-                _hover={{ transform: 'translateY(-2px)', boxShadow: '0 10px 30px rgba(0,0,0,0.2)' }}
+                _hover={{ bg: 'cream.100', transform: 'translateY(-2px)', boxShadow: '0 10px 30px rgba(0,0,0,0.2)' }}
                 transition="all 0.3s ease"
               >
                 Apply Now

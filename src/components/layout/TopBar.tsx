@@ -68,7 +68,7 @@ const TopBar = () => {
 
         {/* Social Media */}
         <Box flexShrink={0}>
-          <Link href="https://facebook.com" isExternal _hover={{ opacity: 0.8 }}>
+          <Link href="https://www.facebook.com/profile.php?id=100057208941321" isExternal _hover={{ opacity: 0.8 }}>
             <IconButton
               aria-label="Facebook"
               icon={<FaFacebook />}

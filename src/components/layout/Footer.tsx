@@ -96,6 +96,8 @@ const Footer = () => {
             </Text>
             <HStack spacing={2} pt={2}>
               <IconButton
+                as={Link}
+                href="https://www.facebook.com/profile.php?id=100057208941321"
                 aria-label="Facebook"
                 icon={<FaFacebook />}
                 variant="ghost"
@@ -103,33 +105,37 @@ const Footer = () => {
                 _hover={{ bg: '#00ff88', color: 'maroon.500', transform: 'translateY(-3px)' }}
                 size="sm"
                 transition="all 0.3s ease"
+                isExternal
               />
               <IconButton
-                aria-label="Twitter"
+                aria-label="Twitter - Coming Soon"
                 icon={<FaTwitter />}
                 variant="ghost"
-                color="whiteAlpha.800"
-                _hover={{ bg: '#00ff88', color: 'maroon.500', transform: 'translateY(-3px)' }}
+                color="whiteAlpha.400"
                 size="sm"
                 transition="all 0.3s ease"
+                cursor="not-allowed"
+                opacity={0.5}
               />
               <IconButton
-                aria-label="Instagram"
+                aria-label="Instagram - Coming Soon"
                 icon={<FaInstagram />}
                 variant="ghost"
-                color="whiteAlpha.800"
-                _hover={{ bg: '#00ff88', color: 'maroon.500', transform: 'translateY(-3px)' }}
+                color="whiteAlpha.400"
                 size="sm"
                 transition="all 0.3s ease"
+                cursor="not-allowed"
+                opacity={0.5}
               />
               <IconButton
-                aria-label="Youtube"
+                aria-label="Youtube - Coming Soon"
                 icon={<FaYoutube />}
                 variant="ghost"
-                color="whiteAlpha.800"
-                _hover={{ bg: '#00ff88', color: 'maroon.500', transform: 'translateY(-3px)' }}
+                color="whiteAlpha.400"
                 size="sm"
                 transition="all 0.3s ease"
+                cursor="not-allowed"
+                opacity={0.5}
               />
             </HStack>
           </VStack>
