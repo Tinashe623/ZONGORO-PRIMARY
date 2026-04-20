@@ -104,6 +104,4 @@ export const boardingRules: BoardingRule[] = [
 
 export const boardingFees = [
   { item: 'Boarding Fee (per term)', amount: '$250' },
-  { item: 'Registration Fee', amount: '$50 (once-off)' },
-  { item: 'Security Deposit', amount: '$50 (refundable)' },
 ];
