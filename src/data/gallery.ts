@@ -160,7 +160,7 @@ export const galleryImages: GalleryImage[] = [
     category: 'Achievements',
   },
   {
-    src: '/images/gallery/head--master-inoffice.jpg',
+    src: '/images/gallery/head-master-inoffice.jpg',
     alt: 'Headmaster in Office',
     category: 'Achievements',
   },
