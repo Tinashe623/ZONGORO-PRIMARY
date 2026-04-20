@@ -8,7 +8,6 @@ import {
   Badge,
   SimpleGrid,
   Icon,
-  Image,
 } from '@chakra-ui/react';
 import { FaStar } from 'react-icons/fa';
 import { staffMembers } from '../../data/staff';

@@ -6,7 +6,6 @@ import {
   Heading,
   Text,
   Avatar,
-  Badge,
   Flex,
   Button,
   Icon,
