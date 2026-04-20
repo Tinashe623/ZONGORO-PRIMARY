@@ -6,121 +6,149 @@ import {
   VStack,
   HStack,
   Container,
-  Flex
+  Flex,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { Link as RouterLink } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3
+    }
+  }
+};
+
+const fadeInUpItem: Variants = {
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8 }
+    transition: { duration: 0.6 }
   }
 };
 
 const Hero = () => {
   return (
-    <Box id="home" position="relative">
-      <Flex
-        position="relative"
-        h="100vh"
-        minH="600px"
-        alignItems="center"
-        justifyContent="center"
-        bgImage="linear-gradient(135deg, rgba(130, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.7) 100%), url('/images/hero-image.png')"
+    <Box id="home" position="relative" overflow="hidden">
+      {/* Background image with gradient overlay */}
+      <Box
+        position="absolute"
+        top={0}
+        left={0}
+        right={0}
+        bottom={0}
+        bgImage="linear-gradient(180deg, rgba(80, 15, 15, 0.55) 0%, rgba(20, 30, 50, 0.7) 100%), url('/images/bus-welcoming.jpg')"
         bgSize="cover"
         bgPosition="center"
+        bgRepeat="no-repeat"
+      />
+
+      <Box
+        position="relative"
+        h="100vh"
+        minH={{ base: "600px", md: "700px" }}
         zIndex={1}
       >
-        <Container maxW="1400px" textAlign="center">
-          <VStack spacing={8}>
-            <Box
-              as={motion.div}
-              variants={fadeInUp}
-              initial="hidden"
-              animate="visible"
-            >
-              <Heading
-                size={{ base: "xl", md: "3xl" }}
-                color="white"
-                lineHeight="1.2"
-                fontWeight="700"
-              >
-                Welcome to St James The Great, Zongoro Primary School
-              </Heading>
-            </Box>
-
-            <Box
-              as={motion.div}
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 0.8, delay: 0.2 }
-                }
-              }}
-              initial="hidden"
-              animate="visible"
-            >
-              <Text
-                fontSize={{ base: "lg", md: "xl" }}
-                color="whiteAlpha.900"
-                maxW="700px"
-              >
-                Providing quality education rooted in Anglican values and community
-                partnership since 1985.
-              </Text>
-            </Box>
-
-            <Box
-              as={motion.div}
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 0.8, delay: 0.4 }
-                }
-              }}
-              initial="hidden"
-              animate="visible"
-            >
-              <HStack spacing={{ base: 4, md: 6 }} flexWrap="wrap" justify="center">
-                <Button
-                  as={RouterLink}
-                  to="/admissions"
-                  bg="white"
-                  color="maroon.500"
-                  size="lg"
-                  px={{ base: 6, md: 10 }}
-                  fontWeight="600"
-                  _hover={{ bg: 'whiteAlpha.900', transform: 'translateY(-2px)' }}
+        <Container maxW="1000px" h="full" display="flex" alignItems="center">
+          <Box
+            as={motion.div}
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+            w="full"
+          >
+            <VStack spacing={{ base: 5, md: 6 }} align="center" textAlign="center">
+              <motion.div variants={fadeInUpItem}>
+                <Heading
+                  size={{ base: "xl", md: "2xl", lg: "3xl" }}
+                  color="white"
+                  lineHeight={{ base: "1.2", md: "1.1" }}
+                  fontWeight="800"
+                  textShadow="0 2px 20px rgba(0,0,0,0.3)"
                 >
-                  Apply for Admission
-                </Button>
-                <ScrollLink to="contact" smooth={true} offset={-70}>
+                  St James Zongoro{' '}
+                  <Text as="span" color="cream.200">
+                    Primary School
+                  </Text>
+                </Heading>
+              </motion.div>
+
+              <motion.div variants={fadeInUpItem}>
+                <Text
+                  fontSize={{ base: "md", md: "lg" }}
+                  color="whiteAlpha.900"
+                  fontWeight="500"
+                  maxW="600px"
+                  lineHeight="1.7"
+                >
+                  Where academic excellence meets Anglican values — shaping future leaders through quality education and community spirit.
+                </Text>
+              </motion.div>
+
+              <motion.div variants={fadeInUpItem}>
+                <HStack 
+                  spacing={{ base: 3, md: 5 }} 
+                  flexWrap="wrap" 
+                  justify="center"
+                >
                   <Button
-                    variant="outline"
-                    borderColor="white"
-                    color="white"
-                    size="lg"
-                    px={{ base: 6, md: 10 }}
+                    as={RouterLink}
+                    to="/admissions"
+                    bg="cream.100"
+                    color="maroon.700"
+                    size={{ base: "md", md: "lg" }}
+                    px={{ base: 6, md: 9 }}
                     fontWeight="600"
-                    _hover={{ bg: 'whiteAlpha.200' }}
+                    _hover={{ bg: "cream.200", transform: "translateY(-2px)" }}
+                    transition="all 0.2s"
                   >
-                    Contact Us
+                    Apply Now
                   </Button>
-                </ScrollLink>
-              </HStack>
-            </Box>
-          </VStack>
+                  <ScrollLink to="contact" smooth={true} offset={-70}>
+                    <Button
+                      variant="outline"
+                      borderColor="whiteAlpha.400"
+                      color="white"
+                      size={{ base: "md", md: "lg" }}
+                      px={{ base: 6, md: 9 }}
+                      fontWeight="600"
+                      _hover={{ bg: "whiteAlpha.100", borderColor: "white" }}
+                    >
+                      Contact Us
+                    </Button>
+                  </ScrollLink>
+                </HStack>
+              </motion.div>
+
+              <motion.div variants={fadeInUpItem}>
+                <HStack 
+                  spacing={{ base: 6, md: 10 }} 
+                  color="whiteAlpha.800"
+                  fontSize="sm"
+                  fontWeight="500"
+                  flexWrap="wrap"
+                  justify="center"
+                >
+                  <Flex align="center" gap={2}>
+                    <Box w="6px" h="6px" borderRadius="full" bg="green.400" />
+                    <Text>Enrolling for 2026</Text>
+                  </Flex>
+                  <Flex align="center" gap={2}>
+                    <Box w="6px" h="6px" borderRadius="full" bg="maroon.400" />
+                    <Text>ECD to Grade 7</Text>
+                  </Flex>
+                </HStack>
+              </motion.div>
+            </VStack>
+          </Box>
         </Container>
-      </Flex>
+      </Box>
     </Box>
   );
 };
