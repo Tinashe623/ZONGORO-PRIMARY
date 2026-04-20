@@ -269,8 +269,12 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
             aria-label="Open menu"
             icon={<HamburgerIcon />}
             variant="ghost"
+            size="lg"
+            fontWeight="bold"
+            color="maroon.600"
             display={{ base: 'flex', lg: 'none' }}
             onClick={onOpen}
+            _hover={{ bg: 'maroon.100' }}
           />
         </HStack>
       </Flex>

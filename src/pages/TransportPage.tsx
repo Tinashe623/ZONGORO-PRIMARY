@@ -379,16 +379,13 @@ const TransportPage = () => {
                 borderColor="gray.100"
               >
                 <VStack align="start" spacing={{ base: 4, md: 6 }}>
-                  <HStack spacing={3}>
-                    <Box w={{ base: '8', md: '10' }} h="1" bg="maroon.500" borderRadius="full" />
-                    <Heading
+                  <Heading
                       size={{ base: 'md', md: 'lg' }}
                       color="maroon.600"
                       fontWeight="700"
                     >
                       Fleet Details
                     </Heading>
-                  </HStack>
 
                   {/* Stats grid: 1 col on xs, 2 cols from sm up */}
                   <SimpleGrid
