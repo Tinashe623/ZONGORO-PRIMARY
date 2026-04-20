@@ -1,5 +1,7 @@
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
+import PageLoader from './components/ui/PageLoader';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ChurchPage from './pages/ChurchPage';
@@ -17,6 +19,19 @@ import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <PageLoader />;
+  }
+
   return (
     <Layout>
       <Routes>
