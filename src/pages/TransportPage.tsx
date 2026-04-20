@@ -76,8 +76,8 @@ const TransportPage = () => {
   return (
     <Box>
       <PageHero
-        title="School Transport & Bus Hire"
-        subtitle="Modern bus services for school activities, events, and private hire across Zimbabwe"
+        title="School Transport"
+        subtitle="Safe and reliable bus services for our students"
       />
 
       {/* ── Introduction Section ───────────────────────────────────── */}

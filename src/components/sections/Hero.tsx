@@ -52,7 +52,8 @@ const Hero = () => {
       <Box
         position="relative"
         h="100vh"
-        minH={{ base: "600px", md: "700px" }}
+        minH={{ base: "700px", md: "750px" }}
+        pt={{ base: 20, md: 24, lg: 0 }}
         zIndex={1}
       >
         <Container maxW="1000px" h="full" display="flex" alignItems="center">
@@ -64,6 +65,18 @@ const Hero = () => {
             w="full"
           >
             <VStack spacing={{ base: 5, md: 6 }} align="center" textAlign="center">
+              <motion.div variants={fadeInUpItem}>
+                <Text
+                  color="whiteAlpha.800"
+                  fontSize={{ base: "xs", md: "sm" }}
+                  fontWeight="600"
+                  letterSpacing="0.15em"
+                  textTransform="uppercase"
+                >
+                  About Our School
+                </Text>
+              </motion.div>
+
               <motion.div variants={fadeInUpItem}>
                 <Heading
                   size={{ base: "xl", md: "2xl", lg: "3xl" }}
@@ -81,13 +94,24 @@ const Hero = () => {
 
               <motion.div variants={fadeInUpItem}>
                 <Text
+                  fontSize={{ base: "sm", md: "md" }}
+                  color="whiteAlpha.800"
+                  fontWeight="500"
+                  maxW="650px"
+                >
+                  A century of educational excellence rooted in Anglican heritage
+                </Text>
+              </motion.div>
+
+              <motion.div variants={fadeInUpItem}>
+                <Text
                   fontSize={{ base: "md", md: "lg" }}
                   color="whiteAlpha.900"
                   fontWeight="500"
                   maxW="600px"
                   lineHeight="1.7"
                 >
-                  Where academic excellence meets Anglican values — shaping future leaders through quality education and community spirit.
+                  Shaping future leaders through quality education and community spirit.
                 </Text>
               </motion.div>
 

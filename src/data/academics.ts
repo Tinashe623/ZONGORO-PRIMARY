@@ -1,30 +1,31 @@
 export const academicCards = [
   {
     icon: 'FaGraduationCap',
-    title: 'Grades Offered',
+    title: 'Grades We Offer',
     description:
-      'We provide education from Early Childhood Development through to Grade 7, ensuring a complete primary school journey.',
+      'Comprehensive primary education from Early Childhood Development through to Grade 7.',
     items: ['ECD A (4-5 years)', 'ECD B (5-6 years)', 'Grade 1-7'],
   },
   {
     icon: 'FaBookOpen',
     title: 'Our Curriculum',
     description:
-      'Our ZIMSEC-aligned curriculum prepares students for academic success while fostering critical thinking.',
+      'A well-rounded ZIMSEC-aligned curriculum designed to develop critical thinking and academic excellence.',
     items: [
       'Mathematics',
       'English',
-      'Shona',
-      'General Paper',
-      'Science',
-      'Social Studies',
+      'Indigenous Language',
+      'Social Science',
+      'Agriculture',
+      'Science & Technology',
+      'Physical Education & Arts',
     ],
   },
   {
     icon: 'FaLightbulb',
-    title: 'Learning Approach',
+    title: 'How We Teach',
     description:
-      'We embrace hands-on, inclusive learning methods that cater to diverse learning styles and abilities.',
+      'Hands-on, inclusive learning methods that cater to diverse learning styles and abilities.',
     items: [
       'Interactive lessons',
       'Group projects',

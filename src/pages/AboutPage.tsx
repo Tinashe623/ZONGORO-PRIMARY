@@ -13,7 +13,7 @@ const AboutPage = () => {
   const schoolHistory = [
     { year: '1925', icon: FaCalendarAlt, title: 'Founded', description: 'Opened by the Anglican Diocese of Mashonaland (now Diocese of Manicaland) under Father Baker, establishing a legacy of educational excellence.' },
     { year: '1949', icon: FaFire, title: 'Trial by Fire', description: 'Dormitories destroyed in a suspected arson incident. Yet, from the ashes, our community grew stronger.' },
-    { year: 'Present', icon: FaAward, title: 'Excellence', description: 'Produced notable national leaders including Zimbabwe\'s Minister of Defense and distinguished Senators.' },
+    { year: 'Present', icon: FaAward, title: 'Excellence', description: 'Produced notable national leaders including Zimbabwe\'s Minister of Defence and distinguished Senators.' },
   ];
 
   const values = [
@@ -29,7 +29,7 @@ const AboutPage = () => {
   ];
 
   const alumni = [
-    { name: 'Cde Oppah Chamu Zvipange Muchinguri Kashiri', title: 'Minister of Defense', description: 'Zimbabwe', icon: FaGlobeAfrica },
+    { name: 'Cde Oppah Chamu Zvipange Muchinguri Kashiri', title: 'Minister of Defence', description: 'Zimbabwe', icon: FaGlobeAfrica },
     { name: 'Hon. Irene Zindi', title: 'Senator', description: 'Zimbabwe', icon: FaUserTie },
     { name: 'Hon. Senator Chief James Kurauone Ndorikanda Man\'ai Mutasa ', title: 'Senator', description: 'Zimbabwe', icon: FaFlag },
   ];

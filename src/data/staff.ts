@@ -24,7 +24,7 @@ export const staffMembers: StaffMember[] = [
   },
   {
     id: 2,
-    name: 'Mr. Mendi',
+    name: 'Mr Tarehwa',
     title: 'Deputy Head Teacher',
     specialisation: 'Mathematics & Science',
     image: undefined,
