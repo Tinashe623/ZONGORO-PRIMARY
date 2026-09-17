@@ -13,6 +13,7 @@ import { FaGraduationCap, FaChurch, FaUsers, FaHeart, FaArrowRight, FaBus, FaHom
 import SectionHeading from '../ui/SectionHeading';
 import ScrollReveal from '../ui/ScrollReveal';
 import { Link as RouterLink } from 'react-router-dom';
+import { MANAGEMENT_ENROLL_URL } from '../../config';
 
 const features = [
   {
@@ -190,8 +191,10 @@ const WhyChooseUs = () => {
                 justify={{ md: "center" }}
               >
                 <Button
-                  as={RouterLink}
-                  to="/admissions"
+                  as="a"
+                  href={MANAGEMENT_ENROLL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   size={{ base: "md", md: "lg" }}
                   bg="#00ff88"
                   color="maroon.700"

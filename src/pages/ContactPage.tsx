@@ -17,6 +17,7 @@ import {
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaPaperPlane, FaClock } from 'react-icons/fa';
 import PageHero from '../components/ui/PageHero';
 import ScrollReveal from '../components/ui/ScrollReveal';
+import { CONTACT_API_URL } from '../config';
 
 const ContactInfo = () => {
   const contactItems = [
@@ -91,12 +92,39 @@ const ContactInfo = () => {
 const ContactForm = () => {
   const toast = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    setTimeout(() => {
+
+    try {
+      const res = await fetch(CONTACT_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        toast({
+          title: 'Message failed to send',
+          description: data?.error || 'Something went wrong. Please try again later.',
+          status: 'error',
+          duration: 5000,
+          isClosable: true,
+          position: 'top',
+        });
+        return;
+      }
+
       toast({
         title: 'Message sent!',
         description: 'We will get back to you soon.',
@@ -105,8 +133,19 @@ const ContactForm = () => {
         isClosable: true,
         position: 'top',
       });
+      setForm({ name: '', email: '', subject: '', message: '' });
+    } catch {
+      toast({
+        title: 'Message failed to send',
+        description: 'Network error. Please try again later.',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+        position: 'top',
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -134,7 +173,10 @@ const ContactForm = () => {
               <FormControl isRequired>
                 <FormLabel color="dark.500" fontWeight="600">Full Name</FormLabel>
                 <Input
+                  name="name"
                   type="text"
+                  value={form.name}
+                  onChange={handleChange}
                   placeholder="Enter your name"
                   borderRadius="xl"
                   borderColor="gray.200"
@@ -148,7 +190,10 @@ const ContactForm = () => {
               <FormControl isRequired>
                 <FormLabel color="dark.500" fontWeight="600">Email</FormLabel>
                 <Input
+                  name="email"
                   type="email"
+                  value={form.email}
+                  onChange={handleChange}
                   placeholder="Enter your email"
                   borderRadius="xl"
                   borderColor="gray.200"
@@ -163,7 +208,10 @@ const ContactForm = () => {
             <FormControl isRequired>
               <FormLabel color="dark.500" fontWeight="600">Subject</FormLabel>
               <Input
+                name="subject"
                 type="text"
+                value={form.subject}
+                onChange={handleChange}
                 placeholder="Enter subject"
                 borderRadius="xl"
                 borderColor="gray.200"
@@ -177,6 +225,9 @@ const ContactForm = () => {
             <FormControl isRequired>
               <FormLabel color="dark.500" fontWeight="600">Message</FormLabel>
               <Textarea
+                name="message"
+                value={form.message}
+                onChange={handleChange}
                 placeholder="Enter your message..."
                 borderRadius="xl"
                 borderColor="gray.200"

@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { Box, VStack, useColorModeValue, Heading, Text, Button } from '@chakra-ui/react';
-import { Link as RouterLink } from 'react-router-dom';
 import PageHero from '../components/ui/PageHero';
 import ActivitiesGrid from '../components/sections/ActivitiesGrid';
 import Achievements from '../components/sections/Achievements';
+import { MANAGEMENT_ENROLL_URL } from '../config';
 
 const ActivitiesPage = () => {
   useEffect(() => {
@@ -46,8 +46,10 @@ const ActivitiesPage = () => {
               Enroll your child in any of our exciting activities and watch them grow
             </Text>
             <Button
-              as={RouterLink}
-              to="/admissions"
+              as="a"
+              href={MANAGEMENT_ENROLL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               bg="forest.500"
               color="white"
               size="lg"

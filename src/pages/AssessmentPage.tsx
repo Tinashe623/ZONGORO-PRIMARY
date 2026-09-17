@@ -20,6 +20,7 @@ import { motion } from 'framer-motion';
 import { enrollmentData, passRateData, enrollmentComment, passRateComment } from '../data/assessment';
 import PageHero from '../components/ui/PageHero';
 import ScrollReveal from '../components/ui/ScrollReveal';
+import { MANAGEMENT_ENROLL_URL } from '../config';
 
 const MotionBox = motion(Box);
 
@@ -453,7 +454,9 @@ ${enrollmentComment}`}
             <Flex gap={4} mt={4} direction={{ base: 'column', md: 'row' }}>
               <Button
                 as="a"
-                href="/admissions"
+                href={MANAGEMENT_ENROLL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 bg="white"
                 color="maroon.600"
                 size="lg"

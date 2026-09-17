@@ -17,6 +17,7 @@ import {
 } from '@chakra-ui/react';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaPaperPlane, FaCode } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
+import { MANAGEMENT_ENROLL_URL, MANAGEMENT_LOGIN_URL } from '../../config';
 
 const Footer = () => {
   return (
@@ -153,6 +154,9 @@ const Footer = () => {
             <Link as={RouterLink} to="/admissions" color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'white', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
               Admissions
             </Link>
+            <Link href={MANAGEMENT_LOGIN_URL} isExternal color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'white', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
+              Parent / Staff Login
+            </Link>
             <Link as={RouterLink} to="/academics" color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'white', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
               Academics
             </Link>
@@ -215,8 +219,10 @@ const Footer = () => {
               </InputRightElement>
             </InputGroup>
             <Button
-              as={RouterLink}
-              to="/admissions"
+              as="a"
+              href={MANAGEMENT_ENROLL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               size="sm"
               w="100%"
               bgGradient="linear(to-r, white, gray.100)"

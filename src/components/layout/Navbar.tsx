@@ -16,6 +16,7 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, ChevronDownIcon } from '@chakra-ui/icons';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { MANAGEMENT_ENROLL_URL, MANAGEMENT_LOGIN_URL } from '../../config';
 
 interface NavbarProps {
   scrollPosition: number;
@@ -253,8 +254,24 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
 
         <HStack spacing={2}>
           <Button
-            as={RouterLink}
-            to="/admissions"
+            as="a"
+            href={MANAGEMENT_LOGIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            size="sm"
+            variant="ghost"
+            fontWeight="600"
+            color="maroon.600"
+            display={{ base: 'none', md: 'flex' }}
+            _hover={{ color: 'maroon.500', bg: 'maroon.50' }}
+          >
+            Login
+          </Button>
+          <Button
+            as="a"
+            href={MANAGEMENT_ENROLL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             size="sm"
             bg="maroon.500"
             color="white"

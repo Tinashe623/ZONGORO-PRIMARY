@@ -10,8 +10,8 @@ import {
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
-import { Link as RouterLink } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
+import { MANAGEMENT_ENROLL_URL } from '../../config';
 
 const staggerContainer: Variants = {
   hidden: { opacity: 0 },
@@ -98,8 +98,10 @@ const Hero = () => {
                   justify="center"
                 >
                   <Button
-                    as={RouterLink}
-                    to="/admissions"
+                    as="a"
+                    href={MANAGEMENT_ENROLL_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     bg="cream.100"
                     color="maroon.700"
                     size={{ base: "md", md: "lg" }}

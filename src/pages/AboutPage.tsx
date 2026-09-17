@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Box, SimpleGrid, VStack, Heading, Text, Flex, Icon, Badge, Button, Image } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
+import { MANAGEMENT_ENROLL_URL } from '../config';
 import { FaMedal, FaEye, FaBullseye, FaUsers, FaLightbulb, FaHeart, FaShieldAlt, FaStar, FaCalendarAlt, FaFire, FaAward, FaUserTie, FaGlobeAfrica, FaFlag } from 'react-icons/fa';
 import PageHero from '../components/ui/PageHero';
 import ScrollReveal from '../components/ui/ScrollReveal';
@@ -683,8 +684,10 @@ const AboutPage = () => {
               </Text>
               <Flex gap={{ base: 3, md: 4 }} flexWrap="wrap" justify="center" mt={4}>
                 <Button
-                  as={RouterLink}
-                  to="/admissions"
+                  as="a"
+                  href={MANAGEMENT_ENROLL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   px={{ base: 6, md: 8 }}
                   py={{ base: 3, md: 4 }}
                   bg="maroon.500"

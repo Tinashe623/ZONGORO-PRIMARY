@@ -19,6 +19,7 @@ import { motion } from 'framer-motion';
 import { academicCards } from '../data/academics';
 import PageHero from '../components/ui/PageHero';
 import ScrollReveal from '../components/ui/ScrollReveal';
+import { MANAGEMENT_ENROLL_URL } from '../config';
 
 const MotionBox = motion(Box);
 
@@ -537,7 +538,9 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
               >
                 <Button
                   as="a"
-                  href="/admissions"
+                  href={MANAGEMENT_ENROLL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   bg="forest.500"
                   color="white"
                   size="lg"
