@@ -27,38 +27,38 @@ const TopBar = () => {
             }}
           >
             <Flex align="center" gap={1.5} flexShrink={0}>
-              <Icon as={FaPhone} fontSize="xs" color="#00ff88" />
+              <Icon as={FaPhone} fontSize="xs" color="forest.300" />
               <Text fontSize={{ base: "xs", md: "sm" }} fontWeight="600">
                 0773211929 / 0718546070
               </Text>
             </Flex>
             <Flex align="center" gap={1.5} flexShrink={0}>
-              <Icon as={FaEnvelope} fontSize="xs" color="#00ff88" />
+              <Icon as={FaEnvelope} fontSize="xs" color="forest.300" />
               <Text fontSize={{ base: "xs", md: "sm" }} fontWeight="600">
                 zongoro.primary@gmail.com
               </Text>
             </Flex>
             <Flex align="center" gap={1.5} flexShrink={0}>
-              <Icon as={FaMapMarkerAlt} fontSize="xs" color="#00ff88" />
+              <Icon as={FaMapMarkerAlt} fontSize="xs" color="forest.300" />
               <Text fontSize={{ base: "xs", md: "sm" }} fontWeight="600">
                 P.O.Box 313, Mutare
               </Text>
             </Flex>
             {/* Duplicate for seamless loop */}
             <Flex align="center" gap={1.5} flexShrink={0} ml={4}>
-              <Icon as={FaPhone} fontSize="xs" color="#00ff88" />
+              <Icon as={FaPhone} fontSize="xs" color="forest.300" />
               <Text fontSize={{ base: "xs", md: "sm" }} fontWeight="600">
                 0773211929 / 0718546070
               </Text>
             </Flex>
             <Flex align="center" gap={1.5} flexShrink={0}>
-              <Icon as={FaEnvelope} fontSize="xs" color="#00ff88" />
+              <Icon as={FaEnvelope} fontSize="xs" color="forest.300" />
               <Text fontSize={{ base: "xs", md: "sm" }} fontWeight="600">
                 zongoro.primary@gmail.com
               </Text>
             </Flex>
             <Flex align="center" gap={1.5} flexShrink={0}>
-              <Icon as={FaMapMarkerAlt} fontSize="xs" color="#00ff88" />
+              <Icon as={FaMapMarkerAlt} fontSize="xs" color="forest.300" />
               <Text fontSize={{ base: "xs", md: "sm" }} fontWeight="600">
                 P.O.Box 313, Mutare
               </Text>
