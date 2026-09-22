@@ -68,7 +68,7 @@ const CommunityPage = () => {
       <Box py={16} px={4} bg="cream.50" position="relative" overflow="hidden">
         <Box position="absolute" top={0} left={0} right={0} bottom={0} opacity={0.4}>
           <Box position="absolute" top="10%" right="5%" w="400px" h="400px" borderRadius="full" bg="maroon.500" opacity={0.03} filter="blur(100px)" />
-          <Box position="absolute" bottom="10%" left="5%" w="300px" h="300px" borderRadius="full" bg="#00ff88" opacity={0.03} filter="blur(80px)" />
+          <Box position="absolute" bottom="10%" left="5%" w="300px" h="300px" borderRadius="full" bg="forest.500" opacity={0.03} filter="blur(80px)" />
         </Box>
         <Box position="absolute" top={0} left={0} right={0} h="1px" bgGradient="linear(to-r, transparent, maroon.100, transparent)" />
         
@@ -146,7 +146,7 @@ const CommunityPage = () => {
                 position="relative"
                 overflow="hidden"
               >
-                <Box position="absolute" top={0} left={0} right={0} h="3px" bg="#00ff88" />
+                <Box position="absolute" top={0} left={0} right={0} h="3px" bg="forest.400" />
                 <Text color="white" fontSize="md" fontStyle="italic" fontWeight="500" lineHeight="1.7" mt={1}>
                   "Our partnership with St James Zongoro Primary School has
                   transformed our community. Education is the key to our village's
@@ -200,7 +200,7 @@ const CommunityPage = () => {
       <Box py={16} px={4} bg="cream.50" position="relative" overflow="hidden">
         <Box position="absolute" top={0} left={0} right={0} bottom={0} opacity={0.4}>
           <Box position="absolute" top="10%" right="5%" w="400px" h="400px" borderRadius="full" bg="maroon.500" opacity={0.03} filter="blur(100px)" />
-          <Box position="absolute" bottom="10%" left="5%" w="300px" h="300px" borderRadius="full" bg="#00ff88" opacity={0.03} filter="blur(80px)" />
+          <Box position="absolute" bottom="10%" left="5%" w="300px" h="300px" borderRadius="full" bg="forest.500" opacity={0.03} filter="blur(80px)" />
         </Box>
         <Box position="absolute" top={0} left={0} right={0} h="1px" bgGradient="linear(to-r, transparent, maroon.100, transparent)" />
         

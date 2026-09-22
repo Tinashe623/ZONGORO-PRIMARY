@@ -76,11 +76,11 @@ const StatsSection = () => {
               to="/about"
               px={8} 
               py={3} 
-              bg="#00ff88"
-              color="maroon.700"
+              bg="forest.500"
+              color="white"
               fontWeight="700"
               borderRadius="xl"
-              _hover={{ transform: 'translateY(-2px)', boxShadow: '0 8px 20px rgba(0, 255, 136, 0.4)' }}
+              _hover={{ transform: 'translateY(-2px)', boxShadow: '0 8px 20px rgba(45, 106, 79, 0.4)' }}
               transition="all 0.3s ease"
             >
               View All Facilities

@@ -36,7 +36,7 @@ const ChurchPage = () => {
       <Box py={16} px={4} bg="cream.50" position="relative" overflow="hidden">
         <Box position="absolute" top={0} left={0} right={0} bottom={0} opacity={0.4}>
           <Box position="absolute" top="10%" right="5%" w="400px" h="400px" borderRadius="full" bg="maroon.500" opacity={0.03} filter="blur(100px)" />
-          <Box position="absolute" bottom="10%" left="5%" w="300px" h="300px" borderRadius="full" bg="#00ff88" opacity={0.03} filter="blur(80px)" />
+          <Box position="absolute" bottom="10%" left="5%" w="300px" h="300px" borderRadius="full" bg="forest.500" opacity={0.03} filter="blur(80px)" />
         </Box>
         
         <Box maxW="1400px" mx="auto" position="relative" zIndex={1}>
@@ -156,7 +156,7 @@ const ChurchPage = () => {
       <Box py={16} px={4} bg="cream.50" position="relative" overflow="hidden">
         <Box position="absolute" top={0} left={0} right={0} bottom={0} opacity={0.4}>
           <Box position="absolute" top="10%" right="5%" w="400px" h="400px" borderRadius="full" bg="maroon.500" opacity={0.03} filter="blur(100px)" />
-          <Box position="absolute" bottom="10%" left="5%" w="300px" h="300px" borderRadius="full" bg="#00ff88" opacity={0.03} filter="blur(80px)" />
+          <Box position="absolute" bottom="10%" left="5%" w="300px" h="300px" borderRadius="full" bg="forest.500" opacity={0.03} filter="blur(80px)" />
         </Box>
         <Box position="absolute" top={0} left={0} right={0} h="1px" bgGradient="linear(to-r, transparent, maroon.100, transparent)" />
         
@@ -203,7 +203,7 @@ const ChurchPage = () => {
                   position="relative"
                   overflow="hidden"
                 >
-                  <Box position="absolute" top={0} left={0} right={0} h="3px" bg="#00ff88" />
+                  <Box position="absolute" top={0} left={0} right={0} h="3px" bg="forest.400" />
                   <Flex direction={{ base: 'column', md: 'row' }} align="center" gap={4}>
                     <Image 
                       src="/images/anglican-logo.png" 
@@ -247,7 +247,7 @@ const ChurchPage = () => {
                           bg="maroon.500"
                           flexShrink={0}
                           transition="all 0.3s ease"
-                          _groupHover={{ bg: '#00ff88' }}
+                          _groupHover={{ bg: 'forest.500' }}
                         >
                           <Icon as={value.icon} color="white" fontSize="md" />
                         </Flex>

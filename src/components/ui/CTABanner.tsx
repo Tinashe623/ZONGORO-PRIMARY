@@ -45,7 +45,7 @@ const CTABanner = ({ title, subtitle, buttonText = 'Contact Us', buttonLink = '/
         w="300px"
         h="300px"
         borderRadius="full"
-        bg="rgba(0,255,136,0.05)"
+        bg="rgba(45,106,79,0.05)"
         animate={{ 
           scale: [1.1, 1, 1.1],
           rotate: [0, -15, 0]
@@ -87,7 +87,7 @@ const CTABanner = ({ title, subtitle, buttonText = 'Contact Us', buttonLink = '/
               _hover={{ 
                 bg: 'forest.600', 
                 transform: 'translateY(-2px)',
-                boxShadow: '0 10px 30px rgba(0,255,136,0.3)'
+                boxShadow: '0 10px 30px rgba(45,106,79,0.35)'
               }}
               transition="all 0.3s ease"
             >
@@ -106,7 +106,7 @@ const CTABanner = ({ title, subtitle, buttonText = 'Contact Us', buttonLink = '/
               _hover={{ 
                 bg: 'forest.600', 
                 transform: 'translateY(-2px)',
-                boxShadow: '0 10px 30px rgba(0,255,136,0.3)'
+                boxShadow: '0 10px 30px rgba(45,106,79,0.35)'
               }}
               transition="all 0.3s ease"
             >

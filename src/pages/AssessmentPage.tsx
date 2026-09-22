@@ -243,7 +243,7 @@ const AssessmentPage = () => {
           w="400px"
           h="400px"
           borderRadius="full"
-          bg="rgba(0,255,136,0.05)"
+          bg="rgba(45,106,79,0.05)"
           animate={{ scale: [1.1, 1, 1.1], rotate: [0, -20, 0] }}
           transition={{ duration: 12, repeat: Infinity }}
         />

@@ -59,7 +59,7 @@ const ActivitiesPage = () => {
               _hover={{
                 bg: 'forest.600',
                 transform: 'translateY(-2px)',
-                boxShadow: '0 10px 30px rgba(0,255,136,0.3)'
+                boxShadow: '0 10px 30px rgba(45, 106, 79, 0.3)'
               }}
               transition="all 0.3s ease"
             >

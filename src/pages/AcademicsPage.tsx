@@ -499,7 +499,7 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
           w="400px" 
           h="400px" 
           borderRadius="full" 
-          bg="rgba(0,255,136,0.08)"
+          bg="rgba(45,106,79,0.08)"
           animate={{ 
             scale: [1.1, 1, 1.1],
             rotate: [0, -25, 0]
@@ -549,10 +549,10 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
                   fontWeight="700"
                   fontSize="lg"
                   borderRadius="full"
-                  boxShadow="0 10px 30px rgba(0,255,136,0.3)"
+                  boxShadow="0 10px 30px rgba(45,106,79,0.35)"
                   _hover={{ 
                     bg: 'forest.600', 
-                    boxShadow: '0 15px 50px rgba(0,255,136,0.4)'
+                    boxShadow: '0 15px 50px rgba(45,106,79,0.45)'
                   }}
                   transition="all 0.3s ease"
                 >

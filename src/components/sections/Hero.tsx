@@ -43,7 +43,7 @@ const Hero = () => {
         left={0}
         right={0}
         bottom={0}
-        bgImage="linear-gradient(180deg, rgba(80, 15, 15, 0.55) 0%, rgba(20, 30, 50, 0.7) 100%), url('/images/bus-welcoming.jpg')"
+        bgImage="linear-gradient(180deg, rgba(80, 15, 15, 0.55) 0%, rgba(18, 55, 40, 0.72) 100%), url('/images/bus-welcoming.jpg')"
         bgSize="cover"
         bgPosition="center"
         bgRepeat="no-repeat"
@@ -66,6 +66,7 @@ const Hero = () => {
             <VStack spacing={{ base: 5, md: 6 }} align="center" textAlign="center">
               <motion.div variants={fadeInUpItem}>
                 <Heading
+                  as="h1"
                   size={{ base: "xl", md: "2xl", lg: "3xl" }}
                   color="white"
                   lineHeight={{ base: "1.2", md: "1.1" }}
@@ -138,7 +139,7 @@ const Hero = () => {
                   justify="center"
                 >
                   <Flex align="center" gap={2}>
-                    <Box w="6px" h="6px" borderRadius="full" bg="green.400" />
+                    <Box w="6px" h="6px" borderRadius="full" bg="forest.400" />
                     <Text>Enrolling for 2026</Text>
                   </Flex>
                   <Flex align="center" gap={2}>

@@ -538,7 +538,7 @@ const TransportPage = () => {
           w={{ base: '160px', sm: '220px', md: '320px' }}
           h={{ base: '160px', sm: '220px', md: '320px' }}
           borderRadius="full"
-          bg="rgba(0,255,136,0.06)"
+          bg="rgba(45,106,79,0.06)"
           pointerEvents="none"
         />
 

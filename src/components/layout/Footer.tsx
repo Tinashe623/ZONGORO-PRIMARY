@@ -103,7 +103,7 @@ const Footer = () => {
                 icon={<FaFacebook />}
                 variant="ghost"
                 color="whiteAlpha.800"
-                _hover={{ bg: '#00ff88', color: 'maroon.500', transform: 'translateY(-3px)' }}
+                _hover={{ bg: 'forest.400', color: 'white', transform: 'translateY(-3px)' }}
                 size="sm"
                 transition="all 0.3s ease"
                 isExternal
@@ -251,10 +251,10 @@ const Footer = () => {
               © 2026 St James Zongoro Primary School. All rights reserved.
             </Text>
             <HStack spacing={4}>
-              <Link as={RouterLink} to="/privacy" fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.600" _hover={{ color: '#00ff88' }} transition="all 0.3s ease">
+              <Link as={RouterLink} to="/privacy" fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.600" _hover={{ color: 'cream.100' }} transition="all 0.3s ease">
                 Privacy Policy
               </Link>
-              <Link as={RouterLink} to="/terms" fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.600" _hover={{ color: '#00ff88' }} transition="all 0.3s ease">
+              <Link as={RouterLink} to="/terms" fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.600" _hover={{ color: 'cream.100' }} transition="all 0.3s ease">
                 Terms of Service
               </Link>
             </HStack>
@@ -276,7 +276,7 @@ const Footer = () => {
                 href="https://tinashe-mundieta.vercel.app" 
                 isExternal
                 fontSize="xs" 
-                color="#00ff88" 
+                color="cream.100" 
                 fontWeight="600"
                 _hover={{ color: 'white', textDecoration: 'none' }}
                 transition="all 0.3s ease"

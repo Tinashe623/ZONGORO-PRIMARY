@@ -45,7 +45,7 @@ const AboutPage = () => {
       <Box py={16} px={4} bg="cream.50" position="relative" overflow="hidden">
         <Box position="absolute" top={0} left={0} right={0} bottom={0} opacity={0.4}>
           <Box position="absolute" top="10%" right="5%" w="400px" h="400px" borderRadius="full" bg="maroon.500" opacity={0.03} filter="blur(100px)" />
-          <Box position="absolute" bottom="10%" left="5%" w="300px" h="300px" borderRadius="full" bg="#00ff88" opacity={0.03} filter="blur(80px)" />
+          <Box position="absolute" bottom="10%" left="5%" w="300px" h="300px" borderRadius="full" bg="forest.500" opacity={0.03} filter="blur(80px)" />
         </Box>
         <Box maxW="1400px" mx="auto" position="relative" zIndex={1}>
           <ScrollReveal>
@@ -213,7 +213,7 @@ const AboutPage = () => {
                 <Heading size={{ base: "xl", md: "2xl" }} color="white" mb={4}>
                   Vision & Mission
                 </Heading>
-                <Box w={{ base: "60px", md: "80px" }} h="3px" bg="#00ff88" borderRadius="full" mx="auto" mb={6} />
+                <Box w={{ base: "60px", md: "80px" }} h="3px" bg="cream.100" borderRadius="full" mx="auto" mb={6} />
               </Box>
 
               <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} w="100%">
@@ -230,7 +230,7 @@ const AboutPage = () => {
                      _hover={{
                        borderColor: 'rgba(255, 255, 255, 0.4)',
                        transform: 'translateY(-8px) scale(1.02)',
-                       boxShadow: '0 20px 40px rgba(0, 255, 136, 0.15), 0 0 20px rgba(0, 255, 136, 0.1)',
+                       boxShadow: '0 20px 40px rgba(0, 0, 0, 0.25)',
                        bg: 'rgba(255, 255, 255, 0.15)',
                        _before: { opacity: 1 }
                      }}
@@ -243,7 +243,7 @@ const AboutPage = () => {
                        left: 0,
                        right: 0,
                        bottom: 0,
-                       bg: 'linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, transparent 50%)',
+                       bg: 'linear-gradient(135deg, rgba(121, 198, 153, 0.18) 0%, transparent 50%)',
                        opacity: 0,
                        transition: 'opacity 0.4s ease',
                        pointerEvents: 'none',
@@ -253,16 +253,16 @@ const AboutPage = () => {
                        <Box
                          p={{ base: 2, md: 3 }}
                          borderRadius="xl"
-                         bg="#00ff88"
-                         transition="all 0.4s ease"
+bg="forest.500"
+                          transition="all 0.4s ease"
                          _groupHover={{
                            transform: 'scale(1.1)',
-                           boxShadow: '0 6px 20px rgba(0, 255, 136, 0.4)'
+                           boxShadow: '0 6px 20px rgba(45, 106, 79, 0.4)'
                          }}
                        >
-                         <Icon as={FaEye} color="maroon.700" fontSize={{ base: "lg", md: "xl" }} />
+                         <Icon as={FaEye} color="white" fontSize={{ base: "lg", md: "xl" }} />
                        </Box>
-                       <Heading size={{ base: "md", md: "lg" }} color="white" transition="color 0.3s ease" _groupHover={{ color: '#00ff88' }}>
+                       <Heading size={{ base: "md", md: "lg" }} color="white" transition="color 0.3s ease" _groupHover={{ color: 'forest.300' }}>
                          Vision
                        </Heading>
                      </Flex>
@@ -285,7 +285,7 @@ const AboutPage = () => {
                      _hover={{
                        borderColor: 'rgba(255, 255, 255, 0.4)',
                        transform: 'translateY(-8px) scale(1.02)',
-                       boxShadow: '0 20px 40px rgba(0, 255, 136, 0.15), 0 0 20px rgba(0, 255, 136, 0.1)',
+                       boxShadow: '0 20px 40px rgba(0, 0, 0, 0.25)',
                        bg: 'rgba(255, 255, 255, 0.15)',
                        _before: { opacity: 1 }
                      }}
@@ -298,7 +298,7 @@ const AboutPage = () => {
                        left: 0,
                        right: 0,
                        bottom: 0,
-                       bg: 'linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, transparent 50%)',
+                       bg: 'linear-gradient(135deg, rgba(121, 198, 153, 0.18) 0%, transparent 50%)',
                        opacity: 0,
                        transition: 'opacity 0.4s ease',
                        pointerEvents: 'none',
@@ -308,16 +308,16 @@ const AboutPage = () => {
                        <Box
                          p={{ base: 2, md: 3 }}
                          borderRadius="xl"
-                         bg="#00ff88"
-                         transition="all 0.4s ease"
+bg="forest.500"
+                          transition="all 0.4s ease"
                          _groupHover={{
                            transform: 'scale(1.1)',
-                           boxShadow: '0 6px 20px rgba(0, 255, 136, 0.4)'
+                           boxShadow: '0 6px 20px rgba(45, 106, 79, 0.4)'
                          }}
                        >
-                         <Icon as={FaBullseye} color="maroon.700" fontSize={{ base: "lg", md: "xl" }} />
+                         <Icon as={FaBullseye} color="white" fontSize={{ base: "lg", md: "xl" }} />
                        </Box>
-                       <Heading size={{ base: "md", md: "lg" }} color="white" transition="color 0.3s ease" _groupHover={{ color: '#00ff88' }}>
+                       <Heading size={{ base: "md", md: "lg" }} color="white" transition="color 0.3s ease" _groupHover={{ color: 'forest.300' }}>
                          Mission
                        </Heading>
                      </Flex>
@@ -592,7 +592,7 @@ const AboutPage = () => {
           <Box position="absolute" top="-20%" right="-10%" w="600px" h="600px" borderRadius="full" bg="white" filter="blur(100px)" />
           <Box position="absolute" bottom="-30%" left="-10%" w="500px" h="500px" borderRadius="full" bg="white" filter="blur(80px)" />
         </Box>
-        <Box position="absolute" top={0} left={0} right={0} h="4px" bg="#00ff88" boxShadow="0 0 20px rgba(0, 255, 136, 0.5)" />
+        <Box position="absolute" top={0} left={0} right={0} h="4px" bg="forest.400" />
         <Box maxW="1400px" mx="auto" position="relative" zIndex={1}>
           <ScrollReveal>
             <VStack spacing={16}>
@@ -628,7 +628,7 @@ const AboutPage = () => {
                         left={0}
                         right={0}
                         h="4px"
-                        bg="#00ff88"
+                        bg="forest.400"
                       />
                       <Flex direction="column" align="center">
                         <Box
@@ -649,7 +649,7 @@ const AboutPage = () => {
                         <Heading size="md" color="white" mb={3} fontWeight="700" wordBreak="break-word">
                           {person.name}
                         </Heading>
-                        <Badge bg="#00ff88" color="maroon.700" borderRadius="full" px={{ base: 3, md: 4 }} py={{ base: 1, md: 1.5 }} fontSize="sm" fontWeight="700">
+                        <Badge bg="forest.500" color="white" borderRadius="full" px={{ base: 3, md: 4 }} py={{ base: 1, md: 1.5 }} fontSize="sm" fontWeight="700">
                           {person.title}
                         </Badge>
                         <Text color="whiteAlpha.700" mt={4} fontSize={{ base: "sm", md: "md" }} fontWeight="500">
@@ -669,7 +669,7 @@ const AboutPage = () => {
         <Box position="absolute" top={0} left={0} right={0} h="1px" bgGradient="linear(to-r, transparent, maroon.100, transparent)" />
         <Box position="absolute" top={0} left={0} right={0} bottom={0} opacity={0.4}>
           <Box position="absolute" top="10%" left="5%" w="400px" h="400px" borderRadius="full" bg="maroon.500" opacity={0.03} filter="blur(100px)" />
-          <Box position="absolute" bottom="10%" right="5%" w="300px" h="300px" borderRadius="full" bg="#00ff88" opacity={0.03} filter="blur(80px)" />
+          <Box position="absolute" bottom="10%" right="5%" w="300px" h="300px" borderRadius="full" bg="forest.500" opacity={0.03} filter="blur(80px)" />
         </Box>
         
         <Box maxW="1000px" mx="auto" textAlign="center" position="relative" zIndex={1}>
