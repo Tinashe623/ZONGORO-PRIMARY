@@ -3,7 +3,7 @@
 // Vite env var, e.g. VITE_MANAGEMENT_URL=https://... npm run build
 const base =
   (import.meta.env.VITE_MANAGEMENT_URL as string | undefined) ??
-  'https://multi-school-management-system.vercel.app';
+  'https://schoolhub1.vercel.app';
 
 export const MANAGEMENT_URL = base.replace(/\/+$/, '');
 export const MANAGEMENT_ENROLL_URL = `${MANAGEMENT_URL}/zongoro/enroll`;
