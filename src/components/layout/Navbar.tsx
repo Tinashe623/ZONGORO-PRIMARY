@@ -296,7 +296,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                 flexShrink={0}
               >
                 <Image
-                  src="/images/st-james-zongoro-primary-logo.png"
+                  src="/images/st-james-zongoro-primary-logo.webp"
                   alt="St James Zongoro Primary School Logo"
                   w="100%"
                   h="100%"
@@ -537,7 +537,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
             <Flex align="center" gap={3}>
               <Box w="40px" h="40px" flexShrink={0}>
                 <Image
-                  src="/images/st-james-zongoro-primary-logo.png"
+                  src="/images/st-james-zongoro-primary-logo.webp"
                   alt="St James Zongoro Primary School Logo"
                   w="100%"
                   h="100%"

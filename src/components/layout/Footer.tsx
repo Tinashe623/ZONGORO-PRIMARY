@@ -73,7 +73,7 @@ const Footer = () => {
                 h="64px"
               >
                 <Image
-                  src="/images/st-james-zongoro-primary-logo.png"
+                  src="/images/st-james-zongoro-primary-logo.webp"
                   alt="St James Zongoro Primary School Logo"
                   w="100%"
                   h="100%"

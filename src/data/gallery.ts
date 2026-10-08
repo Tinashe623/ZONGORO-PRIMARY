@@ -47,7 +47,7 @@ export const galleryImages: GalleryImage[] = [
     description: 'Congratulations to our very own learner, Sibongile Mutasa for being crowned the 200m U16 Girls Champion in Manicaland Province. Your speed, determination and hard work have made the school proud. Keep flying high!',
   },
   {
-    src: '/images/gallery/sports/vollyball.jpg',
+    src: '/images/gallery/sports/vollyball.webp',
     alt: 'Volleyball Match',
     category: 'Sports',
   },
@@ -119,7 +119,7 @@ export const galleryImages: GalleryImage[] = [
 
   // Activities - Music & Culture
   {
-    src: '/images/gallery/marimba-club.jpg',
+    src: '/images/gallery/marimba-club.webp',
     alt: 'Marimba Club Performance',
     category: 'Activities',
   },
