@@ -39,7 +39,7 @@ const ChurchPage = () => {
           <Box position="absolute" bottom="10%" left="5%" w="300px" h="300px" borderRadius="full" bg="forest.500" opacity={0.03} filter="blur(80px)" />
         </Box>
         
-        <Box maxW="1400px" mx="auto" position="relative" zIndex={1}>
+        <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
           <ScrollReveal>
             <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={12} alignItems="center">
               <Box position="relative">
@@ -160,7 +160,7 @@ const ChurchPage = () => {
         </Box>
         <Box position="absolute" top={0} left={0} right={0} h="1px" bgGradient="linear(to-r, transparent, maroon.100, transparent)" />
         
-        <Box maxW="1400px" mx="auto" position="relative" zIndex={1}>
+        <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
           <ScrollReveal>
             <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={12} alignItems="center">
               <Box>
@@ -170,17 +170,28 @@ const ChurchPage = () => {
                   boxShadow="0 20px 60px rgba(128, 0, 32, 0.25)"
                   bg="cream.50"
                   h={{ base: '300px', md: '450px' }}
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
                   position="relative"
-                  border="2px dashed"
-                  borderColor="maroon.200"
                 >
-                  <Box textAlign="center" p={6}>
-                    <Icon as={FaPlaceOfWorship} color="maroon.400" fontSize="4xl" mb={4} />
-                    <Text color="gray.500" fontSize="lg" fontWeight="600">Church Building</Text>
-                    <Text color="gray.400" fontSize="sm">Image coming soon</Text>
+                  <Image
+                    src="/images/moments/campus-03.webp"
+                    alt="The church building at St James Zongoro"
+                    w="100%"
+                    h="100%"
+                    objectFit="cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <Box
+                    position="absolute"
+                    bottom={0}
+                    left={0}
+                    right={0}
+                    p={4}
+                    bgGradient="linear(to-t, rgba(0,0,0,0.6), transparent)"
+                  >
+                    <Text color="onAccent" fontSize="md" fontWeight="700" textShadow="0 1px 8px rgba(0,0,0,0.4)">
+                      Church Building
+                    </Text>
                   </Box>
                 </Box>
               </Box>
@@ -213,7 +224,7 @@ const ChurchPage = () => {
                     />
                     <Text 
                       flex={1}
-                      color="white" 
+                      color="onAccent" 
                       fontSize="md" 
                       fontStyle="italic" 
                       fontWeight="500"
@@ -249,7 +260,7 @@ const ChurchPage = () => {
                           transition="all 0.3s ease"
                           _groupHover={{ bg: 'forest.500' }}
                         >
-                          <Icon as={value.icon} color="white" fontSize="md" />
+                          <Icon as={value.icon} color="onAccent" fontSize="md" />
                         </Flex>
                         <Text color="gray.700" fontWeight="600" fontSize="sm">
                           {value.text}

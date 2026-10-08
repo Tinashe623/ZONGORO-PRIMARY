@@ -11,7 +11,7 @@ import {
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
-import { MANAGEMENT_ENROLL_URL } from '../../config';
+import EnrollButton from '../ui/EnrollButton';
 
 const staggerContainer: Variants = {
   hidden: { opacity: 0 },
@@ -43,7 +43,7 @@ const Hero = () => {
         left={0}
         right={0}
         bottom={0}
-        bgImage="linear-gradient(180deg, rgba(80, 15, 15, 0.55) 0%, rgba(18, 55, 40, 0.72) 100%), url('/images/bus-welcoming.jpg')"
+        bgImage="linear-gradient(180deg, rgba(80, 15, 15, 0.55) 0%, rgba(18, 55, 40, 0.72) 100%), url('/images/hero-2026.webp')"
         bgSize="cover"
         bgPosition="center"
         bgRepeat="no-repeat"
@@ -55,7 +55,7 @@ const Hero = () => {
         minH={{ base: "600px", md: "700px" }}
         zIndex={1}
       >
-        <Container maxW="1000px" h="full" display="flex" alignItems="center">
+        <Container maxW="1200px" h="full" display="flex" alignItems="center">
           <Box
             as={motion.div}
             variants={staggerContainer}
@@ -67,9 +67,9 @@ const Hero = () => {
               <motion.div variants={fadeInUpItem}>
                 <Heading
                   as="h1"
-                  size={{ base: "xl", md: "2xl", lg: "3xl" }}
-                  color="white"
-                  lineHeight={{ base: "1.2", md: "1.1" }}
+                  fontSize={{ base: "2xl", md: "5xl", lg: "6xl", xl: "5rem" }}
+                  color="onAccent"
+                  lineHeight={{ base: "1.15", md: "1.05" }}
                   fontWeight="800"
                   textShadow="0 2px 20px rgba(0,0,0,0.3)"
                 >
@@ -98,30 +98,26 @@ const Hero = () => {
                   flexWrap="wrap" 
                   justify="center"
                 >
-                  <Button
-                    as="a"
-                    href={MANAGEMENT_ENROLL_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <EnrollButton
                     bg="cream.100"
                     color="maroon.700"
-                    size={{ base: "md", md: "lg" }}
+                    size="lg"
                     px={{ base: 6, md: 9 }}
                     fontWeight="600"
                     _hover={{ bg: "cream.200", transform: "translateY(-2px)" }}
                     transition="all 0.2s"
                   >
                     Apply Now
-                  </Button>
+                  </EnrollButton>
                   <ScrollLink to="contact" smooth={true} offset={-70}>
                     <Button
                       variant="outline"
                       borderColor="whiteAlpha.400"
-                      color="white"
-                      size={{ base: "md", md: "lg" }}
+                      color="onAccent"
+                      size="lg"
                       px={{ base: 6, md: 9 }}
                       fontWeight="600"
-                      _hover={{ bg: "whiteAlpha.100", borderColor: "white" }}
+                      _hover={{ bg: "whiteAlpha.100", borderColor: "onAccent" }}
                     >
                       Contact Us
                     </Button>

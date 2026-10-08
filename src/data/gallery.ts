@@ -1,7 +1,7 @@
 export interface GalleryImage {
   src: string;
   alt: string;
-  category: 'School Activities' | 'Church Events' | 'Sports' | 'Projects' | 'Activities' | 'Achievements';
+  category: 'School Activities' | 'Church Events' | 'Sports' | 'Projects' | 'Activities' | 'Achievements' | 'Classrooms' | 'Chapel & Assembly' | 'Campus';
   description?: string;
 }
 
@@ -146,13 +146,6 @@ export const galleryImages: GalleryImage[] = [
     category: 'Activities',
   },
 
-  // Transport
-  {
-    src: '/images/gallery/bus-welcoming.jpg',
-    alt: 'School Bus Welcome',
-    category: 'Activities',
-  },
-
   // Achievements
   {
     src: '/images/gallery/head-award.jpg',
@@ -176,5 +169,96 @@ export const galleryImages: GalleryImage[] = [
     alt: 'First Capital Bank Zimbabwe - Global Money Week 2026',
     category: 'School Activities',
     description: 'We are proud to have hosted First Capital Bank Zimbabwe for the commemoration of the Global Money Week for the year 2026. The event left us richer and more empowered. Thank you First Capital Mutare for the philanthropic and strategic visit. Long live our strategic business partnership!',
+  },
+
+  // Classrooms - September 2026
+  {
+    src: '/images/moments/classroom-01.webp',
+    alt: 'In the classroom at St James Zongoro',
+    category: 'Classrooms',
+  },
+  {
+    src: '/images/moments/classroom-02.webp',
+    alt: 'Learning in action at St James Zongoro',
+    category: 'Classrooms',
+  },
+  {
+    src: '/images/moments/classroom-03.webp',
+    alt: 'A lesson in progress at St James Zongoro',
+    category: 'Classrooms',
+  },
+  {
+    src: '/images/moments/classroom-04.webp',
+    alt: 'Pupils at work in class',
+    category: 'Classrooms',
+  },
+  {
+    src: '/images/moments/classroom-05.webp',
+    alt: 'Classroom moments at St James Zongoro',
+    category: 'Classrooms',
+  },
+  {
+    src: '/images/moments/classroom-06.webp',
+    alt: 'Learning together in class',
+    category: 'Classrooms',
+  },
+  {
+    src: '/images/moments/classroom-07.webp',
+    alt: 'Teaching and learning at St James Zongoro',
+    category: 'Classrooms',
+  },
+  {
+    src: '/images/moments/classroom-08.webp',
+    alt: 'Focused learners in the classroom',
+    category: 'Classrooms',
+  },
+  {
+    src: '/images/moments/classroom-09.webp',
+    alt: 'Study time at St James Zongoro',
+    category: 'Classrooms',
+  },
+  {
+    src: '/images/moments/classroom-10.webp',
+    alt: 'A classroom scene at St James Zongoro',
+    category: 'Classrooms',
+  },
+
+  // Chapel & Assembly - September 2026
+  {
+    src: '/images/moments/chapel-01.webp',
+    alt: 'Chapel & assembly at St James Zongoro',
+    category: 'Chapel & Assembly',
+  },
+  {
+    src: '/images/moments/chapel-02.webp',
+    alt: 'Worship and fellowship at St James Zongoro',
+    category: 'Chapel & Assembly',
+  },
+  {
+    src: '/images/moments/chapel-03.webp',
+    alt: 'The school gathered at chapel',
+    category: 'Chapel & Assembly',
+  },
+  {
+    src: '/images/moments/chapel-04.webp',
+    alt: 'Assembly time at St James Zongoro',
+    category: 'Chapel & Assembly',
+  },
+
+  // Campus - September 2026
+  {
+    src: '/images/moments/campus-01.webp',
+    alt: 'The campus of St James Zongoro Primary School',
+    category: 'Campus',
+  },
+  {
+    src: '/images/moments/campus-02.webp',
+    alt: 'School grounds at St James Zongoro',
+    category: 'Campus',
+  },
+  {
+    src: '/images/moments/campus-03.webp',
+    alt: 'A bright day at St James Zongoro',
+    category: 'Campus',
   },
 ];

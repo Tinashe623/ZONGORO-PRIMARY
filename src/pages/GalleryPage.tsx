@@ -17,13 +17,16 @@ import {
   Skeleton,
   Button,
   VStack,
+  IconButton,
+  Flex,
 } from '@chakra-ui/react';
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { galleryImages } from '../data/gallery';
 import type { GalleryImage } from '../data/gallery';
 import PageHero from '../components/ui/PageHero';
 import ScrollReveal from '../components/ui/ScrollReveal';
 
-const categories = ['All', 'School Activities', 'Church Events', 'Sports', 'Projects', 'Activities', 'Achievements'];
+const categories = ['All', 'Classrooms', 'Chapel & Assembly', 'Campus', 'School Activities', 'Church Events', 'Sports', 'Projects', 'Activities', 'Achievements'];
 
 interface ImageCardProps {
   image: GalleryImage;
@@ -71,7 +74,7 @@ const ImageCard = memo(({ image, onClick }: ImageCardProps) => {
           alt={image.alt}
           w="100%"
           h="250px"
-          objectFit="contain"
+          objectFit="cover"
           bg="cream.50"
           loading="lazy"
           decoding="async"
@@ -113,21 +116,41 @@ const GalleryPage = () => {
   }, []);
 
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const filteredImages = selectedCategory === 'All'
     ? galleryImages
     : galleryImages.filter((img) => img.category === selectedCategory);
 
-  const handleImageClick = useCallback((image: GalleryImage) => {
-    setSelectedImage(image);
+  const selectedImage = selectedIndex !== null ? filteredImages[selectedIndex] : null;
+
+  const handleImageClick = useCallback((index: number) => {
+    setSelectedIndex(index);
     onOpen();
   }, [onOpen]);
 
   const handleCategoryChange = useCallback((index: number) => {
     setSelectedCategory(categories[index]);
   }, []);
+
+  const showPrevious = useCallback(() => {
+    setSelectedIndex((prev) => (prev === null || filteredImages.length === 0 ? prev : (prev - 1 + filteredImages.length) % filteredImages.length));
+  }, [filteredImages.length]);
+
+  const showNext = useCallback(() => {
+    setSelectedIndex((prev) => (prev === null || filteredImages.length === 0 ? prev : (prev + 1) % filteredImages.length));
+  }, [filteredImages.length]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowLeft') showPrevious();
+      if (event.key === 'ArrowRight') showNext();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, showPrevious, showNext]);
 
   return (
     <Box>
@@ -137,7 +160,7 @@ const GalleryPage = () => {
       />
       
       <Box py={16} px={4} bg="cream.50">
-        <Box maxW="1400px" mx="auto">
+        <Box maxW="1200px" mx="auto">
           <ScrollReveal>
             <Tabs
               variant="soft-rounded"
@@ -152,7 +175,7 @@ const GalleryPage = () => {
                     key={category}
                     bg="white"
                     color="gray.600"
-                    _selected={{ bg: 'maroon.500', color: 'white' }}
+                    _selected={{ bg: 'maroon.500', color: 'onAccent' }}
                     _hover={{ bg: 'maroon.100', color: 'maroon.700' }}
                     px={6}
                     borderRadius="full"
@@ -173,7 +196,7 @@ const GalleryPage = () => {
           <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={6}>
             {filteredImages.map((image, index) => (
               <ScrollReveal key={`${image.src}-${index}`} delay={0.05 * index}>
-                <ImageCard image={image} onClick={() => handleImageClick(image)} />
+                <ImageCard image={image} onClick={() => handleImageClick(index)} />
               </ScrollReveal>
             ))}
           </SimpleGrid>
@@ -195,7 +218,20 @@ const GalleryPage = () => {
           />
           <ModalBody p={0} display="flex" alignItems="center" justifyContent="center">
             {selectedImage && (
-              <Box position="relative" maxH="90vh">
+              <Box position="relative" maxH="90vh" w="100%" display="flex" alignItems="center" justifyContent="center">
+                <IconButton
+                  aria-label="Previous image"
+                  icon={<ChevronLeftIcon boxSize={8} />}
+                  position="absolute"
+                  left={{ base: 2, md: 6 }}
+                  zIndex={10}
+                  size="lg"
+                  borderRadius="full"
+                  bg="blackAlpha.600"
+                  color="onAccent"
+                  _hover={{ bg: 'blackAlpha.800' }}
+                  onClick={showPrevious}
+                />
                 <Image
                   src={selectedImage.src}
                   alt={selectedImage.alt}
@@ -203,6 +239,19 @@ const GalleryPage = () => {
                   maxW="100%"
                   objectFit="contain"
                   borderRadius="lg"
+                />
+                <IconButton
+                  aria-label="Next image"
+                  icon={<ChevronRightIcon boxSize={8} />}
+                  position="absolute"
+                  right={{ base: 2, md: 6 }}
+                  zIndex={10}
+                  size="lg"
+                  borderRadius="full"
+                  bg="blackAlpha.600"
+                  color="onAccent"
+                  _hover={{ bg: 'blackAlpha.800' }}
+                  onClick={showNext}
                 />
                 <Box
                   position="absolute"
@@ -214,21 +263,26 @@ const GalleryPage = () => {
                   px={6}
                   borderBottomRadius="lg"
                 >
-                  <Text color="white" fontWeight="600" fontSize="lg">
-                    {selectedImage.alt}
+                  <Flex align="center" gap={3} justify="space-between">
+                    <Text color="onAccent" fontWeight="600" fontSize="lg" flex={1} minW={0}>
+                      {selectedImage.alt}
+                    </Text>
+                    <Badge
+                      flexShrink={0}
+                      bg="forest.500"
+                      color="onAccent"
+                      px={3}
+                      py={1}
+                      borderRadius="full"
+                      fontSize="xs"
+                      textTransform="uppercase"
+                    >
+                      {selectedImage.category}
+                    </Badge>
+                  </Flex>
+                  <Text color="whiteAlpha.700" fontSize="sm" mt={1}>
+                    {selectedIndex !== null ? `${selectedIndex + 1} / ${filteredImages.length}` : ''}
                   </Text>
-                  <Badge 
-                    bg="forest.500" 
-                    color="white" 
-                    mt={1}
-                    px={3}
-                    py={1}
-                    borderRadius="full"
-                    fontSize="xs"
-                    textTransform="uppercase"
-                  >
-                    {selectedImage.category}
-                  </Badge>
                 </Box>
               </Box>
             )}
