@@ -27,7 +27,6 @@ import {
 } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
 import PageHero from '../components/ui/PageHero';
-import ScrollReveal from '../components/ui/ScrollReveal';
 
 const features = [
   {
@@ -78,6 +77,8 @@ const TransportPage = () => {
       <PageHero
         title="School Transport"
         subtitle="Safe and reliable bus services for our students"
+        image="/images/school-bus.jpg"
+        imageAlt="The St James Zongoro school bus"
       />
 
       {/* ── Introduction Section ───────────────────────────────────── */}
@@ -89,7 +90,6 @@ const TransportPage = () => {
             alignItems="center"
           >
             {/* Text column */}
-            <ScrollReveal>
               <VStack align="start" spacing={{ base: 4, md: 6 }}>
                 <Badge
                   bg="maroon.500"
@@ -163,10 +163,8 @@ const TransportPage = () => {
                   ))}
                 </List>
               </VStack>
-            </ScrollReveal>
 
             {/* Image column */}
-            <ScrollReveal delay={0.2}>
               <Box position="relative" mt={{ base: 2, lg: 0 }}>
                 {/* Decorative background blob */}
                 <Box
@@ -251,7 +249,6 @@ const TransportPage = () => {
                   </Flex>
                 </Box>
               </Box>
-            </ScrollReveal>
           </SimpleGrid>
         </Box>
       </Box>
@@ -259,7 +256,6 @@ const TransportPage = () => {
       {/* ── Features Section ──────────────────────────────────────── */}
       <Box py={{ base: 10, md: 16, lg: 20 }} px={{ base: 4, md: 6, lg: 8 }} bg="white">
         <Box maxW="1200px" mx="auto">
-          <ScrollReveal>
             <VStack spacing={{ base: 3, md: 4 }} textAlign="center" mb={{ base: 8, md: 12, lg: 16 }}>
               <Heading
                 fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
@@ -277,15 +273,13 @@ const TransportPage = () => {
                 Professional transportation for school events, sports, and private hire across Zimbabwe.
               </Text>
             </VStack>
-          </ScrollReveal>
 
           <SimpleGrid
             columns={{ base: 1, sm: 2, lg: 4 }}
             spacing={{ base: 4, md: 5, lg: 6 }}
           >
             {features.map((feature, index) => (
-              <ScrollReveal key={index} delay={0.1 * index}>
-                <Flex
+                <Flex key={index}
                   direction="column"
                   align="center"
                   bg="white"
@@ -336,7 +330,6 @@ const TransportPage = () => {
                     {feature.description}
                   </Text>
                 </Flex>
-              </ScrollReveal>
             ))}
           </SimpleGrid>
         </Box>
@@ -345,7 +338,6 @@ const TransportPage = () => {
       {/* ── Bus Hire Services Section ─────────────────────────────── */}
       <Box py={{ base: 10, md: 16, lg: 20 }} px={{ base: 4, md: 6, lg: 8 }} bg="cream.50">
         <Box maxW="1200px" mx="auto">
-          <ScrollReveal>
             <VStack spacing={{ base: 3, md: 4 }} textAlign="center" mb={{ base: 8, md: 12, lg: 16 }}>
               <Heading
                 fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
@@ -364,12 +356,10 @@ const TransportPage = () => {
                 private groups throughout Zimbabwe.
               </Text>
             </VStack>
-          </ScrollReveal>
 
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 5, md: 6, lg: 8 }}>
 
             {/* Fleet details card */}
-            <ScrollReveal delay={0.1}>
               <Box
                 bg="white"
                 p={{ base: 5, md: 6, lg: 8 }}
@@ -426,10 +416,8 @@ const TransportPage = () => {
                   </SimpleGrid>
                 </VStack>
               </Box>
-            </ScrollReveal>
 
             {/* Hire conditions card */}
-            <ScrollReveal delay={0.2}>
               <Box
                 bg="white"
                 p={{ base: 5, md: 6, lg: 8 }}
@@ -506,7 +494,6 @@ const TransportPage = () => {
                   </Box>
                 </VStack>
               </Box>
-            </ScrollReveal>
 
           </SimpleGrid>
         </Box>

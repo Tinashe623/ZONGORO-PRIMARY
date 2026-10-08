@@ -1,7 +1,6 @@
 import { Box, SimpleGrid, VStack, Heading, Text, List, ListItem, ListIcon } from '@chakra-ui/react';
 import { FaCheck } from 'react-icons/fa';
 import SectionHeading from '../ui/SectionHeading';
-import ScrollReveal from '../ui/ScrollReveal';
 
 const About = () => {
   const coreValues = [
@@ -15,15 +14,12 @@ const About = () => {
   return (
     <Box id="about" bg="cream.50" py={20} px={4}>
       <Box maxW="1200px" mx="auto">
-        <ScrollReveal>
           <SectionHeading
             title="About Our School"
             subtitle="Building a legacy of educational excellence since 1985"
           />
-        </ScrollReveal>
 
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={12} alignItems="start">
-          <ScrollReveal>
             <VStack align="start" spacing={4}>
               <Heading size="lg" color="maroon.500">
                 Our History
@@ -41,9 +37,7 @@ const About = () => {
                 preserving our cultural heritage and Christian values.
               </Text>
             </VStack>
-          </ScrollReveal>
 
-          <ScrollReveal delay={0.2}>
             <VStack align="start" spacing={6}>
               <Box>
                 <Heading size="lg" color="maroon.500" mb={4}>
@@ -75,7 +69,6 @@ const About = () => {
                 </List>
               </Box>
             </VStack>
-          </ScrollReveal>
         </SimpleGrid>
       </Box>
     </Box>

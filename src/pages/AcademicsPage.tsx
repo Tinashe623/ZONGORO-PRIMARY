@@ -18,7 +18,6 @@ import { FaGraduationCap, FaBookOpen, FaLightbulb, FaStar, FaCheckCircle, FaGave
 import { motion } from 'framer-motion';
 import { academicCards } from '../data/academics';
 import PageHero from '../components/ui/PageHero';
-import ScrollReveal from '../components/ui/ScrollReveal';
 import EnrollButton from '../components/ui/EnrollButton';
 
 const MotionBox = motion(Box);
@@ -39,12 +38,13 @@ const AcademicsPage = () => {
       <PageHero 
         title="Academic Excellence" 
         subtitle="Quality education preparing students for success"
+        image="/images/moments/classroom-01.webp"
+        imageAlt="Classroom at St James Zongoro Primary School"
       />
       
       {/* Main Content - Cream Background */}
       <Box py={20} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
-          <ScrollReveal>
             <VStack spacing={4} textAlign="center" mb={16}>
               <Heading size="2xl" color="maroon.500" fontWeight="700">
                 Our Academic Programs
@@ -54,14 +54,12 @@ const AcademicsPage = () => {
                 intellectual growth and critical thinking skills.
               </Text>
             </VStack>
-          </ScrollReveal>
 
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
             {academicCards.map((card, index) => {
               const IconComponent = iconMap[card.icon];
               return (
-                <ScrollReveal key={index} delay={0.1 * index}>
-                  <Card
+                  <Card key={index}
                     bg="white"
                     borderRadius="2xl"
                     boxShadow="0 4px 20px rgba(0,0,0,0.08)"
@@ -122,7 +120,6 @@ const AcademicsPage = () => {
                       </VStack>
                     </CardBody>
                   </Card>
-                </ScrollReveal>
               );
             })}
           </SimpleGrid>
@@ -133,7 +130,6 @@ const AcademicsPage = () => {
       <Box py={20} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
           <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={12} alignItems="center">
-            <ScrollReveal>
               <VStack align="start" spacing={6}>
                 <Heading size="2xl" color="maroon.500" fontWeight="700">
                   Why Academic Excellence Matters
@@ -154,9 +150,7 @@ const AcademicsPage = () => {
                   </SimpleGrid>
                 </Box>
               </VStack>
-            </ScrollReveal>
             
-            <ScrollReveal delay={0.2}>
               <Box 
                 bg="white" 
                 borderRadius="2xl" 
@@ -220,7 +214,6 @@ const AcademicsPage = () => {
                   </VStack>
                 </VStack>
               </Box>
-            </ScrollReveal>
           </SimpleGrid>
         </Box>
       </Box>
@@ -228,7 +221,6 @@ const AcademicsPage = () => {
       {/* Tech-Voc Compliance & Achievements Section */}
       <Box py={20} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
-          <ScrollReveal>
             <VStack spacing={4} textAlign="center" mb={16}>
               <Heading size="2xl" color="maroon.500" fontWeight="700">
                 Tech-Voc Compliance & Achievements
@@ -237,7 +229,6 @@ const AcademicsPage = () => {
                 Excellence in Technical and Vocational Education Implementation
               </Text>
             </VStack>
-          </ScrollReveal>
 
           {/* Hero Stats */}
           <SimpleGrid columns={{ base: 1, md: 4 }} spacing={6} mb={16}>
@@ -247,8 +238,7 @@ const AcademicsPage = () => {
               { icon: FaLightbulb, label: 'Tech-Voc Subjects', value: '4', color: 'maroon.600' },
               { icon: FaCheckCircle, label: 'SDGs Aligned', value: '✓', color: 'forest.600' },
             ].map((stat, index) => (
-              <ScrollReveal key={index} delay={0.1 * index}>
-                <Box
+                <Box key={index}
                   bg="white"
                   borderRadius="2xl"
                   p={6}
@@ -283,12 +273,10 @@ const AcademicsPage = () => {
                     {stat.label}
                   </Text>
                 </Box>
-              </ScrollReveal>
             ))}
           </SimpleGrid>
 
           {/* Policy Frameworks Section */}
-          <ScrollReveal>
             <VStack spacing={8} align="start" mb={16}>
               <Flex align="center" gap={4} mb={6}>
                 <Box
@@ -334,7 +322,6 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
                 </Text>
               </Box>
             </VStack>
-          </ScrollReveal>
 
           {/* Achievements Grid */}
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} mb={16}>
@@ -364,8 +351,7 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
                 achievements: ["High-value crop production", "Home-Grown Feeding Program", "Food security initiatives"]
               }
             ].map((achievement, index) => (
-              <ScrollReveal key={index} delay={0.1 * index}>
-                <Box
+                <Box key={index}
                   bg="white"
                   borderRadius="2xl"
                   p={8}
@@ -413,12 +399,10 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
                     ))}
                   </VStack>
                 </Box>
-              </ScrollReveal>
             ))}
           </SimpleGrid>
 
           {/* Conclusion */}
-          <ScrollReveal>
             <VStack spacing={8} align="center">
               <Flex align="center" gap={4} mb={6}>
                 <Box
@@ -466,7 +450,6 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
 
 
             </VStack>
-          </ScrollReveal>
         </Box>
       </Box>
 

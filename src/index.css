@@ -20,6 +20,26 @@ body {
   box-sizing: border-box;
 }
 
+html :focus-visible {
+  outline: 3px solid #820000;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.35);
+}
+
+main img {
+  filter: saturate(1.02) contrast(1.01);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .chakra-menu__menu-list {
+    animation: none !important;
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

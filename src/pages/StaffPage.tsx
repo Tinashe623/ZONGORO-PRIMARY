@@ -13,6 +13,8 @@ const StaffPage = () => {
       <PageHero
         title="Our Team"
         subtitle="Meet the dedicated educators and staff who make St James Zongoro a place of excellence"
+        image="/images/headmaster.webp"
+        imageAlt="The headmaster in his office"
       />
       <StaffLeadership />
     </Box>

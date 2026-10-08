@@ -11,7 +11,6 @@ import {
 } from '@chakra-ui/react';
 import { FaCross, FaHeart, FaBook, FaPrayingHands, FaChurch, FaPlaceOfWorship } from 'react-icons/fa';
 import PageHero from '../components/ui/PageHero';
-import ScrollReveal from '../components/ui/ScrollReveal';
 
 const churchValues = [
   { icon: FaCross, text: 'Faith & Trust in God' },
@@ -31,6 +30,8 @@ const ChurchPage = () => {
       <PageHero 
         title="Our Anglican Heritage" 
         subtitle="Building character through Christian values and worship"
+        image="/images/students-inchurch.webp"
+        imageAlt="Students in the school church"
       />
       
       <Box py={16} px={4} bg="cream.50" position="relative" overflow="hidden">
@@ -40,7 +41,6 @@ const ChurchPage = () => {
         </Box>
         
         <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
-          <ScrollReveal>
             <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={12} alignItems="center">
               <Box position="relative">
                 <Box 
@@ -49,8 +49,10 @@ const ChurchPage = () => {
                   boxShadow="0 20px 60px rgba(128, 0, 32, 0.25)"
                 >
                   <Image 
-                    src="/images/students-inchurch.jpg" 
+                    src="/images/students-inchurch.webp" 
                     alt="Students in Anglican Church"
+                    loading="lazy"
+                    decoding="async"
                     w="100%"
                     h={{ base: '300px', md: '450px' }}
                     objectFit="cover"
@@ -149,7 +151,6 @@ const ChurchPage = () => {
                 </Box>
               </VStack>
             </SimpleGrid>
-          </ScrollReveal>
         </Box>
       </Box>
 
@@ -161,7 +162,6 @@ const ChurchPage = () => {
         <Box position="absolute" top={0} left={0} right={0} h="1px" bgGradient="linear(to-r, transparent, maroon.100, transparent)" />
         
         <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
-          <ScrollReveal>
             <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={12} alignItems="center">
               <Box>
                 <Box 
@@ -271,7 +271,6 @@ const ChurchPage = () => {
                 </SimpleGrid>
               </VStack>
 </SimpleGrid>
-          </ScrollReveal>
         </Box>
       </Box>
     </Box>

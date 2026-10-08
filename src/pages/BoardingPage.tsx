@@ -6,7 +6,6 @@ import BoardingFacilities from '../components/sections/BoardingFacilities';
 import DailySchedule from '../components/sections/DailySchedule';
 import BoardingRules from '../components/sections/BoardingRules';
 import { boardingFees } from '../data/boarding';
-import ScrollReveal from '../components/ui/ScrollReveal';
 
 const BoardingPage = () => {
   const isMobile = useBreakpointValue({ base: true, md: false });
@@ -20,13 +19,14 @@ const BoardingPage = () => {
       <PageHero 
         title="Boarding" 
         subtitle="Our modern boarding institute provides a safe, supportive home away from home"
+        image="/images/new/02.webp"
+        imageAlt="Boarding life at St James Zongoro"
       />
       
       {/* Introduction - Cream Background */}
       <Box py={20} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
           <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={12} alignItems="center">
-            <ScrollReveal>
               <VStack align="start" spacing={6}>
                 <Heading size="2xl" color="maroon.500" fontWeight="700">
                   Welcome to Our Boarding Institute
@@ -66,9 +66,7 @@ const BoardingPage = () => {
                   ))}
                 </SimpleGrid>
               </VStack>
-            </ScrollReveal>
             
-            <ScrollReveal delay={0.2}>
               <Box
                 bg="white"
                 borderRadius="2xl"
@@ -223,7 +221,6 @@ const BoardingPage = () => {
                   ))}
                 </VStack>
               </Box>
-            </ScrollReveal>
           </SimpleGrid>
         </Box>
       </Box>

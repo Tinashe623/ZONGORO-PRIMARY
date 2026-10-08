@@ -16,7 +16,6 @@ import {
 } from '@chakra-ui/react';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaPaperPlane, FaClock } from 'react-icons/fa';
 import PageHero from '../components/ui/PageHero';
-import ScrollReveal from '../components/ui/ScrollReveal';
 import { CONTACT_API_URL } from '../config';
 import { schoolContact } from '../data/contact';
 
@@ -275,13 +274,14 @@ const ContactPage = () => {
       <PageHero 
         title="Contact Us" 
         subtitle="We'd love to hear from you"
+        image="/images/new/08.webp"
+        imageAlt="St James Zongoro Primary School"
       />
       
       {/* Contact Section - Cream Background */}
       <Box py={20} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
           <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={12}>
-            <ScrollReveal>
               <VStack align="start" spacing={8}>
                 <Box>
                   <Heading fontSize={{ base: "xl", md: "2xl" }} color="maroon.500" fontWeight="700" mb={4}>
@@ -295,11 +295,8 @@ const ContactPage = () => {
                 </Box>
                 <ContactInfo />
               </VStack>
-            </ScrollReveal>
 
-            <ScrollReveal delay={0.2}>
               <ContactForm />
-            </ScrollReveal>
           </SimpleGrid>
         </Box>
       </Box>

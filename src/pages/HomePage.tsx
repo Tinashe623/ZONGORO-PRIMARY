@@ -8,7 +8,6 @@ import Announcements from '../components/sections/Announcements';
 import LatestMoments from '../components/sections/LatestMoments';
 import SchoolStats from '../components/sections/SchoolStats';
 import Testimonials from '../components/sections/Testimonials';
-import ScrollReveal from '../components/ui/ScrollReveal';
 
 const HomePage = () => {
   useEffect(() => {
@@ -19,9 +18,9 @@ const HomePage = () => {
     <Box>
       <Hero />
       <WhyChooseUs />
-      <Announcements />
       <FacilitiesSection />
       <SchoolStats />
+      <Announcements />
       <LatestMoments />
       
       <Box
@@ -38,7 +37,6 @@ const HomePage = () => {
         <Box position="absolute" top={0} left={0} right={0} h="1px" bgGradient="linear(to-r, transparent, maroon.100, transparent)" />
         
         <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
-          <ScrollReveal>
             <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={{ base: 8, md: 16 }} alignItems="center">
               <Box position="relative" p={{ base: 4, md: 8 }}>
                 <Box
@@ -50,6 +48,8 @@ const HomePage = () => {
                   <Image
                     src="/images/chief-image.jpg"
                     alt="Chief Mutasa"
+                    loading="lazy"
+                    decoding="async"
                     w="100%"
                     h={{ base: '400px', md: '600px' }}
                     objectFit="cover"
@@ -114,7 +114,6 @@ const HomePage = () => {
                 </Button>
               </VStack>
             </SimpleGrid>
-          </ScrollReveal>
         </Box>
       </Box>
 

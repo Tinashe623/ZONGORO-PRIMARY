@@ -12,7 +12,6 @@ import {
 } from '@chakra-ui/react';
 import { FaUsers, FaBus, FaGift, FaPlay } from 'react-icons/fa';
 import PageHero from '../components/ui/PageHero';
-import ScrollReveal from '../components/ui/ScrollReveal';
 
 const communityHighlights = [
   {
@@ -63,6 +62,8 @@ const CommunityPage = () => {
       <PageHero 
         title="Community Partnership" 
         subtitle="Working together for our children's future"
+        image="/images/moments/campus-03.webp"
+        imageAlt="A bright day on the school grounds"
       />
       
       <Box py={16} px={4} bg="cream.50" position="relative" overflow="hidden">
@@ -73,7 +74,6 @@ const CommunityPage = () => {
         <Box position="absolute" top={0} left={0} right={0} h="1px" bgGradient="linear(to-r, transparent, maroon.100, transparent)" />
         
         <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
-          <ScrollReveal>
             <VStack spacing={8} maxW="800px" mx="auto" textAlign="center">
               <Heading size="2xl" color="maroon.600" fontWeight="800">
                 Our Community Connection
@@ -85,10 +85,8 @@ const CommunityPage = () => {
                 environment where every child can succeed.
               </Text>
             </VStack>
-          </ScrollReveal>
 
           <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={12} mt={16}>
-            <ScrollReveal>
               <Box 
                 borderRadius="2xl" 
                 overflow="hidden" 
@@ -125,7 +123,6 @@ const CommunityPage = () => {
                   <Text fontSize="sm" color="gray.500">Community Leader & School Patron</Text>
                 </Box>
               </Box>
-            </ScrollReveal>
 
             <VStack align="start" spacing={6}>
               <Heading size="xl" color="maroon.600" fontWeight="700">
@@ -205,7 +202,6 @@ const CommunityPage = () => {
         <Box position="absolute" top={0} left={0} right={0} h="1px" bgGradient="linear(to-r, transparent, maroon.100, transparent)" />
         
         <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
-          <ScrollReveal>
             <VStack spacing={10}>
               <Box textAlign="center">
                 <Heading size="xl" color="maroon.600" fontWeight="800">
@@ -217,9 +213,8 @@ const CommunityPage = () => {
               </Box>
 
               <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} w="100%">
-                {activities.map((activity, index) => (
-                  <ScrollReveal key={activity.title} delay={0.1 * index}>
-                    <Box 
+                {activities.map((activity) => (
+                    <Box key={activity.title} 
                       borderRadius="2xl" 
                       overflow="hidden" 
                       bg="white"
@@ -287,11 +282,9 @@ const CommunityPage = () => {
                         </Text>
                       </Box>
                     </Box>
-                  </ScrollReveal>
                 ))}
               </SimpleGrid>
             </VStack>
-          </ScrollReveal>
         </Box>
       </Box>
     </Box>

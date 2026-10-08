@@ -13,7 +13,6 @@ import {
 } from '@chakra-ui/react';
 import { FaUsers, FaCalendarAlt, FaHandshake } from 'react-icons/fa';
 import SectionHeading from '../ui/SectionHeading';
-import ScrollReveal from '../ui/ScrollReveal';
 
 const communityHighlights = [
   {
@@ -40,15 +39,12 @@ const CommunitySection = () => {
   return (
     <Box id="community" bg="cream.50" py={20} px={4}>
       <Box maxW="1200px" mx="auto">
-        <ScrollReveal>
           <SectionHeading
             title="Community Partnership"
             subtitle="Working together for our children's future"
           />
-        </ScrollReveal>
 
         <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={8}>
-          <ScrollReveal>
             <Card
               bg="white"
               borderRadius="2xl"
@@ -78,12 +74,10 @@ const CommunitySection = () => {
                 </VStack>
               </CardBody>
             </Card>
-          </ScrollReveal>
 
           <VStack spacing={4}>
             {communityHighlights.map((highlight, index) => (
-              <ScrollReveal key={index} delay={0.1 * (index + 1)}>
-                <Card
+                <Card key={index}
                   bg="white"
                   borderRadius="2xl"
                   boxShadow="0 4px 20px rgba(0,0,0,0.08)"
@@ -115,7 +109,6 @@ const CommunitySection = () => {
                     </Flex>
                   </CardBody>
                 </Card>
-              </ScrollReveal>
             ))}
           </VStack>
         </SimpleGrid>

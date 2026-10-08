@@ -11,8 +11,17 @@ const SectionHeading = ({
   subtitle,
   textAlign = 'center',
 }: SectionHeadingProps) => {
+  const isLeft = textAlign === 'left';
+
   return (
-    <VStack spacing={3} textAlign={textAlign} mb={10}>
+    <VStack
+      spacing={3}
+      textAlign={textAlign}
+      mb={10}
+      alignItems={isLeft ? 'flex-start' : 'center'}
+      maxW={isLeft ? '640px' : undefined}
+      w={isLeft ? '100%' : undefined}
+    >
       <Heading
         size="xl"
         bg="maroon.500"

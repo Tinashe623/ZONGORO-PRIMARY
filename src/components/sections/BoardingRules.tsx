@@ -15,7 +15,6 @@ import {
 } from '@chakra-ui/react';
 import { FaCheckCircle, FaSchool, FaUserShield, FaClock, FaHeart } from 'react-icons/fa';
 import { boardingRules } from '../../data/boarding';
-import ScrollReveal from '../ui/ScrollReveal';
 
 const categoryIcons: Record<string, React.ComponentType> = {
   'General Rules': FaSchool,
@@ -28,7 +27,6 @@ const BoardingRules = () => {
   return (
     <Box py={20} px={4} bg="white">
       <Box maxW="900px" mx="auto">
-        <ScrollReveal>
           <VStack spacing={4} textAlign="center" mb={16}>
             <Heading size="2xl" color="maroon.600" fontWeight="800">
               Boarding Rules & Expectations
@@ -37,9 +35,7 @@ const BoardingRules = () => {
               Our boarding community operates on principles of respect, discipline, and personal growth.
             </Text>
           </VStack>
-        </ScrollReveal>
 
-        <ScrollReveal>
           <Accordion allowMultiple>
             {boardingRules.map((rule, index) => {
               const CategoryIcon = categoryIcons[rule.category] || FaSchool;
@@ -112,7 +108,6 @@ const BoardingRules = () => {
               );
             })}
           </Accordion>
-        </ScrollReveal>
       </Box>
     </Box>
   );

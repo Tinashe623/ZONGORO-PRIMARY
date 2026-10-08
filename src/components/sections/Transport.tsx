@@ -17,7 +17,6 @@ import {
 import { FaBus, FaCheckCircle, FaArrowRight } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
 import SectionHeading from '../ui/SectionHeading';
-import ScrollReveal from '../ui/ScrollReveal';
 
 const services = [
   'Daily school transport for students',
@@ -41,15 +40,12 @@ const Transport = () => {
       
       <Box bg="cream.50" py={20}>
         <Box maxW="1200px" mx="auto">
-          <ScrollReveal>
             <SectionHeading
               title="School Transport"
               subtitle="Safe and reliable transportation for our students"
             />
-          </ScrollReveal>
 
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={12} alignItems="center">
-            <ScrollReveal>
               <VStack align="start" spacing={6}>
                 <Heading size="lg" color="forest.500">
                   Reliable Transport Services
@@ -81,9 +77,7 @@ const Transport = () => {
                   </Button>
                 </RouterLink>
                 </VStack>
-              </ScrollReveal>
 
-              <ScrollReveal delay={0.2}>
               <Card
                 bg="white"
                 borderRadius="2xl"
@@ -112,7 +106,6 @@ const Transport = () => {
                   </VStack>
                 </CardBody>
               </Card>
-            </ScrollReveal>
           </SimpleGrid>
         </Box>
       </Box>

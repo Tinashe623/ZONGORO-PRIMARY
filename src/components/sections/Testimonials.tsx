@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   Box,
   SimpleGrid,
@@ -7,11 +6,9 @@ import {
   Heading,
   Icon,
   Flex,
-  useBreakpointValue,
 } from '@chakra-ui/react';
-import { FaUserGraduate, FaUserTie, FaCrown, FaChevronDown } from 'react-icons/fa';
+import { FaUserGraduate, FaUserTie, FaCrown } from 'react-icons/fa';
 import { testimonials } from '../../data/testimonials';
-import ScrollReveal from '../ui/ScrollReveal';
 
 const getRoleIcon = (role: string) => {
   if (role.includes('Parent')) return FaUserTie;
@@ -20,183 +17,47 @@ const getRoleIcon = (role: string) => {
 };
 
 const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const interactionText = useBreakpointValue({
-    base: "Tap to read",
-    md: "Hover to read"
-  });
-  const isDesktop = useBreakpointValue({ base: false, md: true });
-
   return (
     <Box
-      role="group"
-      h={{ base: "280px", md: "300px" }}
-      position="relative"
-      cursor="pointer"
-      onMouseEnter={() => isDesktop && setIsOpen(true)}
-      onMouseLeave={() => isDesktop && setIsOpen(false)}
-      onClick={() => !isDesktop && setIsOpen(!isOpen)}
-      _active={{ transform: !isDesktop ? 'scale(0.98)' : 'none' }}
-      transition="all 0.3s ease"
+      bg="white"
+      borderRadius="2xl"
+      p={{ base: 6, md: 8 }}
+      boxShadow="0 15px 45px rgba(0, 0, 0, 0.18)"
+      display="flex"
+      flexDirection="column"
+      h="100%"
     >
-      <Box
-        w="100%"
-        h="100%"
-        transition="all 0.5s cubic-bezier(0.4, 0, 0.2, 1)"
-        opacity={isOpen ? 0 : 1}
-        pointerEvents={isOpen ? 'none' : 'auto'}
-        position="absolute"
-        top={0}
-        left={0}
-        zIndex={1}
+      <Text
+        color="gray.700"
+        fontStyle="italic"
+        lineHeight="1.75"
+        fontSize={{ base: 'sm', md: 'md' }}
+        fontWeight="500"
+        flex="1"
       >
-        <Box
-          w="100%"
-          h="100%"
-          bg="rgba(255, 255, 255, 0.9)"
-          backdropFilter="blur(10px)"
-          borderRadius="2xl"
-          boxShadow="0 15px 45px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.2)"
-          overflow="hidden"
-          border="1px solid rgba(255, 255, 255, 0.3)"
-          position="relative"
-          _before={{
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            bg: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(128,0,32,0.05) 100%)',
-            borderRadius: 'inherit'
-          }}
+        &ldquo;{testimonial.quote}&rdquo;
+      </Text>
+      <Flex align="center" gap={3} mt={6} pt={5} borderTopWidth="1px" borderColor="gray.100">
+        <Flex
+          align="center"
+          justify="center"
+          w="40px"
+          h="40px"
+          borderRadius="full"
+          bg="maroon.500"
+          flexShrink={0}
         >
-            <VStack
-              h="100%"
-              justify="center"
-              align="center"
-              p={{ base: 4, md: 8 }}
-              textAlign="center"
-              spacing={{ base: 3, md: 4 }}
-            >
-              <Flex
-                align="center"
-                justify="center"
-                w={{ base: "60px", md: "80px" }}
-                h={{ base: "60px", md: "80px" }}
-                borderRadius="full"
-                bg="maroon.500"
-                boxShadow="0 6px 20px rgba(128, 0, 32, 0.4)"
-              >
-                <Icon as={getRoleIcon(testimonial.role)} color="onAccent" fontSize={{ base: "xl", md: "2xl" }} />
-              </Flex>
-              <Heading fontSize={{ base: "sm", md: "md" }} color="gray.800" fontWeight="700">
-                {testimonial.author}
-              </Heading>
-              <Text color="maroon.600" fontWeight="600" fontSize={{ base: "xs", md: "sm" }} textTransform="uppercase" letterSpacing="1px">
-                {testimonial.role}
-              </Text>
-              <Box pt={{ base: 2, md: 4 }}>
-                <Icon as={FaChevronDown} color="maroon.500" fontSize={{ base: "lg", md: "xl" }} />
-                <Text color="gray.600" fontSize="xs" mt={1} fontWeight="500">{interactionText}</Text>
-              </Box>
-          </VStack>
+          <Icon as={getRoleIcon(testimonial.role)} color="onAccent" fontSize="md" />
+        </Flex>
+        <Box>
+          <Text color="gray.800" fontWeight="700" fontSize={{ base: 'sm', md: 'md' }}>
+            {testimonial.author}
+          </Text>
+          <Text color="maroon.600" fontWeight="600" fontSize={{ base: 'xs', md: 'sm' }}>
+            {testimonial.role}
+          </Text>
         </Box>
-      </Box>
-      
-      <Box
-        w="100%"
-        h="100%"
-        transition="all 0.5s cubic-bezier(0.4, 0, 0.2, 1)"
-        opacity={isOpen ? 1 : 0}
-        pointerEvents={isOpen ? 'auto' : 'none'}
-        transform={isOpen ? 'translateY(0)' : 'translateY(20px)'}
-        position="absolute"
-        top={0}
-        left={0}
-        zIndex={2}
-      >
-        <Box
-          w="100%"
-          h="100%"
-          bg="rgba(255, 255, 255, 0.95)"
-          backdropFilter="blur(20px)"
-          borderRadius={{ base: "xl", md: "2xl" }}
-          boxShadow={{
-            base: "0 25px 50px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.2)",
-            md: "0 35px 70px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.3)"
-          }}
-          border="1px solid rgba(255, 255, 255, 0.4)"
-          position="relative"
-          _before={{
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            bg: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(128,0,32,0.05) 50%, rgba(255,255,255,0.1) 100%)',
-            borderRadius: 'inherit',
-            pointerEvents: 'none',
-            zIndex: 0
-          }}
-        >
-          <Flex
-            h="100%"
-            align="center"
-            justify="center"
-            p={{ base: 4, md: 8 }}
-          >
-            <VStack
-              spacing={{ base: 4, md: 5 }}
-              maxH="100%"
-              overflow="auto"
-              position="relative"
-              zIndex={1}
-              sx={{
-                '&::-webkit-scrollbar': {
-                  width: '8px',
-                },
-                '&::-webkit-scrollbar-track': {
-                  background: 'rgba(0,0,0,0.05)',
-                  borderRadius: '10px',
-                  margin: '2px',
-                },
-                '&::-webkit-scrollbar-thumb': {
-                  background: 'rgba(128,0,32,0.4)',
-                  borderRadius: '10px',
-                  border: '2px solid rgba(255,255,255,0.3)',
-                  backdropFilter: 'blur(4px)',
-                },
-                '&::-webkit-scrollbar-thumb:hover': {
-                  background: 'rgba(128,0,32,0.6)',
-                  border: '2px solid rgba(255,255,255,0.5)',
-                },
-                '&::-webkit-scrollbar-corner': {
-                  background: 'transparent',
-                },
-              }}
-            >
-
-              <Text
-                color="gray.700"
-                fontStyle="italic"
-                lineHeight="1.9"
-                fontSize={{ base: "sm", md: "md" }}
-                textAlign="center"
-                fontWeight="500"
-                px={{ base: 2, md: 4 }}
-                textShadow="0 1px 2px rgba(255,255,255,0.5)"
-              >
-                "{testimonial.quote}"
-              </Text>
-              <Text color="maroon.600" fontSize={{ base: "xs", md: "sm" }} mt={2} fontWeight="700">
-                — {testimonial.author}
-              </Text>
-            </VStack>
-          </Flex>
-        </Box>
-      </Box>
+      </Flex>
     </Box>
   );
 };
@@ -210,9 +71,7 @@ const Testimonials = () => {
       bg="maroon.500"
       position="relative"
       overflow="hidden"
-
     >
-
       <Box
         position="absolute"
         bottom={-30}
@@ -222,29 +81,25 @@ const Testimonials = () => {
         borderRadius="full"
         bg="rgba(255, 255, 255, 0.05)"
       />
-      
+
       <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
-        <ScrollReveal>
-          <VStack spacing={3} textAlign="center" mb={12}>
-            <Heading
-              fontSize={{ base: "lg", md: "xl" }}
-              color="onAccent"
-              fontWeight="700"
-            >
-              What People Say
-            </Heading>
-            <Box w="60px" h="4px" bg="whiteAlpha.400" borderRadius="full" />
-            <Text color="whiteAlpha.900" fontSize={{ base: "md", md: "lg" }} fontWeight="500">
-              Hear from our community
-            </Text>
-          </VStack>
-        </ScrollReveal>
+        <VStack spacing={3} textAlign="center" mb={12}>
+          <Heading
+            fontSize={{ base: 'lg', md: 'xl' }}
+            color="onAccent"
+            fontWeight="700"
+          >
+            What People Say
+          </Heading>
+          <Box w="60px" h="4px" bg="whiteAlpha.400" borderRadius="full" />
+          <Text color="whiteAlpha.900" fontSize={{ base: 'md', md: 'lg' }} fontWeight="500">
+            Hear from our community
+          </Text>
+        </VStack>
 
         <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
           {testimonials.map((testimonial, index) => (
-            <ScrollReveal key={index} delay={0.1 * index}>
-              <TestimonialCard testimonial={testimonial} />
-            </ScrollReveal>
+            <TestimonialCard key={index} testimonial={testimonial} />
           ))}
         </SimpleGrid>
       </Box>

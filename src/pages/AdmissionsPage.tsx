@@ -1,13 +1,10 @@
 import { useEffect } from 'react';
 import { Box, SimpleGrid, Heading, Text } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
 import PageHero from '../components/ui/PageHero';
 import AdmissionRequirements from '../components/sections/AdmissionRequirements';
 import ApplicationSteps from '../components/sections/ApplicationSteps';
 import DocumentsChecklist from '../components/sections/DocumentsChecklist';
 import FeesOverview from '../components/sections/FeesOverview';
-
-const MotionBox = motion(Box);
 
 const AdmissionsPage = () => {
   useEffect(() => {
@@ -19,6 +16,8 @@ const AdmissionsPage = () => {
       <PageHero 
         title="Admissions" 
         subtitle="Join the St James Zongoro family and give your child the gift of quality education"
+        image="/images/moments/campus-01.webp"
+        imageAlt="The campus of St James Zongoro Primary School"
       />
       
       {/* Why Choose Us - Cream Background */}
@@ -30,15 +29,9 @@ const AdmissionsPage = () => {
               { title: 'Holistic Development', desc: 'Sports, music, and spiritual growth programs' },
               { title: 'Safe Environment', desc: 'Secure campus with caring staff' },
             ].map((item, index) => (
-              <MotionBox
+              <Box
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Box
-                  bg="white"
+                bg="white"
                   p={{ base: 6, md: 8 }}
                   borderRadius="2xl"
                   boxShadow="0 8px 32px rgba(0,0,0,0.1), 0 4px 16px rgba(0,0,0,0.06)"
@@ -73,8 +66,7 @@ const AdmissionsPage = () => {
                   <Text color="gray.600" fontSize={{ base: "sm", md: "md" }}>
                     {item.desc}
                   </Text>
-                </Box>
-              </MotionBox>
+              </Box>
             ))}
           </SimpleGrid>
         </Box>

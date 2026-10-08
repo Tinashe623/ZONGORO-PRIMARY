@@ -8,7 +8,6 @@ import {
   GridItem,
 } from '@chakra-ui/react';
 import { dailySchedule } from '../../data/boarding';
-import ScrollReveal from '../ui/ScrollReveal';
 
 const DailySchedule = () => {
   const morningItems = dailySchedule.slice(0, 4);
@@ -24,7 +23,6 @@ const DailySchedule = () => {
   return (
     <Box py={20} px={4} bg="cream.50">
       <Box maxW="1200px" mx="auto">
-        <ScrollReveal>
           <VStack spacing={4} textAlign="center" mb={16}>
             <Heading size="2xl" color="maroon.500" fontWeight="700">
               Daily Schedule
@@ -33,7 +31,6 @@ const DailySchedule = () => {
               Our structured daily routine ensures a balanced mix of studies, meals, and recreation.
             </Text>
           </VStack>
-        </ScrollReveal>
 
         <Box position="relative">
 
@@ -41,8 +38,7 @@ const DailySchedule = () => {
             <GridItem>
               <VStack spacing={4} align="stretch">
                 {morningItems.map((item, index) => (
-                  <ScrollReveal key={index} delay={0.1 * index}>
-                    <Flex
+                    <Flex key={index}
                       bg="white"
                       borderRadius="2xl"
                       boxShadow="0 6px 25px rgba(0,0,0,0.1)"
@@ -70,7 +66,6 @@ const DailySchedule = () => {
                         {item.activity}
                       </Text>
                     </Flex>
-                  </ScrollReveal>
                 ))}
               </VStack>
             </GridItem>
@@ -78,8 +73,7 @@ const DailySchedule = () => {
             <GridItem>
               <VStack spacing={4} align="stretch">
                 {afternoonItems.map((item, index) => (
-                  <ScrollReveal key={index} delay={0.1 * index}>
-                    <Flex
+                    <Flex key={index}
                       bg="white"
                       borderRadius="2xl"
                       boxShadow="0 6px 25px rgba(0,0,0,0.1)"
@@ -107,7 +101,6 @@ const DailySchedule = () => {
                         {item.activity}
                       </Text>
                     </Flex>
-                  </ScrollReveal>
                 ))}
               </VStack>
             </GridItem>
@@ -115,8 +108,7 @@ const DailySchedule = () => {
             <GridItem>
               <VStack spacing={4} align="stretch">
                 {eveningItems.map((item, index) => (
-                  <ScrollReveal key={index} delay={0.1 * index}>
-                    <Flex
+                    <Flex key={index}
                       bg="white"
                       borderRadius="2xl"
                       boxShadow="0 6px 25px rgba(0,0,0,0.1)"
@@ -144,7 +136,6 @@ const DailySchedule = () => {
                         {item.activity}
                       </Text>
                     </Flex>
-                  </ScrollReveal>
                 ))}
               </VStack>
             </GridItem>

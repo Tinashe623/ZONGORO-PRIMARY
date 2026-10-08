@@ -19,7 +19,6 @@ import { FaUsers, FaChartLine, FaArrowUp } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { enrollmentData, passRateData, enrollmentComment, passRateComment } from '../data/assessment';
 import PageHero from '../components/ui/PageHero';
-import ScrollReveal from '../components/ui/ScrollReveal';
 import EnrollButton from '../components/ui/EnrollButton';
 
 const MotionBox = motion(Box);
@@ -39,12 +38,13 @@ const AssessmentPage = () => {
       <PageHero
         title="Assessment & Analysis"
         subtitle="Comprehensive evaluation of school performance and growth"
+        image="/images/moments/classroom-07.webp"
+        imageAlt="Teaching and learning at St James Zongoro"
       />
 
       {/* School Enrolment Section - Cream Background */}
       <Box py={20} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
-          <ScrollReveal>
             <VStack spacing={4} textAlign="center" mb={16}>
               <Heading size="2xl" color="maroon.500" fontWeight="700">
                 School Enrolment
@@ -53,7 +53,6 @@ const AssessmentPage = () => {
                 A comprehensive overview of student enrollment trends across all grades
               </Text>
             </VStack>
-          </ScrollReveal>
 
           {/* Stats Row */}
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} mb={12}>
@@ -62,8 +61,7 @@ const AssessmentPage = () => {
               { icon: FaArrowUp, label: `Growth since ${firstEnrollment.year}`, value: `${growthPercent}%`, color: parseFloat(growthPercent) >= 0 ? 'forest.500' : 'gray.500' },
               { icon: FaChartLine, label: 'Projected by 2028', value: '1000', color: 'forest.500' },
             ].map((stat, index) => (
-              <ScrollReveal key={index} delay={0.1 * index}>
-                <Box
+                <Box key={index}
                   bg="white"
                   borderRadius="2xl"
                   p={6}
@@ -93,12 +91,10 @@ const AssessmentPage = () => {
                     {stat.label}
                   </Text>
                 </Box>
-              </ScrollReveal>
             ))}
           </SimpleGrid>
 
           {/* Modern Table */}
-          <ScrollReveal delay={0.2}>
             <Box
               bg="white"
               borderRadius="2xl"
@@ -218,7 +214,6 @@ const AssessmentPage = () => {
                 </Table>
               </Box>
             </Box>
-          </ScrollReveal>
         </Box>
       </Box>
 
@@ -249,7 +244,6 @@ const AssessmentPage = () => {
         />
 
         <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
-          <ScrollReveal>
             <VStack spacing={8} align="start">
               <Heading size="xl" color="onAccent" fontWeight="700">
                 Assessment and Analysis
@@ -279,14 +273,12 @@ ${enrollmentComment}`}
                 </Text>
               </Box>
             </VStack>
-          </ScrollReveal>
         </Box>
       </Box>
 
       {/* ZIMSEC Pass Rate Section - Cream Background */}
       <Box py={20} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
-          <ScrollReveal>
             <VStack spacing={4} textAlign="center" mb={16}>
               <Heading size="2xl" color="maroon.500" fontWeight="700">
                 ZIMSEC National Grade 7 Pass-rate
@@ -295,10 +287,8 @@ ${enrollmentComment}`}
                 Consistent academic performance and improvement over the years
               </Text>
             </VStack>
-          </ScrollReveal>
 
           {/* Pass Rate Table */}
-          <ScrollReveal delay={0.1}>
             <Box
               bg="white"
               borderRadius="2xl"
@@ -380,10 +370,8 @@ ${enrollmentComment}`}
                 </Table>
               </Box>
             </Box>
-          </ScrollReveal>
 
           {/* Analysis Comment */}
-          <ScrollReveal delay={0.2}>
             <Box
               bg="white"
               borderRadius="2xl"
@@ -407,7 +395,6 @@ ${enrollmentComment}`}
 {passRateComment}
               </Text>
             </Box>
-          </ScrollReveal>
         </Box>
       </Box>
 

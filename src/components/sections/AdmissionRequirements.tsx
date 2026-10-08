@@ -11,13 +11,11 @@ import {
 } from '@chakra-ui/react';
 import { FaCheckCircle } from 'react-icons/fa';
 import { admissionRequirements } from '../../data/admissions';
-import ScrollReveal from '../ui/ScrollReveal';
 
 const AdmissionRequirements = () => {
   return (
     <Box py={20} px={4} bg="white" id="requirements">
       <Box maxW="1200px" mx="auto">
-        <ScrollReveal>
           <VStack spacing={4} textAlign="center" mb={16}>
             <Heading size="2xl" color="maroon.500" fontWeight="700">
               Admission Requirements
@@ -27,12 +25,10 @@ const AdmissionRequirements = () => {
               requirements to ensure appropriate placement.
             </Text>
           </VStack>
-        </ScrollReveal>
 
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
           {admissionRequirements.map((req, index) => (
-            <ScrollReveal key={index} delay={0.1 * index}>
-              <Box
+              <Box key={index}
                 bg="white"
                 borderRadius="2xl"
                 boxShadow="0 6px 20px rgba(0,0,0,0.06)"
@@ -73,7 +69,6 @@ const AdmissionRequirements = () => {
                   </VStack>
                 </Box>
               </Box>
-            </ScrollReveal>
           ))}
         </SimpleGrid>
       </Box>

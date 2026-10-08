@@ -24,7 +24,6 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { galleryImages } from '../data/gallery';
 import type { GalleryImage } from '../data/gallery';
 import PageHero from '../components/ui/PageHero';
-import ScrollReveal from '../components/ui/ScrollReveal';
 
 const categories = ['All', 'Classrooms', 'Chapel & Assembly', 'Campus', 'School Activities', 'Church Events', 'Sports', 'Projects', 'Activities', 'Achievements'];
 
@@ -157,11 +156,12 @@ const GalleryPage = () => {
       <PageHero 
         title="School Gallery" 
         subtitle="Capturing moments of learning, faith, and community"
+        image="/images/moments/chapel-04.webp"
+        imageAlt="The school gathered for assembly"
       />
       
       <Box py={16} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
-          <ScrollReveal>
             <Tabs
               variant="soft-rounded"
               colorScheme="maroon"
@@ -187,7 +187,6 @@ const GalleryPage = () => {
                 ))}
               </TabList>
             </Tabs>
-          </ScrollReveal>
 
           <Text textAlign="center" color="gray.500" fontSize="sm" mb={6}>
             Click on any image to view full screen
@@ -195,9 +194,7 @@ const GalleryPage = () => {
 
           <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={6}>
             {filteredImages.map((image, index) => (
-              <ScrollReveal key={`${image.src}-${index}`} delay={0.05 * index}>
-                <ImageCard image={image} onClick={() => handleImageClick(index)} />
-              </ScrollReveal>
+                <ImageCard key={`${image.src}-${index}`} image={image} onClick={() => handleImageClick(index)} />
             ))}
           </SimpleGrid>
         </Box>

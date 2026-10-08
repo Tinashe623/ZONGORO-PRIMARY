@@ -9,7 +9,6 @@ import {
 } from '@chakra-ui/react';
 import { FaBed, FaUtensils, FaBook, FaHospital, FaRunning, FaShieldAlt } from 'react-icons/fa';
 import { boardingFacilities } from '../../data/boarding';
-import ScrollReveal from '../ui/ScrollReveal';
 
 const iconMap: Record<string, React.ComponentType> = {
   FaBed,
@@ -24,7 +23,6 @@ const BoardingFacilities = () => {
   return (
     <Box py={20} px={4} bg="white">
       <Box maxW="1200px" mx="auto">
-        <ScrollReveal>
           <VStack spacing={4} textAlign="center" mb={16}>
             <Heading size="2xl" color="maroon.500" fontWeight="700">
               Boarding Facilities
@@ -33,14 +31,12 @@ const BoardingFacilities = () => {
               Our boarding facility is equipped with modern amenities to ensure comfort and safety.
             </Text>
           </VStack>
-        </ScrollReveal>
 
         <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} spacing={8}>
           {boardingFacilities.map((facility, index) => {
             const IconComponent = iconMap[facility.icon];
             return (
-              <ScrollReveal key={index} delay={0.1 * index}>
-                <Box
+                <Box key={index}
                   bg="white"
                   borderRadius="2xl"
                   boxShadow="0 8px 30px rgba(0,0,0,0.1)"
@@ -82,7 +78,6 @@ const BoardingFacilities = () => {
                     </VStack>
                   </Box>
                 </Box>
-              </ScrollReveal>
             );
           })}
         </SimpleGrid>

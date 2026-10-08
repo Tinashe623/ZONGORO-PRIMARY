@@ -14,7 +14,6 @@ import {
 import { useState } from 'react';
 import { announcements } from '../../data/announcements';
 import SectionHeading from '../ui/SectionHeading';
-import ScrollReveal from '../ui/ScrollReveal';
 
 const formatDate = (dateString: string) => {
   const date = new Date(dateString);
@@ -100,24 +99,21 @@ const Announcements = () => {
   return (
     <Box id="announcements" bg="cream.50" py={20} px={4}>
       <Box maxW="1200px" mx="auto">
-        <ScrollReveal>
           <SectionHeading
             title="Latest News & Announcements"
             subtitle="Stay updated with school activities and events"
+            textAlign="left"
           />
-        </ScrollReveal>
 
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6}>
           {announcements.map((announcement, index) => (
-            <ScrollReveal key={index} delay={0.1 * index}>
-              <AnnouncementCard 
+              <AnnouncementCard key={index} 
                 date={announcement.date}
                 title={announcement.title}
                 excerpt={announcement.excerpt}
                 content={announcement.content}
                 sourceUrl={announcement.sourceUrl}
               />
-            </ScrollReveal>
           ))}
         </SimpleGrid>
       </Box>

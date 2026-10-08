@@ -10,7 +10,6 @@ import {
 } from '@chakra-ui/react';
 import { FaClipboardList, FaFileAlt, FaPencilAlt, FaClipboardCheck, FaCheckCircle } from 'react-icons/fa';
 import { applicationSteps } from '../../data/admissions';
-import ScrollReveal from '../ui/ScrollReveal';
 
 const iconMap: Record<number, React.ComponentType> = {
   1: FaClipboardList,
@@ -26,7 +25,6 @@ const ApplicationSteps = () => {
   return (
     <Box py={20} px={4} bg="cream.50">
       <Box maxW="1200px" mx="auto">
-        <ScrollReveal>
           <VStack spacing={4} textAlign="center" mb={16}>
             <Heading size="2xl" color="maroon.500" fontWeight="700">
               Application Process
@@ -35,13 +33,11 @@ const ApplicationSteps = () => {
               Our simple 5-step application process makes enrolling your child easy and straightforward.
             </Text>
           </VStack>
-        </ScrollReveal>
 
         {isMobile ? (
           <VStack spacing={6} align="stretch">
-            {applicationSteps.map((step, index) => (
-              <ScrollReveal key={step.step} delay={0.1 * index}>
-                <Flex
+            {applicationSteps.map((step) => (
+                <Flex key={step.step}
                   bg="white"
                   borderRadius="2xl"
                   boxShadow="0 8px 30px rgba(0,0,0,0.1)"
@@ -75,14 +71,12 @@ const ApplicationSteps = () => {
                     </Text>
                   </Box>
                 </Flex>
-              </ScrollReveal>
             ))}
           </VStack>
         ) : (
           <SimpleGrid columns={5} spacing={4}>
-              {applicationSteps.map((step, index) => (
-                <ScrollReveal key={step.step} delay={0.1 * index}>
-                  <VStack spacing={4} position="relative" zIndex={1}>
+              {applicationSteps.map((step) => (
+                  <VStack key={step.step} spacing={4} position="relative" zIndex={1}>
                     <Flex
                       align="center"
                       justify="center"
@@ -115,7 +109,6 @@ const ApplicationSteps = () => {
                       </Text>
                     </Box>
                   </VStack>
-                </ScrollReveal>
               ))}
             </SimpleGrid>
         )}

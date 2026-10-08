@@ -7,7 +7,6 @@ import {
   Icon,
 } from '@chakra-ui/react';
 import { FaTrophy, FaMedal, FaStar } from 'react-icons/fa';
-import ScrollReveal from '../ui/ScrollReveal';
 
 const achievements = [
   { icon: FaTrophy, count: 12, label: 'District Titles' },
@@ -19,7 +18,6 @@ const Achievements = () => {
   return (
     <Box bg="maroon.500" py={16} px={4} w="full">
       <Box maxW="1200px" mx="auto">
-        <ScrollReveal>
           <VStack spacing={12}>
             <VStack spacing={4} textAlign="center">
               <Icon as={FaTrophy} color="onAccent" fontSize="4xl" />
@@ -34,8 +32,7 @@ const Achievements = () => {
 
             <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} w="100%">
               {achievements.map((item, index) => (
-                <ScrollReveal key={index} delay={0.2 * index}>
-                  <VStack
+                  <VStack key={index}
                     bg="whiteAlpha.200"
                     borderRadius="2xl"
                     p={8}
@@ -51,11 +48,9 @@ const Achievements = () => {
                       {item.label}
                     </Text>
                   </VStack>
-                </ScrollReveal>
               ))}
             </SimpleGrid>
           </VStack>
-        </ScrollReveal>
       </Box>
     </Box>
   );

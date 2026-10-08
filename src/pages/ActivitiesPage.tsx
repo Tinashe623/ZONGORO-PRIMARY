@@ -20,6 +20,8 @@ const ActivitiesPage = () => {
       <PageHero
         title="Co-Curricular Activities"
         subtitle="Discover your talents through our diverse range of sports, arts, and clubs"
+        image="/images/gallery/sports/vollyball.webp"
+        imageAlt="Pupils in a volleyball match"
       />
       <VStack spacing={0} w="full">
         <ActivitiesGrid />

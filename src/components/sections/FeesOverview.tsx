@@ -15,7 +15,6 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 import { FaMoneyBillWave, FaClock, FaCalendarAlt } from 'react-icons/fa';
-import ScrollReveal from '../ui/ScrollReveal';
 import { feeStructure } from '../../data/admissions';
 
 const FeesOverview = () => {
@@ -23,7 +22,6 @@ const FeesOverview = () => {
   return (
     <Box py={20} px={4} bg="cream.50">
       <Box maxW="900px" mx="auto">
-        <ScrollReveal>
           <VStack spacing={4} textAlign="center" mb={16}>
             <Heading size="2xl" color="maroon.500" fontWeight="700">
               Fee Structure
@@ -32,7 +30,6 @@ const FeesOverview = () => {
               Transparent and affordable fees with flexible payment options for all families.
             </Text>
           </VStack>
-        </ScrollReveal>
 
         {/* Quick Stats */}
         <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} mb={12}>
@@ -41,8 +38,7 @@ const FeesOverview = () => {
             { icon: FaClock, label: 'Payment Plans', value: 'Available', color: 'forest.500' },
             { icon: FaCalendarAlt, label: 'Per Term', value: '3/Year', color: 'maroon.500' },
           ].map((stat, index) => (
-            <ScrollReveal key={index} delay={0.1 * index}>
-              <Flex 
+              <Flex key={index} 
                 bg="white" 
                 p={6} 
                 borderRadius="2xl" 
@@ -67,11 +63,9 @@ const FeesOverview = () => {
                   <Text color="dark.500" fontWeight="700" fontSize="lg">{stat.value}</Text>
                 </Box>
               </Flex>
-            </ScrollReveal>
           ))}
         </SimpleGrid>
 
-        <ScrollReveal delay={0.2}>
           {isMobile ? (
             <VStack spacing={4} align="stretch">
               {feeStructure.map((fee, index) => (
@@ -214,7 +208,6 @@ const FeesOverview = () => {
               </Box>
             </Box>
           )}
-        </ScrollReveal>
 
         <Box
           mt={10}

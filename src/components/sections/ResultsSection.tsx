@@ -12,7 +12,6 @@ import {
 } from '@chakra-ui/react';
 import { gradeSevenResults } from '../../data/results';
 import SectionHeading from '../ui/SectionHeading';
-import ScrollReveal from '../ui/ScrollReveal';
 
 const ResultCard = ({ year, passRate, students }: { year: number; passRate: number; students: number }) => {
   const [displayRate, setDisplayRate] = useState(0);
@@ -65,18 +64,14 @@ const ResultsSection = () => {
   return (
     <Box id="results" bg="cream.50" py={20} px={4}>
       <Box maxW="1200px" mx="auto">
-        <ScrollReveal>
           <SectionHeading
             title="Grade 7 Results"
             subtitle="Consistent academic performance and improvement over the years"
           />
-        </ScrollReveal>
 
         <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={6}>
-          {gradeSevenResults.map((result, index) => (
-            <ScrollReveal key={result.year} delay={0.1 * index}>
-              <ResultCard {...result} />
-            </ScrollReveal>
+          {gradeSevenResults.map((result) => (
+              <ResultCard key={result.year} {...result} />
           ))}
         </SimpleGrid>
       </Box>

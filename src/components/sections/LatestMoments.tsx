@@ -11,7 +11,6 @@ import {
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { Link as RouterLink } from 'react-router-dom';
 import SectionHeading from '../ui/SectionHeading';
-import ScrollReveal from '../ui/ScrollReveal';
 
 const moments = [
   { src: '/images/moments/campus-01.webp', caption: 'Our Campus', tag: 'Campus' },
@@ -36,17 +35,14 @@ const LatestMoments = () => {
     <Box id="latest-moments" py={{ base: 14, md: 20 }} px={4} bg="white">
       <Box maxW="1200px" mx="auto">
         <Flex justify="space-between" align="flex-end" wrap="wrap" gap={4}>
-          <ScrollReveal>
             <SectionHeading
               title="Latest Moments"
               subtitle="Fresh glimpses of life and learning at St James Zongoro"
               textAlign="left"
             />
-          </ScrollReveal>
           <HStackButtons onPrev={() => scrollBy(-1)} onNext={() => scrollBy(1)} />
         </Flex>
 
-        <ScrollReveal>
           <Box
             ref={scrollerRef}
             display="flex"
@@ -122,7 +118,6 @@ const LatestMoments = () => {
               </Box>
             ))}
           </Box>
-        </ScrollReveal>
 
         <Text textAlign="center" mt={6}>
           <RouterLink to="/gallery">

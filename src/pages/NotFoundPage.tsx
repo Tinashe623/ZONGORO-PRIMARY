@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { Box, VStack, Heading, Text, Button, HStack } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import PageHero from '../components/ui/PageHero';
-import ScrollReveal from '../components/ui/ScrollReveal';
 
 const NotFoundPage = () => {
   useEffect(() => {
@@ -14,7 +13,6 @@ const NotFoundPage = () => {
       <PageHero title="Page Not Found" subtitle="The page you're looking for doesn't exist or has moved" />
       <Box py={20} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
-          <ScrollReveal>
             <VStack spacing={8} textAlign="center">
               <Heading
                 fontSize={{ base: '7xl', md: '9rem' }}
@@ -37,7 +35,6 @@ const NotFoundPage = () => {
                 </Button>
               </HStack>
             </VStack>
-          </ScrollReveal>
         </Box>
       </Box>
     </Box>

@@ -13,7 +13,6 @@ import {
 import { galleryImages } from '../../data/gallery';
 import type { GalleryImage } from '../../data/gallery';
 import SectionHeading from '../ui/SectionHeading';
-import ScrollReveal from '../ui/ScrollReveal';
 
 const categories = ['All', 'School Activities', 'Church Events', 'Trips'];
 
@@ -75,14 +74,11 @@ const Gallery = () => {
   return (
     <Box id="gallery" py={20} px={4}>
       <Box maxW="1200px" mx="auto">
-        <ScrollReveal>
           <SectionHeading
             title="School Gallery"
             subtitle="Capturing moments of learning, faith, and community"
           />
-        </ScrollReveal>
 
-        <ScrollReveal>
           <Tabs
             variant="soft-rounded"
             colorScheme="maroon"
@@ -102,13 +98,10 @@ const Gallery = () => {
               ))}
             </TabList>
           </Tabs>
-        </ScrollReveal>
 
         <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={6}>
           {filteredImages.map((image, index) => (
-            <ScrollReveal key={index} delay={0.05 * index}>
-              <ImageCard image={image} />
-            </ScrollReveal>
+              <ImageCard key={index} image={image} />
           ))}
         </SimpleGrid>
       </Box>

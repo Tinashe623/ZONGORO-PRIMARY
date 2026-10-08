@@ -15,7 +15,6 @@ import {
 import { FaGraduationCap, FaBookOpen, FaLightbulb } from 'react-icons/fa';
 import { academicCards } from '../../data/academics';
 import SectionHeading from '../ui/SectionHeading';
-import ScrollReveal from '../ui/ScrollReveal';
 
 const iconMap: Record<string, React.ComponentType> = {
   FaGraduationCap,
@@ -27,19 +26,16 @@ const Academics = () => {
   return (
     <Box id="academics" py={20} px={4}>
       <Box maxW="1200px" mx="auto">
-        <ScrollReveal>
           <SectionHeading
             title="Academic Excellence"
             subtitle="Preparing students for success in education and life"
           />
-        </ScrollReveal>
 
         <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
           {academicCards.map((card, index) => {
             const IconComponent = iconMap[card.icon];
             return (
-              <ScrollReveal key={index} delay={0.1 * index}>
-                <Card
+                <Card key={index}
                   bg="white"
                   borderRadius="2xl"
                   boxShadow="0 4px 20px rgba(0,0,0,0.08)"
@@ -88,7 +84,6 @@ const Academics = () => {
                     </VStack>
                   </CardBody>
                 </Card>
-              </ScrollReveal>
             );
           })}
         </SimpleGrid>

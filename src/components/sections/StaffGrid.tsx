@@ -13,7 +13,6 @@ import {
 import { FaGraduationCap, FaClock } from 'react-icons/fa';
 import { staffMembers } from '../../data/staff';
 import type { StaffMember } from '../../data/staff';
-import ScrollReveal from '../ui/ScrollReveal';
 
 /* ── Category filter config ───────────────────────── */
 const categories = [
@@ -123,7 +122,6 @@ const StaffGrid = () => {
       <Box maxW="1200px" mx="auto">
 
         {/* Section header */}
-        <ScrollReveal>
           <VStack spacing={3} textAlign="center" mb={{ base: 8, md: 14 }}>
             <Heading
               fontSize={{ base: 'lg', md: '2xl' }}
@@ -137,10 +135,8 @@ const StaffGrid = () => {
               building a thriving school community.
             </Text>
           </VStack>
-        </ScrollReveal>
 
         {/* Filter buttons */}
-        <ScrollReveal>
           <Flex
             justify="center"
             flexWrap="wrap"
@@ -166,17 +162,14 @@ const StaffGrid = () => {
               </Button>
             ))}
           </Flex>
-        </ScrollReveal>
 
         {/* Grid */}
         <SimpleGrid
           columns={{ base: 1, sm: 2, md: 3, xl: 4 }}
           spacing={{ base: 4, md: 5, lg: 6 }}
         >
-          {filtered.map((member, index) => (
-            <ScrollReveal key={member.id} delay={0.05 * index}>
-              <StaffCard member={member} />
-            </ScrollReveal>
+          {filtered.map((member) => (
+              <StaffCard key={member.id} member={member} />
           ))}
         </SimpleGrid>
 

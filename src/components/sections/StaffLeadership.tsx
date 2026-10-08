@@ -11,7 +11,6 @@ import {
 } from '@chakra-ui/react';
 import { FaStar } from 'react-icons/fa';
 import { staffMembers } from '../../data/staff';
-import ScrollReveal from '../ui/ScrollReveal';
 
 const StaffLeadership = () => {
   const leadership = staffMembers.filter(m => m.category === 'leadership');
@@ -23,7 +22,6 @@ const StaffLeadership = () => {
         <Box maxW="1200px" mx="auto">
 
           {/* Section header */}
-          <ScrollReveal>
             <VStack spacing={3} textAlign="center" mb={{ base: 10, md: 16 }}>
               <Badge
                 bg="maroon.500"
@@ -55,13 +53,11 @@ const StaffLeadership = () => {
                 Experienced educators guiding our school with vision, dedication and heart.
               </Text>
             </VStack>
-          </ScrollReveal>
 
           {/* Leadership cards */}
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 5, md: 8 }}>
-            {leadership.map((member, index) => (
-              <ScrollReveal key={member.id} delay={0.1 * index}>
-                <Box
+            {leadership.map((member) => (
+                <Box key={member.id}
                   bg="white"
                   borderRadius="2xl"
                   overflow="hidden"
@@ -145,7 +141,6 @@ const StaffLeadership = () => {
                     </Badge>
                   </Flex>
                 </Box>
-              </ScrollReveal>
             ))}
           </SimpleGrid>
         </Box>
@@ -154,7 +149,6 @@ const StaffLeadership = () => {
       {/* ── Group Photo Section ─────────────────────────────── */}
       <Box bg="maroon.50" py={{ base: 12, md: 20 }} px={{ base: 4, md: 6, lg: 8 }}>
         <Box maxW="1200px" mx="auto">
-          <ScrollReveal>
             <VStack spacing={3} textAlign="center" mb={{ base: 8, md: 12 }}>
               <Heading
                 fontSize={{ base: 'lg', md: '2xl' }}
@@ -173,9 +167,7 @@ const StaffLeadership = () => {
                 every achievement at St James Zongoro.
               </Text>
             </VStack>
-          </ScrollReveal>
 
-          <ScrollReveal delay={0.15}>
             <Box
               borderRadius="2xl"
               overflow="hidden"
@@ -197,7 +189,6 @@ const StaffLeadership = () => {
                 School Teaching Staff Coming Soon
               </Text>
             </Box>
-          </ScrollReveal>
         </Box>
       </Box>
     </>

@@ -3,7 +3,6 @@ import { Box, SimpleGrid, VStack, Heading, Text, Flex, Icon, Badge, Button, Imag
 import { Link as RouterLink } from 'react-router-dom';
 import { FaMedal, FaEye, FaBullseye, FaUsers, FaLightbulb, FaHeart, FaShieldAlt, FaStar, FaCalendarAlt, FaFire, FaAward, FaUserTie, FaGlobeAfrica, FaFlag } from 'react-icons/fa';
 import PageHero from '../components/ui/PageHero';
-import ScrollReveal from '../components/ui/ScrollReveal';
 import EnrollButton from '../components/ui/EnrollButton';
 
 const AboutPage = () => {
@@ -40,6 +39,8 @@ const AboutPage = () => {
       <PageHero 
         title="About Our School" 
         subtitle="A century of educational excellence rooted in Anglican heritage"
+        image="/images/about.webp"
+        imageAlt="St James Zongoro Primary School campus"
       />
       
       <Box py={16} px={4} bg="cream.50" position="relative" overflow="hidden">
@@ -48,7 +49,6 @@ const AboutPage = () => {
           <Box position="absolute" bottom="10%" left="5%" w="300px" h="300px" borderRadius="full" bg="forest.500" opacity={0.03} filter="blur(80px)" />
         </Box>
         <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
-          <ScrollReveal>
             <VStack spacing={16}>
               <Box textAlign="center" maxW="800px">
                 <Heading fontSize={{ base: "xl", md: "2xl" }} color="maroon.600" mb={4}>
@@ -71,8 +71,10 @@ const AboutPage = () => {
                 position="relative"
               >
                 <Image
-                  src="/images/about-image.png"
+                  src="/images/about-image.webp"
                   alt="St James Zongoro Primary School Campus"
+                  loading="lazy"
+                  decoding="async"
                   w="100%"
                   h="100%"
                   objectFit="cover"
@@ -97,9 +99,8 @@ const AboutPage = () => {
               </Box>
 
               <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} w="100%" position="relative">
-                {schoolHistory.map((item, index) => (
-                   <ScrollReveal key={item.year} delay={0.1 * index}>
-                     <Box
+                {schoolHistory.map((item) => (
+                     <Box key={item.year}
                        position="relative"
                        p={0}
                      >
@@ -192,11 +193,9 @@ const AboutPage = () => {
                        </Box>
 
                      </Box>
-                   </ScrollReveal>
                 ))}
               </SimpleGrid>
             </VStack>
-          </ScrollReveal>
         </Box>
       </Box>
 
@@ -207,7 +206,6 @@ const AboutPage = () => {
         </Box>
         
         <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
-          <ScrollReveal>
             <VStack spacing={12}>
               <Box textAlign="center" maxW="700px">
                 <Heading fontSize={{ base: "xl", md: "2xl" }} color="onAccent" mb={4}>
@@ -217,7 +215,6 @@ const AboutPage = () => {
               </Box>
 
               <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} w="100%">
-                 <ScrollReveal>
                    <Box
                      p={{ base: 6, md: 8 }}
                      borderRadius="2xl"
@@ -270,9 +267,7 @@ bg="forest.500"
                        To be a prosperous, united, empowered, and life-giving school by 2030.
                      </Text>
                    </Box>
-                 </ScrollReveal>
 
-                 <ScrollReveal delay={0.1}>
                    <Box
                      p={{ base: 6, md: 8 }}
                      borderRadius="2xl"
@@ -325,17 +320,14 @@ bg="forest.500"
                        To roll out an inclusive, skills-oriented and heritage-based curriculum grounded on traditional culture, moral principles, value systems, sport, arts, science, innovation, design and technology.
                      </Text>
                    </Box>
-                 </ScrollReveal>
               </SimpleGrid>
             </VStack>
-          </ScrollReveal>
         </Box>
       </Box>
 
       <Box py={20} px={4} bg="cream.50" position="relative" overflow="hidden">
         <Box position="absolute" top={0} left={0} right={0} h="1px" bgGradient="linear(to-r, transparent, maroon.100, transparent)" />
         <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
-          <ScrollReveal>
             <VStack spacing={16}>
               <Box textAlign="center">
                 <Heading fontSize={{ base: "xl", md: "2xl" }} color="maroon.600" mb={4} fontWeight="800">
@@ -347,9 +339,8 @@ bg="forest.500"
               </Box>
 
               <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} w="100%">
-                {values.slice(0, 3).map((value, index) => (
-                  <ScrollReveal key={value.title} delay={0.1 * index}>
-                    <Box
+                {values.slice(0, 3).map((value) => (
+                    <Box key={value.title}
                       p={{ base: 6, md: 8 }}
                       borderRadius="2xl"
                       bg="white"
@@ -421,14 +412,12 @@ bg="forest.500"
                         </Box>
                       </Flex>
                     </Box>
-                  </ScrollReveal>
                 ))}
               </SimpleGrid>
 
               <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} w="100%">
-                {values.slice(3, 6).map((value, index) => (
-                   <ScrollReveal key={value.title} delay={0.1 * (index + 3)}>
-                     <Box
+                {values.slice(3, 6).map((value) => (
+                     <Box key={value.title}
                        p={{ base: 6, md: 8 }}
                        borderRadius="2xl"
                        bg="white"
@@ -500,14 +489,12 @@ bg="forest.500"
                          </Box>
                        </Flex>
                      </Box>
-                   </ScrollReveal>
                 ))}
               </SimpleGrid>
 
               <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} w="100%">
-                {values.slice(6, 9).map((value, index) => (
-                   <ScrollReveal key={value.title} delay={0.1 * (index + 6)}>
-                     <Box
+                {values.slice(6, 9).map((value) => (
+                     <Box key={value.title}
                        p={{ base: 6, md: 8 }}
                        borderRadius="2xl"
                        bg="white"
@@ -579,11 +566,9 @@ bg="forest.500"
                          </Box>
                        </Flex>
                      </Box>
-                   </ScrollReveal>
                 ))}
               </SimpleGrid>
             </VStack>
-          </ScrollReveal>
         </Box>
       </Box>
 
@@ -594,7 +579,6 @@ bg="forest.500"
         </Box>
         <Box position="absolute" top={0} left={0} right={0} h="4px" bg="forest.400" />
         <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
-          <ScrollReveal>
             <VStack spacing={16}>
               <Box textAlign="center">
                 <Heading fontSize={{ base: "xl", md: "2xl" }} color="onAccent" mb={4} fontWeight="800">
@@ -606,9 +590,8 @@ bg="forest.500"
               </Box>
 
               <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} w="100%">
-                {alumni.map((person, index) => (
-                  <ScrollReveal key={person.name} delay={0.1 * index}>
-                    <Box
+                {alumni.map((person) => (
+                    <Box key={person.name}
                       p={{ base: 6, md: 10 }}
                       borderRadius="2xl"
                       bg="rgba(255, 255, 255, 0.08)"
@@ -657,11 +640,9 @@ bg="forest.500"
                         </Text>
                       </Flex>
                     </Box>
-                  </ScrollReveal>
                 ))}
               </SimpleGrid>
             </VStack>
-          </ScrollReveal>
         </Box>
       </Box>
 
@@ -673,7 +654,6 @@ bg="forest.500"
         </Box>
         
         <Box maxW="1200px" mx="auto" textAlign="center" position="relative" zIndex={1}>
-          <ScrollReveal>
             <VStack spacing={8}>
               <Heading fontSize={{ base: "xl", md: "2xl" }} color="maroon.600" fontWeight="800">
                 Join Our School Community
@@ -712,7 +692,6 @@ bg="forest.500"
                 </Button>
               </Flex>
             </VStack>
-          </ScrollReveal>
         </Box>
       </Box>
     </Box>

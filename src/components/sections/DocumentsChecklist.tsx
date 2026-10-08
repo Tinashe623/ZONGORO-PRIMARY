@@ -9,7 +9,6 @@ import {
 } from '@chakra-ui/react';
 import { FaFileAlt, FaFilePdf, FaBirthdayCake, FaHome, FaUserMd, FaIdCard } from 'react-icons/fa';
 import { requiredDocuments } from '../../data/admissions';
-import ScrollReveal from '../ui/ScrollReveal';
 
 const iconMap: Record<string, React.ComponentType> = {
   'Birth Certificate': FaBirthdayCake,
@@ -24,7 +23,6 @@ const DocumentsChecklist = () => {
   return (
     <Box py={20} px={4} bg="white">
       <Box maxW="1200px" mx="auto">
-        <ScrollReveal>
           <VStack spacing={4} textAlign="center" mb={16}>
             <Heading size="2xl" color="maroon.500" fontWeight="700">
               Required Documents
@@ -33,12 +31,10 @@ const DocumentsChecklist = () => {
               Please gather all required documents before submitting your application.
             </Text>
           </VStack>
-        </ScrollReveal>
 
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
           {requiredDocuments.map((doc, index) => (
-            <ScrollReveal key={index} delay={0.1 * index}>
-              <Flex
+              <Flex key={index}
                 bg="cream.50"
                 borderRadius="2xl"
                 p={6}
@@ -69,7 +65,6 @@ const DocumentsChecklist = () => {
                   </Text>
                 </Box>
               </Flex>
-            </ScrollReveal>
           ))}
         </SimpleGrid>
 

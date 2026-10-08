@@ -35,7 +35,6 @@ import {
   FaBook,
 } from 'react-icons/fa';
 import { activities } from '../../data/activities';
-import ScrollReveal from '../ui/ScrollReveal';
 
 const iconMap: Record<string, React.ComponentType> = {
   FaFutbol,
@@ -250,7 +249,6 @@ const ActivitiesGrid = () => {
       }}
     >
       <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
-        <ScrollReveal>
           <VStack spacing={8} mb={12}>
             <VStack spacing={4} textAlign="center">
               <Heading
@@ -303,13 +301,10 @@ const ActivitiesGrid = () => {
               </TabList>
             </Tabs>
           </VStack>
-        </ScrollReveal>
 
         <SimpleGrid columns={{ base: 1, sm: 2, lg: 3, xl: 4 }} spacing={8}>
-          {filteredActivities.map((activity, index) => (
-            <ScrollReveal key={activity.id} delay={0.1 * index}>
-              <ActivityCard activity={activity} />
-            </ScrollReveal>
+          {filteredActivities.map((activity) => (
+              <ActivityCard key={activity.id} activity={activity} />
           ))}
         </SimpleGrid>
       </Box>

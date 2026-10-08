@@ -18,7 +18,6 @@ import {
 } from '@chakra-ui/react';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaPaperPlane } from 'react-icons/fa';
 import SectionHeading from '../ui/SectionHeading';
-import ScrollReveal from '../ui/ScrollReveal';
 
 const ContactInfo = () => {
   const contactItems = [
@@ -175,15 +174,12 @@ const Contact = () => {
   return (
     <Box id="contact" py={20} px={4}>
       <Box maxW="1200px" mx="auto">
-        <ScrollReveal>
           <SectionHeading
             title="Get in Touch"
             subtitle="We'd love to hear from you"
           />
-        </ScrollReveal>
 
         <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={10}>
-          <ScrollReveal>
             <VStack align="start" spacing={6}>
               <Heading size="lg" color="maroon.500">
                 Contact Information
@@ -195,11 +191,8 @@ const Contact = () => {
               </Text>
               <ContactInfo />
             </VStack>
-          </ScrollReveal>
 
-          <ScrollReveal delay={0.2}>
             <ContactForm />
-          </ScrollReveal>
         </SimpleGrid>
       </Box>
     </Box>

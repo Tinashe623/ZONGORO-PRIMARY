@@ -11,7 +11,6 @@ import {
 } from '@chakra-ui/react';
 import { FaCross, FaHeart, FaBook, FaPrayingHands, FaChurch } from 'react-icons/fa';
 import SectionHeading from '../ui/SectionHeading';
-import ScrollReveal from '../ui/ScrollReveal';
 import SectionDivider from '../ui/SectionDivider';
 
 const churchValues = [
@@ -26,15 +25,12 @@ const ChurchSection = () => {
   return (
     <Box id="church" py={20} px={4}>
       <Box maxW="1200px" mx="auto">
-        <ScrollReveal>
           <SectionHeading
             title="Our Anglican Heritage"
             subtitle="Building character through Christian values and worship"
           />
-        </ScrollReveal>
 
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={12} alignItems="center">
-          <ScrollReveal>
             <VStack align="start" spacing={6}>
               <Box
                 bg="cream.50"
@@ -79,9 +75,7 @@ const ChurchSection = () => {
                 </Text>
               </Box>
             </VStack>
-          </ScrollReveal>
 
-          <ScrollReveal delay={0.2}>
             <VStack align="start" spacing={6}>
               <Heading size="lg" color="forest.500">
                 Our Church Values
@@ -107,7 +101,6 @@ const ChurchSection = () => {
                 ))}
               </List>
             </VStack>
-          </ScrollReveal>
         </SimpleGrid>
 
         <Box mt={12}>

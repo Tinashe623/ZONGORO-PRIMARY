@@ -7,8 +7,9 @@ import {
   HStack,
   Container,
   Flex,
+  Image,
 } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { Link as RouterLink } from 'react-router-dom';
 import EnrollButton from '../ui/EnrollButton';
@@ -34,24 +35,33 @@ const fadeInUpItem: Variants = {
 };
 
 const Hero = () => {
+  const reduceMotion = useReducedMotion();
+
   return (
     <Box id="home" position="relative" overflow="hidden">
-      {/* Background image with gradient overlay */}
+      <Image
+        src="/images/hero-2026.webp"
+        alt=""
+        role="presentation"
+        position="absolute"
+        top={0}
+        left={0}
+        w="100%"
+        h="100%"
+        objectFit="cover"
+      />
       <Box
         position="absolute"
         top={0}
         left={0}
         right={0}
         bottom={0}
-        bgImage="linear-gradient(180deg, rgba(80, 15, 15, 0.55) 0%, rgba(18, 55, 40, 0.72) 100%), url('/images/hero-2026.webp')"
-        bgSize="cover"
-        bgPosition="center"
-        bgRepeat="no-repeat"
+        bgImage="radial-gradient(ellipse 70% 62% at 50% 46%, rgba(6, 18, 12, 0.8) 0%, rgba(6, 18, 12, 0.55) 55%, rgba(6, 18, 12, 0.2) 100%), linear-gradient(180deg, rgba(80, 15, 15, 0.28) 0%, rgba(18, 55, 40, 0.38) 100%)"
       />
 
       <Box
         position="relative"
-        h="100vh"
+        h={{ base: "92vh", md: "90vh" }}
         minH={{ base: "600px", md: "700px" }}
         zIndex={1}
       >
@@ -59,7 +69,7 @@ const Hero = () => {
           <Box
             as={motion.div}
             variants={staggerContainer}
-            initial="hidden"
+            initial={reduceMotion ? 'visible' : 'hidden'}
             animate="visible"
             w="full"
           >

@@ -8,10 +8,9 @@ import {
   Flex,
   Button,
   Circle,
+  Image,
 } from '@chakra-ui/react';
 import { FaGraduationCap, FaChurch, FaUsers, FaHeart, FaArrowRight, FaBus, FaHome, FaBullseye } from 'react-icons/fa';
-import SectionHeading from '../ui/SectionHeading';
-import ScrollReveal from '../ui/ScrollReveal';
 import EnrollButton from '../ui/EnrollButton';
 import { Link as RouterLink } from 'react-router-dom';
 
@@ -58,17 +57,59 @@ const WhyChooseUs = () => {
       <Box position="absolute" top={0} left={0} right={0} h="1px" bgGradient="linear(to-r, transparent, maroon.100, transparent)" />
       
       <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
-        <ScrollReveal>
-          <SectionHeading
-            title="Why Choose St James Zongoro?"
-            subtitle="Discover what makes our school special"
-          />
-        </ScrollReveal>
+          <Flex
+            direction={{ base: 'column', md: 'row' }}
+            gap={{ base: 8, md: 12 }}
+            align="center"
+            mb={14}
+          >
+            <Box flex={1}>
+              <Heading
+                size="xl"
+                bg="maroon.500"
+                bgClip="text"
+                fontWeight="700"
+                letterSpacing="-0.02em"
+              >
+                Why Choose St James Zongoro?
+              </Heading>
+              <Box w="60px" h="4px" bg="maroon.500" borderRadius="full" mt={3} />
+              <Text color="gray.500" fontSize="lg" fontWeight="500" mt={4} maxW="520px" lineHeight="1.7">
+                Discover what makes our school special — academic excellence, Christian
+                values, and a community that nurtures every child from ECD to Grade 7.
+              </Text>
+            </Box>
+            <Box flex={1} w={{ base: '100%', md: 'auto' }}>
+              <Box
+                position="relative"
+                borderRadius="2xl"
+                overflow="hidden"
+                boxShadow="0 20px 50px rgba(128, 0, 32, 0.18)"
+              >
+                <Image
+                  src="/images/new/06.webp"
+                  alt="Life at St James Zongoro Primary School"
+                  loading="lazy"
+                  decoding="async"
+                  w="100%"
+                  h={{ base: '240px', md: '320px' }}
+                  objectFit="cover"
+                />
+                <Box
+                  position="absolute"
+                  top={0}
+                  left={0}
+                  right={0}
+                  bottom={0}
+                  bgGradient="linear(160deg, rgba(130, 0, 0, 0.18) 0%, transparent 45%, rgba(45, 106, 79, 0.22) 100%)"
+                />
+              </Box>
+            </Box>
+          </Flex>
 
         <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} spacing={8}>
           {features.map((feature, index) => (
-            <ScrollReveal key={index} delay={0.1 * index}>
-              <Box
+              <Box key={index}
                 p={8}
                 borderRadius="2xl"
                 bg="white"
@@ -122,11 +163,9 @@ const WhyChooseUs = () => {
                   </Text>
                 </VStack>
               </Box>
-            </ScrollReveal>
           ))}
         </SimpleGrid>
 
-        <ScrollReveal delay={0.3}>
           <Box
             mt={16}
             p={{ base: 8, md: 12 }}
@@ -227,7 +266,6 @@ const WhyChooseUs = () => {
               </Flex>
             </VStack>
           </Box>
-        </ScrollReveal>
       </Box>
     </Box>
   );
