@@ -49,6 +49,7 @@ const Hero = () => {
         w="100%"
         h="100%"
         objectFit="cover"
+        sx={{ filter: 'saturate(1.12) contrast(1.05)' }}
       />
       <Box
         position="absolute"
@@ -56,7 +57,10 @@ const Hero = () => {
         left={0}
         right={0}
         bottom={0}
-        bgImage="radial-gradient(ellipse 70% 62% at 50% 46%, rgba(6, 18, 12, 0.8) 0%, rgba(6, 18, 12, 0.55) 55%, rgba(6, 18, 12, 0.2) 100%), linear-gradient(180deg, rgba(80, 15, 15, 0.28) 0%, rgba(18, 55, 40, 0.38) 100%)"
+        bgImage={{
+          base: "radial-gradient(ellipse 120% 78% at 50% 54%, rgba(6, 18, 12, 0.44) 0%, rgba(6, 18, 12, 0.2) 55%, rgba(6, 18, 12, 0) 100%), linear-gradient(180deg, rgba(6, 18, 12, 0.4) 0%, rgba(6, 18, 12, 0.02) 22%, rgba(6, 18, 12, 0.08) 58%, rgba(6, 18, 12, 0.55) 100%), linear-gradient(115deg, rgba(130, 0, 0, 0.22) 0%, rgba(130, 0, 0, 0) 42%)",
+          md: "radial-gradient(ellipse 95% 72% at 50% 50%, rgba(6, 18, 12, 0.56) 0%, rgba(6, 18, 12, 0.26) 55%, rgba(6, 18, 12, 0) 100%), linear-gradient(180deg, rgba(6, 18, 12, 0.5) 0%, rgba(6, 18, 12, 0.03) 20%, rgba(6, 18, 12, 0.08) 55%, rgba(6, 18, 12, 0.68) 100%), linear-gradient(115deg, rgba(130, 0, 0, 0.3) 0%, rgba(130, 0, 0, 0) 45%)"
+        }}
       />
 
       <Box
@@ -81,7 +85,7 @@ const Hero = () => {
                   color="onAccent"
                   lineHeight={{ base: "1.15", md: "1.05" }}
                   fontWeight="800"
-                  textShadow="0 2px 20px rgba(0,0,0,0.3)"
+                  textShadow="0 2px 18px rgba(6, 18, 12, 0.5)"
                 >
                   St James Zongoro{' '}
                   <Text as="span" color="cream.200">

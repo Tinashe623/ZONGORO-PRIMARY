@@ -15,7 +15,13 @@ const WhatsAppButton = () => {
 
   return (
     <Tooltip label="Chat with us on WhatsApp" placement="left" hasArrow bg="forest.500">
-      <Box position="fixed" bottom={6} right={6} zIndex={1200} role="complementary">
+      <Box
+        position="fixed"
+        bottom={{ base: 1.5, lg: 6 }}
+        right={{ base: 1.5, lg: 6 }}
+        zIndex={1200}
+        role="complementary"
+      >
         <Link
           href={href}
           target="_blank"
@@ -24,25 +30,36 @@ const WhatsAppButton = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
-          w={14}
-          h={14}
+          w={{ base: 10, lg: 14 }}
+          h={{ base: 10, lg: 14 }}
           borderRadius="full"
           bg="forest.500"
           color="onAccent"
-          boxShadow="0 8px 24px rgba(45, 106, 79, 0.4)"
+          boxShadow={{ base: '0 4px 14px rgba(45, 106, 79, 0.45)', lg: '0 8px 24px rgba(45, 106, 79, 0.4)' }}
           transition="all 0.2s ease"
           _hover={{ transform: 'translateY(-3px) scale(1.05)', bg: 'forest.600' }}
         >
           <Box
             position="absolute"
-            w={14}
-            h={14}
+            w={{ base: 10, lg: 14 }}
+            h={{ base: 10, lg: 14 }}
             borderRadius="full"
             bg="forest.400"
             animation={`${ping} 2s ease-out infinite`}
             pointerEvents="none"
           />
-          <FaWhatsapp size={28} style={{ position: 'relative' }} />
+          <Box
+            as="span"
+            display="inline-flex"
+            sx={{
+              '& svg': {
+                width: { base: '1.25rem', lg: '1.75rem' },
+                height: { base: '1.25rem', lg: '1.75rem' },
+              },
+            }}
+          >
+            <FaWhatsapp style={{ position: 'relative' }} />
+          </Box>
         </Link>
       </Box>
     </Tooltip>
