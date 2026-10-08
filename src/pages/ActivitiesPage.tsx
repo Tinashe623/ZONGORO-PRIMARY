@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import { Box, VStack, useColorModeValue, Heading, Text, Button } from '@chakra-ui/react';
+import { Box, VStack, useColorModeValue, Heading, Text } from '@chakra-ui/react';
 import PageHero from '../components/ui/PageHero';
 import ActivitiesGrid from '../components/sections/ActivitiesGrid';
 import Achievements from '../components/sections/Achievements';
-import { MANAGEMENT_ENROLL_URL } from '../config';
+import EnrollButton from '../components/ui/EnrollButton';
 
 const ActivitiesPage = () => {
   useEffect(() => {
@@ -12,7 +12,7 @@ const ActivitiesPage = () => {
 
   const bgGradient = useColorModeValue(
     'linear(to-br, cream.50, white, cream.50)',
-    'linear(to-br, dark.600, dark.500, dark.600)'
+    'linear(to-br, #242019, #171412, #242019)'
   );
 
   return (
@@ -25,10 +25,10 @@ const ActivitiesPage = () => {
         <ActivitiesGrid />
         <Achievements />
         <Box w="full" py={16} px={4} bg="maroon.500">
-          <Box maxW="1400px" mx="auto" textAlign="center">
+          <Box maxW="1200px" mx="auto" textAlign="center">
             <Heading
               size="2xl"
-              color="white"
+              color="onAccent"
               fontWeight="700"
               lineHeight="1.2"
               mb={4}
@@ -45,13 +45,9 @@ const ActivitiesPage = () => {
             >
               Enroll your child in any of our exciting activities and watch them grow
             </Text>
-            <Button
-              as="a"
-              href={MANAGEMENT_ENROLL_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <EnrollButton
               bg="forest.500"
-              color="white"
+              color="onAccent"
               size="lg"
               px={10}
               fontWeight="600"
@@ -64,7 +60,7 @@ const ActivitiesPage = () => {
               transition="all 0.3s ease"
             >
               Enroll Now
-            </Button>
+            </EnrollButton>
           </Box>
         </Box>
       </VStack>

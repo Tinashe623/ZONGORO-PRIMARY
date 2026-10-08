@@ -126,7 +126,7 @@ const StaffGrid = () => {
         <ScrollReveal>
           <VStack spacing={3} textAlign="center" mb={{ base: 8, md: 14 }}>
             <Heading
-              size={{ base: 'lg', md: '2xl' }}
+              fontSize={{ base: 'lg', md: '2xl' }}
               color="dark.500"
               fontWeight="700"
             >
@@ -150,12 +150,12 @@ const StaffGrid = () => {
             {categories.map(cat => (
               <Button
                 key={cat.value}
-                size={{ base: 'sm', md: 'md' }}
+                size="md"
                 borderRadius="full"
                 fontWeight="600"
                 px={{ base: 4, md: 6 }}
                 bg={active === cat.value ? 'maroon.500' : 'gray.100'}
-                color={active === cat.value ? 'white' : 'gray.600'}
+                color={active === cat.value ? 'onAccent' : 'gray.600'}
                 _hover={{
                   bg: active === cat.value ? 'maroon.600' : 'gray.200',
                 }}

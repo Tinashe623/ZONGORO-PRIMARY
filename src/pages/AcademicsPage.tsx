@@ -19,7 +19,7 @@ import { motion } from 'framer-motion';
 import { academicCards } from '../data/academics';
 import PageHero from '../components/ui/PageHero';
 import ScrollReveal from '../components/ui/ScrollReveal';
-import { MANAGEMENT_ENROLL_URL } from '../config';
+import EnrollButton from '../components/ui/EnrollButton';
 
 const MotionBox = motion(Box);
 
@@ -43,7 +43,7 @@ const AcademicsPage = () => {
       
       {/* Main Content - Cream Background */}
       <Box py={20} px={4} bg="cream.50">
-        <Box maxW="1400px" mx="auto">
+        <Box maxW="1200px" mx="auto">
           <ScrollReveal>
             <VStack spacing={4} textAlign="center" mb={16}>
               <Heading size="2xl" color="maroon.500" fontWeight="700">
@@ -96,7 +96,7 @@ const AcademicsPage = () => {
                           boxShadow="0 8px 25px rgba(130, 0, 0, 0.3)"
                         >
                           {IconComponent && (
-                            <Icon as={IconComponent} color="white" fontSize="3xl" />
+                            <Icon as={IconComponent} color="onAccent" fontSize="3xl" />
                           )}
                         </Flex>
                         <Heading size="lg" color="dark.500" fontWeight="700">
@@ -301,7 +301,7 @@ const AcademicsPage = () => {
                   justifyContent="center"
                   boxShadow="0 6px 20px rgba(128,0,32,0.3)"
                 >
-                  <Icon as={FaGavel} color="white" fontSize="xl" />
+                  <Icon as={FaGavel} color="onAccent" fontSize="xl" />
                 </Box>
                 <Box>
                   <Heading size="lg" color="maroon.600" fontWeight="700">
@@ -390,7 +390,7 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
                       justifyContent="center"
                       boxShadow="0 4px 15px rgba(128,0,32,0.3)"
                     >
-                      <Icon as={achievement.icon} color="white" fontSize="lg" />
+                      <Icon as={achievement.icon} color="onAccent" fontSize="lg" />
                     </Box>
                     <Heading size="md" color="maroon.600" fontWeight="700">
                       {achievement.title}
@@ -431,7 +431,7 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
                   justifyContent="center"
                   boxShadow="0 6px 20px rgba(45,106,79,0.3)"
                 >
-                  <Icon as={FaTrophy} color="white" fontSize="xl" />
+                  <Icon as={FaTrophy} color="onAccent" fontSize="xl" />
                 </Box>
                 <Box textAlign="center">
                   <Heading size="xl" color="forest.600" fontWeight="700">
@@ -448,7 +448,7 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
                 borderRadius="2xl"
                 p={8}
                 w="100%"
-                maxW="1000px"
+                maxW="1200px"
                 boxShadow="0 8px 30px rgba(0,0,0,0.1)"
                 border="1px solid"
                 borderColor="gray.100"
@@ -511,7 +511,7 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
           <VStack spacing={8}>
             <Heading 
               size="3xl" 
-              color="white" 
+              color="onAccent" 
               fontWeight="700"
               textShadow="0 4px 20px rgba(0,0,0,0.3)"
             >
@@ -536,13 +536,9 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button
-                  as="a"
-                  href={MANAGEMENT_ENROLL_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <EnrollButton
                   bg="forest.500"
-                  color="white"
+                  color="onAccent"
                   size="lg"
                   px={12}
                   py={7}
@@ -557,7 +553,7 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
                   transition="all 0.3s ease"
                 >
                   Apply Now
-                </Button>
+                </EnrollButton>
               </MotionBox>
               
               <MotionBox
@@ -568,7 +564,7 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
                   as="a"
                   href="/contact"
                   bg="transparent"
-                  color="white"
+                  color="onAccent"
                   size="lg"
                   px={12}
                   py={7}
@@ -579,7 +575,7 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
                   borderColor="whiteAlpha.400"
                   _hover={{ 
                     bg: 'whiteAlpha.200',
-                    borderColor: 'white'
+                    borderColor: 'onAccent'
                   }}
                   transition="all 0.3s ease"
                 >

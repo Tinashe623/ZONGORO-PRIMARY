@@ -25,7 +25,7 @@ const churchValues = [
 const ChurchSection = () => {
   return (
     <Box id="church" py={20} px={4}>
-      <Box maxW="1400px" mx="auto">
+      <Box maxW="1200px" mx="auto">
         <ScrollReveal>
           <SectionHeading
             title="Our Anglican Heritage"

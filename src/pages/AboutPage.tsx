@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { Box, SimpleGrid, VStack, Heading, Text, Flex, Icon, Badge, Button, Image } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
-import { MANAGEMENT_ENROLL_URL } from '../config';
 import { FaMedal, FaEye, FaBullseye, FaUsers, FaLightbulb, FaHeart, FaShieldAlt, FaStar, FaCalendarAlt, FaFire, FaAward, FaUserTie, FaGlobeAfrica, FaFlag } from 'react-icons/fa';
 import PageHero from '../components/ui/PageHero';
 import ScrollReveal from '../components/ui/ScrollReveal';
+import EnrollButton from '../components/ui/EnrollButton';
 
 const AboutPage = () => {
   useEffect(() => {
@@ -47,11 +47,11 @@ const AboutPage = () => {
           <Box position="absolute" top="10%" right="5%" w="400px" h="400px" borderRadius="full" bg="maroon.500" opacity={0.03} filter="blur(100px)" />
           <Box position="absolute" bottom="10%" left="5%" w="300px" h="300px" borderRadius="full" bg="forest.500" opacity={0.03} filter="blur(80px)" />
         </Box>
-        <Box maxW="1400px" mx="auto" position="relative" zIndex={1}>
+        <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
           <ScrollReveal>
             <VStack spacing={16}>
               <Box textAlign="center" maxW="800px">
-                <Heading size={{ base: "xl", md: "2xl" }} color="maroon.600" mb={4}>
+                <Heading fontSize={{ base: "xl", md: "2xl" }} color="maroon.600" mb={4}>
                   Our Legacy Since 1925
                 </Heading>
                 <Text color="gray.600" fontSize={{ base: "md", md: "lg" }} lineHeight="1.8">
@@ -89,7 +89,7 @@ const AboutPage = () => {
                   justifyContent="center"
                   pb={8}
                 >
-                   <Box textAlign="center" color="white">
+                   <Box textAlign="center" color="onAccent">
                      <Text fontSize={{ base: "lg", md: "2xl" }} fontWeight="700">St James Zongoro Primary School</Text>
                      <Text fontSize={{ base: "sm", md: "md" }} opacity={0.9}>Established 1925</Text>
                    </Box>
@@ -147,7 +147,7 @@ const AboutPage = () => {
                                  boxShadow: '0 6px 20px rgba(128, 0, 32, 0.4)'
                                }}
                              >
-                               <Icon as={item.icon} color="white" fontSize={{ base: "lg", md: "xl" }} />
+                               <Icon as={item.icon} color="onAccent" fontSize={{ base: "lg", md: "xl" }} />
                              </Box>
                              <Badge
                                bg="gray.100"
@@ -161,7 +161,7 @@ const AboutPage = () => {
                                transition="all 0.3s ease"
                                _groupHover={{
                                  bg: 'maroon.500',
-                                 color: 'white',
+                                 color: 'onAccent',
                                  transform: 'scale(1.05)'
                                }}
                              >
@@ -169,7 +169,7 @@ const AboutPage = () => {
                              </Badge>
                            </Flex>
                            <Heading
-                             size={{ base: "md", md: "lg" }}
+                             fontSize={{ base: "md", md: "lg" }}
                              color="gray.800"
                              mb={3}
                              fontWeight="700"
@@ -206,11 +206,11 @@ const AboutPage = () => {
           <Box position="absolute" bottom="20%" right="10%" w="250px" h="250px" borderRadius="full" bg="white" filter="blur(60px)" />
         </Box>
         
-        <Box maxW="1400px" mx="auto" position="relative" zIndex={1}>
+        <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
           <ScrollReveal>
             <VStack spacing={12}>
               <Box textAlign="center" maxW="700px">
-                <Heading size={{ base: "xl", md: "2xl" }} color="white" mb={4}>
+                <Heading fontSize={{ base: "xl", md: "2xl" }} color="onAccent" mb={4}>
                   Vision & Mission
                 </Heading>
                 <Box w={{ base: "60px", md: "80px" }} h="3px" bg="cream.100" borderRadius="full" mx="auto" mb={6} />
@@ -260,13 +260,13 @@ bg="forest.500"
                            boxShadow: '0 6px 20px rgba(45, 106, 79, 0.4)'
                          }}
                        >
-                         <Icon as={FaEye} color="white" fontSize={{ base: "lg", md: "xl" }} />
+                         <Icon as={FaEye} color="onAccent" fontSize={{ base: "lg", md: "xl" }} />
                        </Box>
-                       <Heading size={{ base: "md", md: "lg" }} color="white" transition="color 0.3s ease" _groupHover={{ color: 'forest.300' }}>
+                       <Heading fontSize={{ base: "md", md: "lg" }} color="onAccent" transition="color 0.3s ease" _groupHover={{ color: 'forest.300' }}>
                          Vision
                        </Heading>
                      </Flex>
-                     <Text color="whiteAlpha.900" fontSize={{ base: "md", md: "lg" }} lineHeight="1.8" transition="color 0.3s ease" _groupHover={{ color: 'white' }}>
+                     <Text color="whiteAlpha.900" fontSize={{ base: "md", md: "lg" }} lineHeight="1.8" transition="color 0.3s ease" _groupHover={{ color: 'onAccent' }}>
                        To be a prosperous, united, empowered, and life-giving school by 2030.
                      </Text>
                    </Box>
@@ -315,13 +315,13 @@ bg="forest.500"
                            boxShadow: '0 6px 20px rgba(45, 106, 79, 0.4)'
                          }}
                        >
-                         <Icon as={FaBullseye} color="white" fontSize={{ base: "lg", md: "xl" }} />
+                         <Icon as={FaBullseye} color="onAccent" fontSize={{ base: "lg", md: "xl" }} />
                        </Box>
-                       <Heading size={{ base: "md", md: "lg" }} color="white" transition="color 0.3s ease" _groupHover={{ color: 'forest.300' }}>
+                       <Heading fontSize={{ base: "md", md: "lg" }} color="onAccent" transition="color 0.3s ease" _groupHover={{ color: 'forest.300' }}>
                          Mission
                        </Heading>
                      </Flex>
-                     <Text color="whiteAlpha.900" fontSize={{ base: "md", md: "lg" }} lineHeight="1.8" transition="color 0.3s ease" _groupHover={{ color: 'white' }}>
+                     <Text color="whiteAlpha.900" fontSize={{ base: "md", md: "lg" }} lineHeight="1.8" transition="color 0.3s ease" _groupHover={{ color: 'onAccent' }}>
                        To roll out an inclusive, skills-oriented and heritage-based curriculum grounded on traditional culture, moral principles, value systems, sport, arts, science, innovation, design and technology.
                      </Text>
                    </Box>
@@ -338,7 +338,7 @@ bg="forest.500"
           <ScrollReveal>
             <VStack spacing={16}>
               <Box textAlign="center">
-                <Heading size={{ base: "xl", md: "2xl" }} color="maroon.600" mb={4} fontWeight="800">
+                <Heading fontSize={{ base: "xl", md: "2xl" }} color="maroon.600" mb={4} fontWeight="800">
                   Our Core Values
                 </Heading>
                 <Text color="gray.500" fontSize={{ base: "md", md: "lg" }} maxW="500px" mx="auto">
@@ -396,7 +396,7 @@ bg="forest.500"
                             boxShadow: '0 6px 20px rgba(128, 0, 32, 0.4)'
                           }}
                         >
-                          <Icon as={value.icon} color="white" fontSize={{ base: "lg", md: "xl" }} />
+                          <Icon as={value.icon} color="onAccent" fontSize={{ base: "lg", md: "xl" }} />
                         </Box>
                         <Box minW={0} flex={1}>
                           <Heading
@@ -475,7 +475,7 @@ bg="forest.500"
                              boxShadow: '0 6px 20px rgba(128, 0, 32, 0.4)'
                            }}
                          >
-                           <Icon as={value.icon} color="white" fontSize={{ base: "lg", md: "xl" }} />
+                           <Icon as={value.icon} color="onAccent" fontSize={{ base: "lg", md: "xl" }} />
                          </Box>
                          <Box minW={0} flex={1}>
                            <Heading
@@ -554,7 +554,7 @@ bg="forest.500"
                              boxShadow: '0 6px 20px rgba(128, 0, 32, 0.4)'
                            }}
                          >
-                           <Icon as={value.icon} color="white" fontSize={{ base: "lg", md: "xl" }} />
+                           <Icon as={value.icon} color="onAccent" fontSize={{ base: "lg", md: "xl" }} />
                          </Box>
                          <Box minW={0} flex={1}>
                            <Heading
@@ -593,11 +593,11 @@ bg="forest.500"
           <Box position="absolute" bottom="-30%" left="-10%" w="500px" h="500px" borderRadius="full" bg="white" filter="blur(80px)" />
         </Box>
         <Box position="absolute" top={0} left={0} right={0} h="4px" bg="forest.400" />
-        <Box maxW="1400px" mx="auto" position="relative" zIndex={1}>
+        <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
           <ScrollReveal>
             <VStack spacing={16}>
               <Box textAlign="center">
-                <Heading size={{ base: "xl", md: "2xl" }} color="white" mb={4} fontWeight="800">
+                <Heading fontSize={{ base: "xl", md: "2xl" }} color="onAccent" mb={4} fontWeight="800">
                   Notable Alumni
                 </Heading>
                 <Text color="whiteAlpha.800" fontSize={{ base: "md", md: "lg" }} maxW="600px" mx="auto">
@@ -644,12 +644,12 @@ bg="forest.500"
                           boxShadow="0 8px 32px rgba(0, 0, 0, 0.3)"
                           mb={6}
                         >
-                          <Icon as={person.icon} color="white" fontSize={{ base: "2xl", md: "3xl" }} />
+                          <Icon as={person.icon} color="onAccent" fontSize={{ base: "2xl", md: "3xl" }} />
                         </Box>
-                        <Heading size="md" color="white" mb={3} fontWeight="700" wordBreak="break-word">
+                        <Heading size="md" color="onAccent" mb={3} fontWeight="700" wordBreak="break-word">
                           {person.name}
                         </Heading>
-                        <Badge bg="forest.500" color="white" borderRadius="full" px={{ base: 3, md: 4 }} py={{ base: 1, md: 1.5 }} fontSize="sm" fontWeight="700">
+                        <Badge bg="forest.500" color="onAccent" borderRadius="full" px={{ base: 3, md: 4 }} py={{ base: 1, md: 1.5 }} fontSize="sm" fontWeight="700">
                           {person.title}
                         </Badge>
                         <Text color="whiteAlpha.700" mt={4} fontSize={{ base: "sm", md: "md" }} fontWeight="500">
@@ -672,10 +672,10 @@ bg="forest.500"
           <Box position="absolute" bottom="10%" right="5%" w="300px" h="300px" borderRadius="full" bg="forest.500" opacity={0.03} filter="blur(80px)" />
         </Box>
         
-        <Box maxW="1000px" mx="auto" textAlign="center" position="relative" zIndex={1}>
+        <Box maxW="1200px" mx="auto" textAlign="center" position="relative" zIndex={1}>
           <ScrollReveal>
             <VStack spacing={8}>
-              <Heading size={{ base: "xl", md: "2xl" }} color="maroon.600" fontWeight="800">
+              <Heading fontSize={{ base: "xl", md: "2xl" }} color="maroon.600" fontWeight="800">
                 Join Our School Community
               </Heading>
               <Box w={{ base: "60px", md: "80px" }} h="3px" bg="maroon.500" borderRadius="full" />
@@ -683,22 +683,18 @@ bg="forest.500"
                 Enroll your child today and give them the opportunity to thrive in an environment that values academic excellence, heritage, and holistic development.
               </Text>
               <Flex gap={{ base: 3, md: 4 }} flexWrap="wrap" justify="center" mt={4}>
-                <Button
-                  as="a"
-                  href={MANAGEMENT_ENROLL_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <EnrollButton
                   px={{ base: 6, md: 8 }}
                   py={{ base: 3, md: 4 }}
                   bg="maroon.500"
-                  color="white"
+                  color="onAccent"
                   fontWeight="700"
                   fontSize={{ base: "md", md: "lg" }}
                   borderRadius="xl"
                   _hover={{ transform: 'translateY(-4px)', boxShadow: '0 12px 24px rgba(128, 0, 32, 0.3)' }}
                 >
                   Apply Now
-                </Button>
+                </EnrollButton>
                 <Button
                   as={RouterLink}
                   to="/contact"
@@ -710,7 +706,7 @@ bg="forest.500"
                   fontSize={{ base: "md", md: "lg" }}
                   borderRadius="xl"
                   borderColor="maroon.500"
-                  _hover={{ bg: 'maroon.500', color: 'white' }}
+                  _hover={{ bg: 'maroon.500', color: 'onAccent' }}
                 >
                   Contact Us
                 </Button>

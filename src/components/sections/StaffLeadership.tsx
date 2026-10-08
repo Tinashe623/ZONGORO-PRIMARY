@@ -27,7 +27,7 @@ const StaffLeadership = () => {
             <VStack spacing={3} textAlign="center" mb={{ base: 10, md: 16 }}>
               <Badge
                 bg="maroon.500"
-                color="white"
+                color="onAccent"
                 fontSize="xs"
                 fontWeight="700"
                 px={3}
@@ -39,7 +39,7 @@ const StaffLeadership = () => {
                 School Leadership
               </Badge>
               <Heading
-                size={{ base: 'lg', md: '2xl' }}
+                fontSize={{ base: 'lg', md: '2xl' }}
                 color="maroon.500"
                 fontWeight="700"
                 lineHeight="1.2"
@@ -102,13 +102,13 @@ const StaffLeadership = () => {
                         justify="center"
                         border="2px solid white"
                       >
-                        <Icon as={FaStar} color="white" fontSize="9px" />
+                        <Icon as={FaStar} color="onAccent" fontSize="9px" />
                       </Flex>
                     </Box>
 
                     {/* Info */}
                     <VStack spacing={1}>
-                      <Heading size={{ base: 'sm', md: 'md' }} color="dark.500" fontWeight="700">
+                      <Heading fontSize={{ base: 'sm', md: 'md' }} color="dark.500" fontWeight="700">
                         {member.name}
                       </Heading>
                       <Text color="maroon.500" fontWeight="600" fontSize="sm">
@@ -157,7 +157,7 @@ const StaffLeadership = () => {
           <ScrollReveal>
             <VStack spacing={3} textAlign="center" mb={{ base: 8, md: 12 }}>
               <Heading
-                size={{ base: 'lg', md: '2xl' }}
+                fontSize={{ base: 'lg', md: '2xl' }}
                 color="maroon.600"
                 fontWeight="700"
               >

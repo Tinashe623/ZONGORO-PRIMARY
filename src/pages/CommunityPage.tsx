@@ -72,7 +72,7 @@ const CommunityPage = () => {
         </Box>
         <Box position="absolute" top={0} left={0} right={0} h="1px" bgGradient="linear(to-r, transparent, maroon.100, transparent)" />
         
-        <Box maxW="1400px" mx="auto" position="relative" zIndex={1}>
+        <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
           <ScrollReveal>
             <VStack spacing={8} maxW="800px" mx="auto" textAlign="center">
               <Heading size="2xl" color="maroon.600" fontWeight="800">
@@ -147,7 +147,7 @@ const CommunityPage = () => {
                 overflow="hidden"
               >
                 <Box position="absolute" top={0} left={0} right={0} h="3px" bg="forest.400" />
-                <Text color="white" fontSize="md" fontStyle="italic" fontWeight="500" lineHeight="1.7" mt={1}>
+                <Text color="onAccent" fontSize="md" fontStyle="italic" fontWeight="500" lineHeight="1.7" mt={1}>
                   "Our partnership with St James Zongoro Primary School has
                   transformed our community. Education is the key to our village's
                   future, and together we are building something special for the
@@ -178,7 +178,7 @@ const CommunityPage = () => {
                         bg="maroon.500"
                         boxShadow="0 6px 20px rgba(128, 0, 32, 0.3)"
                       >
-                        <Icon as={highlight.icon} color="white" fontSize="2xl" />
+                        <Icon as={highlight.icon} color="onAccent" fontSize="2xl" />
                       </Box>
                       <Box>
                         <Text color="gray.800" fontWeight="700" fontSize="lg" mb={2}>
@@ -249,8 +249,8 @@ const CommunityPage = () => {
                             _hover={{ bg: 'maroon.600' }}
                             transition="all 0.3s ease"
                           >
-                            <Icon as={FaPlay} color="white" fontSize="3xl" mb={2} opacity={0.9} />
-                            <Text color="white" fontWeight="700" fontSize="sm" textAlign="center">
+                            <Icon as={FaPlay} color="onAccent" fontSize="3xl" mb={2} opacity={0.9} />
+                            <Text color="onAccent" fontWeight="700" fontSize="sm" textAlign="center">
                               Watch on YouTube
                             </Text>
                             <Text color="whiteAlpha.700" fontSize="xs" mt={2} textAlign="center" maxW="200px">
@@ -269,8 +269,8 @@ const CommunityPage = () => {
                           flexDirection="column"
                           p={4}
                         >
-                          <Icon as={FaPlay} color="white" fontSize="2xl" mb={2} opacity={0.8} />
-                          <Text color="white" fontWeight="700" fontSize="sm" textAlign="center">
+                          <Icon as={FaPlay} color="onAccent" fontSize="2xl" mb={2} opacity={0.8} />
+                          <Text color="onAccent" fontWeight="700" fontSize="sm" textAlign="center">
                             {activity.placeholder}
                           </Text>
                           <Text color="whiteAlpha.700" fontSize="xs" mt={2} textAlign="center" maxW="200px">

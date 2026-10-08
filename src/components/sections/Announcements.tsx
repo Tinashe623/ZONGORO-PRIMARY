@@ -54,7 +54,7 @@ const AnnouncementCard = ({
         <VStack align="start" spacing={4}>
           <Badge
             bg="maroon.500"
-            color="white"
+            color="onAccent"
             px={3}
             py={1}
             borderRadius="md"
@@ -99,7 +99,7 @@ const AnnouncementCard = ({
 const Announcements = () => {
   return (
     <Box id="announcements" bg="cream.50" py={20} px={4}>
-      <Box maxW="1400px" mx="auto">
+      <Box maxW="1200px" mx="auto">
         <ScrollReveal>
           <SectionHeading
             title="Latest News & Announcements"

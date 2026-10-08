@@ -23,7 +23,7 @@ const iconMap: Record<string, React.ComponentType> = {
 const BoardingFacilities = () => {
   return (
     <Box py={20} px={4} bg="white">
-      <Box maxW="1400px" mx="auto">
+      <Box maxW="1200px" mx="auto">
         <ScrollReveal>
           <VStack spacing={4} textAlign="center" mb={16}>
             <Heading size="2xl" color="maroon.500" fontWeight="700">
@@ -71,7 +71,7 @@ const BoardingFacilities = () => {
                         bg="maroon.500"
                         boxShadow="0 6px 20px rgba(128, 0, 32, 0.3)"
                       >
-                        {IconComponent && <Icon as={IconComponent} color="white" fontSize="2xl" />}
+                        {IconComponent && <Icon as={IconComponent} color="onAccent" fontSize="2xl" />}
                       </Flex>
                       <Heading size="md" color="dark.500" fontWeight="700">
                         {facility.name}

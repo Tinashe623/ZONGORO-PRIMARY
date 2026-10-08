@@ -61,7 +61,7 @@ const ContactInfo = () => {
                 bg="maroon.500"
                 flexShrink={0}
               >
-                <Icon as={item.icon} color="white" fontSize="lg" />
+                <Icon as={item.icon} color="onAccent" fontSize="lg" />
               </Flex>
               <Box>
                 <Text fontWeight="600" color="dark.500">
@@ -155,7 +155,7 @@ const ContactForm = () => {
             <Button
               type="submit"
               bg="maroon.500"
-              color="white"
+              color="onAccent"
               size="lg"
               width="100%"
               leftIcon={<FaPaperPlane />}
@@ -174,7 +174,7 @@ const ContactForm = () => {
 const Contact = () => {
   return (
     <Box id="contact" py={20} px={4}>
-      <Box maxW="1400px" mx="auto">
+      <Box maxW="1200px" mx="auto">
         <ScrollReveal>
           <SectionHeading
             title="Get in Touch"

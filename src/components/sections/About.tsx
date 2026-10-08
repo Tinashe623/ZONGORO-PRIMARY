@@ -14,7 +14,7 @@ const About = () => {
 
   return (
     <Box id="about" bg="cream.50" py={20} px={4}>
-      <Box maxW="1400px" mx="auto">
+      <Box maxW="1200px" mx="auto">
         <ScrollReveal>
           <SectionHeading
             title="About Our School"

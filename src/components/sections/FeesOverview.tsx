@@ -163,7 +163,7 @@ const FeesOverview = () => {
                 py={5}
                 px={8}
               >
-                <Heading size="md" color="white" fontWeight="600">
+                <Heading size="md" color="onAccent" fontWeight="600">
                   Fee Categories
                 </Heading>
               </Box>

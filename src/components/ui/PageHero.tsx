@@ -1,17 +1,37 @@
 import { Box, Heading, Text, Flex } from '@chakra-ui/react';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 
 interface PageHeroProps {
   title: string;
   subtitle?: string;
 }
 
+const BREADCRUMB_LABELS: Record<string, string> = {
+  '/about': 'Our School',
+  '/church': 'Anglican Heritage',
+  '/community': 'Community',
+  '/academics': 'Curriculum',
+  '/assessment': 'Assessment & Results',
+  '/staff': 'Our Team',
+  '/admissions': 'How to Apply',
+  '/boarding': 'Boarding Life',
+  '/activities': 'School Activities',
+  '/transport': 'School Transport',
+  '/gallery': 'School Gallery',
+  '/contact': 'Contact',
+  '/privacy': 'Privacy Policy',
+  '/terms': 'Terms of Service',
+};
+
 const PageHero = ({ title, subtitle }: PageHeroProps) => {
+  const { pathname } = useLocation();
+  const currentLabel = BREADCRUMB_LABELS[pathname];
 
   return (
     <Box position="relative">
       <Flex
         position="relative"
-        h={{ base: "170px", md: "180px" }}
+        h={{ base: "190px", md: "200px" }}
         alignItems="center"
         justifyContent="center"
         flexDirection="column"
@@ -19,7 +39,26 @@ const PageHero = ({ title, subtitle }: PageHeroProps) => {
         zIndex={1}
         py={{ base: 4, md: 6 }}
       >
-        <Heading size={{ base: "lg", md: "2xl" }} color="white" fontWeight="700">
+        {currentLabel && (
+          <Flex
+            align="center"
+            gap={2}
+            fontSize="sm"
+            fontWeight="600"
+            color="whiteAlpha.800"
+            mb={2}
+            flexWrap="wrap"
+            justify="center"
+            px={4}
+          >
+            <RouterLink to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Text as="span" _hover={{ color: 'onAccent', textDecoration: 'underline' }}>Home</Text>
+            </RouterLink>
+            <Text as="span" color="whiteAlpha.500">/</Text>
+            <Text as="span" color="onAccent">{currentLabel}</Text>
+          </Flex>
+        )}
+        <Heading fontSize={{ base: "xl", md: "3xl", lg: "4xl" }} color="onAccent" fontWeight="700">
           {title}
         </Heading>
         {subtitle && (

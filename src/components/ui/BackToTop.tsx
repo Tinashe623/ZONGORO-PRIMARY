@@ -36,7 +36,7 @@ const BackToTop = () => {
             aria-label="Back to top"
             icon={<FaArrowUp />}
             bg="maroon.500"
-            color="white"
+            color="onAccent"
             size="lg"
             borderRadius="full"
             boxShadow="lg"

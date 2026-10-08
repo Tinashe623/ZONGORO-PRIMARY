@@ -20,7 +20,7 @@ import { motion } from 'framer-motion';
 import { enrollmentData, passRateData, enrollmentComment, passRateComment } from '../data/assessment';
 import PageHero from '../components/ui/PageHero';
 import ScrollReveal from '../components/ui/ScrollReveal';
-import { MANAGEMENT_ENROLL_URL } from '../config';
+import EnrollButton from '../components/ui/EnrollButton';
 
 const MotionBox = motion(Box);
 
@@ -112,7 +112,7 @@ const AssessmentPage = () => {
                 py={4}
                 px={6}
               >
-                <Heading size="md" color="white" fontWeight="600">
+                <Heading size="md" color="onAccent" fontWeight="600">
                   Enrollment by Year
                 </Heading>
               </Box>
@@ -248,10 +248,10 @@ const AssessmentPage = () => {
           transition={{ duration: 12, repeat: Infinity }}
         />
 
-        <Box maxW="1000px" mx="auto" position="relative" zIndex={1}>
+        <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
           <ScrollReveal>
             <VStack spacing={8} align="start">
-              <Heading size="xl" color="white" fontWeight="700">
+              <Heading size="xl" color="onAccent" fontWeight="700">
                 Assessment and Analysis
               </Heading>
 
@@ -314,7 +314,7 @@ ${enrollmentComment}`}
                 py={4}
                 px={6}
               >
-                <Heading size="md" color="white" fontWeight="600">
+                <Heading size="md" color="onAccent" fontWeight="600">
                   Pass Rate Trends
                 </Heading>
               </Box>
@@ -392,7 +392,7 @@ ${enrollmentComment}`}
               boxShadow="0 8px 30px rgba(0,0,0,0.2)"
               borderLeft="4px solid"
               borderLeftColor="forest.500"
-              maxW="1000px"
+              maxW="1200px"
               mx="auto"
             >
               <Heading size="md" color="forest.600" mb={4}>
@@ -444,7 +444,7 @@ ${enrollmentComment}`}
 
         <Box maxW="800px" mx="auto" textAlign="center" position="relative" zIndex={1}>
           <VStack spacing={6}>
-            <Heading size="2xl" color="white" fontWeight="700">
+            <Heading size="2xl" color="onAccent" fontWeight="700">
               Join Our Learning Community
             </Heading>
             <Text color="whiteAlpha.900" fontSize="lg" maxW="600px" lineHeight="1.8">
@@ -452,11 +452,7 @@ ${enrollmentComment}`}
               the opportunity to excel academically and grow in faith.
             </Text>
             <Flex gap={4} mt={4} direction={{ base: 'column', md: 'row' }}>
-              <Button
-                as="a"
-                href={MANAGEMENT_ENROLL_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <EnrollButton
                 bg="white"
                 color="maroon.600"
                 size="lg"
@@ -467,19 +463,19 @@ ${enrollmentComment}`}
                 transition="all 0.3s ease"
               >
                 Apply Now
-              </Button>
+              </EnrollButton>
               <Button
                 as="a"
                 href="/contact"
                 bg="transparent"
-                color="white"
+                color="onAccent"
                 size="lg"
                 px={10}
                 fontWeight="700"
                 borderRadius="full"
                 border="2px solid"
                 borderColor="whiteAlpha.400"
-                _hover={{ bg: 'whiteAlpha.200', borderColor: 'white' }}
+                _hover={{ bg: 'whiteAlpha.200', borderColor: 'onAccent' }}
                 transition="all 0.3s ease"
               >
                 Contact Us

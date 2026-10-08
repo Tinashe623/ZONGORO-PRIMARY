@@ -18,12 +18,12 @@ const achievements = [
 const Achievements = () => {
   return (
     <Box bg="maroon.500" py={16} px={4} w="full">
-      <Box maxW="1400px" mx="auto">
+      <Box maxW="1200px" mx="auto">
         <ScrollReveal>
           <VStack spacing={12}>
             <VStack spacing={4} textAlign="center">
-              <Icon as={FaTrophy} color="white" fontSize="4xl" />
-              <Heading size="xl" color="white">
+              <Icon as={FaTrophy} color="onAccent" fontSize="4xl" />
+              <Heading size="xl" color="onAccent">
                 Our Achievements
               </Heading>
               <Text color="whiteAlpha.900" maxW="600px">
@@ -43,8 +43,8 @@ const Achievements = () => {
                     transition="all 0.3s ease"
                     _hover={{ bg: 'whiteAlpha.300', transform: 'translateY(-4px)' }}
                   >
-                    <Icon as={item.icon} color="white" fontSize="3xl" />
-                    <Heading size="3xl" color="white">
+                    <Icon as={item.icon} color="onAccent" fontSize="3xl" />
+                    <Heading size="3xl" color="onAccent">
                       {item.count}+
                     </Heading>
                     <Text color="whiteAlpha.900" fontWeight="600">

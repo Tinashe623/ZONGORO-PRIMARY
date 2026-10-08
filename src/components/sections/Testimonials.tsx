@@ -88,9 +88,9 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
                 bg="maroon.500"
                 boxShadow="0 6px 20px rgba(128, 0, 32, 0.4)"
               >
-                <Icon as={getRoleIcon(testimonial.role)} color="white" fontSize={{ base: "xl", md: "2xl" }} />
+                <Icon as={getRoleIcon(testimonial.role)} color="onAccent" fontSize={{ base: "xl", md: "2xl" }} />
               </Flex>
-              <Heading size={{ base: "sm", md: "md" }} color="gray.800" fontWeight="700">
+              <Heading fontSize={{ base: "sm", md: "md" }} color="gray.800" fontWeight="700">
                 {testimonial.author}
               </Heading>
               <Text color="maroon.600" fontWeight="600" fontSize={{ base: "xs", md: "sm" }} textTransform="uppercase" letterSpacing="1px">
@@ -223,12 +223,12 @@ const Testimonials = () => {
         bg="rgba(255, 255, 255, 0.05)"
       />
       
-      <Box maxW="1400px" mx="auto" position="relative" zIndex={1}>
+      <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
         <ScrollReveal>
           <VStack spacing={3} textAlign="center" mb={12}>
             <Heading
-              size={{ base: "lg", md: "xl" }}
-              color="white"
+              fontSize={{ base: "lg", md: "xl" }}
+              color="onAccent"
               fontWeight="700"
             >
               What People Say

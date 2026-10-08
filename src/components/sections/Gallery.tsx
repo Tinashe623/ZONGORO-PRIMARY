@@ -53,7 +53,7 @@ const ImageCard = ({ image }: { image: GalleryImage }) => {
         direction="column"
         p={4}
       >
-        <Text color="white" fontWeight="600" textAlign="center">
+        <Text color="onAccent" fontWeight="600" textAlign="center">
           {image.alt}
         </Text>
         <Badge mt={2} colorScheme="whiteAlpha">
@@ -74,7 +74,7 @@ const Gallery = () => {
 
   return (
     <Box id="gallery" py={20} px={4}>
-      <Box maxW="1400px" mx="auto">
+      <Box maxW="1200px" mx="auto">
         <ScrollReveal>
           <SectionHeading
             title="School Gallery"
@@ -94,7 +94,7 @@ const Gallery = () => {
               {categories.map((category) => (
                 <Tab
                   key={category}
-                  _selected={{ bg: 'maroon.500', color: 'white' }}
+                  _selected={{ bg: 'maroon.500', color: 'onAccent' }}
                   px={6}
                 >
                   {category}

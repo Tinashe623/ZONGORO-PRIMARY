@@ -56,8 +56,8 @@ const CTABanner = ({ title, subtitle, buttonText = 'Contact Us', buttonLink = '/
       <Box maxW="800px" mx="auto" position="relative" zIndex={1} textAlign="center">
         <VStack spacing={6}>
           <Heading 
-            size="2xl" 
-            color="white"
+            fontSize={{ base: "xl", md: "2xl", lg: "4xl" }}
+            color="onAccent"
             fontWeight="700"
             lineHeight="1.2"
           >
@@ -79,7 +79,7 @@ const CTABanner = ({ title, subtitle, buttonText = 'Contact Us', buttonLink = '/
               to="/"
               onClick={handleClick}
               bg="forest.500"
-              color="white"
+              color="onAccent"
               size="lg"
               px={10}
               fontWeight="600"
@@ -98,7 +98,7 @@ const CTABanner = ({ title, subtitle, buttonText = 'Contact Us', buttonLink = '/
               as={RouterLink}
               to={buttonLink}
               bg="forest.500"
-              color="white"
+              color="onAccent"
               size="lg"
               px={10}
               fontWeight="600"

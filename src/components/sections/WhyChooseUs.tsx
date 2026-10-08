@@ -12,8 +12,8 @@ import {
 import { FaGraduationCap, FaChurch, FaUsers, FaHeart, FaArrowRight, FaBus, FaHome, FaBullseye } from 'react-icons/fa';
 import SectionHeading from '../ui/SectionHeading';
 import ScrollReveal from '../ui/ScrollReveal';
+import EnrollButton from '../ui/EnrollButton';
 import { Link as RouterLink } from 'react-router-dom';
-import { MANAGEMENT_ENROLL_URL } from '../../config';
 
 const features = [
   {
@@ -57,7 +57,7 @@ const WhyChooseUs = () => {
       </Box>
       <Box position="absolute" top={0} left={0} right={0} h="1px" bgGradient="linear(to-r, transparent, maroon.100, transparent)" />
       
-      <Box maxW="1400px" mx="auto" position="relative" zIndex={1}>
+      <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
         <ScrollReveal>
           <SectionHeading
             title="Why Choose St James Zongoro?"
@@ -108,7 +108,7 @@ const WhyChooseUs = () => {
                     bg="maroon.500"
                     boxShadow="0 4px 14px rgba(128, 0, 32, 0.3)"
                   >
-                    <Icon as={feature.icon} color="white" fontSize="xl" />
+                    <Icon as={feature.icon} color="onAccent" fontSize="xl" />
                   </Flex>
                   <Heading
                     size="md"
@@ -159,7 +159,7 @@ const WhyChooseUs = () => {
               filter="blur(30px)"
             />
             <VStack spacing={8} position="relative" zIndex={1}>
-              <Heading size={{ base: "lg", md: "xl" }} color="white" fontWeight="700">
+              <Heading fontSize={{ base: "lg", md: "xl" }} color="onAccent" fontWeight="700">
                 Start Your Child's Journey Today
               </Heading>
               <Text color="whiteAlpha.900" fontSize={{ base: "md", md: "lg" }} maxW="600px">
@@ -174,10 +174,10 @@ const WhyChooseUs = () => {
                   { icon: FaHeart, number: '25+', label: 'Staff & Teachers' },
                 ].map((stat, index) => (
                   <VStack key={index} spacing={1}>
-                    <Circle size="50px" bg="rgba(255,255,255,0.15)" color="white">
+                    <Circle size="50px" bg="rgba(255,255,255,0.15)" color="onAccent">
                       <Icon as={stat.icon} fontSize="xl" />
                     </Circle>
-                    <Text color="white" fontWeight="800" fontSize="2xl">{stat.number}</Text>
+                    <Text color="onAccent" fontWeight="800" fontSize="2xl">{stat.number}</Text>
                     <Text color="whiteAlpha.800" fontSize="xs">{stat.label}</Text>
                   </VStack>
                 ))}
@@ -190,14 +190,10 @@ const WhyChooseUs = () => {
                 w="100%"
                 justify={{ md: "center" }}
               >
-                <Button
-                  as="a"
-                  href={MANAGEMENT_ENROLL_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  size={{ base: "md", md: "lg" }}
+                <EnrollButton
+                  size="lg"
                   bg="forest.500"
-                  color="white"
+                  color="onAccent"
                   fontWeight="700"
                   px={{ base: 6, md: 8 }}
                   w={{ base: "100%", md: "auto" }}
@@ -210,14 +206,14 @@ const WhyChooseUs = () => {
                   rightIcon={<FaArrowRight />}
                 >
                   Enroll Now
-                </Button>
+                </EnrollButton>
                 <Button
                   as={RouterLink}
                   to="/contact"
-                  size={{ base: "md", md: "lg" }}
+                  size="lg"
                   variant="outline"
-                  borderColor="white"
-                  color="white"
+                  borderColor="onAccent"
+                  color="onAccent"
                   fontWeight="600"
                   px={{ base: 6, md: 8 }}
                   w={{ base: "100%", md: "auto" }}

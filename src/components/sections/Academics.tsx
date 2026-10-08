@@ -26,7 +26,7 @@ const iconMap: Record<string, React.ComponentType> = {
 const Academics = () => {
   return (
     <Box id="academics" py={20} px={4}>
-      <Box maxW="1400px" mx="auto">
+      <Box maxW="1200px" mx="auto">
         <ScrollReveal>
           <SectionHeading
             title="Academic Excellence"
@@ -61,7 +61,7 @@ const Academics = () => {
                         bg="maroon.500"
                       >
                         {IconComponent && (
-                          <Icon as={IconComponent} color="white" fontSize="2xl" />
+                          <Icon as={IconComponent} color="onAccent" fontSize="2xl" />
                         )}
                       </Flex>
                       <Heading size="md" color="maroon.500">

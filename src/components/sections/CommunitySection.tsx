@@ -39,7 +39,7 @@ const communityHighlights = [
 const CommunitySection = () => {
   return (
     <Box id="community" bg="cream.50" py={20} px={4}>
-      <Box maxW="1400px" mx="auto">
+      <Box maxW="1200px" mx="auto">
         <ScrollReveal>
           <SectionHeading
             title="Community Partnership"
@@ -102,7 +102,7 @@ const CommunitySection = () => {
                         bg="maroon.500"
                         flexShrink={0}
                       >
-                        <Icon as={highlight.icon} color="white" fontSize="xl" />
+                        <Icon as={highlight.icon} color="onAccent" fontSize="xl" />
                       </Flex>
                       <Box>
                         <Heading size="sm" color="maroon.500" mb={1}>

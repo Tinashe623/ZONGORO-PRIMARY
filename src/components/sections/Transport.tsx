@@ -40,7 +40,7 @@ const Transport = () => {
       />
       
       <Box bg="cream.50" py={20}>
-        <Box maxW="1400px" mx="auto">
+        <Box maxW="1200px" mx="auto">
           <ScrollReveal>
             <SectionHeading
               title="School Transport"
@@ -72,7 +72,7 @@ const Transport = () => {
                 <ScrollLink to="contact" smooth={true} offset={-70}>
                   <Button
                     bg="forest.500"
-                    color="white"
+                    color="onAccent"
                     size="lg"
                     rightIcon={<FaArrowRight />}
                     _hover={{ bg: 'forest.600', transform: 'translateY(-2px)' }}

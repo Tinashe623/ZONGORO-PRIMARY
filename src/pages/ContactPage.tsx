@@ -18,31 +18,32 @@ import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaPaperPlane, FaClock } from 'reac
 import PageHero from '../components/ui/PageHero';
 import ScrollReveal from '../components/ui/ScrollReveal';
 import { CONTACT_API_URL } from '../config';
+import { schoolContact } from '../data/contact';
 
 const ContactInfo = () => {
   const contactItems = [
     {
       icon: FaMapMarkerAlt,
       title: 'Address',
-      content: 'St James Zongoro Primary School, P.O.Box 313, Mutare, Zimbabwe',
+      content: schoolContact.address,
       color: 'maroon.500',
     },
     {
       icon: FaPhone,
       title: 'Phone',
-      content: '+263 77 321 1929 / +263 71 854 6070',
+      content: schoolContact.phoneInternational,
       color: 'forest.500',
     },
     {
       icon: FaEnvelope,
       title: 'Email',
-      content: 'zongoro.primary@gmail.com',
+      content: schoolContact.email,
       color: 'maroon.500',
     },
     {
       icon: FaClock,
       title: 'Office Hours',
-      content: 'Mon - Fri: 7:30 AM - 4:30 PM',
+      content: schoolContact.officeHours,
       color: 'forest.500',
     },
   ];
@@ -72,7 +73,7 @@ const ContactInfo = () => {
               boxShadow="0 4px 15px rgba(128, 0, 32, 0.3)"
               flexShrink={0}
             >
-              <Icon as={item.icon} color="white" fontSize={{ base: "md", md: "lg" }} />
+              <Icon as={item.icon} color="onAccent" fontSize={{ base: "md", md: "lg" }} />
             </Flex>
             <Box minW={0} flex={1}>
               <Text fontWeight="700" color="dark.500" fontSize={{ base: "sm", md: "md" }}>
@@ -162,7 +163,7 @@ const ContactForm = () => {
         py={{ base: 4, md: 5 }}
         px={{ base: 6, md: 8 }}
       >
-        <Heading size={{ base: "sm", md: "md" }} color="white" fontWeight="600">
+        <Heading fontSize={{ base: "sm", md: "md" }} color="onAccent" fontWeight="600">
           Send us a Message
         </Heading>
       </Box>
@@ -241,8 +242,8 @@ const ContactForm = () => {
             <Button
               type="submit"
               bgGradient="linear(to-r, forest.500, forest.600)"
-              color="white"
-              size={{ base: "md", md: "lg" }}
+              color="onAccent"
+              size="lg"
               width="100%"
               leftIcon={<FaPaperPlane />}
               isLoading={isSubmitting}
@@ -283,7 +284,7 @@ const ContactPage = () => {
             <ScrollReveal>
               <VStack align="start" spacing={8}>
                 <Box>
-                  <Heading size={{ base: "xl", md: "2xl" }} color="maroon.500" fontWeight="700" mb={4}>
+                  <Heading fontSize={{ base: "xl", md: "2xl" }} color="maroon.500" fontWeight="700" mb={4}>
                     Get in Touch
                   </Heading>
                   <Text color="gray.600" fontSize={{ base: "md", md: "lg" }} lineHeight="1.9">

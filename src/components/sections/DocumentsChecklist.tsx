@@ -58,7 +58,7 @@ const DocumentsChecklist = () => {
                   boxShadow="0 4px 15px rgba(128, 0, 32, 0.3)"
                   flexShrink={0}
                 >
-                  <Icon as={iconMap[doc.name] || FaFileAlt} color="white" fontSize="xl" />
+                  <Icon as={iconMap[doc.name] || FaFileAlt} color="onAccent" fontSize="xl" />
                 </Flex>
                 <Box>
                   <Heading size="md" color="dark.500" mb={1}>

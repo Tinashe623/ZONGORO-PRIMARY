@@ -25,7 +25,7 @@ const StatsSection = () => {
         <ScrollReveal>
             <VStack spacing={12}>
              <VStack spacing={3} textAlign="center">
-               <Heading size={{ base: "lg", md: "xl" }} color="white" fontWeight="800">
+               <Heading fontSize={{ base: "lg", md: "xl" }} color="onAccent" fontWeight="800">
                  Our Facilities
                </Heading>
                <Text color="whiteAlpha.800" fontSize={{ base: "md", md: "lg" }} maxW="500px">
@@ -58,9 +58,9 @@ const StatsSection = () => {
                       mx="auto"
                       mb={4}
                     >
-                      <Icon as={item.icon} color="white" fontSize="xl" />
+                      <Icon as={item.icon} color="onAccent" fontSize="xl" />
                     </Box>
-                    <Heading size="sm" color="white" mb={1} fontWeight="700">
+                    <Heading size="sm" color="onAccent" mb={1} fontWeight="700">
                       {item.title}
                     </Heading>
                     <Text color="whiteAlpha.700" fontSize="xs">
@@ -77,7 +77,7 @@ const StatsSection = () => {
               px={8} 
               py={3} 
               bg="forest.500"
-              color="white"
+              color="onAccent"
               fontWeight="700"
               borderRadius="xl"
               _hover={{ transform: 'translateY(-2px)', boxShadow: '0 8px 20px rgba(45, 106, 79, 0.4)' }}

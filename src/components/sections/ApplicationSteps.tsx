@@ -25,7 +25,7 @@ const ApplicationSteps = () => {
 
   return (
     <Box py={20} px={4} bg="cream.50">
-      <Box maxW="1400px" mx="auto">
+      <Box maxW="1200px" mx="auto">
         <ScrollReveal>
           <VStack spacing={4} textAlign="center" mb={16}>
             <Heading size="2xl" color="maroon.500" fontWeight="700">
@@ -61,7 +61,7 @@ const ApplicationSteps = () => {
                     boxShadow="0 3px 10px rgba(128, 0, 32, 0.2)"
                     flexShrink={0}
                   >
-                    <Icon as={iconMap[step.step]} color="white" fontSize="2xl" />
+                    <Icon as={iconMap[step.step]} color="onAccent" fontSize="2xl" />
                   </Flex>
                   <Box>
                     <Text color="maroon.500" fontWeight="700" fontSize="sm" mb={1}>
@@ -92,7 +92,7 @@ const ApplicationSteps = () => {
                       bg="maroon.500"
                       boxShadow="0 8px 25px rgba(128, 0, 32, 0.4)"
                     >
-                      <Icon as={iconMap[step.step]} color="white" fontSize="2xl" />
+                      <Icon as={iconMap[step.step]} color="onAccent" fontSize="2xl" />
                     </Flex>
                     <Box 
                       bg="white" 

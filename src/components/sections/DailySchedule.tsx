@@ -23,7 +23,7 @@ const DailySchedule = () => {
 
   return (
     <Box py={20} px={4} bg="cream.50">
-      <Box maxW="1400px" mx="auto">
+      <Box maxW="1200px" mx="auto">
         <ScrollReveal>
           <VStack spacing={4} textAlign="center" mb={16}>
             <Heading size="2xl" color="maroon.500" fontWeight="700">
@@ -58,7 +58,7 @@ const DailySchedule = () => {
                         py={3}
                         bgGradient={isMealTime(item.activity) ? 'linear(to-r, forest.500, forest.600)' : 'linear(to-r, maroon.500, maroon.700)'}
                         borderRadius="xl"
-                        color="white"
+                        color="onAccent"
                         fontWeight="700"
                         fontSize="sm"
                         flexShrink={0}
@@ -95,7 +95,7 @@ const DailySchedule = () => {
                         py={3}
                         bgGradient={isMealTime(item.activity) ? 'linear(to-r, forest.500, forest.600)' : 'linear(to-r, maroon.500, maroon.700)'}
                         borderRadius="xl"
-                        color="white"
+                        color="onAccent"
                         fontWeight="700"
                         fontSize="sm"
                         flexShrink={0}
@@ -132,7 +132,7 @@ const DailySchedule = () => {
                         py={3}
                         bgGradient={isMealTime(item.activity) ? 'linear(to-r, forest.500, forest.600)' : 'linear(to-r, maroon.500, maroon.700)'}
                         borderRadius="xl"
-                        color="white"
+                        color="onAccent"
                         fontWeight="700"
                         fontSize="sm"
                         flexShrink={0}

@@ -114,7 +114,7 @@ const ActivityCard = ({ activity }: { activity: typeof activities[0] }) => {
               flexShrink={0}
               boxShadow={isAcademic ? '0 4px 14px rgba(59, 130, 246, 0.3)' : 'none'}
             >
-              {IconComponent && <Icon as={IconComponent} color={isAcademic ? "gray.900" : "white"} fontSize="xl" />}
+              {IconComponent && <Icon as={IconComponent} color={isAcademic ? "gray.900" : "onAccent"} fontSize="xl" />}
             </Flex>
             <Box flex="1">
               <Heading
@@ -249,7 +249,7 @@ const ActivitiesGrid = () => {
         pointerEvents: 'none',
       }}
     >
-      <Box maxW="1400px" mx="auto" position="relative" zIndex={1}>
+      <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
         <ScrollReveal>
           <VStack spacing={8} mb={12}>
             <VStack spacing={4} textAlign="center">
@@ -288,7 +288,7 @@ const ActivitiesGrid = () => {
                     key={category}
                     _selected={{
                       bg: 'maroon.500',
-                      color: 'white',
+                      color: 'onAccent',
                       boxShadow: '0 4px 14px rgba(130, 0, 0, 0.3)'
                     }}
                     px={6}

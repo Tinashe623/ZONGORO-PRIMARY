@@ -93,7 +93,7 @@ const TransportPage = () => {
               <VStack align="start" spacing={{ base: 4, md: 6 }}>
                 <Badge
                   bg="maroon.500"
-                  color="white"
+                  color="onAccent"
                   fontSize="xs"
                   fontWeight="700"
                   px={3}
@@ -106,7 +106,7 @@ const TransportPage = () => {
                 </Badge>
 
                 <Heading
-                  size={{ base: 'lg', md: 'xl', lg: '2xl' }}
+                  fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
                   color="maroon.500"
                   fontWeight="700"
                   lineHeight="1.2"
@@ -262,7 +262,7 @@ const TransportPage = () => {
           <ScrollReveal>
             <VStack spacing={{ base: 3, md: 4 }} textAlign="center" mb={{ base: 8, md: 12, lg: 16 }}>
               <Heading
-                size={{ base: 'lg', md: 'xl', lg: '2xl' }}
+                fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
                 color="maroon.500"
                 fontWeight="700"
               >
@@ -316,12 +316,12 @@ const TransportPage = () => {
                   >
                     <Icon
                       as={feature.icon}
-                      color="white"
+                      color="onAccent"
                       fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
                     />
                   </Flex>
                   <Heading
-                    size={{ base: 'sm', md: 'md' }}
+                    fontSize={{ base: 'sm', md: 'md' }}
                     color="dark.500"
                     fontWeight="700"
                     mb={3}
@@ -348,7 +348,7 @@ const TransportPage = () => {
           <ScrollReveal>
             <VStack spacing={{ base: 3, md: 4 }} textAlign="center" mb={{ base: 8, md: 12, lg: 16 }}>
               <Heading
-                size={{ base: 'lg', md: 'xl', lg: '2xl' }}
+                fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
                 color="maroon.500"
                 fontWeight="700"
               >
@@ -380,7 +380,7 @@ const TransportPage = () => {
               >
                 <VStack align="start" spacing={{ base: 4, md: 6 }}>
                   <Heading
-                      size={{ base: 'md', md: 'lg' }}
+                      fontSize={{ base: 'md', md: 'lg' }}
                       color="maroon.600"
                       fontWeight="700"
                     >
@@ -441,7 +441,7 @@ const TransportPage = () => {
                 <VStack align="start" spacing={{ base: 4, md: 5 }}>
                   <Badge
                     bg="forest.500"
-                    color="white"
+                    color="onAccent"
                     fontWeight="700"
                     fontSize={{ base: 'xs', md: 'sm' }}
                     px={3}
@@ -559,8 +559,8 @@ const TransportPage = () => {
             </Badge>
 
             <Heading
-              size={{ base: 'lg', md: 'xl', lg: '2xl' }}
-              color="white"
+              fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
+              color="onAccent"
               fontWeight="700"
               lineHeight="1.2"
             >
@@ -582,8 +582,8 @@ const TransportPage = () => {
               as={RouterLink}
               to="/contact"
               bg="forest.500"
-              color="white"
-              size={{ base: 'md', md: 'lg' }}
+              color="onAccent"
+              size="lg"
               w={{ base: 'full', sm: 'auto' }}
               maxW={{ base: '320px', sm: 'none' }}
               px={{ base: 8, md: 10 }}

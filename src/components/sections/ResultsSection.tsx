@@ -36,7 +36,7 @@ const ResultCard = ({ year, passRate, students }: { year: number; passRate: numb
         <VStack spacing={4}>
           <Badge
             bg="maroon.500"
-            color="white"
+            color="onAccent"
             fontSize="lg"
             px={4}
             py={2}
@@ -64,7 +64,7 @@ const ResultCard = ({ year, passRate, students }: { year: number; passRate: numb
 const ResultsSection = () => {
   return (
     <Box id="results" bg="cream.50" py={20} px={4}>
-      <Box maxW="1400px" mx="auto">
+      <Box maxW="1200px" mx="auto">
         <ScrollReveal>
           <SectionHeading
             title="Grade 7 Results"

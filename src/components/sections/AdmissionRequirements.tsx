@@ -16,7 +16,7 @@ import ScrollReveal from '../ui/ScrollReveal';
 const AdmissionRequirements = () => {
   return (
     <Box py={20} px={4} bg="white" id="requirements">
-      <Box maxW="1400px" mx="auto">
+      <Box maxW="1200px" mx="auto">
         <ScrollReveal>
           <VStack spacing={4} textAlign="center" mb={16}>
             <Heading size="2xl" color="maroon.500" fontWeight="700">
@@ -49,7 +49,7 @@ const AdmissionRequirements = () => {
                     <Box>
                       <Badge
                         bg="maroon.500"
-                        color="white"
+                        color="onAccent"
                         px={5}
                         py={2}
                         borderRadius="full"
