@@ -5,6 +5,8 @@ import Hero from '../components/sections/Hero';
 import WhyChooseUs from '../components/sections/WhyChooseUs';
 import FacilitiesSection from '../components/sections/FacilitiesSection';
 import Announcements from '../components/sections/Announcements';
+import LatestMoments from '../components/sections/LatestMoments';
+import SchoolStats from '../components/sections/SchoolStats';
 import Testimonials from '../components/sections/Testimonials';
 import ScrollReveal from '../components/ui/ScrollReveal';
 
@@ -19,6 +21,8 @@ const HomePage = () => {
       <WhyChooseUs />
       <Announcements />
       <FacilitiesSection />
+      <SchoolStats />
+      <LatestMoments />
       
       <Box
         py={{ base: 12, md: 20 }}
@@ -33,7 +37,7 @@ const HomePage = () => {
         </Box>
         <Box position="absolute" top={0} left={0} right={0} h="1px" bgGradient="linear(to-r, transparent, maroon.100, transparent)" />
         
-        <Box maxW="1400px" mx="auto" position="relative" zIndex={1}>
+        <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
           <ScrollReveal>
             <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={{ base: 8, md: 16 }} alignItems="center">
               <Box position="relative" p={{ base: 4, md: 8 }}>
@@ -79,7 +83,7 @@ const HomePage = () => {
               </Box>
                <VStack align="start" spacing={6}>
                  <Heading
-                   size={{ base: "lg", md: "xl" }}
+                   fontSize={{ base: "lg", md: "xl" }}
                    bg="maroon.500"
                    bgClip="text"
                    fontWeight="700"
@@ -100,7 +104,7 @@ const HomePage = () => {
                   as={RouterLink}
                   to="/community"
                   bg="maroon.500"
-                  color="white"
+                  color="onAccent"
                   size="lg"
                   px={8}
                   mt={2}
