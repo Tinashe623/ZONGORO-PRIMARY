@@ -15,7 +15,7 @@ import {
   Icon,
 } from '@chakra-ui/react';
 import { FaBus, FaCheckCircle, FaArrowRight } from 'react-icons/fa';
-import { Link as ScrollLink } from 'react-scroll';
+import { Link as RouterLink } from 'react-router-dom';
 import SectionHeading from '../ui/SectionHeading';
 import ScrollReveal from '../ui/ScrollReveal';
 
@@ -69,7 +69,7 @@ const Transport = () => {
                   ))}
                 </List>
 
-                <ScrollLink to="contact" smooth={true} offset={-70}>
+                <RouterLink to="/contact" style={{ textDecoration: 'none' }}>
                   <Button
                     bg="forest.500"
                     color="onAccent"
@@ -79,7 +79,7 @@ const Transport = () => {
                   >
                     Inquire About Transport
                   </Button>
-                </ScrollLink>
+                </RouterLink>
                 </VStack>
               </ScrollReveal>
 

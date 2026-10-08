@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
-import { Link as ScrollLink } from 'react-scroll';
+import { Link as RouterLink } from 'react-router-dom';
 import EnrollButton from '../ui/EnrollButton';
 
 const staggerContainer: Variants = {
@@ -109,7 +109,7 @@ const Hero = () => {
                   >
                     Apply Now
                   </EnrollButton>
-                  <ScrollLink to="contact" smooth={true} offset={-70}>
+                  <RouterLink to="/contact" style={{ textDecoration: 'none' }}>
                     <Button
                       variant="outline"
                       borderColor="whiteAlpha.400"
@@ -121,7 +121,7 @@ const Hero = () => {
                     >
                       Contact Us
                     </Button>
-                  </ScrollLink>
+                  </RouterLink>
                 </HStack>
               </motion.div>
 
