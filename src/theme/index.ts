@@ -6,13 +6,38 @@ const config: ThemeConfig = {
 };
 
 const theme = extendTheme(config, {
+  semanticTokens: {
+    colors: {
+      onAccent: { default: '#FFFFFF', _dark: '#FFFFFF' },
+      white: { default: '#FFFFFF', _dark: '#1F1C18' },
+      'chakra-body-bg': { default: '#FFFFFF', _dark: '#171412' },
+      'chakra-body-text': { default: '#1A1A1A', _dark: '#E7E1D8' },
+      'cream.50': { default: '#FAF3E0', _dark: '#15120E' },
+      'gray.50': { default: '#F7F5F2', _dark: '#1D1A16' },
+      'gray.100': { default: '#EEEAE4', _dark: '#26221D' },
+      'gray.200': { default: '#E1DCD4', _dark: '#322D26' },
+      'gray.300': { default: '#C9C3B9', _dark: '#423C33' },
+      'gray.400': { default: '#A39D93', _dark: '#565048' },
+      'gray.500': { default: '#6B665E', _dark: '#8F877B' },
+      'gray.600': { default: '#55504A', _dark: '#A89F93' },
+      'gray.700': { default: '#38342F', _dark: '#C1B8AC' },
+      'gray.800': { default: '#24221E', _dark: '#D8D0C4' },
+      'gray.900': { default: '#1A1A1A', _dark: '#EFE9E0' },
+      'dark.50': { default: '#4d4d4d', _dark: '#6F6A61' },
+      'dark.100': { default: '#404040', _dark: '#8C867C' },
+      'dark.200': { default: '#333333', _dark: '#A49E93' },
+      'dark.300': { default: '#262626', _dark: '#B9B2A7' },
+      'dark.400': { default: '#1a1a1a', _dark: '#C9C1B5' },
+      'dark.500': { default: '#1A1A1A', _dark: '#E7E1D8' },
+    },
+  },
   colors: {
     maroon: {
-      50: '#fff5f5',
-      100: '#fed7d7',
-      200: '#feb3b3',
-      300: '#fc8f8f',
-      400: '#fa6b6b',
+      50: '#FBF1EF',
+      100: '#F4DCD6',
+      200: '#E9B7AE',
+      300: '#D98D82',
+      400: '#B84F41',
       500: '#820000',
       600: '#6b0000',
       700: '#540000',
@@ -53,7 +78,7 @@ const theme = extendTheme(config, {
       200: '#E1DCD4',
       300: '#C9C3B9',
       400: '#A39D93',
-      500: '#7A746B',
+      500: '#6B665E',
       600: '#55504A',
       700: '#38342F',
       800: '#24221E',
@@ -74,6 +99,8 @@ const theme = extendTheme(config, {
     '3xl': '1.875rem',
     '4xl': '2.25rem',
     '5xl': '3rem',
+    '6xl': '3.75rem',
+    '7xl': '4.5rem',
   },
   space: {
     px: '1px',
@@ -138,7 +165,7 @@ const theme = extendTheme(config, {
       variants: {
         maroon: {
           bg: 'maroon.500',
-          color: 'white',
+          color: 'onAccent',
           _hover: {
             bg: 'maroon.600',
             transform: 'translateY(-2px)',
@@ -151,12 +178,12 @@ const theme = extendTheme(config, {
           borderColor: 'maroon.500',
           _hover: {
             bg: 'maroon.500',
-            color: 'white',
+            color: 'onAccent',
           },
         },
         green: {
           bg: 'forest.500',
-          color: 'white',
+          color: 'onAccent',
           _hover: {
             bg: 'forest.600',
             transform: 'translateY(-2px)',

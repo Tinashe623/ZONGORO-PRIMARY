@@ -7,17 +7,15 @@ import {
   Heading,
   Flex,
   Icon,
-  Button,
-  Input,
-  InputGroup,
-  InputRightElement,
   IconButton,
   HStack,
   Image,
 } from '@chakra-ui/react';
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaPaperPlane, FaCode } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaFacebook, FaCode } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
-import { MANAGEMENT_ENROLL_URL, MANAGEMENT_LOGIN_URL } from '../../config';
+import { MANAGEMENT_LOGIN_URL } from '../../config';
+import { schoolContact } from '../../data/contact';
+import EnrollButton from '../ui/EnrollButton';
 
 const Footer = () => {
   return (
@@ -66,7 +64,7 @@ const Footer = () => {
         pointerEvents="none"
       />
       
-      <Box maxW="1400px" mx="auto" px={4} position="relative" zIndex={1}>
+      <Box maxW="1200px" mx="auto" px={4} position="relative" zIndex={1}>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
           <VStack align="start" spacing={4}>
             <Flex align="center" gap={4} flexWrap="wrap">
@@ -83,146 +81,89 @@ const Footer = () => {
                 />
               </Box>
               <Box>
-                <Heading size="md" color="white" fontWeight="700" lineHeight="1.1" letterSpacing="-0.02em">
-                  St James Zongoro
+                <Heading size="md" color="onAccent" fontWeight="700" lineHeight="1.1" letterSpacing="-0.02em">
+                  {schoolContact.shortName}
                 </Heading>
                 <Text fontSize="xs" color="whiteAlpha.600" letterSpacing="0.15em" mt={0.5}>
-                  PRIMARY SCHOOL
+                  {schoolContact.tagline}
                 </Text>
               </Box>
             </Flex>
             <Text fontSize="sm" color="whiteAlpha.800" lineHeight="1.8">
-              Providing quality education rooted in Anglican values and community
-              partnership for over 100 years.
+              {schoolContact.description}
             </Text>
             <HStack spacing={2} pt={2}>
               <IconButton
                 as={Link}
-                href="https://www.facebook.com/profile.php?id=100057208941321"
+                href={schoolContact.facebook}
                 aria-label="Facebook"
                 icon={<FaFacebook />}
                 variant="ghost"
                 color="whiteAlpha.800"
-                _hover={{ bg: 'forest.400', color: 'white', transform: 'translateY(-3px)' }}
+                _hover={{ bg: 'forest.400', color: 'onAccent', transform: 'translateY(-3px)' }}
                 size="sm"
                 transition="all 0.3s ease"
                 isExternal
-              />
-              <IconButton
-                aria-label="Twitter - Coming Soon"
-                icon={<FaTwitter />}
-                variant="ghost"
-                color="whiteAlpha.400"
-                size="sm"
-                transition="all 0.3s ease"
-                cursor="not-allowed"
-                opacity={0.5}
-              />
-              <IconButton
-                aria-label="Instagram - Coming Soon"
-                icon={<FaInstagram />}
-                variant="ghost"
-                color="whiteAlpha.400"
-                size="sm"
-                transition="all 0.3s ease"
-                cursor="not-allowed"
-                opacity={0.5}
-              />
-              <IconButton
-                aria-label="Youtube - Coming Soon"
-                icon={<FaYoutube />}
-                variant="ghost"
-                color="whiteAlpha.400"
-                size="sm"
-                transition="all 0.3s ease"
-                cursor="not-allowed"
-                opacity={0.5}
               />
             </HStack>
           </VStack>
 
           <VStack align="start" spacing={3}>
-            <Heading size="sm" color="white" fontWeight="600" mb={1}>
+            <Heading size="sm" color="onAccent" fontWeight="600" mb={1}>
               Quick Links
             </Heading>
-            <Link as={RouterLink} to="/" color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'white', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
+            <Link as={RouterLink} to="/" color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'onAccent', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
               Home
             </Link>
-            <Link as={RouterLink} to="/about" color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'white', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
+            <Link as={RouterLink} to="/about" color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'onAccent', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
               About Us
             </Link>
-            <Link as={RouterLink} to="/admissions" color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'white', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
+            <Link as={RouterLink} to="/admissions" color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'onAccent', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
               Admissions
             </Link>
-            <Link href={MANAGEMENT_LOGIN_URL} isExternal color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'white', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
+            <Link href={MANAGEMENT_LOGIN_URL} isExternal color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'onAccent', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
               Parent / Staff Login
             </Link>
-            <Link as={RouterLink} to="/academics" color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'white', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
+            <Link as={RouterLink} to="/academics" color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'onAccent', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
               Academics
             </Link>
-            <Link as={RouterLink} to="/contact" color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'white', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
+            <Link as={RouterLink} to="/contact" color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'onAccent', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
               Contact
             </Link>
           </VStack>
 
           <VStack align="start" spacing={3}>
-            <Heading size="sm" color="white" fontWeight="600" mb={1}>
+            <Heading size="sm" color="onAccent" fontWeight="600" mb={1}>
               Contact Info
             </Heading>
             <Flex align="start" gap={3}>
               <Icon as={FaMapMarkerAlt} color="whiteAlpha.700" mt={1} />
               <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.800">
-                St James Zongoro Primary School, P.O.Box 313, Mutare, Zimbabwe
+                {schoolContact.address}
               </Text>
             </Flex>
             <Flex align="center" gap={3}>
               <Icon as={FaPhone} color="whiteAlpha.700" />
               <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.800">
-                +263 77 321 1929 / +263 71 854 6070
+                {schoolContact.phoneInternational}
               </Text>
             </Flex>
             <Flex align="center" gap={3}>
               <Icon as={FaEnvelope} color="whiteAlpha.700" />
               <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.800">
-                zongoro.primary@gmail.com
+                {schoolContact.email}
               </Text>
             </Flex>
           </VStack>
 
           <VStack align="start" spacing={4}>
-            <Heading size="sm" color="white" fontWeight="600" mb={1}>
-              Stay Updated
+            <Heading size="sm" color="onAccent" fontWeight="600" mb={1}>
+              Get Started
             </Heading>
             <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.800">
-              Subscribe to our newsletter for latest updates and news.
+              Enrollment is open for ECD to Grade 7. Start your child's learning journey with us today.
             </Text>
-            <InputGroup size="md">
-              <Input
-                placeholder="Enter your email"
-                bg="whiteAlpha.100"
-                border="1px solid"
-                borderColor="whiteAlpha.300"
-                color="white"
-                _placeholder={{ color: 'whiteAlpha.500' }}
-                _focus={{ borderColor: 'white', boxShadow: 'none' }}
-                borderRadius="lg"
-              />
-              <InputRightElement>
-                <IconButton
-                  aria-label="Subscribe"
-                  icon={<FaPaperPlane />}
-                  size="sm"
-                  bgGradient="linear(to-r, white, gray.100)"
-                  color="maroon.500"
-                  _hover={{ bgGradient: 'linear(to-r, gray.100, gray.200)' }}
-                />
-              </InputRightElement>
-            </InputGroup>
-            <Button
-              as="a"
-              href={MANAGEMENT_ENROLL_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <EnrollButton
               size="sm"
               w="100%"
               bgGradient="linear(to-r, white, gray.100)"
@@ -231,7 +172,7 @@ const Footer = () => {
               _hover={{ bgGradient: 'linear(to-r, gray.100, gray.200)', transform: 'translateY(-2px)' }}
             >
               Apply Now
-            </Button>
+            </EnrollButton>
           </VStack>
         </SimpleGrid>
 
@@ -278,7 +219,7 @@ const Footer = () => {
                 fontSize="xs" 
                 color="cream.100" 
                 fontWeight="600"
-                _hover={{ color: 'white', textDecoration: 'none' }}
+                _hover={{ color: 'onAccent', textDecoration: 'none' }}
                 transition="all 0.3s ease"
               >
                 Tinashe Mundieta

@@ -79,7 +79,7 @@ const PrivacyPage = () => {
                 to="/"
                 leftIcon={<FaArrowLeft />}
                 bg="maroon.500"
-                color="white"
+                color="onAccent"
                 _hover={{ bgGradient: 'linear(to-r, maroon.600, maroon.700)' }}
               >
                 Back to Home

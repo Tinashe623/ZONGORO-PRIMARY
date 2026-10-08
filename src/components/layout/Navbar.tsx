@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import {
   Box,
   Flex,
   HStack,
   IconButton,
   useDisclosure,
+  useColorModeValue,
   Drawer,
   DrawerOverlay,
   DrawerContent,
@@ -17,7 +18,8 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, ChevronDownIcon, LockIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
-import { MANAGEMENT_ENROLL_URL, MANAGEMENT_LOGIN_URL } from '../../config';
+import { MANAGEMENT_LOGIN_URL } from '../../config';
+import EnrollButton from '../ui/EnrollButton';
 
 interface NavbarProps {
   scrollPosition: number;
@@ -39,6 +41,32 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
   const location = useLocation();
   const isScrolled = isScrolledProp ?? scrollPosition > 50;
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const navRef = useRef<HTMLDivElement | null>(null);
+
+  const navBg = useColorModeValue(
+    isScrolled ? 'rgba(250, 243, 224, 0.92)' : 'rgba(250, 243, 224, 0.78)',
+    isScrolled ? 'rgba(23, 20, 18, 0.92)' : 'rgba(23, 20, 18, 0.85)'
+  );
+  const dropdownBg = useColorModeValue('rgba(255, 255, 255, 0.94)', 'rgba(37, 33, 29, 0.96)');
+  const drawerBg = useColorModeValue('rgba(255, 252, 246, 0.98)', 'rgba(23, 20, 18, 0.99)');
+  const drawerHeaderBg = useColorModeValue('rgba(250, 243, 224, 0.9)', 'rgba(31, 27, 23, 0.9)');
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setOpenDropdown(null);
+      }
+    };
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpenDropdown(null);
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
 
   const isActive = (path: string) => {
     if (path.startsWith('/#')) {
@@ -61,7 +89,6 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
         { name: 'Our School', to: '/about' },
         { name: 'Anglican Heritage', to: '/church' },
         { name: 'Community', to: '/community' },
-        { name: 'Gallery', to: '/gallery' },
         { name: 'Our Team', to: '/staff' },
       ],
     },
@@ -85,12 +112,13 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
 
   return (
     <Box
+      ref={navRef}
       position="fixed"
       top="40px"
       left={0}
       right={0}
       zIndex={1000}
-      bg={isScrolled ? 'rgba(250, 243, 224, 0.92)' : 'rgba(250, 243, 224, 0.78)'}
+      bg={navBg}
       boxShadow={isScrolled ? '0 4px 24px rgba(130, 0, 0, 0.10)' : 'none'}
       backdropFilter={isScrolled ? 'blur(16px)' : 'blur(10px)'}
       style={{ WebkitBackdropFilter: isScrolled ? 'blur(16px)' : 'blur(10px)' }}
@@ -110,7 +138,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
       <Flex
         justify="space-between"
         align="center"
-        maxW="1400px"
+        maxW="1200px"
         mx="auto"
         py={3}
         px={4}
@@ -188,6 +216,10 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                 size="sm"
                 px={3}
                 transition="all 0.2s ease"
+                aria-expanded={openDropdown === dropdown.name}
+                aria-haspopup="true"
+                aria-controls={`nav-menu-${dropdown.name.toLowerCase()}`}
+                onClick={() => setOpenDropdown(openDropdown === dropdown.name ? null : dropdown.name)}
                 rightIcon={<ChevronDownIcon 
                   transition="all 0.2s" 
                   transform={openDropdown === dropdown.name ? 'rotate(180deg)' : 'rotate(0)'} 
@@ -197,11 +229,12 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
               </Button>
 
               <Box
+                id={`nav-menu-${dropdown.name.toLowerCase()}`}
                 position="absolute"
                 top="100%"
                 left={0}
                 minW="220px"
-                bg="rgba(255, 255, 255, 0.94)"
+                bg={dropdownBg}
                 borderRadius="xl"
                 shadow="0 12px 32px rgba(130, 0, 0, 0.14)"
                 border="1px"
@@ -216,6 +249,12 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                 py={2}
                 mt={2}
                 overflow="hidden"
+                onFocus={() => setOpenDropdown(dropdown.name)}
+                onBlur={(e) => {
+                  if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                    setOpenDropdown(null);
+                  }
+                }}
               >
                 {dropdown.items.map((item, idx) => (
                   <Box key={idx}>
@@ -247,6 +286,21 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
               </Box>
             </Box>
           ))}
+
+          <RouterLink to="/gallery">
+            <Button
+              variant="ghost"
+              fontWeight="600"
+              color={isActive('/gallery') ? 'maroon.600' : 'gray.600'}
+              bg={isActive('/gallery') ? 'maroon.50' : 'transparent'}
+              _hover={{ color: 'maroon.600', bg: 'maroon.50', transform: 'translateY(-1px)' }}
+              size="sm"
+              px={3}
+              transition="all 0.2s ease"
+            >
+              Gallery
+            </Button>
+          </RouterLink>
 
           <RouterLink to="/contact">
             <Button
@@ -281,21 +335,17 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
           >
             Login
           </Button>
-          <Button
-            as="a"
-            href={MANAGEMENT_ENROLL_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <EnrollButton
             size="sm"
             rightIcon={<ArrowForwardIcon />}
             bgGradient="linear(to-r, maroon.500, maroon.600)"
-            color="white"
+            color="onAccent"
             fontWeight="600"
             display={{ base: 'none', md: 'flex' }}
             _hover={{ transform: 'translateY(-2px)', boxShadow: '0 8px 24px rgba(130, 0, 0, 0.3)', bgGradient: 'linear(to-r, maroon.500, maroon.600)' }}
           >
             Apply Now
-          </Button>
+          </EnrollButton>
           
           <IconButton
             aria-label="Open menu"
@@ -313,7 +363,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
 
       <Drawer isOpen={isOpen} placement="top" onClose={onClose} size="full">
         <DrawerOverlay bg="blackAlpha.600" />
-        <DrawerContent bg="rgba(255, 252, 246, 0.98)" maxH="100vh">
+        <DrawerContent bg={drawerBg} maxH="100vh">
           <Flex
             align="center"
             justify="space-between"
@@ -321,7 +371,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
             py={4}
             borderBottom="1px solid"
             borderColor="maroon.100"
-            bg="rgba(250, 243, 224, 0.9)"
+            bg={drawerHeaderBg}
             backdropFilter="blur(10px)"
             style={{ WebkitBackdropFilter: 'blur(10px)' }}
             position="sticky"
@@ -372,21 +422,17 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
           >
             <VStack spacing={5} align="stretch">
               <HStack spacing={3} align="stretch">
-                <Button
-                  as="a"
-                  href={MANAGEMENT_ENROLL_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <EnrollButton
                   size="lg"
                   flex={1}
                   rightIcon={<ArrowForwardIcon />}
                   bgGradient="linear(to-r, maroon.500, maroon.600)"
-                  color="white"
+                  color="onAccent"
                   fontWeight="600"
                   _hover={{ transform: 'translateY(-2px)', boxShadow: '0 8px 24px rgba(130, 0, 0, 0.3)' }}
                 >
                   Apply Now
-                </Button>
+                </EnrollButton>
                 <Button
                   as="a"
                   href={MANAGEMENT_LOGIN_URL}
@@ -425,6 +471,24 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                 </Box>
               </RouterLink>
 
+              <RouterLink to="/gallery" onClick={onClose}>
+                <Box
+                  px={4}
+                  py={3}
+                  borderRadius="lg"
+                  bg={isActive('/gallery') ? 'maroon.50' : 'transparent'}
+                  _hover={{ bg: 'maroon.50', transform: 'translateX(4px)' }}
+                  transition="all 0.2s ease"
+                  borderLeftWidth="4px"
+                  borderLeftColor={isActive('/gallery') ? 'maroon.500' : 'transparent'}
+                  cursor="pointer"
+                >
+                  <Text fontWeight="600" color={isActive('/gallery') ? 'maroon.500' : 'gray.700'} fontSize="md">
+                    Gallery
+                  </Text>
+                </Box>
+              </RouterLink>
+
               <VStack align="stretch" spacing={4}>
                 <Box>
                   <Text
@@ -443,7 +507,6 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                       { name: 'Our School', to: '/about' },
                       { name: 'Anglican Heritage', to: '/church' },
                       { name: 'Community', to: '/community' },
-                      { name: 'Gallery', to: '/gallery' },
                       { name: 'Our Team', to: '/staff' },
                     ].map((item) => (
                       <RouterLink key={item.to} to={item.to} onClick={onClose}>
