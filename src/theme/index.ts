@@ -47,6 +47,7 @@ const theme = extendTheme(config, {
     cream: {
       50: '#FAF3E0',
       100: '#F5ECD3',
+      200: '#EFE3C2',
     },
     forest: {
       50: '#e6f5ed',

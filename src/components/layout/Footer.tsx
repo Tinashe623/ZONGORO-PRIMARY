@@ -20,11 +20,14 @@ import EnrollButton from '../ui/EnrollButton';
 const Footer = () => {
   return (
     <Box
-      bg="maroon.500"
+      bg="maroon.800"
       pt={16}
       pb={6}
       position="relative"
       overflow="hidden"
+      borderTopWidth="1px"
+      borderTopStyle="solid"
+      borderTopColor="whiteAlpha.300"
     >
       <Box
         position="absolute"
@@ -84,12 +87,12 @@ const Footer = () => {
                 <Heading size="md" color="onAccent" fontWeight="700" lineHeight="1.1" letterSpacing="-0.02em">
                   {schoolContact.shortName}
                 </Heading>
-                <Text fontSize="xs" color="whiteAlpha.600" letterSpacing="0.15em" mt={0.5}>
+                <Text fontSize="xs" color="whiteAlpha.900" letterSpacing="0.15em" mt={0.5}>
                   {schoolContact.tagline}
                 </Text>
               </Box>
             </Flex>
-            <Text fontSize="sm" color="whiteAlpha.800" lineHeight="1.8">
+            <Text fontSize="sm" color="whiteAlpha.900" lineHeight="1.8">
               {schoolContact.description}
             </Text>
             <HStack spacing={2} pt={2}>
@@ -99,7 +102,7 @@ const Footer = () => {
                 aria-label="Facebook"
                 icon={<FaFacebook />}
                 variant="ghost"
-                color="whiteAlpha.800"
+                color="whiteAlpha.900"
                 _hover={{ bg: 'forest.400', color: 'onAccent', transform: 'translateY(-3px)' }}
                 size="sm"
                 transition="all 0.3s ease"
@@ -112,22 +115,22 @@ const Footer = () => {
             <Heading size="sm" color="onAccent" fontWeight="600" mb={1}>
               Quick Links
             </Heading>
-            <Link as={RouterLink} to="/" color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'onAccent', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
+            <Link as={RouterLink} to="/" color="whiteAlpha.900" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'onAccent', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
               Home
             </Link>
-            <Link as={RouterLink} to="/about" color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'onAccent', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
+            <Link as={RouterLink} to="/about" color="whiteAlpha.900" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'onAccent', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
               About Us
             </Link>
-            <Link as={RouterLink} to="/admissions" color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'onAccent', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
+            <Link as={RouterLink} to="/admissions" color="whiteAlpha.900" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'onAccent', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
               Admissions
             </Link>
-            <Link href={MANAGEMENT_LOGIN_URL} isExternal color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'onAccent', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
+            <Link href={MANAGEMENT_LOGIN_URL} isExternal color="whiteAlpha.900" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'onAccent', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
               Parent / Staff Login
             </Link>
-            <Link as={RouterLink} to="/academics" color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'onAccent', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
+            <Link as={RouterLink} to="/academics" color="whiteAlpha.900" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'onAccent', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
               Academics
             </Link>
-            <Link as={RouterLink} to="/contact" color="whiteAlpha.800" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'onAccent', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
+            <Link as={RouterLink} to="/contact" color="whiteAlpha.900" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'onAccent', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
               Contact
             </Link>
           </VStack>
@@ -137,20 +140,20 @@ const Footer = () => {
               Contact Info
             </Heading>
             <Flex align="start" gap={3}>
-              <Icon as={FaMapMarkerAlt} color="whiteAlpha.700" mt={1} />
-              <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.800">
+              <Icon as={FaMapMarkerAlt} color="whiteAlpha.900" mt={1} />
+              <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.900">
                 {schoolContact.address}
               </Text>
             </Flex>
             <Flex align="center" gap={3}>
-              <Icon as={FaPhone} color="whiteAlpha.700" />
-              <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.800">
+              <Icon as={FaPhone} color="whiteAlpha.900" />
+              <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.900">
                 {schoolContact.phoneInternational}
               </Text>
             </Flex>
             <Flex align="center" gap={3}>
-              <Icon as={FaEnvelope} color="whiteAlpha.700" />
-              <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.800">
+              <Icon as={FaEnvelope} color="whiteAlpha.900" />
+              <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.900">
                 {schoolContact.email}
               </Text>
             </Flex>
@@ -160,7 +163,7 @@ const Footer = () => {
             <Heading size="sm" color="onAccent" fontWeight="600" mb={1}>
               Get Started
             </Heading>
-            <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.800">
+            <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.900">
               Enrollment is open for ECD to Grade 7. Start your child's learning journey with us today.
             </Text>
             <EnrollButton
@@ -180,7 +183,7 @@ const Footer = () => {
           mt={12}
           pt={6}
           borderTop="1px solid"
-          borderColor="whiteAlpha.200"
+          borderColor="whiteAlpha.300"
         >
           <Flex
             direction={{ base: 'column', md: 'row' }}
@@ -188,14 +191,14 @@ const Footer = () => {
             align="center"
             gap={4}
           >
-            <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.600">
-              © 2026 St James Zongoro Primary School. All rights reserved.
+            <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.900">
+              © {new Date().getFullYear()} St James Zongoro Primary School. All rights reserved.
             </Text>
             <HStack spacing={4}>
-              <Link as={RouterLink} to="/privacy" fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.600" _hover={{ color: 'cream.100' }} transition="all 0.3s ease">
+              <Link as={RouterLink} to="/privacy" fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.900" _hover={{ color: 'cream.100' }} transition="all 0.3s ease">
                 Privacy Policy
               </Link>
-              <Link as={RouterLink} to="/terms" fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.600" _hover={{ color: 'cream.100' }} transition="all 0.3s ease">
+              <Link as={RouterLink} to="/terms" fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.900" _hover={{ color: 'cream.100' }} transition="all 0.3s ease">
                 Terms of Service
               </Link>
             </HStack>
@@ -205,12 +208,18 @@ const Footer = () => {
         <Box
           mt={6}
           pt={4}
+          pb={2}
           borderTop="1px solid"
-          borderColor="whiteAlpha.200"
+          borderColor="whiteAlpha.300"
         >
-          <VStack spacing={2}>
+          <Flex
+            direction={{ base: 'column', md: 'row' }}
+            justify="space-between"
+            align="center"
+            gap={2}
+          >
             <Flex align="center" gap={2}>
-              <Text fontSize="xs" color="whiteAlpha.600">
+              <Text fontSize="xs" color="whiteAlpha.900">
                 Website designed & developed by
               </Text>
               <Link 
@@ -224,12 +233,12 @@ const Footer = () => {
               >
                 Tinashe Mundieta
               </Link>
-              <Icon as={FaCode} color="whiteAlpha.500" fontSize="xs" />
+              <Icon as={FaCode} color="whiteAlpha.700" fontSize="xs" />
             </Flex>
-            <Text fontSize="xs" color="whiteAlpha.500">
+            <Text fontSize="xs" color="whiteAlpha.900">
               Alumnus | Software Developer
             </Text>
-          </VStack>
+          </Flex>
         </Box>
       </Box>
     </Box>

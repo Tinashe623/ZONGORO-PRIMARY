@@ -93,8 +93,8 @@ const LatestMoments = () => {
                   position="absolute"
                   top={3}
                   left={3}
-                  bg="cream.100"
-                  color="maroon.700"
+                  bg="rgba(0,0,0,0.65)"
+                  color="white"
                   px={3}
                   py={1}
                   borderRadius="full"
@@ -145,9 +145,10 @@ const HStackButtons = ({ onPrev, onNext }: { onPrev: () => void; onNext: () => v
         icon={<ChevronLeftIcon boxSize={6} />}
         onClick={onPrev}
         variant="outline"
-        borderColor="maroon.200"
-        color="maroon.500"
-        _hover={{ bg: 'maroon.50' }}
+        border="1px solid"
+        borderColor="gray.300"
+        color="gray.700"
+        _hover={{ bg: 'gray.100' }}
         borderRadius="full"
       />
       <IconButton
@@ -155,9 +156,10 @@ const HStackButtons = ({ onPrev, onNext }: { onPrev: () => void; onNext: () => v
         icon={<ChevronRightIcon boxSize={6} />}
         onClick={onNext}
         variant="outline"
-        borderColor="maroon.200"
-        color="maroon.500"
-        _hover={{ bg: 'maroon.50' }}
+        border="1px solid"
+        borderColor="gray.300"
+        color="gray.700"
+        _hover={{ bg: 'gray.100' }}
         borderRadius="full"
       />
     </Flex>

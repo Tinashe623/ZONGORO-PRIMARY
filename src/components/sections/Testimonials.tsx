@@ -25,14 +25,15 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
       boxShadow="0 15px 45px rgba(0, 0, 0, 0.18)"
       display="flex"
       flexDirection="column"
+      justifyContent="space-between"
       h="100%"
     >
       <Text
-        color="gray.700"
+        color="gray.800"
         fontStyle="italic"
         lineHeight="1.75"
         fontSize={{ base: 'sm', md: 'md' }}
-        fontWeight="500"
+        fontWeight="medium"
         flex="1"
       >
         &ldquo;{testimonial.quote}&rdquo;

@@ -8,30 +8,32 @@ const TopBar = () => {
   const isDark = colorMode === 'dark';
 
   return (
-    <Box bg="maroon.500" color="onAccent" py={{ base: 1.5, md: 1 }} px={4} position="fixed" top={0} left={0} right={0} zIndex={1100}>
+    <Box bg="forest.800" color="onAccent" py={{ base: 1.5, md: 1 }} px={{ base: 4, md: 6 }} position="fixed" top={0} left={0} right={0} zIndex={1100}>
       <Flex justify="space-between" align="center" maxW="1200px" mx="auto" gap={4}>
         <Flex
           align="center"
-          gap={{ base: 3, md: 4 }}
+          gap={{ base: 3, md: 5 }}
           minW={0}
           flex={1}
           flexWrap="wrap"
         >
-          <Flex align="center" gap={1.5} flexShrink={0}>
-            <Icon as={FaPhone} fontSize="xs" color="forest.300" />
-            <Text fontSize={{ base: "xs", md: "sm" }} fontWeight="600" whiteSpace="nowrap">
+          <Flex align="center" gap={2} flexShrink={0}>
+            <Icon as={FaPhone} fontSize="xs" color="cream.200" />
+            <Text fontSize={{ base: "xs", md: "sm" }} fontWeight="600" color="whiteAlpha.900" whiteSpace="nowrap">
               {schoolContact.phoneDisplay}
             </Text>
           </Flex>
-          <Flex align="center" gap={1.5} flexShrink={0} display={{ base: 'none', sm: 'flex' }}>
-            <Icon as={FaEnvelope} fontSize="xs" color="forest.300" />
-            <Text fontSize={{ base: "xs", md: "sm" }} fontWeight="600" whiteSpace="nowrap">
+          <Box w="1px" h="12px" bg="whiteAlpha.300" flexShrink={0} display={{ base: 'none', sm: 'block' }} />
+          <Flex align="center" gap={2} flexShrink={0} display={{ base: 'none', sm: 'flex' }}>
+            <Icon as={FaEnvelope} fontSize="xs" color="cream.200" />
+            <Text fontSize={{ base: "xs", md: "sm" }} fontWeight="600" color="whiteAlpha.900" whiteSpace="nowrap">
               {schoolContact.email}
             </Text>
           </Flex>
-          <Flex align="center" gap={1.5} flexShrink={0} display={{ base: 'none', lg: 'flex' }}>
-            <Icon as={FaMapMarkerAlt} fontSize="xs" color="forest.300" />
-            <Text fontSize={{ base: "xs", md: "sm" }} fontWeight="600" whiteSpace="nowrap">
+          <Box w="1px" h="12px" bg="whiteAlpha.300" flexShrink={0} display={{ base: 'none', lg: 'block' }} />
+          <Flex align="center" gap={2} flexShrink={0} display={{ base: 'none', lg: 'flex' }}>
+            <Icon as={FaMapMarkerAlt} fontSize="xs" color="cream.200" />
+            <Text fontSize={{ base: "xs", md: "sm" }} fontWeight="600" color="whiteAlpha.900" whiteSpace="nowrap">
               {schoolContact.addressShort}
             </Text>
           </Flex>

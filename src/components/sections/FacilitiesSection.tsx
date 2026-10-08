@@ -98,7 +98,7 @@ const FacilitiesSection = () => {
                       left={0}
                       right={0}
                       bottom={0}
-                      bgGradient="linear(to top, rgba(38, 0, 0, 0.92) 0%, rgba(38, 0, 0, 0.45) 45%, rgba(38, 0, 0, 0.08) 100%)"
+                      bgGradient="linear(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 40%, transparent 100%)"
                     />
                     <Flex
                       position="absolute"
@@ -140,11 +140,12 @@ const FacilitiesSection = () => {
               to="/about"
               px={8}
               py={3}
-              bg="forest.500"
-              color="onAccent"
+              bg="white"
+              color="maroon.700"
               fontWeight="700"
               borderRadius="xl"
-              _hover={{ transform: 'translateY(-2px)', boxShadow: '0 8px 20px rgba(45, 106, 79, 0.4)' }}
+              boxShadow="0 8px 20px rgba(0, 0, 0, 0.25)"
+              _hover={{ bg: 'cream.100', transform: 'translateY(-2px)', boxShadow: '0 10px 24px rgba(0, 0, 0, 0.3)' }}
               transition="all 0.3s ease"
             >
               View All Facilities

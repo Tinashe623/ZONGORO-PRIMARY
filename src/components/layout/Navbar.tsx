@@ -284,9 +284,9 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
         align="center"
         maxW="1200px"
         mx="auto"
-        py={3}
-        px={4}
-        gap={4}
+        py={{ base: 2.5, md: 3 }}
+        px={{ base: 4, md: 6 }}
+        gap={{ base: 4, md: 6 }}
       >
           <RouterLink to={homeLink.to} style={{ textDecoration: 'none' }}>
             <Flex align="center" gap={4} cursor="pointer">
@@ -327,7 +327,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
             </Flex>
           </RouterLink>
 
-        <HStack spacing={1} display={{ base: 'none', lg: 'flex' }}>
+        <HStack spacing={1.5} display={{ base: 'none', lg: 'flex' }}>
 <RouterLink to={homeLink.to}>
             <Button
               variant="ghost"

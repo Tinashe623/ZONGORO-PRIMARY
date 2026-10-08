@@ -74,7 +74,7 @@ const WhyChooseUs = () => {
                 Why Choose St James Zongoro?
               </Heading>
               <Box w="60px" h="4px" bg="maroon.500" borderRadius="full" mt={3} />
-              <Text color="gray.500" fontSize="lg" fontWeight="500" mt={4} maxW="520px" lineHeight="1.7">
+              <Text color="gray.700" fontSize="lg" fontWeight="500" mt={4} maxW="520px" lineHeight="1.7">
                 Discover what makes our school special — academic excellence, Christian
                 values, and a community that nurtures every child from ECD to Grade 7.
               </Text>
@@ -114,8 +114,8 @@ const WhyChooseUs = () => {
                 borderRadius="2xl"
                 bg="white"
                 border="1px solid"
-                borderColor="gray.100"
-                boxShadow="0 4px 20px rgba(0,0,0,0.04)"
+                borderColor="gray.200"
+                boxShadow="sm"
                 transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
                 _hover={{
                   transform: 'translateY(-8px)',
@@ -158,7 +158,7 @@ const WhyChooseUs = () => {
                   >
                     {feature.title}
                   </Heading>
-                  <Text color="gray.500" lineHeight="1.7" fontSize="sm">
+                  <Text color="gray.700" lineHeight="1.7" fontSize="sm">
                     {feature.description}
                   </Text>
                 </VStack>
@@ -169,6 +169,7 @@ const WhyChooseUs = () => {
           <Box
             mt={16}
             p={{ base: 8, md: 12 }}
+            pb={{ base: 8, md: 10 }}
             bg="maroon.500"
             borderRadius="3xl"
             textAlign="center"
@@ -201,7 +202,7 @@ const WhyChooseUs = () => {
               <Heading fontSize={{ base: "lg", md: "xl" }} color="onAccent" fontWeight="700">
                 Start Your Child's Journey Today
               </Heading>
-              <Text color="whiteAlpha.900" fontSize={{ base: "md", md: "lg" }} maxW="600px">
+              <Text color="onAccent" fontSize={{ base: "md", md: "lg" }} maxW="600px" fontWeight="semibold">
                 Join over 700 students who have built successful futures at St James Zongoro
               </Text>
               
@@ -217,7 +218,7 @@ const WhyChooseUs = () => {
                       <Icon as={stat.icon} fontSize="xl" />
                     </Circle>
                     <Text color="onAccent" fontWeight="800" fontSize="2xl">{stat.number}</Text>
-                    <Text color="whiteAlpha.800" fontSize="xs">{stat.label}</Text>
+                    <Text color="onAccent" fontWeight="semibold" fontSize="xs">{stat.label}</Text>
                   </VStack>
                 ))}
               </SimpleGrid>

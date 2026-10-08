@@ -6,7 +6,7 @@ const stats = [
   { value: 1925, label: 'Founded', suffix: '' },
   { value: 9, label: 'Levels Taught (ECD to Grade 7)', suffix: '' },
   { value: 6, label: 'Modern Facilities', suffix: '' },
-  { value: 17, label: 'Moments Captured in 2026', suffix: '' },
+  { value: 17, label: `Moments Captured in ${new Date().getFullYear()}`, suffix: '' },
 ];
 
 const CountUp = ({ value, suffix }: { value: number; suffix: string }) => {
@@ -79,7 +79,7 @@ const SchoolStats = () => {
                 >
                   <CountUp value={stat.value} suffix={stat.suffix} />
                 </Heading>
-                <Text color="whiteAlpha.800" fontSize={{ base: 'xs', md: 'sm' }} fontWeight="500">
+                <Text color="white" fontWeight="medium" fontSize={{ base: 'xs', md: 'sm' }}>
                   {stat.label}
                 </Text>
               </VStack>
