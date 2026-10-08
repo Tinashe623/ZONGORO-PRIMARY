@@ -1,70 +1,64 @@
-import { useState, useEffect } from 'react';
+import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Box } from '@chakra-ui/react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Box, Spinner, Center } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 import Layout from './components/layout/Layout';
-import PageLoader from './components/ui/PageLoader';
-import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import ChurchPage from './pages/ChurchPage';
-import CommunityPage from './pages/CommunityPage';
-import AcademicsPage from './pages/AcademicsPage';
-import AssessmentPage from './pages/AssessmentPage';
-import StaffPage from './pages/StaffPage';
-import AdmissionsPage from './pages/AdmissionsPage';
-import BoardingPage from './pages/BoardingPage';
-import ActivitiesPage from './pages/ActivitiesPage';
-import TransportPage from './pages/TransportPage';
-import GalleryPage from './pages/GalleryPage';
-import ContactPage from './pages/ContactPage';
-import PrivacyPage from './pages/PrivacyPage';
-import TermsPage from './pages/TermsPage';
+
+const HomePage = lazy(() => import('./pages/HomePage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const ChurchPage = lazy(() => import('./pages/ChurchPage'));
+const CommunityPage = lazy(() => import('./pages/CommunityPage'));
+const AcademicsPage = lazy(() => import('./pages/AcademicsPage'));
+const AssessmentPage = lazy(() => import('./pages/AssessmentPage'));
+const StaffPage = lazy(() => import('./pages/StaffPage'));
+const AdmissionsPage = lazy(() => import('./pages/AdmissionsPage'));
+const BoardingPage = lazy(() => import('./pages/BoardingPage'));
+const ActivitiesPage = lazy(() => import('./pages/ActivitiesPage'));
+const TransportPage = lazy(() => import('./pages/TransportPage'));
+const GalleryPage = lazy(() => import('./pages/GalleryPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
+const TermsPage = lazy(() => import('./pages/TermsPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 const MotionBox = motion(Box);
 
+const PageFallback = () => (
+  <Center minH="45vh">
+    <Spinner size="xl" color="maroon.500" thickness="3px" />
+  </Center>
+);
+
 function App() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1500);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <AnimatePresence mode="wait">
-      {loading ? (
-        <PageLoader key="loader" />
-      ) : (
-        <MotionBox
-          key="content"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Layout>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/church" element={<ChurchPage />} />
-              <Route path="/community" element={<CommunityPage />} />
-              <Route path="/academics" element={<AcademicsPage />} />
-              <Route path="/assessment" element={<AssessmentPage />} />
-              <Route path="/staff" element={<StaffPage />} />
-              <Route path="/admissions" element={<AdmissionsPage />} />
-              <Route path="/boarding" element={<BoardingPage />} />
-              <Route path="/activities" element={<ActivitiesPage />} />
-              <Route path="/transport" element={<TransportPage />} />
-              <Route path="/gallery" element={<GalleryPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/privacy" element={<PrivacyPage />} />
-              <Route path="/terms" element={<TermsPage />} />
-            </Routes>
-          </Layout>
-        </MotionBox>
-      )}
-    </AnimatePresence>
+    <MotionBox
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <Layout>
+        <Suspense fallback={<PageFallback />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/church" element={<ChurchPage />} />
+            <Route path="/community" element={<CommunityPage />} />
+            <Route path="/academics" element={<AcademicsPage />} />
+            <Route path="/assessment" element={<AssessmentPage />} />
+            <Route path="/staff" element={<StaffPage />} />
+            <Route path="/admissions" element={<AdmissionsPage />} />
+            <Route path="/boarding" element={<BoardingPage />} />
+            <Route path="/activities" element={<ActivitiesPage />} />
+            <Route path="/transport" element={<TransportPage />} />
+            <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Suspense>
+      </Layout>
+    </MotionBox>
   );
 }
 
