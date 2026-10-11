@@ -243,6 +243,8 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
           borderLeftWidth={active ? '4px' : '1px'}
           borderLeftColor={active ? activeBar : linkChipBorder}
           bg={active ? activeBg : linkChipBg}
+          backdropFilter="blur(8px)"
+          style={{ WebkitBackdropFilter: 'blur(8px)' }}
           boxShadow={active ? '0 2px 12px rgba(130, 0, 0, 0.08)' : 'none'}
           _hover={{
             bg: hoverBg,

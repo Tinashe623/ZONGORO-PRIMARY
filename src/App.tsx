@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Box, Spinner, Center } from '@chakra-ui/react';
+import { Box, Skeleton, SimpleGrid, VStack, Stack } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import Layout from './components/layout/Layout';
 
@@ -24,9 +24,28 @@ const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 const MotionBox = motion(Box);
 
 const PageFallback = () => (
-  <Center minH="45vh">
-    <Spinner size="xl" color="brand" thickness="3px" />
-  </Center>
+  <Box aria-busy="true" aria-live="polite">
+    <Skeleton h={{ base: '220px', md: '340px' }} />
+    <Box maxW="1200px" mx="auto" px={4} py={{ base: 12, md: 20 }}>
+      <VStack spacing={5} mb={{ base: 8, md: 12 }} align="center">
+        <Skeleton h="12px" w="90px" borderRadius="full" />
+        <Skeleton h={{ base: '30px', md: '40px' }} w={{ base: '72%', md: '420px' }} borderRadius="md" />
+        <Skeleton h="16px" w={{ base: '88%', md: '520px' }} borderRadius="md" />
+      </VStack>
+      <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={6}>
+        {Array.from({ length: 6 }).map((_, i) => (
+          <Box key={i} borderRadius="2xl" overflow="hidden" borderWidth="1px" borderColor="blackAlpha.100">
+            <Skeleton h="180px" />
+            <Stack p={5} spacing={3}>
+              <Skeleton h="16px" w="70%" borderRadius="md" />
+              <Skeleton h="12px" w="100%" borderRadius="md" />
+              <Skeleton h="12px" w="85%" borderRadius="md" />
+            </Stack>
+          </Box>
+        ))}
+      </SimpleGrid>
+    </Box>
+  </Box>
 );
 
 function App() {
