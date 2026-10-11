@@ -42,7 +42,7 @@ const ChurchSection = () => {
               >
                 <Text
                   fontSize="6xl"
-                  color="maroon.500"
+                  color="brand"
                   position="absolute"
                   top={2}
                   left={4}
@@ -77,7 +77,7 @@ const ChurchSection = () => {
             </VStack>
 
             <VStack align="start" spacing={6}>
-              <Heading size="lg" color="forest.500">
+              <Heading size="lg" color="brandGreen">
                 Our Church Values
               </Heading>
               <List spacing={4}>
@@ -92,7 +92,7 @@ const ChurchSection = () => {
                       bg="forest.50"
                       mr={4}
                     >
-                      <ListIcon as={value.icon} color="forest.500" fontSize="lg" />
+                      <ListIcon as={value.icon} color="brandGreen" fontSize="lg" />
                     </Flex>
                     <Text color="gray.700" fontWeight="500">
                       {value.text}

@@ -13,6 +13,7 @@ import {
   Tab,
   Flex,
   Icon,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import {
   FaFutbol,
@@ -71,9 +72,13 @@ const ActivityCard = ({ activity }: { activity: typeof activities[0] }) => {
   const IconComponent = iconMap[activity.icon];
 
   const isAcademic = activity.category === 'academic';
-  const cardBg = isAcademic
-    ? 'linear-gradient(135deg, white 0%, blue.50 100%)'
-    : 'white';
+  const academicCardBg = useColorModeValue(
+    'linear-gradient(135deg, white 0%, blue.50 100%)',
+    'linear-gradient(135deg, #1F1C18 0%, #16233A 100%)'
+  );
+  const cardBg = isAcademic ? academicCardBg : 'white';
+  const academicHeading = useColorModeValue('blue.700', 'blue.200');
+  const academicText = useColorModeValue('blue.600', 'blue.300');
 
   const badgeColor = categoryColors[activity.category];
 
@@ -118,7 +123,7 @@ const ActivityCard = ({ activity }: { activity: typeof activities[0] }) => {
             <Box flex="1">
               <Heading
                 size="md"
-                color={isAcademic ? 'blue.700' : 'dark.500'}
+                color={isAcademic ? academicHeading : 'brand'}
                 fontWeight="600"
               >
                 {activity.name}
@@ -140,7 +145,7 @@ const ActivityCard = ({ activity }: { activity: typeof activities[0] }) => {
             {activity.description}
           </Text>
 
-          <Text color={isAcademic ? 'blue.600' : 'maroon.500'} fontSize="sm" fontWeight="600">
+          <Text color={isAcademic ? academicText : 'brand'} fontSize="sm" fontWeight="600">
             📅 {activity.schedule}
           </Text>
 
@@ -157,7 +162,7 @@ const ActivityCard = ({ activity }: { activity: typeof activities[0] }) => {
                   Achievements:
                 </Text>
                 {activity.achievements.map((a, i) => (
-                  <Text key={i} color={isAcademic ? 'blue.600' : 'forest.500'} fontSize="xs">
+                  <Text key={i} color={isAcademic ? academicText : 'brandGreen'} fontSize="xs">
                     🏆 {a}
                   </Text>
                 ))}
@@ -255,7 +260,7 @@ const ActivitiesGrid = () => {
                 size="2xl"
                 color="dark.500"
                 fontWeight="700"
-                bg="maroon.500"
+                bg="brand"
                 bgClip="text"
               >
                 Explore Our Activities

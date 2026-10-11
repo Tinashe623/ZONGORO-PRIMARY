@@ -44,7 +44,7 @@ const ResultCard = ({ year, passRate, students }: { year: number; passRate: numb
             {year}
           </Badge>
           <Flex align="baseline" gap={1}>
-            <Heading size="3xl" color="maroon.500">
+            <Heading size="3xl" color="brand">
               {displayRate}%
             </Heading>
           </Flex>

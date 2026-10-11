@@ -9,6 +9,14 @@ const theme = extendTheme(config, {
   semanticTokens: {
     colors: {
       onAccent: { default: '#FFFFFF', _dark: '#FFFFFF' },
+      brand: { default: '#820000', _dark: '#E9B7AE' },
+      brandStrong: { default: '#6b0000', _dark: '#F4DCD6' },
+      brandGreen: { default: '#2D6A4F', _dark: '#9ed6b5' },
+      brandGreenStrong: { default: '#245a42', _dark: '#9ed6b5' },
+      eyebrow: { default: '#245a42', _dark: '#79c699' },
+      'maroon.50': { default: '#FBF1EF', _dark: '#2A1517' },
+      'maroon.100': { default: '#F4DCD6', _dark: '#3A1D20' },
+      'forest.50': { default: '#e6f5ed', _dark: '#10201A' },
       white: { default: '#FFFFFF', _dark: '#1F1C18' },
       'chakra-body-bg': { default: '#FFFFFF', _dark: '#171412' },
       'chakra-body-text': { default: '#1A1A1A', _dark: '#E7E1D8' },
@@ -17,7 +25,7 @@ const theme = extendTheme(config, {
       'gray.100': { default: '#EEEAE4', _dark: '#26221D' },
       'gray.200': { default: '#E1DCD4', _dark: '#322D26' },
       'gray.300': { default: '#C9C3B9', _dark: '#423C33' },
-      'gray.400': { default: '#A39D93', _dark: '#565048' },
+      'gray.400': { default: '#A39D93', _dark: '#847D72' },
       'gray.500': { default: '#6B665E', _dark: '#8F877B' },
       'gray.600': { default: '#55504A', _dark: '#A89F93' },
       'gray.700': { default: '#38342F', _dark: '#C1B8AC' },
@@ -254,10 +262,10 @@ const theme = extendTheme(config, {
     },
     Link: {
       baseStyle: {
-        color: 'maroon.500',
+        color: 'brand',
         _hover: {
           textDecoration: 'none',
-          color: 'maroon.600',
+          color: 'brandStrong',
         },
       },
     },

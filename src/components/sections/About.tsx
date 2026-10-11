@@ -21,7 +21,7 @@ const About = () => {
 
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={12} alignItems="start">
             <VStack align="start" spacing={4}>
-              <Heading size="lg" color="maroon.500">
+              <Heading size="lg" color="brand">
                 Our History
               </Heading>
               <Text color="gray.600" lineHeight="1.8">
@@ -40,7 +40,7 @@ const About = () => {
 
             <VStack align="start" spacing={6}>
               <Box>
-                <Heading size="lg" color="maroon.500" mb={4}>
+                <Heading size="lg" color="brand" mb={4}>
                   Vision & Mission
                 </Heading>
                 <Text color="gray.600" mb={4} lineHeight="1.8">
@@ -56,13 +56,13 @@ const About = () => {
               </Box>
 
               <Box>
-                <Heading size="md" color="maroon.500" mb={3}>
+                <Heading size="md" color="brand" mb={3}>
                   Core Values
                 </Heading>
                 <List spacing={2}>
                   {coreValues.map((value) => (
                     <ListItem key={value} display="flex" alignItems="center">
-                      <ListIcon as={FaCheck} color="maroon.500" />
+                      <ListIcon as={FaCheck} color="brand" />
                       <Text color="gray.600">{value}</Text>
                     </ListItem>
                   ))}

@@ -17,7 +17,7 @@ const AdmissionRequirements = () => {
     <Box py={20} px={4} bg="white" id="requirements">
       <Box maxW="1200px" mx="auto">
           <VStack spacing={4} textAlign="center" mb={16}>
-            <Heading size="2xl" color="maroon.500" fontWeight="700">
+            <Heading size="2xl" color="brand" fontWeight="700">
               Admission Requirements
             </Heading>
             <Text color="gray.600" fontSize="lg" maxW="700px" lineHeight="1.8">
@@ -61,7 +61,7 @@ const AdmissionRequirements = () => {
                     <List spacing={3}>
                       {req.requirements.map((r, i) => (
                         <ListItem key={i} display="flex" alignItems="center">
-                          <ListIcon as={FaCheckCircle} color="forest.500" fontSize="lg" />
+                          <ListIcon as={FaCheckCircle} color="brandGreen" fontSize="lg" />
                           <Text color="gray.700" fontSize="md">{r}</Text>
                         </ListItem>
                       ))}

@@ -38,7 +38,7 @@ const StaffLeadership = () => {
               </Badge>
               <Heading
                 fontSize={{ base: 'lg', md: '2xl' }}
-                color="maroon.500"
+                color="brand"
                 fontWeight="700"
                 lineHeight="1.2"
               >
@@ -107,7 +107,7 @@ const StaffLeadership = () => {
                       <Heading fontSize={{ base: 'sm', md: 'md' }} color="dark.500" fontWeight="700">
                         {member.name}
                       </Heading>
-                      <Text color="maroon.500" fontWeight="600" fontSize="sm">
+                      <Text color="brand" fontWeight="600" fontSize="sm">
                         {member.title}
                       </Text>
                       <Text color="gray.400" fontSize="xs" fontWeight="500">
@@ -126,7 +126,7 @@ const StaffLeadership = () => {
                     {/* Footer pill */}
                     <Badge
                       bg="cream.50"
-                      color="maroon.600"
+                      color="brandStrong"
                       border="1px solid"
                       borderColor="maroon.100"
                       fontSize="xs"
@@ -152,7 +152,7 @@ const StaffLeadership = () => {
             <VStack spacing={3} textAlign="center" mb={{ base: 8, md: 12 }}>
               <Heading
                 fontSize={{ base: 'lg', md: '2xl' }}
-                color="maroon.600"
+                color="brandStrong"
                 fontWeight="700"
               >
                 Our Staff Family

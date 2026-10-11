@@ -51,7 +51,7 @@ const AboutPage = () => {
         <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
             <VStack spacing={16}>
               <Box textAlign="center" maxW="800px">
-                <Heading fontSize={{ base: "xl", md: "2xl" }} color="maroon.600" mb={4}>
+                <Heading fontSize={{ base: "xl", md: "2xl" }} color="brandStrong" mb={4}>
                   Our Legacy Since 1925
                 </Heading>
                 <Text color="gray.600" fontSize={{ base: "md", md: "lg" }} lineHeight="1.8">
@@ -175,7 +175,7 @@ const AboutPage = () => {
                              mb={3}
                              fontWeight="700"
                              transition="color 0.3s ease"
-                             _groupHover={{ color: 'maroon.600' }}
+                             _groupHover={{ color: 'brandStrong' }}
                            >
                              {item.title}
                            </Heading>
@@ -330,7 +330,7 @@ bg="forest.500"
         <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
             <VStack spacing={16}>
               <Box textAlign="center">
-                <Heading fontSize={{ base: "xl", md: "2xl" }} color="maroon.600" mb={4} fontWeight="800">
+                <Heading fontSize={{ base: "xl", md: "2xl" }} color="brandStrong" mb={4} fontWeight="800">
                   Our Core Values
                 </Heading>
                 <Text color="gray.500" fontSize={{ base: "md", md: "lg" }} maxW="500px" mx="auto">
@@ -396,7 +396,7 @@ bg="forest.500"
                             mb={2}
                             fontWeight="700"
                             transition="color 0.3s ease"
-                            _groupHover={{ color: 'maroon.600' }}
+                            _groupHover={{ color: 'brandStrong' }}
                           >
                             {value.title}
                           </Heading>
@@ -473,7 +473,7 @@ bg="forest.500"
                              mb={2}
                              fontWeight="700"
                              transition="color 0.3s ease"
-                             _groupHover={{ color: 'maroon.600' }}
+                             _groupHover={{ color: 'brandStrong' }}
                            >
                              {value.title}
                            </Heading>
@@ -550,7 +550,7 @@ bg="forest.500"
                              mb={2}
                              fontWeight="700"
                              transition="color 0.3s ease"
-                             _groupHover={{ color: 'maroon.600' }}
+                             _groupHover={{ color: 'brandStrong' }}
                            >
                              {value.title}
                            </Heading>
@@ -655,7 +655,7 @@ bg="forest.500"
         
         <Box maxW="1200px" mx="auto" textAlign="center" position="relative" zIndex={1}>
             <VStack spacing={8}>
-              <Heading fontSize={{ base: "xl", md: "2xl" }} color="maroon.600" fontWeight="800">
+              <Heading fontSize={{ base: "xl", md: "2xl" }} color="brandStrong" fontWeight="800">
                 Join Our School Community
               </Heading>
               <Box w={{ base: "60px", md: "80px" }} h="3px" bg="maroon.500" borderRadius="full" />
@@ -677,7 +677,7 @@ bg="forest.500"
                   px={{ base: 6, md: 8 }}
                   py={{ base: 3, md: 4 }}
                   variant="outline"
-                  color="maroon.600"
+                  color="brandStrong"
                   fontWeight="700"
                   fontSize={{ base: "md", md: "lg" }}
                   borderRadius="xl"

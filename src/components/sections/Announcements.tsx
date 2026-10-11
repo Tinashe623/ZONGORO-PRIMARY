@@ -97,7 +97,7 @@ const AnnouncementCard = ({
                 alignItems="center"
                 gap={1.5}
                 bg="maroon.50"
-                color="maroon.600"
+                color="brandStrong"
                 px={2.5}
                 py={1}
                 borderRadius="full"
@@ -129,10 +129,10 @@ const AnnouncementCard = ({
                   <Link
                     href={sourceUrl}
                     isExternal
-                    color="maroon.500"
+                    color="brand"
                     fontWeight="600"
                     fontSize="sm"
-                    _hover={{ textDecoration: 'underline', color: 'maroon.700' }}
+                    _hover={{ textDecoration: 'underline', color: 'brandStrong' }}
                     mt={2}
                     display="inline-flex"
                     alignItems="center"
@@ -145,10 +145,10 @@ const AnnouncementCard = ({
               <Button
                 size="sm"
                 variant="link"
-                color="maroon.500"
+                color="brand"
                 alignSelf="flex-start"
                 transition="all 0.2s ease"
-                _hover={{ color: 'maroon.700', transform: 'translateX(4px)' }}
+                _hover={{ color: 'brandStrong', transform: 'translateX(4px)' }}
                 onClick={() => setIsExpanded(!isExpanded)}
               >
                 {isExpanded ? 'Show less' : 'Read More →'}

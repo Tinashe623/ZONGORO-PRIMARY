@@ -28,7 +28,7 @@ const BoardingRules = () => {
     <Box py={20} px={4} bg="white">
       <Box maxW="900px" mx="auto">
           <VStack spacing={4} textAlign="center" mb={16}>
-            <Heading size="2xl" color="maroon.600" fontWeight="800">
+            <Heading size="2xl" color="brandStrong" fontWeight="800">
               Boarding Rules & Expectations
             </Heading>
             <Text color="gray.600" fontSize="lg" maxW="700px" lineHeight="1.8">
@@ -98,7 +98,7 @@ const BoardingRules = () => {
                           _hover={{ bg: 'white', borderRadius: 'lg' }}
                           transition="all 0.2s ease"
                         >
-                          <ListIcon as={FaCheckCircle} color="forest.500" mt={1} fontSize="lg" />
+                          <ListIcon as={FaCheckCircle} color="brandGreen" mt={1} fontSize="lg" />
                           <Text color="gray.700" fontSize="md" lineHeight="1.7">{r}</Text>
                         </ListItem>
                       ))}

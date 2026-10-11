@@ -203,7 +203,7 @@ const GalleryPage = () => {
                     bg="white"
                     color="gray.600"
                     _selected={{ bg: 'maroon.500', color: 'onAccent', boxShadow: '0 4px 12px rgba(128, 0, 32, 0.25)' }}
-                    _hover={{ bg: 'maroon.100', color: 'maroon.700' }}
+                    _hover={{ bg: 'maroon.100', color: 'brandStrong' }}
                     px={6}
                     borderRadius="full"
                     fontWeight="500"

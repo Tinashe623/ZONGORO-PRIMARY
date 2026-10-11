@@ -96,7 +96,7 @@ const LatestMoments = () => {
                   top={3}
                   left={3}
                   bg="rgba(23, 20, 18, 0.5)"
-                  color="cream.50"
+                  color="cream.100"
                   border="1px solid"
                   borderColor="whiteAlpha.300"
                   backdropFilter="blur(10px)"
@@ -167,7 +167,7 @@ const HStackButtons = ({ onPrev, onNext }: { onPrev: () => void; onNext: () => v
         border="1px solid"
         borderColor="maroon.200"
         bg={bg}
-        color="maroon.500"
+        color="brand"
         boxShadow="0 2px 10px rgba(130, 0, 0, 0.08)"
         _hover={{ bg: 'maroon.500', color: 'white', borderColor: 'maroon.500', boxShadow: '0 6px 18px rgba(130, 0, 0, 0.28)' }}
         _active={{ transform: 'scale(0.96)' }}
@@ -182,7 +182,7 @@ const HStackButtons = ({ onPrev, onNext }: { onPrev: () => void; onNext: () => v
         border="1px solid"
         borderColor="maroon.200"
         bg={bg}
-        color="maroon.500"
+        color="brand"
         boxShadow="0 2px 10px rgba(130, 0, 0, 0.08)"
         _hover={{ bg: 'maroon.500', color: 'white', borderColor: 'maroon.500', boxShadow: '0 6px 18px rgba(130, 0, 0, 0.28)' }}
         _active={{ transform: 'scale(0.96)' }}

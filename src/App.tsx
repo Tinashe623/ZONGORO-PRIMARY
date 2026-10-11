@@ -25,7 +25,7 @@ const MotionBox = motion(Box);
 
 const PageFallback = () => (
   <Center minH="45vh">
-    <Spinner size="xl" color="maroon.500" thickness="3px" />
+    <Spinner size="xl" color="brand" thickness="3px" />
   </Center>
 );
 

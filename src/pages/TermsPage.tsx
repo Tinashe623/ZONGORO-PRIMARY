@@ -22,7 +22,7 @@ const TermsPage = () => {
         <Container maxW="900px">
           <VStack spacing={8} align="start">
             <Box>
-              <Heading size="lg" color="maroon.500" mb={4}>
+              <Heading size="lg" color="brand" mb={4}>
                 Acceptance of Terms
               </Heading>
               <Text color="gray.600" lineHeight="1.8">
@@ -32,7 +32,7 @@ const TermsPage = () => {
             </Box>
 
             <Box>
-              <Heading size="md" color="maroon.500" mb={3}>
+              <Heading size="md" color="brand" mb={3}>
                 Website Purpose
               </Heading>
               <Text color="gray.600" lineHeight="1.8">
@@ -43,7 +43,7 @@ const TermsPage = () => {
             </Box>
 
             <Box>
-              <Heading size="md" color="maroon.500" mb={3}>
+              <Heading size="md" color="brand" mb={3}>
                 Information Accuracy
               </Heading>
               <Text color="gray.600" lineHeight="1.8">
@@ -54,7 +54,7 @@ const TermsPage = () => {
             </Box>
 
             <Box>
-              <Heading size="md" color="maroon.500" mb={3}>
+              <Heading size="md" color="brand" mb={3}>
                 Use of Website
               </Heading>
               <Text color="gray.600" lineHeight="1.8">
@@ -64,7 +64,7 @@ const TermsPage = () => {
             </Box>
 
             <Box>
-              <Heading size="md" color="maroon.500" mb={3}>
+              <Heading size="md" color="brand" mb={3}>
                 Intellectual Property
               </Heading>
               <Text color="gray.600" lineHeight="1.8">
@@ -75,7 +75,7 @@ const TermsPage = () => {
             </Box>
 
             <Box>
-              <Heading size="md" color="maroon.500" mb={3}>
+              <Heading size="md" color="brand" mb={3}>
                 Contact Information
               </Heading>
               <Text color="gray.600" lineHeight="1.8">

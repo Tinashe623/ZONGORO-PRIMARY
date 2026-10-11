@@ -16,7 +16,7 @@ const NotFoundPage = () => {
             <VStack spacing={8} textAlign="center">
               <Heading
                 fontSize={{ base: '7xl', md: '9rem' }}
-                bgGradient="linear(to-r, maroon.500, maroon.400)"
+                bgGradient="linear(to-r, brand, brandGreen)"
                 bgClip="text"
                 fontWeight="800"
                 lineHeight="1"

@@ -72,14 +72,14 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
             borderRadius="full"
             bg="white"
           >
-            <Icon as={getRoleIcon(testimonial.role)} color="maroon.500" fontSize={{ base: 'md', md: 'lg' }} />
+            <Icon as={getRoleIcon(testimonial.role)} color="brand" fontSize={{ base: 'md', md: 'lg' }} />
           </Flex>
         </Box>
         <Box>
           <Text color="gray.800" fontWeight="700" fontSize={{ base: 'sm', md: 'md' }}>
             {testimonial.author}
           </Text>
-          <Text color="maroon.600" fontWeight="600" fontSize={{ base: 'xs', md: 'sm' }}>
+          <Text color="brandStrong" fontWeight="600" fontSize={{ base: 'xs', md: 'sm' }}>
             {testimonial.role}
           </Text>
         </Box>

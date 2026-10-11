@@ -47,7 +47,7 @@ const Transport = () => {
 
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={12} alignItems="center">
               <VStack align="start" spacing={6}>
-                <Heading size="lg" color="forest.500">
+                <Heading size="lg" color="brandGreen">
                   Reliable Transport Services
                 </Heading>
                 <Text color="gray.600" lineHeight="1.8">
@@ -59,7 +59,7 @@ const Transport = () => {
                 <List spacing={3}>
                   {services.map((service, index) => (
                     <ListItem key={index} display="flex" alignItems="center">
-                      <ListIcon as={FaCheckCircle} color="forest.500" />
+                      <ListIcon as={FaCheckCircle} color="brandGreen" />
                       <Text color="gray.700">{service}</Text>
                     </ListItem>
                   ))}
@@ -94,7 +94,7 @@ const Transport = () => {
                 <CardBody p={6}>
                   <VStack align="start" spacing={2}>
                     <Flex align="center" gap={2}>
-                      <Icon as={FaBus} color="forest.500" fontSize="xl" />
+                      <Icon as={FaBus} color="brandGreen" fontSize="xl" />
                       <Heading size="sm" color="dark.500">
                         Our School Bus
                       </Heading>

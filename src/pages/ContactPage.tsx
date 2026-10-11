@@ -25,25 +25,25 @@ const ContactInfo = () => {
       icon: FaMapMarkerAlt,
       title: 'Address',
       content: schoolContact.address,
-      color: 'maroon.500',
+      color: 'brand',
     },
     {
       icon: FaPhone,
       title: 'Phone',
       content: schoolContact.phoneInternational,
-      color: 'forest.500',
+      color: 'brandGreen',
     },
     {
       icon: FaEnvelope,
       title: 'Email',
       content: schoolContact.email,
-      color: 'maroon.500',
+      color: 'brand',
     },
     {
       icon: FaClock,
       title: 'Office Hours',
       content: schoolContact.officeHours,
-      color: 'forest.500',
+      color: 'brandGreen',
     },
   ];
 
@@ -284,7 +284,7 @@ const ContactPage = () => {
           <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={12}>
               <VStack align="start" spacing={8}>
                 <Box>
-                  <Heading fontSize={{ base: "xl", md: "2xl" }} color="maroon.500" fontWeight="700" mb={4}>
+                  <Heading fontSize={{ base: "xl", md: "2xl" }} color="brand" fontWeight="700" mb={4}>
                     Get in Touch
                   </Heading>
                   <Text color="gray.600" fontSize={{ base: "md", md: "lg" }} lineHeight="1.9">

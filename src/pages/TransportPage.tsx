@@ -107,7 +107,7 @@ const TransportPage = () => {
 
                 <Heading
                   fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
-                  color="maroon.500"
+                  color="brand"
                   fontWeight="700"
                   lineHeight="1.2"
                 >
@@ -147,7 +147,7 @@ const TransportPage = () => {
                     >
                       <ListIcon
                         as={FaCheckCircle}
-                        color="forest.500"
+                        color="brandGreen"
                         fontSize={{ base: 'md', md: 'lg' }}
                         flexShrink={0}
                         mr={2}
@@ -227,7 +227,7 @@ const TransportPage = () => {
                     gap={2}
                   >
                     <HStack spacing={2}>
-                      <Icon as={FaBus} color="maroon.500" fontSize={{ base: 'sm', md: 'md' }} />
+                      <Icon as={FaBus} color="brand" fontSize={{ base: 'sm', md: 'md' }} />
                       <Text
                         fontWeight="700"
                         color="dark.500"
@@ -259,7 +259,7 @@ const TransportPage = () => {
             <VStack spacing={{ base: 3, md: 4 }} textAlign="center" mb={{ base: 8, md: 12, lg: 16 }}>
               <Heading
                 fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
-                color="maroon.500"
+                color="brand"
                 fontWeight="700"
               >
                 Why Choose Our Transport Services
@@ -341,7 +341,7 @@ const TransportPage = () => {
             <VStack spacing={{ base: 3, md: 4 }} textAlign="center" mb={{ base: 8, md: 12, lg: 16 }}>
               <Heading
                 fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
-                color="maroon.500"
+                color="brand"
                 fontWeight="700"
               >
                 Bus Hire Services
@@ -371,7 +371,7 @@ const TransportPage = () => {
                 <VStack align="start" spacing={{ base: 4, md: 6 }}>
                   <Heading
                       fontSize={{ base: 'md', md: 'lg' }}
-                      color="maroon.600"
+                      color="brandStrong"
                       fontWeight="700"
                     >
                       Fleet Details
@@ -393,7 +393,7 @@ const TransportPage = () => {
                         borderColor="gray.100"
                       >
                         <Flex align="center" gap={2} mb={1} flexWrap="wrap">
-                          <Icon as={item.icon} color="maroon.500" fontSize="sm" flexShrink={0} />
+                          <Icon as={item.icon} color="brand" fontSize="sm" flexShrink={0} />
                           <Text
                             fontSize="xs"
                             fontWeight="600"
@@ -407,7 +407,7 @@ const TransportPage = () => {
                         <Text
                           fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
                           fontWeight="700"
-                          color="maroon.600"
+                          color="brandStrong"
                         >
                           {item.value}
                         </Text>

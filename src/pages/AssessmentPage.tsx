@@ -46,7 +46,7 @@ const AssessmentPage = () => {
       <Box py={20} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
             <VStack spacing={4} textAlign="center" mb={16}>
-              <Heading size="2xl" color="maroon.500" fontWeight="700">
+              <Heading size="2xl" color="brand" fontWeight="700">
                 School Enrolment
               </Heading>
               <Text color="gray.600" fontSize="lg" maxW="700px" lineHeight="1.8">
@@ -57,9 +57,9 @@ const AssessmentPage = () => {
           {/* Stats Row */}
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} mb={12}>
             {[
-              { icon: FaUsers, label: `Total Enrollment (${latestEnrollment.year})`, value: latestEnrollment.total.toString(), color: 'maroon.500' },
+              { icon: FaUsers, label: `Total Enrollment (${latestEnrollment.year})`, value: latestEnrollment.total.toString(), color: 'brand' },
               { icon: FaArrowUp, label: `Growth since ${firstEnrollment.year}`, value: `${growthPercent}%`, color: parseFloat(growthPercent) >= 0 ? 'forest.500' : 'gray.500' },
-              { icon: FaChartLine, label: 'Projected by 2028', value: '1000', color: 'forest.500' },
+              { icon: FaChartLine, label: 'Projected by 2028', value: '1000', color: 'brandGreen' },
             ].map((stat, index) => (
                 <Box key={index}
                   bg="white"
@@ -117,7 +117,7 @@ const AssessmentPage = () => {
                   <Thead>
                     <Tr bg="cream.50">
                       <Th
-                        color="maroon.500"
+                        color="brand"
                         fontWeight="700"
                         fontSize="md"
                         py={4}
@@ -128,7 +128,7 @@ const AssessmentPage = () => {
                         YEAR
                       </Th>
                       <Th
-                        color="maroon.500"
+                        color="brand"
                         fontWeight="700"
                         fontSize="md"
                         py={4}
@@ -139,7 +139,7 @@ const AssessmentPage = () => {
                         MALE
                       </Th>
                       <Th
-                        color="maroon.500"
+                        color="brand"
                         fontWeight="700"
                         fontSize="md"
                         py={4}
@@ -150,7 +150,7 @@ const AssessmentPage = () => {
                         FEMALE
                       </Th>
                       <Th
-                        color="forest.500"
+                        color="brandGreen"
                         fontWeight="700"
                         fontSize="md"
                         py={4}
@@ -172,7 +172,7 @@ const AssessmentPage = () => {
                         <Td
                           textAlign="center"
                           fontWeight="600"
-                          color="maroon.600"
+                          color="brandStrong"
                           py={4}
                           borderBottom="1px solid"
                           borderColor="gray.100"
@@ -200,7 +200,7 @@ const AssessmentPage = () => {
                         <Td
                           textAlign="center"
                           fontWeight="700"
-                          color="forest.500"
+                          color="brandGreen"
                           bg={index === 0 ? 'forest.50' : 'transparent'}
                           py={4}
                           borderBottom="1px solid"
@@ -258,7 +258,7 @@ const AssessmentPage = () => {
                 borderLeft="4px solid"
                 borderLeftColor="forest.500"
               >
-                <Heading size="md" color="maroon.600" mb={4}>
+                <Heading size="md" color="brandStrong" mb={4}>
                   3.1 School Enrolment
                 </Heading>
                 <Text
@@ -280,7 +280,7 @@ ${enrollmentComment}`}
       <Box py={20} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
             <VStack spacing={4} textAlign="center" mb={16}>
-              <Heading size="2xl" color="maroon.500" fontWeight="700">
+              <Heading size="2xl" color="brand" fontWeight="700">
                 ZIMSEC National Grade 7 Pass-rate
               </Heading>
               <Text color="gray.600" fontSize="lg" maxW="700px" lineHeight="1.8">
@@ -313,7 +313,7 @@ ${enrollmentComment}`}
                   <Thead>
                     <Tr bg="cream.50">
                       <Th
-                        color="maroon.500"
+                        color="brand"
                         fontWeight="700"
                         fontSize="md"
                         py={4}
@@ -324,7 +324,7 @@ ${enrollmentComment}`}
                         YEAR
                       </Th>
                       <Th
-                        color="forest.500"
+                        color="brandGreen"
                         fontWeight="700"
                         fontSize="md"
                         py={4}
@@ -346,7 +346,7 @@ ${enrollmentComment}`}
                         <Td
                           textAlign="center"
                           fontWeight="600"
-                          color="maroon.600"
+                          color="brandStrong"
                           py={4}
                           borderBottom="1px solid"
                           borderColor="gray.100"
@@ -383,7 +383,7 @@ ${enrollmentComment}`}
               maxW="1200px"
               mx="auto"
             >
-              <Heading size="md" color="forest.600" mb={4}>
+              <Heading size="md" color="brandGreenStrong" mb={4}>
                 3.2 ZIMSEC National Grade 7 Pass-rate
               </Heading>
               <Text

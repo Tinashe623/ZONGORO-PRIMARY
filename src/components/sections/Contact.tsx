@@ -181,7 +181,7 @@ const Contact = () => {
 
         <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={10}>
             <VStack align="start" spacing={6}>
-              <Heading size="lg" color="maroon.500">
+              <Heading size="lg" color="brand">
                 Contact Information
               </Heading>
               <Text color="gray.600" lineHeight="1.8">

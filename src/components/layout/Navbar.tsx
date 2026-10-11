@@ -328,7 +328,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                 <Text
                   fontSize={{ base: 'md', sm: 'lg', md: 'xl' }}
                   fontWeight="700"
-                  color="maroon.500"
+                  color="brand"
                   lineHeight="1.15"
                   letterSpacing="-0.02em"
                   whiteSpace={{ base: 'normal', sm: 'nowrap' }}
@@ -341,7 +341,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                 <Text
                   fontSize="xs"
                   fontWeight="600"
-                  color="forest.500"
+                  color="brandGreen"
                   letterSpacing="0.18em"
                   mt={0.5}
                   display={{ base: 'none', sm: 'block' }}
@@ -357,9 +357,9 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
             <Button
               variant="ghost"
               fontWeight="600"
-              color={isActive(homeLink.to) ? 'maroon.600' : 'gray.600'}
+              color={isActive(homeLink.to) ? 'brand' : 'gray.600'}
               bg={isActive(homeLink.to) ? 'maroon.50' : 'transparent'}
-              _hover={{ color: 'maroon.600', bg: 'maroon.50', transform: 'translateY(-1px)' }}
+              _hover={{ color: 'brandStrong', bg: 'maroon.50', transform: 'translateY(-1px)' }}
               size="sm"
               px={3}
               transition="all 0.2s ease"
@@ -379,9 +379,9 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
               <Button
                 variant="ghost"
                 fontWeight="600"
-                color={isDropdownActive(dropdown.items) || openDropdown === dropdown.name ? 'maroon.600' : 'gray.600'}
+                color={isDropdownActive(dropdown.items) || openDropdown === dropdown.name ? 'brand' : 'gray.600'}
                 bg={isDropdownActive(dropdown.items) ? 'maroon.50' : 'transparent'}
-                _hover={{ color: 'maroon.600', bg: 'maroon.50', transform: 'translateY(-1px)' }}
+                _hover={{ color: 'brandStrong', bg: 'maroon.50', transform: 'translateY(-1px)' }}
                 size="sm"
                 px={3}
                 transition="all 0.2s ease"
@@ -436,10 +436,10 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                         py={2.5}
                         fontWeight="600"
                         fontSize="sm"
-                        color={isActive(item.to) ? 'maroon.600' : 'gray.700'}
+                        color={isActive(item.to) ? 'brand' : 'gray.700'}
                         bg={isActive(item.to) ? 'maroon.50' : 'transparent'}
                         cursor="pointer"
-                        _hover={{ bg: 'maroon.50', color: 'maroon.600' }}
+                        _hover={{ bg: 'maroon.50', color: 'brandStrong' }}
                         transition="all 0.15s ease"
                         borderLeftWidth="3px"
                         borderLeftColor={isActive(item.to) ? 'forest.500' : 'transparent'}
@@ -460,9 +460,9 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
             <Button
               variant="ghost"
               fontWeight="600"
-              color={isActive(galleryLink.to) ? 'maroon.600' : 'gray.600'}
+              color={isActive(galleryLink.to) ? 'brand' : 'gray.600'}
               bg={isActive(galleryLink.to) ? 'maroon.50' : 'transparent'}
-              _hover={{ color: 'maroon.600', bg: 'maroon.50', transform: 'translateY(-1px)' }}
+              _hover={{ color: 'brandStrong', bg: 'maroon.50', transform: 'translateY(-1px)' }}
               size="sm"
               px={3}
               transition="all 0.2s ease"
@@ -475,9 +475,9 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
             <Button
               variant="ghost"
               fontWeight="600"
-              color={isActive(contactLink.to) ? 'maroon.600' : 'gray.600'}
+              color={isActive(contactLink.to) ? 'brand' : 'gray.600'}
               bg={isActive(contactLink.to) ? 'maroon.50' : 'transparent'}
-              _hover={{ color: 'maroon.600', bg: 'maroon.50', transform: 'translateY(-1px)' }}
+              _hover={{ color: 'brandStrong', bg: 'maroon.50', transform: 'translateY(-1px)' }}
               size="sm"
               px={3}
               transition="all 0.2s ease"
@@ -499,10 +499,10 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
             variant="outline"
             borderColor="maroon.200"
             fontWeight="600"
-            color="maroon.600"
+            color="brandStrong"
             whiteSpace="nowrap"
             flexShrink={0}
-            _hover={{ color: 'maroon.500', bg: 'maroon.50', borderColor: 'maroon.300', transform: 'translateY(-1px)' }}
+            _hover={{ color: 'brand', bg: 'maroon.50', borderColor: 'maroon.300', transform: 'translateY(-1px)' }}
             _active={{ transform: 'translateY(0)' }}
           >
             Login
@@ -570,7 +570,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                 />
               </Box>
               <Box>
-                <Text fontSize="md" fontWeight="700" color="maroon.500" lineHeight="1.1" letterSpacing="-0.02em">
+                <Text fontSize="md" fontWeight="700" color="brand" lineHeight="1.1" letterSpacing="-0.02em">
                   St James Zongoro
                 </Text>
                 <Text fontSize="10px" fontWeight="600" color={forestAccent} letterSpacing="0.18em" mt={1}>
@@ -626,7 +626,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                     leftIcon={<LockIcon />}
                     variant="outline"
                     borderColor="maroon.200"
-                    color="maroon.600"
+                    color="brandStrong"
                     fontWeight="600"
                     _hover={{ bg: 'maroon.50', borderColor: 'maroon.300' }}
                   >

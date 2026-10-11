@@ -24,7 +24,7 @@ const DocumentsChecklist = () => {
     <Box py={20} px={4} bg="white">
       <Box maxW="1200px" mx="auto">
           <VStack spacing={4} textAlign="center" mb={16}>
-            <Heading size="2xl" color="maroon.500" fontWeight="700">
+            <Heading size="2xl" color="brand" fontWeight="700">
               Required Documents
             </Heading>
             <Text color="gray.600" fontSize="lg" maxW="700px" lineHeight="1.8">

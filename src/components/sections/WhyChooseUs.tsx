@@ -65,12 +65,12 @@ const WhyChooseUs = () => {
           >
             <Box flex={1}>
               <VStack align="start" spacing={3}>
-                <Text fontSize="xs" fontWeight="700" letterSpacing="0.22em" textTransform="uppercase" color="forest.600">
+                <Text fontSize="xs" fontWeight="700" letterSpacing="0.22em" textTransform="uppercase" color="eyebrow">
                   Our Values
                 </Text>
                 <Heading
                   fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                  bg="maroon.500"
+                  bg="brand"
                   bgClip="text"
                   fontWeight="800"
                   letterSpacing="-0.03em"

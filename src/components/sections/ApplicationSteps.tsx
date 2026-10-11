@@ -26,7 +26,7 @@ const ApplicationSteps = () => {
     <Box py={20} px={4} bg="cream.50">
       <Box maxW="1200px" mx="auto">
           <VStack spacing={4} textAlign="center" mb={16}>
-            <Heading size="2xl" color="maroon.500" fontWeight="700">
+            <Heading size="2xl" color="brand" fontWeight="700">
               Application Process
             </Heading>
             <Text color="gray.600" fontSize="lg" maxW="700px" lineHeight="1.8">
@@ -60,7 +60,7 @@ const ApplicationSteps = () => {
                     <Icon as={iconMap[step.step]} color="onAccent" fontSize="2xl" />
                   </Flex>
                   <Box>
-                    <Text color="maroon.500" fontWeight="700" fontSize="sm" mb={1}>
+                    <Text color="brand" fontWeight="700" fontSize="sm" mb={1}>
                       Step {step.step}
                     </Text>
                     <Heading size="md" color="dark.500" mb={2}>
@@ -98,7 +98,7 @@ const ApplicationSteps = () => {
                       _hover={{ transform: 'translateY(-4px)', boxShadow: '0 10px 30px rgba(130,0,0,0.1)' }}
                       transition="all 0.3s ease"
                     >
-                      <Text color="maroon.500" fontWeight="700" fontSize="sm" mb={2}>
+                      <Text color="brand" fontWeight="700" fontSize="sm" mb={2}>
                         Step {step.step}
                       </Text>
                       <Heading size="sm" color="dark.500" mb={3}>

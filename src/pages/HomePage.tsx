@@ -73,7 +73,7 @@ const HomePage = () => {
                   py={{ base: 1.5, md: 2 }}
                   boxShadow="0 4px 20px rgba(0,0,0,0.15)"
                 >
-                  <Text color="maroon.500" fontWeight="700" fontSize="sm">
+                  <Text color="brand" fontWeight="700" fontSize="sm">
                     Chief Mutasa
                   </Text>
                   <Text color="gray.500" fontSize="xs">
@@ -84,7 +84,7 @@ const HomePage = () => {
                <VStack align="start" spacing={6}>
                  <Heading
                    fontSize={{ base: "lg", md: "xl" }}
-                   bg="maroon.500"
+                   bg="brand"
                    bgClip="text"
                    fontWeight="700"
                  >

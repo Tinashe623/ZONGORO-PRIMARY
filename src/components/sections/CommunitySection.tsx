@@ -60,7 +60,7 @@ const CommunitySection = () => {
                     bg="maroon.500"
                     mb={2}
                   />
-                  <Heading size="md" color="maroon.500">
+                  <Heading size="md" color="brand">
                     Chief Zongoro
                   </Heading>
                   <Badge colorScheme="green" fontSize="sm" px={3} py={1}>
@@ -100,7 +100,7 @@ const CommunitySection = () => {
                         <Icon as={highlight.icon} color="onAccent" fontSize="xl" />
                       </Flex>
                       <Box>
-                        <Heading size="sm" color="maroon.500" mb={1}>
+                        <Heading size="sm" color="brand" mb={1}>
                           {highlight.title}
                         </Heading>
                         <Text color="gray.600" fontSize="sm">

@@ -46,7 +46,7 @@ const AcademicsPage = () => {
       <Box py={20} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
             <VStack spacing={4} textAlign="center" mb={16}>
-              <Heading size="2xl" color="maroon.500" fontWeight="700">
+              <Heading size="2xl" color="brand" fontWeight="700">
                 Our Academic Programs
               </Heading>
               <Text color="gray.600" maxW="700px" fontSize="lg" lineHeight="1.8">
@@ -112,7 +112,7 @@ const AcademicsPage = () => {
                               fontSize="md"
                               color="gray.700"
                             >
-                              <ListIcon as={FaCheckCircle} color="forest.500" mr={3} />
+                              <ListIcon as={FaCheckCircle} color="brandGreen" mr={3} />
                               {item}
                             </ListItem>
                           ))}
@@ -131,7 +131,7 @@ const AcademicsPage = () => {
         <Box maxW="1200px" mx="auto">
           <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={12} alignItems="center">
               <VStack align="start" spacing={6}>
-                <Heading size="2xl" color="maroon.500" fontWeight="700">
+                <Heading size="2xl" color="brand" fontWeight="700">
                   Why Academic Excellence Matters
                 </Heading>
                 <Text color="gray.600" fontSize="lg" lineHeight="1.9">
@@ -143,7 +143,7 @@ const AcademicsPage = () => {
                   <SimpleGrid columns={2} spacing={4}>
                     {['ZIMSEC Aligned', 'Experienced Teachers', 'Small Class Sizes', 'Holistic Development'].map((item, i) => (
                       <Flex key={i} align="center" gap={2}>
-                        <Icon as={FaStar} color="forest.500" />
+                        <Icon as={FaStar} color="brandGreen" />
                         <Text fontWeight="600" color="dark.500">{item}</Text>
                       </Flex>
                     ))}
@@ -187,7 +187,7 @@ const AcademicsPage = () => {
                   opacity={0.1}
                 />
                 <VStack spacing={6} position="relative">
-                  <Heading size="md" color="maroon.500" textAlign="center">
+                  <Heading size="md" color="brand" textAlign="center">
                     Our Learning Goals
                   </Heading>
                   <VStack align="start" spacing={4} w="100%">
@@ -222,7 +222,7 @@ const AcademicsPage = () => {
       <Box py={20} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
             <VStack spacing={4} textAlign="center" mb={16}>
-              <Heading size="2xl" color="maroon.500" fontWeight="700">
+              <Heading size="2xl" color="brand" fontWeight="700">
                 Tech-Voc Compliance & Achievements
               </Heading>
               <Text color="gray.600" fontSize="lg" maxW="700px" lineHeight="1.8">
@@ -233,10 +233,10 @@ const AcademicsPage = () => {
           {/* Hero Stats */}
           <SimpleGrid columns={{ base: 1, md: 4 }} spacing={6} mb={16}>
             {[
-              { icon: FaGraduationCap, label: 'Program Started', value: '2007', color: 'maroon.500' },
-              { icon: FaStar, label: 'Latest Achievements', value: '2024', color: 'forest.500' },
-              { icon: FaLightbulb, label: 'Tech-Voc Subjects', value: '4', color: 'maroon.600' },
-              { icon: FaCheckCircle, label: 'SDGs Aligned', value: '✓', color: 'forest.600' },
+              { icon: FaGraduationCap, label: 'Program Started', value: '2007', color: 'brand' },
+              { icon: FaStar, label: 'Latest Achievements', value: '2024', color: 'brandGreen' },
+              { icon: FaLightbulb, label: 'Tech-Voc Subjects', value: '4', color: 'brandStrong' },
+              { icon: FaCheckCircle, label: 'SDGs Aligned', value: '✓', color: 'brandGreenStrong' },
             ].map((stat, index) => (
                 <Box key={index}
                   bg="white"
@@ -292,7 +292,7 @@ const AcademicsPage = () => {
                   <Icon as={FaGavel} color="onAccent" fontSize="xl" />
                 </Box>
                 <Box>
-                  <Heading size="lg" color="maroon.600" fontWeight="700">
+                  <Heading size="lg" color="brandStrong" fontWeight="700">
                     4.1 Policy and Legal Frameworks
                   </Heading>
                   <Text color="gray.500" fontSize="sm">
@@ -378,7 +378,7 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
                     >
                       <Icon as={achievement.icon} color="onAccent" fontSize="lg" />
                     </Box>
-                    <Heading size="md" color="maroon.600" fontWeight="700">
+                    <Heading size="md" color="brandStrong" fontWeight="700">
                       {achievement.title}
                     </Heading>
                   </Flex>
@@ -388,12 +388,12 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
                   </Text>
 
                   <VStack align="start" spacing={2}>
-                    <Text color="forest.600" fontSize="sm" fontWeight="600">
+                    <Text color="brandGreenStrong" fontSize="sm" fontWeight="600">
                       Key Achievements:
                     </Text>
                     {achievement.achievements.map((item, i) => (
                       <Flex key={i} align="center" gap={2}>
-                        <Icon as={FaCheckCircle} color="forest.500" fontSize="xs" />
+                        <Icon as={FaCheckCircle} color="brandGreen" fontSize="xs" />
                         <Text color="gray.700" fontSize="sm">{item}</Text>
                       </Flex>
                     ))}
@@ -418,7 +418,7 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
                   <Icon as={FaTrophy} color="onAccent" fontSize="xl" />
                 </Box>
                 <Box textAlign="center">
-                  <Heading size="xl" color="forest.600" fontWeight="700">
+                  <Heading size="xl" color="brandGreenStrong" fontWeight="700">
                     Conclusion
                   </Heading>
                   <Text color="gray.500" fontSize="sm">

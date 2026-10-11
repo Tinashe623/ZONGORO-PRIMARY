@@ -148,7 +148,7 @@ const FacilitiesSection = () => {
               px={8}
               py={3}
               bg="white"
-              color="maroon.700"
+              color="brandStrong"
               fontWeight="700"
               borderRadius="xl"
               boxShadow="0 8px 20px rgba(0, 0, 0, 0.25)"

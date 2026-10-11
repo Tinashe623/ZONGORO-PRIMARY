@@ -60,7 +60,7 @@ const Academics = () => {
                           <Icon as={IconComponent} color="onAccent" fontSize="2xl" />
                         )}
                       </Flex>
-                      <Heading size="md" color="maroon.500">
+                      <Heading size="md" color="brand">
                         {card.title}
                       </Heading>
                       <Text color="gray.600" lineHeight="1.7">

@@ -23,7 +23,7 @@ const FeesOverview = () => {
     <Box py={20} px={4} bg="cream.50">
       <Box maxW="900px" mx="auto">
           <VStack spacing={4} textAlign="center" mb={16}>
-            <Heading size="2xl" color="maroon.500" fontWeight="700">
+            <Heading size="2xl" color="brand" fontWeight="700">
               Fee Structure
             </Heading>
             <Text color="gray.600" fontSize="lg" maxW="700px" lineHeight="1.8">
@@ -34,9 +34,9 @@ const FeesOverview = () => {
         {/* Quick Stats */}
         <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} mb={12}>
           {[
-            { icon: FaMoneyBillWave, label: 'Affordable Fees', value: 'Z$', color: 'maroon.500' },
-            { icon: FaClock, label: 'Payment Plans', value: 'Available', color: 'forest.500' },
-            { icon: FaCalendarAlt, label: 'Per Term', value: '3/Year', color: 'maroon.500' },
+            { icon: FaMoneyBillWave, label: 'Affordable Fees', value: 'Z$', color: 'brand' },
+            { icon: FaClock, label: 'Payment Plans', value: 'Available', color: 'brandGreen' },
+            { icon: FaCalendarAlt, label: 'Per Term', value: '3/Year', color: 'brand' },
           ].map((stat, index) => (
               <Flex key={index} 
                 bg="white" 
@@ -99,7 +99,7 @@ const FeesOverview = () => {
                   transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
                 >
                   <VStack align="start" spacing={3}>
-                    <Heading size="md" color="maroon.500" fontWeight="700">
+                    <Heading size="md" color="brand" fontWeight="700">
                       {fee.category}
                     </Heading>
                     <Flex align="center" gap={4} w="100%">
@@ -107,7 +107,7 @@ const FeesOverview = () => {
                         <Text color="gray.500" fontSize="sm" mb={1}>Amount</Text>
                         <Text
                           bg={index === 0 ? 'forest.50' : 'cream.50'}
-                          color="forest.500"
+                          color="brandGreen"
                           fontWeight="700"
                           fontSize="lg"
                           px={4}
@@ -128,7 +128,7 @@ const FeesOverview = () => {
                       </Box>
                       <Box flex={1}>
                         <Text color="gray.500" fontSize="sm" mb={1}>Period</Text>
-                        <Text color="maroon.600" fontWeight="600" fontSize="md">
+                        <Text color="brandStrong" fontWeight="600" fontSize="md">
                           {fee.period}
                         </Text>
                       </Box>
@@ -165,9 +165,9 @@ const FeesOverview = () => {
                 <Table variant="simple" size="lg">
                   <Thead bg="cream.50">
                     <Tr>
-                      <Th color="maroon.500" fontWeight="700" fontSize="md" py={5} borderBottom="2px solid" borderColor="maroon.200">Category</Th>
-                      <Th color="forest.500" fontWeight="700" fontSize="md" py={5} textAlign="center" borderBottom="2px solid" borderColor="forest.200">Amount</Th>
-                      <Th color="maroon.500" fontWeight="700" fontSize="md" py={5} textAlign="center" borderBottom="2px solid" borderColor="maroon.200">Period</Th>
+                      <Th color="brand" fontWeight="700" fontSize="md" py={5} borderBottom="2px solid" borderColor="maroon.200">Category</Th>
+                      <Th color="brandGreen" fontWeight="700" fontSize="md" py={5} textAlign="center" borderBottom="2px solid" borderColor="forest.200">Amount</Th>
+                      <Th color="brand" fontWeight="700" fontSize="md" py={5} textAlign="center" borderBottom="2px solid" borderColor="maroon.200">Period</Th>
                     </Tr>
                   </Thead>
                   <Tbody>
@@ -181,7 +181,7 @@ const FeesOverview = () => {
                         <Td py={5} textAlign="center" borderBottom="1px solid" borderColor="gray.100">
                           <Text
                             bg={index === 0 ? 'forest.50' : 'cream.50'}
-                            color="forest.500"
+                            color="brandGreen"
                             fontWeight="700"
                             fontSize="lg"
                             px={5}
