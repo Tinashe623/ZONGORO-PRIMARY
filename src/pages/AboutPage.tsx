@@ -43,7 +43,7 @@ const AboutPage = () => {
         imageAlt="St James Zongoro Primary School campus"
       />
       
-      <Box py={16} px={4} bg="cream.50" position="relative" overflow="hidden">
+      <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="cream.50" position="relative" overflow="hidden">
         <Box position="absolute" top={0} left={0} right={0} bottom={0} opacity={0.4}>
           <Box position="absolute" top="10%" right="5%" w="400px" h="400px" borderRadius="full" bg="maroon.500" opacity={0.03} filter="blur(100px)" />
           <Box position="absolute" bottom="10%" left="5%" w="300px" h="300px" borderRadius="full" bg="forest.500" opacity={0.03} filter="blur(80px)" />
@@ -112,7 +112,7 @@ const AboutPage = () => {
                          boxShadow="0 4px 20px rgba(0, 0, 0, 0.08)"
                          _hover={{
                            transform: 'translateY(-8px) scale(1.02)',
-                           boxShadow: '0 20px 40px rgba(128, 0, 32, 0.15), 0 0 20px rgba(130, 0, 32, 0.1)',
+                           boxShadow: '0 20px 40px rgba(130, 0, 0, 0.15), 0 0 20px rgba(130, 0, 0, 0.1)',
                            bg: 'gray.50',
                            _before: { opacity: 1 }
                          }}
@@ -125,7 +125,7 @@ const AboutPage = () => {
                            left: 0,
                            right: 0,
                            bottom: 0,
-                           bg: 'linear-gradient(135deg, rgba(130, 0, 32, 0.05) 0%, transparent 50%)',
+                           bg: 'linear-gradient(135deg, rgba(130, 0, 0, 0.05) 0%, transparent 50%)',
                            opacity: 0,
                            transition: 'opacity 0.4s ease',
                            pointerEvents: 'none',
@@ -141,11 +141,11 @@ const AboutPage = () => {
                                h={{ base: "50px", md: "60px" }}
                                borderRadius="xl"
                                bg="maroon.500"
-                               boxShadow="0 4px 14px rgba(128, 0, 32, 0.3)"
+                               boxShadow="0 4px 14px rgba(130, 0, 0, 0.3)"
                                transition="all 0.4s ease"
                                _groupHover={{
                                  transform: 'scale(1.1)',
-                                 boxShadow: '0 6px 20px rgba(128, 0, 32, 0.4)'
+                                 boxShadow: '0 6px 20px rgba(130, 0, 0, 0.22)'
                                }}
                              >
                                <Icon as={item.icon} color="onAccent" fontSize={{ base: "lg", md: "xl" }} />
@@ -199,7 +199,7 @@ const AboutPage = () => {
         </Box>
       </Box>
 
-      <Box py={16} px={4} bg="maroon.500" position="relative" overflow="hidden">
+      <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="maroon.500" position="relative" overflow="hidden">
         <Box position="absolute" top={0} left={0} right={0} bottom={0} opacity={0.1}>
           <Box position="absolute" top="20%" left="10%" w="300px" h="300px" borderRadius="full" bg="white" filter="blur(80px)" />
           <Box position="absolute" bottom="20%" right="10%" w="250px" h="250px" borderRadius="full" bg="white" filter="blur(60px)" />
@@ -325,7 +325,7 @@ bg="forest.500"
         </Box>
       </Box>
 
-      <Box py={20} px={4} bg="cream.50" position="relative" overflow="hidden">
+      <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="cream.50" position="relative" overflow="hidden">
         <Box position="absolute" top={0} left={0} right={0} h="1px" bgGradient="linear(to-r, transparent, maroon.100, transparent)" />
         <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
             <VStack spacing={16}>
@@ -351,7 +351,7 @@ bg="forest.500"
                       _hover={{
                         borderColor: 'maroon.300',
                         transform: 'translateY(-8px) scale(1.02)',
-                        boxShadow: '0 20px 40px rgba(128, 0, 32, 0.15), 0 0 20px rgba(130, 0, 32, 0.1)',
+                        boxShadow: '0 20px 40px rgba(130, 0, 0, 0.15), 0 0 20px rgba(130, 0, 0, 0.1)',
                         bg: 'gray.50',
                         _before: { opacity: 1 }
                       }}
@@ -364,7 +364,7 @@ bg="forest.500"
                         left: 0,
                         right: 0,
                         bottom: 0,
-                        bg: 'linear-gradient(135deg, rgba(130, 0, 32, 0.05) 0%, transparent 50%)',
+                        bg: 'linear-gradient(135deg, rgba(130, 0, 0, 0.05) 0%, transparent 50%)',
                         opacity: 0,
                         transition: 'opacity 0.4s ease',
                         pointerEvents: 'none',
@@ -380,11 +380,11 @@ bg="forest.500"
                           h={{ base: "48px", md: "56px" }}
                           borderRadius="xl"
                           bg="maroon.500"
-                          boxShadow="0 4px 14px rgba(128, 0, 32, 0.25)"
+                          boxShadow="0 4px 14px rgba(130, 0, 0, 0.25)"
                           transition="all 0.4s ease"
                           _groupHover={{
                             transform: 'scale(1.1)',
-                            boxShadow: '0 6px 20px rgba(128, 0, 32, 0.4)'
+                            boxShadow: '0 6px 20px rgba(130, 0, 0, 0.22)'
                           }}
                         >
                           <Icon as={value.icon} color="onAccent" fontSize={{ base: "lg", md: "xl" }} />
@@ -428,7 +428,7 @@ bg="forest.500"
                        _hover={{
                          borderColor: 'maroon.300',
                          transform: 'translateY(-8px) scale(1.02)',
-                         boxShadow: '0 20px 40px rgba(128, 0, 32, 0.15), 0 0 20px rgba(130, 0, 32, 0.1)',
+                         boxShadow: '0 20px 40px rgba(130, 0, 0, 0.15), 0 0 20px rgba(130, 0, 0, 0.1)',
                          bg: 'gray.50',
                          _before: { opacity: 1 }
                        }}
@@ -441,7 +441,7 @@ bg="forest.500"
                          left: 0,
                          right: 0,
                          bottom: 0,
-                         bg: 'linear-gradient(135deg, rgba(130, 0, 32, 0.05) 0%, transparent 50%)',
+                         bg: 'linear-gradient(135deg, rgba(130, 0, 0, 0.05) 0%, transparent 50%)',
                          opacity: 0,
                          transition: 'opacity 0.4s ease',
                          pointerEvents: 'none',
@@ -457,11 +457,11 @@ bg="forest.500"
                            h={{ base: "48px", md: "56px" }}
                            borderRadius="xl"
                            bg="maroon.500"
-                           boxShadow="0 4px 14px rgba(128, 0, 32, 0.25)"
+                           boxShadow="0 4px 14px rgba(130, 0, 0, 0.25)"
                            transition="all 0.4s ease"
                            _groupHover={{
                              transform: 'scale(1.1)',
-                             boxShadow: '0 6px 20px rgba(128, 0, 32, 0.4)'
+                             boxShadow: '0 6px 20px rgba(130, 0, 0, 0.22)'
                            }}
                          >
                            <Icon as={value.icon} color="onAccent" fontSize={{ base: "lg", md: "xl" }} />
@@ -505,7 +505,7 @@ bg="forest.500"
                        _hover={{
                          borderColor: 'maroon.300',
                          transform: 'translateY(-8px) scale(1.02)',
-                         boxShadow: '0 20px 40px rgba(128, 0, 32, 0.15), 0 0 20px rgba(130, 0, 32, 0.1)',
+                         boxShadow: '0 20px 40px rgba(130, 0, 0, 0.15), 0 0 20px rgba(130, 0, 0, 0.1)',
                          bg: 'gray.50',
                          _before: { opacity: 1 }
                        }}
@@ -518,7 +518,7 @@ bg="forest.500"
                          left: 0,
                          right: 0,
                          bottom: 0,
-                         bg: 'linear-gradient(135deg, rgba(130, 0, 32, 0.05) 0%, transparent 50%)',
+                         bg: 'linear-gradient(135deg, rgba(130, 0, 0, 0.05) 0%, transparent 50%)',
                          opacity: 0,
                          transition: 'opacity 0.4s ease',
                          pointerEvents: 'none',
@@ -534,11 +534,11 @@ bg="forest.500"
                            h={{ base: "48px", md: "56px" }}
                            borderRadius="xl"
                            bg="maroon.500"
-                           boxShadow="0 4px 14px rgba(128, 0, 32, 0.25)"
+                           boxShadow="0 4px 14px rgba(130, 0, 0, 0.25)"
                            transition="all 0.4s ease"
                            _groupHover={{
                              transform: 'scale(1.1)',
-                             boxShadow: '0 6px 20px rgba(128, 0, 32, 0.4)'
+                             boxShadow: '0 6px 20px rgba(130, 0, 0, 0.22)'
                            }}
                          >
                            <Icon as={value.icon} color="onAccent" fontSize={{ base: "lg", md: "xl" }} />
@@ -572,7 +572,7 @@ bg="forest.500"
         </Box>
       </Box>
 
-      <Box py={20} px={4} bg="maroon.500" position="relative" overflow="hidden">
+      <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="maroon.500" position="relative" overflow="hidden">
         <Box position="absolute" top={0} left={0} right={0} bottom={0} opacity={0.1}>
           <Box position="absolute" top="-20%" right="-10%" w="600px" h="600px" borderRadius="full" bg="white" filter="blur(100px)" />
           <Box position="absolute" bottom="-30%" left="-10%" w="500px" h="500px" borderRadius="full" bg="white" filter="blur(80px)" />
@@ -646,7 +646,7 @@ bg="forest.500"
         </Box>
       </Box>
 
-      <Box py={20} px={4} bg="cream.50" position="relative" overflow="hidden">
+      <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="cream.50" position="relative" overflow="hidden">
         <Box position="absolute" top={0} left={0} right={0} h="1px" bgGradient="linear(to-r, transparent, maroon.100, transparent)" />
         <Box position="absolute" top={0} left={0} right={0} bottom={0} opacity={0.4}>
           <Box position="absolute" top="10%" left="5%" w="400px" h="400px" borderRadius="full" bg="maroon.500" opacity={0.03} filter="blur(100px)" />

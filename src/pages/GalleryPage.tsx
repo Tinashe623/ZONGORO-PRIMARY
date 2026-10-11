@@ -44,7 +44,7 @@ const ImageCard = memo(({ image, onClick }: ImageCardProps) => {
       tabIndex={0}
       aria-label={`View ${image.alt}`}
       boxShadow="0 4px 16px rgba(0,0,0,0.08)"
-      _hover={{ transform: 'translateY(-6px)', boxShadow: '0 16px 32px rgba(128, 0, 32, 0.14)' }}
+      _hover={{ transform: 'translateY(-6px)', boxShadow: '0 16px 32px rgba(130, 0, 0, 0.14)' }}
       _focus={{ outline: '2px solid', outlineColor: 'maroon.500' }}
       transition="all 0.35s cubic-bezier(0.4, 0, 0.2, 1)"
       onClick={onClick}
@@ -181,7 +181,7 @@ const GalleryPage = () => {
         imageAlt="The school gathered for assembly"
       />
       
-      <Box py={16} px={4} bg="cream.50">
+      <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
             <SectionHeading
               eyebrow="Our Moments"

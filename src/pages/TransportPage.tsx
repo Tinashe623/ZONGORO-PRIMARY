@@ -304,7 +304,7 @@ const TransportPage = () => {
                     h={{ base: '56px', md: '64px', lg: '70px' }}
                     borderRadius="2xl"
                     bgGradient="linear(135deg, maroon.500, maroon.700)"
-                    boxShadow="0 6px 20px rgba(128,0,32,0.3)"
+                    boxShadow="0 6px 20px rgba(130, 0, 0,0.3)"
                     mb={{ base: 4, md: 5 }}
                     flexShrink={0}
                   >
@@ -580,7 +580,7 @@ const TransportPage = () => {
               _hover={{
                 bg: 'forest.600',
                 transform: 'translateY(-3px)',
-                boxShadow: '0 12px 35px rgba(0,200,100,0.4)',
+                boxShadow: '0 12px 35px rgba(45,106,79,0.35)',
               }}
               transition="all 0.3s ease"
               mt={{ base: 1, md: 2 }}

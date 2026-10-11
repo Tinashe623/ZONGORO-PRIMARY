@@ -43,7 +43,7 @@ const AcademicsPage = () => {
       />
       
       {/* Main Content - Cream Background */}
-      <Box py={20} px={4} bg="cream.50">
+      <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
             <VStack spacing={4} textAlign="center" mb={16}>
               <Heading size="2xl" color="brand" fontWeight="700">
@@ -127,7 +127,7 @@ const AcademicsPage = () => {
       </Box>
 
       {/* Philosophy Section - Cream Background */}
-      <Box py={20} px={4} bg="cream.50">
+      <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
           <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={12} alignItems="center">
               <VStack align="start" spacing={6}>
@@ -219,7 +219,7 @@ const AcademicsPage = () => {
       </Box>
 
       {/* Tech-Voc Compliance & Achievements Section */}
-      <Box py={20} px={4} bg="cream.50">
+      <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
             <VStack spacing={4} textAlign="center" mb={16}>
               <Heading size="2xl" color="brand" fontWeight="700">
@@ -287,7 +287,7 @@ const AcademicsPage = () => {
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
-                  boxShadow="0 6px 20px rgba(128,0,32,0.3)"
+                  boxShadow="0 6px 20px rgba(130, 0, 0,0.3)"
                 >
                   <Icon as={FaGavel} color="onAccent" fontSize="xl" />
                 </Box>
@@ -374,7 +374,7 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
                       display="flex"
                       alignItems="center"
                       justifyContent="center"
-                      boxShadow="0 4px 15px rgba(128,0,32,0.3)"
+                      boxShadow="0 4px 15px rgba(130, 0, 0,0.3)"
                     >
                       <Icon as={achievement.icon} color="onAccent" fontSize="lg" />
                     </Box>

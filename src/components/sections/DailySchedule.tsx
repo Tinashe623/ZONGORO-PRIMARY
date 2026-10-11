@@ -58,7 +58,7 @@ const DailySchedule = () => {
                         fontWeight="700"
                         fontSize="sm"
                         flexShrink={0}
-                        boxShadow={isMealTime(item.activity) ? '0 4px 15px rgba(45,106,79,0.3)' : '0 4px 15px rgba(128,0,0,0.3)'}
+                        boxShadow={isMealTime(item.activity) ? '0 4px 15px rgba(45,106,79,0.3)' : '0 4px 15px rgba(130, 0, 0,0.3)'}
                       >
                         {item.time}
                       </Box>
@@ -93,7 +93,7 @@ const DailySchedule = () => {
                         fontWeight="700"
                         fontSize="sm"
                         flexShrink={0}
-                        boxShadow={isMealTime(item.activity) ? '0 4px 15px rgba(45,106,79,0.3)' : '0 4px 15px rgba(128,0,0,0.3)'}
+                        boxShadow={isMealTime(item.activity) ? '0 4px 15px rgba(45,106,79,0.3)' : '0 4px 15px rgba(130, 0, 0,0.3)'}
                       >
                         {item.time}
                       </Box>
@@ -128,7 +128,7 @@ const DailySchedule = () => {
                         fontWeight="700"
                         fontSize="sm"
                         flexShrink={0}
-                        boxShadow={isMealTime(item.activity) ? '0 4px 15px rgba(45,106,79,0.3)' : '0 4px 15px rgba(128,0,0,0.3)'}
+                        boxShadow={isMealTime(item.activity) ? '0 4px 15px rgba(45,106,79,0.3)' : '0 4px 15px rgba(130, 0, 0,0.3)'}
                       >
                         {item.time}
                       </Box>

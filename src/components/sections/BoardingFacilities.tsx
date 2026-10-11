@@ -65,7 +65,7 @@ const BoardingFacilities = () => {
                         h="70px"
                         borderRadius="2xl"
                         bg="maroon.500"
-                        boxShadow="0 6px 20px rgba(128, 0, 32, 0.3)"
+                        boxShadow="0 6px 20px rgba(130, 0, 0, 0.3)"
                       >
                         {IconComponent && <Icon as={IconComponent} color="onAccent" fontSize="2xl" />}
                       </Flex>

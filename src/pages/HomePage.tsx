@@ -42,7 +42,7 @@ const HomePage = () => {
                 <Box
                   borderRadius="3xl"
                   overflow="hidden"
-                  boxShadow="0 30px 60px rgba(128, 0, 32, 0.2)"
+                  boxShadow="0 30px 60px rgba(130, 0, 0, 0.2)"
                   position="relative"
                 >
                   <Image

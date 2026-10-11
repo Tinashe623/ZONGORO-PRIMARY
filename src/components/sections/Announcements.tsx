@@ -55,7 +55,7 @@ const AnnouncementCard = ({
       position="relative"
       overflow="hidden"
       role="group"
-      _hover={{ transform: 'translateY(-6px)', boxShadow: '0 16px 40px rgba(128,0,32,0.12)', borderColor: 'maroon.100' }}
+      _hover={{ transform: 'translateY(-6px)', boxShadow: '0 16px 40px rgba(130, 0, 0,0.12)', borderColor: 'maroon.100' }}
     >
       <Box
         position="absolute"

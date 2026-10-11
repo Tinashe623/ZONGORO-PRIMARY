@@ -35,7 +35,7 @@ const ChurchPage = () => {
         imageAlt="Students in the school church"
       />
       
-      <Box py={16} px={4} bg="cream.50" position="relative" overflow="hidden">
+      <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="cream.50" position="relative" overflow="hidden">
         <Box position="absolute" top={0} left={0} right={0} bottom={0} opacity={0.4}>
           <Box position="absolute" top="10%" right="5%" w="400px" h="400px" borderRadius="full" bg="maroon.500" opacity={0.03} filter="blur(100px)" />
           <Box position="absolute" bottom="10%" left="5%" w="300px" h="300px" borderRadius="full" bg="forest.500" opacity={0.03} filter="blur(80px)" />
@@ -47,7 +47,7 @@ const ChurchPage = () => {
                 <Box 
                   borderRadius="2xl" 
                   overflow="hidden" 
-                  boxShadow="0 20px 60px rgba(128, 0, 32, 0.25)"
+                  boxShadow="0 20px 60px rgba(130, 0, 0, 0.25)"
                 >
                   <Image 
                     src="/images/students-inchurch.webp" 
@@ -155,7 +155,7 @@ const ChurchPage = () => {
         </Box>
       </Box>
 
-      <Box py={16} px={4} bg="cream.50" position="relative" overflow="hidden">
+      <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="cream.50" position="relative" overflow="hidden">
         <Box position="absolute" top={0} left={0} right={0} bottom={0} opacity={0.4}>
           <Box position="absolute" top="10%" right="5%" w="400px" h="400px" borderRadius="full" bg="maroon.500" opacity={0.03} filter="blur(100px)" />
           <Box position="absolute" bottom="10%" left="5%" w="300px" h="300px" borderRadius="full" bg="forest.500" opacity={0.03} filter="blur(80px)" />
@@ -168,7 +168,7 @@ const ChurchPage = () => {
                 <Box 
                   borderRadius="2xl" 
                   overflow="hidden" 
-                  boxShadow="0 20px 60px rgba(128, 0, 32, 0.25)"
+                  boxShadow="0 20px 60px rgba(130, 0, 0, 0.25)"
                   bg="cream.50"
                   h={{ base: '300px', md: '450px' }}
                   position="relative"
@@ -211,7 +211,7 @@ const ChurchPage = () => {
                   bg="maroon.500"
                   borderRadius="xl"
                   w="100%"
-                  boxShadow="0 8px 30px rgba(128, 0, 32, 0.2)"
+                  boxShadow="0 8px 30px rgba(130, 0, 0, 0.2)"
                   position="relative"
                   overflow="hidden"
                 >

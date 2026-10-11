@@ -6,6 +6,7 @@ interface SectionHeadingProps {
   subtitle?: string;
   eyebrow?: string;
   textAlign?: 'center' | 'left';
+  variant?: 'section' | 'sub';
 }
 
 const SectionHeading = ({
@@ -13,8 +14,32 @@ const SectionHeading = ({
   subtitle,
   eyebrow,
   textAlign = 'center',
+  variant = 'section',
 }: SectionHeadingProps) => {
   const isLeft = textAlign === 'left';
+
+  if (variant === 'sub') {
+    return (
+      <VStack align="flex-start" spacing={3} mb={5}>
+        <Heading
+          fontSize={{ base: 'xl', md: '2xl' }}
+          bg="brand"
+          bgClip="text"
+          fontWeight="700"
+          letterSpacing="-0.02em"
+          lineHeight="1.25"
+        >
+          {title}
+        </Heading>
+        <Box
+          w="48px"
+          h="3px"
+          bgGradient="linear(to-r, maroon.400, forest.400)"
+          borderRadius="full"
+        />
+      </VStack>
+    );
+  }
 
   return (
     <Reveal style={{ width: isLeft ? '100%' : undefined }}>

@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
-import { Box, Heading, Text, VStack, Container, Button, Flex } from '@chakra-ui/react';
+import { Box, Text, VStack, Container, Button, Flex } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import PageHero from '../components/ui/PageHero';
 import NeonDivider from '../components/ui/NeonDivider';
+import SectionHeading from '../components/ui/SectionHeading';
 
 const TermsPage = () => {
   useEffect(() => {
@@ -18,13 +19,11 @@ const TermsPage = () => {
       />
       <NeonDivider />
       
-      <Box py={16} px={4} bg="white">
+      <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="white">
         <Container maxW="900px">
           <VStack spacing={8} align="start">
             <Box>
-              <Heading size="lg" color="brand" mb={4}>
-                Acceptance of Terms
-              </Heading>
+              <SectionHeading variant="sub" title="Acceptance of Terms" />
               <Text color="gray.600" lineHeight="1.8">
                 By accessing and using the St James Zongoro Primary School website, you accept and 
                 agree to be bound by the terms and provisions of this agreement.
@@ -32,9 +31,7 @@ const TermsPage = () => {
             </Box>
 
             <Box>
-              <Heading size="md" color="brand" mb={3}>
-                Website Purpose
-              </Heading>
+              <SectionHeading variant="sub" title="Website Purpose" />
               <Text color="gray.600" lineHeight="1.8">
                 This website is an informational platform operated by St James Zongoro Primary School. 
                 It provides general information about our educational programs, admission procedures, 
@@ -43,9 +40,7 @@ const TermsPage = () => {
             </Box>
 
             <Box>
-              <Heading size="md" color="brand" mb={3}>
-                Information Accuracy
-              </Heading>
+              <SectionHeading variant="sub" title="Information Accuracy" />
               <Text color="gray.600" lineHeight="1.8">
                 While we strive to provide accurate and up-to-date information, we make no 
                 representations or warranties of any kind, express or implied, about the completeness, 
@@ -54,9 +49,7 @@ const TermsPage = () => {
             </Box>
 
             <Box>
-              <Heading size="md" color="brand" mb={3}>
-                Use of Website
-              </Heading>
+              <SectionHeading variant="sub" title="Use of Website" />
               <Text color="gray.600" lineHeight="1.8">
                 You agree to use this website only for lawful purposes and in a manner that does not 
                 infringe upon the rights of others or restrict their use of the website.
@@ -64,9 +57,7 @@ const TermsPage = () => {
             </Box>
 
             <Box>
-              <Heading size="md" color="brand" mb={3}>
-                Intellectual Property
-              </Heading>
+              <SectionHeading variant="sub" title="Intellectual Property" />
               <Text color="gray.600" lineHeight="1.8">
                 All content on this website, including logos, images, text, and design elements, 
                 are the intellectual property of St James Zongoro Primary School. Unauthorized 
@@ -75,9 +66,7 @@ const TermsPage = () => {
             </Box>
 
             <Box>
-              <Heading size="md" color="brand" mb={3}>
-                Contact Information
-              </Heading>
+              <SectionHeading variant="sub" title="Contact Information" />
               <Text color="gray.600" lineHeight="1.8">
                 For questions about these Terms of Service, please contact us at:
               </Text>

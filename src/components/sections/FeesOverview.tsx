@@ -147,7 +147,7 @@ const FeesOverview = () => {
               borderColor="gray.100"
               _hover={{
                 transform: 'translateY(-2px)',
-                boxShadow: '0 12px 32px rgba(130,0,32,0.15), 0 6px 16px rgba(0,0,0,0.08)',
+                boxShadow: '0 12px 32px rgba(130,0,0,0.15), 0 6px 16px rgba(0,0,0,0.08)',
                 borderColor: 'maroon.200'
               }}
               transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"

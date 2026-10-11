@@ -43,7 +43,7 @@ const AssessmentPage = () => {
       />
 
       {/* School Enrolment Section - Cream Background */}
-      <Box py={20} px={4} bg="cream.50">
+      <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
             <VStack spacing={4} textAlign="center" mb={16}>
               <Heading size="2xl" color="brand" fontWeight="700">
@@ -218,7 +218,7 @@ const AssessmentPage = () => {
       </Box>
 
       {/* Analysis Section - Maroon Background */}
-      <Box py={20} px={4} bg="maroon.500" position="relative" overflow="hidden">
+      <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="maroon.500" position="relative" overflow="hidden">
         {/* Animated Orbs */}
         <MotionBox
           position="absolute"
@@ -277,7 +277,7 @@ ${enrollmentComment}`}
       </Box>
 
       {/* ZIMSEC Pass Rate Section - Cream Background */}
-      <Box py={20} px={4} bg="cream.50">
+      <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
             <VStack spacing={4} textAlign="center" mb={16}>
               <Heading size="2xl" color="brand" fontWeight="700">
@@ -400,7 +400,7 @@ ${enrollmentComment}`}
 
       {/* CTA Section */}
       <Box
-        py={20}
+        py={{ base: 'sectionTight', md: 'section' }}
         px={4}
         bg="maroon.600"
         position="relative"

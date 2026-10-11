@@ -32,14 +32,14 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
       bg="white"
       borderRadius="2xl"
       p={{ base: 6, md: 8 }}
-      boxShadow="0 18px 50px rgba(38, 0, 8, 0.28)"
+      boxShadow="0 14px 40px rgba(130, 0, 0, 0.12)"
       display="flex"
       flexDirection="column"
       justifyContent="space-between"
       h="100%"
       _hover={{
         transform: 'translateY(-6px)',
-        boxShadow: '0 30px 64px rgba(38, 0, 8, 0.36)',
+        boxShadow: '0 22px 50px rgba(130, 0, 0, 0.18)',
       }}
       transition="all 0.25s ease"
     >

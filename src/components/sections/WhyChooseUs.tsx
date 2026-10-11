@@ -90,7 +90,7 @@ const WhyChooseUs = () => {
                 position="relative"
                 borderRadius="2xl"
                 overflow="hidden"
-                boxShadow="0 20px 50px rgba(128, 0, 32, 0.18)"
+                boxShadow="0 20px 50px rgba(130, 0, 0, 0.18)"
               >
                 <Image
                   src="/images/new/06.webp"
@@ -126,7 +126,7 @@ const WhyChooseUs = () => {
                 transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
                 _hover={{
                   transform: 'translateY(-8px)',
-                  boxShadow: '0 16px 32px rgba(128, 0, 32, 0.12)',
+                  boxShadow: '0 16px 32px rgba(130, 0, 0, 0.12)',
                   borderColor: 'maroon.200',
                 }}
                 h="100%"
@@ -154,7 +154,7 @@ const WhyChooseUs = () => {
                     h="64px"
                     borderRadius="xl"
                     bg="maroon.500"
-                    boxShadow="0 4px 14px rgba(128, 0, 32, 0.3)"
+                    boxShadow="0 4px 14px rgba(130, 0, 0, 0.3)"
                   >
                     <Icon as={feature.icon} color="onAccent" fontSize="xl" />
                   </Flex>
@@ -183,7 +183,7 @@ const WhyChooseUs = () => {
             textAlign="center"
             position="relative"
             overflow="hidden"
-            boxShadow="0 10px 40px rgba(128, 0, 32, 0.3)"
+            boxShadow="0 10px 40px rgba(130, 0, 0, 0.3)"
           >
             <Box position="absolute" top={0} left={0} right={0} h="4px" bg="forest.400" />
             <Box

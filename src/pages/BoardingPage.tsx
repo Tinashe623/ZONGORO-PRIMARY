@@ -25,7 +25,7 @@ const BoardingPage = () => {
       />
       
       {/* Introduction - Cream Background */}
-      <Box py={20} px={4} bg="cream.50">
+      <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
           <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={12} alignItems="center">
               <VStack align="start" spacing={6}>

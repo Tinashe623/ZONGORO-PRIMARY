@@ -132,6 +132,8 @@ const theme = extendTheme(config, {
     16: '4rem',
     20: '5rem',
     24: '6rem',
+    section: '5rem',
+    sectionTight: '4rem',
   },
   radii: {
     none: '0',

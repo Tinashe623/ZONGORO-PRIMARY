@@ -48,13 +48,13 @@ const AdmissionsPage = () => {
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    bgGradient: 'linear(to-br, rgba(255,255,255,0.9), rgba(130,0,32,0.02))',
+                    bgGradient: 'linear(to-br, rgba(255,255,255,0.9), rgba(130,0,0,0.02))',
                     opacity: 0,
                     transition: 'opacity 0.3s ease'
                   }}
                   _hover={{
                     transform: 'translateY(-6px) scale(1.02)',
-                    boxShadow: '0 16px 48px rgba(130,0,32,0.18), 0 8px 24px rgba(0,0,0,0.12)',
+                    boxShadow: '0 16px 48px rgba(130,0,0,0.18), 0 8px 24px rgba(0,0,0,0.12)',
                     borderColor: 'maroon.200',
                     _before: { opacity: 1 }
                   }}

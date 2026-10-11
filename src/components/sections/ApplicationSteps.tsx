@@ -54,7 +54,7 @@ const ApplicationSteps = () => {
                     h="60px"
                     borderRadius="2xl"
                     bg="maroon.500"
-                    boxShadow="0 3px 10px rgba(128, 0, 32, 0.2)"
+                    boxShadow="0 3px 10px rgba(130, 0, 0, 0.2)"
                     flexShrink={0}
                   >
                     <Icon as={iconMap[step.step]} color="onAccent" fontSize="2xl" />
@@ -84,7 +84,7 @@ const ApplicationSteps = () => {
                       h="70px"
                       borderRadius="2xl"
                       bg="maroon.500"
-                      boxShadow="0 8px 25px rgba(128, 0, 32, 0.4)"
+                      boxShadow="0 8px 25px rgba(130, 0, 0, 0.22)"
                     >
                       <Icon as={iconMap[step.step]} color="onAccent" fontSize="2xl" />
                     </Flex>

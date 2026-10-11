@@ -300,7 +300,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
         right={0}
         h="3px"
         bgGradient="linear(to-r, maroon.500, forest.500)"
-        boxShadow="0 2px 8px rgba(128, 0, 32, 0.25)"
+        boxShadow="0 2px 8px rgba(130, 0, 0, 0.25)"
       />
       <Flex
         justify="space-between"
@@ -598,7 +598,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                 borderRadius: '10px',
               },
               '&::-webkit-scrollbar-thumb': {
-                background: 'rgba(128,0,32,0.35)',
+                background: 'rgba(130, 0, 0,0.35)',
                 borderRadius: '10px',
               },
             }}

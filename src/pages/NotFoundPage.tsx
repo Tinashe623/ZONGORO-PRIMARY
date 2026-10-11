@@ -11,7 +11,7 @@ const NotFoundPage = () => {
   return (
     <Box>
       <PageHero title="Page Not Found" subtitle="The page you're looking for doesn't exist or has moved" />
-      <Box py={20} px={4} bg="cream.50">
+      <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
             <VStack spacing={8} textAlign="center">
               <Heading

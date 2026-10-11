@@ -49,10 +49,10 @@ const BoardingRules = () => {
                      bg="maroon.500"
                      color="onAccent"
                      borderRadius="xl"
-                     _hover={{ bgGradient: 'linear(to-r, maroon.600, maroon.700)', boxShadow: '0 6px 20px rgba(128,0,0,0.3)' }}
-                     _expanded={{ bgGradient: 'linear(to-r, maroon.600, maroon.700)', borderBottomRadius: 0, boxShadow: '0 6px 20px rgba(128,0,0,0.3)' }}
+                     _hover={{ bgGradient: 'linear(to-r, maroon.600, maroon.700)', boxShadow: '0 6px 20px rgba(130, 0, 0,0.3)' }}
+                     _expanded={{ bgGradient: 'linear(to-r, maroon.600, maroon.700)', borderBottomRadius: 0, boxShadow: '0 6px 20px rgba(130, 0, 0,0.3)' }}
                      p={5}
-                     boxShadow="0 4px 15px rgba(128,0,0,0.2)"
+                     boxShadow="0 4px 15px rgba(130, 0, 0,0.2)"
                      transition="all 0.3s ease"
                    >
                     <Flex align="center" gap={3} flex="1" textAlign="left">

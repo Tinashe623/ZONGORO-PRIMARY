@@ -38,7 +38,7 @@ const ImageCard = ({
       onClick={() => onOpen(image)}
       role="group"
       boxShadow="0 4px 16px rgba(0,0,0,0.08)"
-      _hover={{ transform: 'translateY(-6px)', boxShadow: '0 16px 32px rgba(128, 0, 32, 0.14)' }}
+      _hover={{ transform: 'translateY(-6px)', boxShadow: '0 16px 32px rgba(130, 0, 0, 0.14)' }}
       transition="all 0.35s cubic-bezier(0.4, 0, 0.2, 1)"
     >
       <Image
@@ -150,7 +150,7 @@ const Gallery = () => {
               {categories.map((category) => (
                 <Tab
                   key={category}
-                  _selected={{ bg: 'maroon.500', color: 'onAccent', boxShadow: '0 4px 12px rgba(128, 0, 32, 0.25)' }}
+                  _selected={{ bg: 'maroon.500', color: 'onAccent', boxShadow: '0 4px 12px rgba(130, 0, 0, 0.25)' }}
                   px={6}
                 >
                   {category}

@@ -69,7 +69,7 @@ const ContactInfo = () => {
               h={{ base: "45px", md: "55px" }}
               borderRadius="2xl"
               bg="maroon.500"
-              boxShadow="0 4px 15px rgba(128, 0, 32, 0.3)"
+              boxShadow="0 4px 15px rgba(130, 0, 0, 0.3)"
               flexShrink={0}
             >
               <Icon as={item.icon} color="onAccent" fontSize={{ base: "md", md: "lg" }} />
@@ -279,7 +279,7 @@ const ContactPage = () => {
       />
       
       {/* Contact Section - Cream Background */}
-      <Box py={20} px={4} bg="cream.50">
+      <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
           <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={12}>
               <VStack align="start" spacing={8}>

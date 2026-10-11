@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
-import { Box, Heading, Text, VStack, Container, Button, Flex } from '@chakra-ui/react';
+import { Box, Text, VStack, Container, Button, Flex } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import PageHero from '../components/ui/PageHero';
 import NeonDivider from '../components/ui/NeonDivider';
+import SectionHeading from '../components/ui/SectionHeading';
 
 const PrivacyPage = () => {
   useEffect(() => {
@@ -18,13 +19,11 @@ const PrivacyPage = () => {
       />
       <NeonDivider />
       
-      <Box py={16} px={4} bg="white">
+      <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="white">
         <Container maxW="900px">
           <VStack spacing={8} align="start">
             <Box>
-              <Heading size="lg" color="brand" mb={4}>
-                Data Collection Notice
-              </Heading>
+              <SectionHeading variant="sub" title="Data Collection Notice" />
               <Text color="gray.600" lineHeight="1.8">
                 St James Zongoro Primary School website is an informative platform designed to provide 
                 information about our school to parents, students, and the community. We do not 
@@ -33,9 +32,7 @@ const PrivacyPage = () => {
             </Box>
 
             <Box>
-              <Heading size="md" color="brand" mb={3}>
-                No Personal Information Collected
-              </Heading>
+              <SectionHeading variant="sub" title="No Personal Information Collected" />
               <Text color="gray.600" lineHeight="1.8">
                 This website does not use cookies, tracking mechanisms, or any form of data collection 
                 tools. You can browse our website anonymously without providing any personal information.
@@ -43,9 +40,7 @@ const PrivacyPage = () => {
             </Box>
 
             <Box>
-              <Heading size="md" color="brand" mb={3}>
-                Information We Provide
-              </Heading>
+              <SectionHeading variant="sub" title="Information We Provide" />
               <Text color="gray.600" lineHeight="1.8">
                 The information on this website includes general details about our school's history, 
                 academic programs, admission procedures, and contact information. This content is 
@@ -54,9 +49,7 @@ const PrivacyPage = () => {
             </Box>
 
             <Box>
-              <Heading size="md" color="brand" mb={3}>
-                Third-Party Links
-              </Heading>
+              <SectionHeading variant="sub" title="Third-Party Links" />
               <Text color="gray.600" lineHeight="1.8">
                 Our website may contain links to external websites. Please note that we are not 
                 responsible for the privacy practices or content of these third-party sites.
@@ -64,9 +57,7 @@ const PrivacyPage = () => {
             </Box>
 
             <Box>
-              <Heading size="md" color="brand" mb={3}>
-                Contact Us
-              </Heading>
+              <SectionHeading variant="sub" title="Contact Us" />
               <Text color="gray.600" lineHeight="1.8">
                 If you have any questions about this Privacy Policy, please contact us at 
                 zongoro.primary@gmail.com or call +263 77 321 1929 / +263 71 854 6070.
