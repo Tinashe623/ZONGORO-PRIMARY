@@ -1,15 +1,23 @@
+import { useEffect, useState, useCallback } from 'react';
 import {
   Box,
   SimpleGrid,
   VStack,
+  HStack,
   Text,
   Heading,
   Icon,
+  IconButton,
   Flex,
+  useBreakpointValue,
 } from '@chakra-ui/react';
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { FaUserGraduate, FaUserTie, FaCrown, FaQuoteLeft } from 'react-icons/fa';
 import { testimonials } from '../../data/testimonials';
 import Reveal from '../ui/Reveal';
+
+const AUTOPLAY_MS = 6000;
 
 const getRoleIcon = (role: string) => {
   if (role.includes('Parent')) return FaUserTie;
@@ -89,6 +97,23 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
 };
 
 const Testimonials = () => {
+  const reduceMotion = useReducedMotion();
+  const isDesktop = useBreakpointValue({ base: false, md: true }) ?? false;
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const count = testimonials.length;
+
+  const go = useCallback(
+    (dir: number) => setActive((a) => (a + dir + count) % count),
+    [count]
+  );
+
+  useEffect(() => {
+    if (reduceMotion || paused || isDesktop) return;
+    const id = setInterval(() => setActive((a) => (a + 1) % count), AUTOPLAY_MS);
+    return () => clearInterval(id);
+  }, [reduceMotion, paused, isDesktop, count]);
+
   return (
     <Box
       id="testimonials"
@@ -130,13 +155,81 @@ const Testimonials = () => {
           </Text>
         </VStack>
 
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} display={{ base: 'none', md: 'grid' }}>
           {testimonials.map((testimonial, index) => (
             <Reveal key={index} delay={index * 0.1} style={{ height: '100%' }}>
               <TestimonialCard testimonial={testimonial} />
             </Reveal>
           ))}
         </SimpleGrid>
+
+        <Box
+          display={{ base: 'block', md: 'none' }}
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          onFocusCapture={() => setPaused(true)}
+          onBlurCapture={() => setPaused(false)}
+        >
+          <Box position="relative" minH={{ base: '340px', sm: '300px' }} aria-live="polite">
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={active}
+                initial={reduceMotion ? { opacity: 0 } : { opacity: 0, x: 48 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={reduceMotion ? { opacity: 0 } : { opacity: 0, x: -48 }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                drag={reduceMotion ? false : 'x'}
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.18}
+                onDragEnd={(_, info) => {
+                  if (info.offset.x < -60) go(1);
+                  else if (info.offset.x > 60) go(-1);
+                }}
+              >
+                <TestimonialCard testimonial={testimonials[active]} />
+              </motion.div>
+            </AnimatePresence>
+          </Box>
+
+          <Flex align="center" justify="center" gap={4} mt={6}>
+            <IconButton
+              aria-label="Previous testimonial"
+              icon={<ChevronLeftIcon boxSize={6} />}
+              onClick={() => go(-1)}
+              isRound
+              size="sm"
+              bg="whiteAlpha.200"
+              color="onAccent"
+              _hover={{ bg: 'whiteAlpha.300' }}
+            />
+            <HStack spacing={2}>
+              {testimonials.map((_, i) => (
+                <Box
+                  key={i}
+                  as="button"
+                  aria-label={`Go to testimonial ${i + 1}`}
+                  aria-current={i === active}
+                  onClick={() => setActive(i)}
+                  w={i === active ? '22px' : '8px'}
+                  h="8px"
+                  borderRadius="full"
+                  bg={i === active ? 'cream.100' : 'whiteAlpha.500'}
+                  transition="all 0.25s ease"
+                />
+              ))}
+            </HStack>
+            <IconButton
+              aria-label="Next testimonial"
+              icon={<ChevronRightIcon boxSize={6} />}
+              onClick={() => go(1)}
+              isRound
+              size="sm"
+              bg="whiteAlpha.200"
+              color="onAccent"
+              _hover={{ bg: 'whiteAlpha.300' }}
+            />
+          </Flex>
+        </Box>
       </Box>
     </Box>
   );
