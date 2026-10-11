@@ -10,19 +10,13 @@ import {
   Button,
   Collapse,
   Link,
+  Flex,
 } from '@chakra-ui/react';
 import { useState } from 'react';
+import { FaArrowRight } from 'react-icons/fa';
 import { announcements } from '../../data/announcements';
 import SectionHeading from '../ui/SectionHeading';
-
-const formatDate = (dateString: string) => {
-  const date = new Date(dateString);
-  return date.toLocaleDateString('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  });
-};
+import Reveal from '../ui/Reveal';
 
 interface Announcement {
   date: string;
@@ -32,62 +26,129 @@ interface Announcement {
   sourceUrl?: string;
 }
 
+const parseDate = (dateString: string) => new Date(dateString);
+
 const AnnouncementCard = ({
   date,
   title,
   excerpt,
   content,
   sourceUrl,
-}: Announcement) => {
+  featured = false,
+}: Announcement & { featured?: boolean }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const parsed = parseDate(date);
+  const day = parsed.toLocaleDateString('en-US', { day: '2-digit' });
+  const monthYear = parsed
+    .toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+    .toUpperCase();
 
   return (
     <Card
       bg="white"
       borderRadius="2xl"
       border="1px solid"
-      borderColor="gray.200"
-      boxShadow="0 4px 20px rgba(0,0,0,0.08)"
-      transition="all 0.3s ease"
+      borderColor="gray.100"
+      boxShadow="0 4px 20px rgba(0,0,0,0.06)"
+      transition="all 0.35s cubic-bezier(0.4, 0, 0.2, 1)"
       h="100%"
-      _hover={{ transform: 'translateY(-4px)', boxShadow: '0 8px 30px rgba(0,0,0,0.12)' }}
+      position="relative"
+      overflow="hidden"
+      role="group"
+      _hover={{ transform: 'translateY(-6px)', boxShadow: '0 16px 40px rgba(128,0,32,0.12)', borderColor: 'maroon.100' }}
     >
+      <Box
+        position="absolute"
+        top={0}
+        left={0}
+        right={0}
+        h="4px"
+        bgGradient="linear(to-r, maroon.500, forest.500)"
+        transform={featured ? 'scaleX(1)' : 'scaleX(0)'}
+        transformOrigin="left"
+        transition="transform 0.35s ease"
+        _groupHover={{ transform: 'scaleX(1)' }}
+      />
       <CardBody p={6}>
-        <VStack align="start" spacing={4}>
-          <Badge
-            bg="maroon.500"
-            color="onAccent"
-            px={3}
-            py={1}
-            borderRadius="md"
-            fontSize="sm"
-          >
-            {formatDate(date)}
-          </Badge>
-          <Heading size="md" color="dark.500">
+        <VStack align="start" spacing={4} h="100%">
+          <Flex align="flex-start" justify="space-between" w="100%" gap={3}>
+            <VStack
+              spacing={0}
+              justify="center"
+              minW="58px"
+              px={3}
+              py={2}
+              borderRadius="xl"
+              bgGradient="linear(to-br, maroon.500, maroon.600)"
+              color="onAccent"
+              boxShadow="0 6px 16px rgba(130, 0, 0, 0.25)"
+            >
+              <Text fontSize="2xl" fontWeight="800" lineHeight="1">
+                {day}
+              </Text>
+              <Text fontSize="9px" fontWeight="700" letterSpacing="0.08em" opacity={0.9}>
+                {monthYear}
+              </Text>
+            </VStack>
+
+            {featured && (
+              <Badge
+                display="flex"
+                alignItems="center"
+                gap={1.5}
+                bg="maroon.50"
+                color="maroon.600"
+                px={2.5}
+                py={1}
+                borderRadius="full"
+                fontSize="xs"
+                fontWeight="700"
+                textTransform="uppercase"
+                letterSpacing="0.06em"
+              >
+                <Box w="6px" h="6px" borderRadius="full" bg="forest.500" />
+                Latest
+              </Badge>
+            )}
+          </Flex>
+
+          <Heading size="md" color="dark.500" lineHeight="1.3">
             {title}
           </Heading>
-          <Text color="gray.700" lineHeight="1.7">
+          <Text color="gray.600" lineHeight="1.7" fontSize="sm" flex="1">
             {excerpt}
           </Text>
+
           {content && (
             <>
-              <Collapse in={isExpanded} style={{ width: '100%' }}>
-                <Text color="gray.700" lineHeight="1.7" whiteSpace="pre-wrap">
+              <Collapse in={isExpanded} animateOpacity style={{ width: '100%' }}>
+                <Text color="gray.600" lineHeight="1.7" fontSize="sm" whiteSpace="pre-wrap">
                   {content}
                 </Text>
                 {sourceUrl && (
-                  <Link href={sourceUrl} isExternal color="maroon.500" fontWeight="600" _hover={{ textDecoration: 'underline', color: 'maroon.700' }} mt={2} display="block">
-                    Read full article →
+                  <Link
+                    href={sourceUrl}
+                    isExternal
+                    color="maroon.500"
+                    fontWeight="600"
+                    fontSize="sm"
+                    _hover={{ textDecoration: 'underline', color: 'maroon.700' }}
+                    mt={2}
+                    display="inline-flex"
+                    alignItems="center"
+                    gap={1}
+                  >
+                    Read full article <FaArrowRight size={10} />
                   </Link>
                 )}
               </Collapse>
               <Button
                 size="sm"
-                colorScheme="maroon"
                 variant="link"
+                color="maroon.500"
+                alignSelf="flex-start"
                 transition="all 0.2s ease"
-                _hover={{ color: 'maroon.700', textDecoration: 'underline', transform: 'translateX(4px)' }}
+                _hover={{ color: 'maroon.700', transform: 'translateX(4px)' }}
                 onClick={() => setIsExpanded(!isExpanded)}
               >
                 {isExpanded ? 'Show less' : 'Read More →'}
@@ -101,6 +162,10 @@ const AnnouncementCard = ({
 };
 
 const Announcements = () => {
+  const sorted = [...announcements].sort(
+    (a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime()
+  );
+
   return (
     <Box id="announcements" bg="cream.50" py={20} px={4}>
       <Box maxW="1200px" mx="auto">
@@ -112,14 +177,17 @@ const Announcements = () => {
           />
 
         <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} alignItems="stretch">
-          {announcements.map((announcement, index) => (
-              <AnnouncementCard key={index} 
-                date={announcement.date}
-                title={announcement.title}
-                excerpt={announcement.excerpt}
-                content={announcement.content}
-                sourceUrl={announcement.sourceUrl}
-              />
+          {sorted.map((announcement, index) => (
+              <Reveal key={`${announcement.title}-${index}`} delay={index * 0.08} style={{ height: '100%' }}>
+                <AnnouncementCard
+                  date={announcement.date}
+                  title={announcement.title}
+                  excerpt={announcement.excerpt}
+                  content={announcement.content}
+                  sourceUrl={announcement.sourceUrl}
+                  featured={index === 0}
+                />
+              </Reveal>
           ))}
         </SimpleGrid>
       </Box>
