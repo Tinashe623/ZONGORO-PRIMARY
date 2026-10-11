@@ -29,8 +29,8 @@ const PageHero = ({ title, subtitle, image, imageAlt }: PageHeroProps) => {
   const { pathname } = useLocation();
   const currentLabel = BREADCRUMB_LABELS[pathname];
   const topFade = useColorModeValue(
-    'linear(180deg, rgba(250, 243, 224, 0.95) 0%, rgba(250, 243, 224, 0) 100%)',
-    'linear(180deg, rgba(23, 20, 18, 0.95) 0%, rgba(23, 20, 18, 0) 100%)'
+    'linear(180deg, rgba(250, 243, 224, 0.55) 0%, rgba(250, 243, 224, 0) 100%)',
+    'linear(180deg, rgba(23, 20, 18, 0.55) 0%, rgba(23, 20, 18, 0) 100%)'
   );
 
   return (
@@ -74,7 +74,7 @@ const PageHero = ({ title, subtitle, image, imageAlt }: PageHeroProps) => {
           top={0}
           left={0}
           right={0}
-          h="56px"
+          h="32px"
           bgGradient={topFade}
           pointerEvents="none"
         />
