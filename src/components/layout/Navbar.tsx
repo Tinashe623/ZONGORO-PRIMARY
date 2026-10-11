@@ -308,11 +308,14 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                   fontSize={{ base: 'md', sm: 'lg', md: 'xl' }}
                   fontWeight="700"
                   color="maroon.500"
-                  lineHeight="1.1"
+                  lineHeight="1.15"
                   letterSpacing="-0.02em"
-                  isTruncated
+                  whiteSpace={{ base: 'normal', sm: 'nowrap' }}
                 >
-                  St James Zongoro
+                  St James{' '}
+                  <Box as="span" display={{ base: 'block', sm: 'inline' }}>
+                    Zongoro
+                  </Box>
                 </Text>
                 <Text
                   fontSize="xs"
