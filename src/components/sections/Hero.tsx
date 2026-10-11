@@ -9,11 +9,14 @@ import {
   Flex,
   Image,
 } from '@chakra-ui/react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import type { Variants } from 'framer-motion';
+import { useRef } from 'react';
 import { PhoneIcon, StarIcon } from '@chakra-ui/icons';
 import { Link as RouterLink } from 'react-router-dom';
 import EnrollButton from '../ui/EnrollButton';
+
+const MotionImage = motion(Image);
 
 const staggerContainer: Variants = {
   hidden: { opacity: 0 },
@@ -37,20 +40,27 @@ const fadeInUpItem: Variants = {
 
 const Hero = () => {
   const reduceMotion = useReducedMotion();
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+  const parallaxY = useTransform(scrollYProgress, [0, 1], [0, 70]);
   const enrollingYear = new Date().getFullYear() + 1;
 
   return (
-    <Box id="home" position="relative" overflow="hidden">
-      <Image
+    <Box id="home" ref={heroRef} position="relative" overflow="hidden">
+      <MotionImage
         src="/images/hero-2026.webp"
         alt=""
         role="presentation"
         position="absolute"
-        top={0}
+        top={-1}
         left={0}
         w="100%"
-        h="100%"
+        h="110%"
         objectFit="cover"
+        style={reduceMotion ? undefined : { y: parallaxY }}
         sx={{ filter: 'saturate(1.12) contrast(1.05)' }}
       />
       <Box
@@ -63,6 +73,15 @@ const Hero = () => {
           base: "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.34) 14%, rgba(0, 0, 0, 0.3) 100%), radial-gradient(ellipse 120% 78% at 50% 54%, rgba(6, 18, 12, 0.44) 0%, rgba(6, 18, 12, 0.2) 55%, rgba(6, 18, 12, 0) 100%), linear-gradient(180deg, rgba(6, 18, 12, 0) 0%, rgba(6, 18, 12, 0.02) 22%, rgba(6, 18, 12, 0.08) 58%, rgba(6, 18, 12, 0.55) 100%), linear-gradient(115deg, rgba(130, 0, 0, 0.22) 0%, rgba(130, 0, 0, 0) 42%)",
           md: "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 13%, rgba(0, 0, 0, 0.3) 100%), radial-gradient(ellipse 95% 72% at 50% 50%, rgba(6, 18, 12, 0.56) 0%, rgba(6, 18, 12, 0.26) 55%, rgba(6, 18, 12, 0) 100%), linear-gradient(180deg, rgba(6, 18, 12, 0) 0%, rgba(6, 18, 12, 0.03) 20%, rgba(6, 18, 12, 0.08) 55%, rgba(6, 18, 12, 0.68) 100%), linear-gradient(115deg, rgba(130, 0, 0, 0.3) 0%, rgba(130, 0, 0, 0) 45%)"
         }}
+      />
+      <Box
+        position="absolute"
+        left={0}
+        right={0}
+        bottom={0}
+        h={{ base: 16, md: 24 }}
+        bgGradient="linear(to-t, chakra-body-bg, transparent)"
+        zIndex={1}
       />
 
       <Box

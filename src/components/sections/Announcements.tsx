@@ -176,8 +176,26 @@ const Announcements = () => {
             textAlign="left"
           />
 
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} alignItems="stretch">
-          {sorted.map((announcement, index) => (
+        {sorted.length === 0 ? (
+          <Box
+            textAlign="center"
+            py={14}
+            px={6}
+            borderRadius="2xl"
+            border="1px dashed"
+            borderColor="maroon.100"
+            bg="whiteAlpha.400"
+          >
+            <Heading size="md" color="dark.500" mb={2}>
+              No announcements yet
+            </Heading>
+            <Text color="gray.600" maxW="420px" mx="auto">
+              New school updates will appear here as soon as they are published.
+            </Text>
+          </Box>
+        ) : (
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} alignItems="stretch">
+            {sorted.map((announcement, index) => (
               <Reveal key={`${announcement.title}-${index}`} delay={index * 0.08} style={{ height: '100%' }}>
                 <AnnouncementCard
                   date={announcement.date}
@@ -188,8 +206,9 @@ const Announcements = () => {
                   featured={index === 0}
                 />
               </Reveal>
-          ))}
-        </SimpleGrid>
+            ))}
+          </SimpleGrid>
+        )}
       </Box>
     </Box>
   );

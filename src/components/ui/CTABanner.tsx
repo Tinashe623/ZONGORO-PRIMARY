@@ -1,6 +1,6 @@
 import { Box, Heading, Text, Button, VStack, Flex } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
 import Reveal from './Reveal';
 import EnrollButton from './EnrollButton';
@@ -28,6 +28,7 @@ const CTABanner = ({
   secondaryText,
   secondaryLink,
 }: CTABannerProps) => {
+  const reduceMotion = useReducedMotion();
   const isHashLink = buttonLink.startsWith('#');
 
   const handleHashClick = () => {
@@ -54,8 +55,8 @@ const CTABanner = ({
         bg="cream.100"
         opacity={0.1}
         filter="blur(90px)"
-        animate={{ scale: [1, 1.12, 1], rotate: [0, 12, 0] }}
-        transition={{ duration: 9, repeat: Infinity }}
+        animate={reduceMotion ? undefined : { scale: [1, 1.12, 1], rotate: [0, 12, 0] }}
+        transition={reduceMotion ? undefined : { duration: 9, repeat: Infinity }}
       />
       <MotionBox
         position="absolute"
@@ -67,8 +68,8 @@ const CTABanner = ({
         bg="forest.400"
         opacity={0.14}
         filter="blur(100px)"
-        animate={{ scale: [1.1, 1, 1.1], rotate: [0, -14, 0] }}
-        transition={{ duration: 11, repeat: Infinity }}
+        animate={reduceMotion ? undefined : { scale: [1.1, 1, 1.1], rotate: [0, -14, 0] }}
+        transition={reduceMotion ? undefined : { duration: 11, repeat: Infinity }}
       />
 
       <Box maxW="820px" mx="auto" position="relative" zIndex={1} textAlign="center">

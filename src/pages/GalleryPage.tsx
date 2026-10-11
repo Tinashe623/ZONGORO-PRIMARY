@@ -196,13 +196,21 @@ const GalleryPage = () => {
               onChange={handleCategoryChange}
               mb={8}
             >
-              <TabList justifyContent="center" flexWrap="wrap" gap={2}>
+              <TabList
+                justifyContent="center"
+                flexWrap="wrap"
+                gap={2}
+                bg="white"
+                p={2}
+                borderRadius="2xl"
+                boxShadow="0 4px 20px rgba(0,0,0,0.08)"
+              >
                 {categories.map((category) => (
                   <Tab
                     key={category}
                     bg="white"
                     color="gray.600"
-                    _selected={{ bg: 'maroon.500', color: 'onAccent', boxShadow: '0 4px 12px rgba(128, 0, 32, 0.25)' }}
+                    _selected={{ bg: 'maroon.500', color: 'onAccent', boxShadow: '0 4px 14px rgba(130, 0, 0, 0.3)' }}
                     _hover={{ bg: 'maroon.100', color: 'brandStrong' }}
                     px={6}
                     borderRadius="full"

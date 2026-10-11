@@ -33,19 +33,23 @@ const Footer = () => {
         position="absolute"
         top={-50}
         right={-50}
-        w="200px"
-        h="200px"
+        w="220px"
+        h="220px"
         borderRadius="full"
-        bg="rgba(255, 255, 255, 0.1)"
+        bg="cream.100"
+        opacity={0.06}
+        filter="blur(80px)"
       />
       <Box
         position="absolute"
         bottom={-30}
         left={-30}
-        w="150px"
-        h="150px"
+        w="180px"
+        h="180px"
         borderRadius="full"
-        bg="rgba(255, 255, 255, 0.05)"
+        bg="forest.400"
+        opacity={0.07}
+        filter="blur(80px)"
       />
       <Box
         position="absolute"
@@ -53,7 +57,7 @@ const Footer = () => {
         left={0}
         right={0}
         h="3px"
-        bg="maroon.400"
+        bgGradient="linear(to-r, maroon.400, forest.400)"
       />
       <Box
         position="absolute"
@@ -112,9 +116,10 @@ const Footer = () => {
           </VStack>
 
           <VStack align="start" spacing={3}>
-            <Heading size="sm" color="onAccent" fontWeight="600" mb={1}>
+            <Heading size="xs" color="cream.200" fontWeight="700" letterSpacing="0.18em" textTransform="uppercase">
               Quick Links
             </Heading>
+            <Box w="32px" h="2px" bgGradient="linear(to-r, maroon.300, forest.300)" borderRadius="full" />
             <Link as={RouterLink} to="/" color="whiteAlpha.900" fontSize={{ base: "xs", md: "sm" }} fontWeight="500" _hover={{ color: 'onAccent', transform: 'translateX(5px)', textDecoration: 'none' }} transition="all 0.3s ease">
               Home
             </Link>
@@ -136,9 +141,10 @@ const Footer = () => {
           </VStack>
 
           <VStack align="start" spacing={3}>
-            <Heading size="sm" color="onAccent" fontWeight="600" mb={1}>
+            <Heading size="xs" color="cream.200" fontWeight="700" letterSpacing="0.18em" textTransform="uppercase">
               Contact Info
             </Heading>
+            <Box w="32px" h="2px" bgGradient="linear(to-r, maroon.300, forest.300)" borderRadius="full" />
             <Flex align="start" gap={3}>
               <Icon as={FaMapMarkerAlt} color="whiteAlpha.900" mt={1} />
               <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.900">
@@ -160,9 +166,10 @@ const Footer = () => {
           </VStack>
 
           <VStack align="start" spacing={4}>
-            <Heading size="sm" color="onAccent" fontWeight="600" mb={1}>
+            <Heading size="xs" color="cream.200" fontWeight="700" letterSpacing="0.18em" textTransform="uppercase">
               Get Started
             </Heading>
+            <Box w="32px" h="2px" bgGradient="linear(to-r, maroon.300, forest.300)" borderRadius="full" />
             <Text fontSize={{ base: "xs", md: "sm" }} color="whiteAlpha.900">
               Enrollment is open for ECD to Grade 7. Start your child's learning journey with us today.
             </Text>
