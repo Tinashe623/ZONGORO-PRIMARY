@@ -159,13 +159,9 @@ const Hero = () => {
                   justify="center"
                 >
                   <EnrollButton
-                    bg="cream.100"
-                    color="maroon.700"
                     size="lg"
                     px={{ base: 6, md: 9 }}
                     fontWeight="600"
-                    _hover={{ bg: "cream.200", transform: "translateY(-2px)" }}
-                    transition="all 0.2s"
                   >
                     Apply Now
                   </EnrollButton>

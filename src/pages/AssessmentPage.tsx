@@ -440,14 +440,9 @@ ${enrollmentComment}`}
             </Text>
             <Flex gap={4} mt={4} direction={{ base: 'column', md: 'row' }}>
               <EnrollButton
-                bg="white"
-                color="maroon.600"
                 size="lg"
                 px={10}
                 fontWeight="700"
-                borderRadius="full"
-                _hover={{ bg: 'cream.100', transform: 'translateY(-2px)', boxShadow: '0 10px 30px rgba(0,0,0,0.2)' }}
-                transition="all 0.3s ease"
               >
                 Apply Now
               </EnrollButton>

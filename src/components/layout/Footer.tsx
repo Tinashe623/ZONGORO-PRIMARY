@@ -169,10 +169,8 @@ const Footer = () => {
             <EnrollButton
               size="sm"
               w="100%"
-              bgGradient="linear(to-r, white, gray.100)"
-              color="maroon.500"
-              fontWeight="600"
-              _hover={{ bgGradient: 'linear(to-r, gray.100, gray.200)', transform: 'translateY(-2px)' }}
+              variant="secondary"
+              _hover={{ transform: 'translateY(-2px)', boxShadow: '0 8px 20px rgba(0, 0, 0, 0.25)' }}
             >
               Apply Now
             </EnrollButton>

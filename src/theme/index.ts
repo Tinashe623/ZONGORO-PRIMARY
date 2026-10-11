@@ -164,6 +164,33 @@ const theme = extendTheme(config, {
         },
       },
       variants: {
+        primary: {
+          bgGradient: 'linear(to-r, maroon.500, forest.500)',
+          color: 'onAccent',
+          borderRadius: 'full',
+          boxShadow: '0 4px 16px rgba(130, 0, 0, 0.22)',
+          _hover: {
+            bgGradient: 'linear(to-r, maroon.600, forest.600)',
+            transform: 'translateY(-2px)',
+            boxShadow: '0 8px 24px rgba(130, 0, 0, 0.3)',
+          },
+          _active: {
+            transform: 'translateY(0)',
+          },
+        },
+        secondary: {
+          color: 'maroon.500',
+          border: '1.5px solid',
+          borderColor: 'maroon.300',
+          bg: 'rgba(255, 255, 255, 0.85)',
+          borderRadius: 'full',
+          _hover: {
+            bg: 'white',
+            borderColor: 'maroon.400',
+            transform: 'translateY(-2px)',
+            boxShadow: '0 8px 20px rgba(130, 0, 0, 0.15)',
+          },
+        },
         maroon: {
           bg: 'maroon.500',
           color: 'onAccent',

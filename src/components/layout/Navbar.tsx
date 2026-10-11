@@ -510,11 +510,7 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
           <EnrollButton
             size="sm"
             rightIcon={<ArrowForwardIcon />}
-            bgGradient="linear(to-r, maroon.500, maroon.600)"
-            color="onAccent"
-            fontWeight="600"
             display={{ base: 'none', md: 'flex' }}
-            _hover={{ transform: 'translateY(-2px)', boxShadow: '0 8px 24px rgba(130, 0, 0, 0.3)', bgGradient: 'linear(to-r, maroon.500, maroon.600)' }}
           >
             Apply Now
           </EnrollButton>
@@ -617,10 +613,6 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                     size="lg"
                     flex={1}
                     rightIcon={<ArrowForwardIcon />}
-                    bgGradient="linear(to-r, maroon.500, maroon.600)"
-                    color="onAccent"
-                    fontWeight="600"
-                    _hover={{ transform: 'translateY(-2px)', boxShadow: '0 8px 24px rgba(130, 0, 0, 0.3)' }}
                   >
                     Apply Now
                   </EnrollButton>

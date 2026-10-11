@@ -520,20 +520,11 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
                 whileTap={{ scale: 0.95 }}
               >
                 <EnrollButton
-                  bg="forest.500"
-                  color="onAccent"
                   size="lg"
                   px={12}
                   py={7}
                   fontWeight="700"
                   fontSize="lg"
-                  borderRadius="full"
-                  boxShadow="0 10px 30px rgba(45,106,79,0.35)"
-                  _hover={{ 
-                    bg: 'forest.600', 
-                    boxShadow: '0 15px 50px rgba(45,106,79,0.45)'
-                  }}
-                  transition="all 0.3s ease"
                 >
                   Apply Now
                 </EnrollButton>

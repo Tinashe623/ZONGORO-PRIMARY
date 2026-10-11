@@ -30,7 +30,7 @@ const EnrollButton = ({
 
   return (
     <>
-      <Button onClick={() => setIsOpen(true)} {...buttonProps}>
+      <Button variant="primary" onClick={() => setIsOpen(true)} {...buttonProps}>
         {children}
       </Button>
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} isCentered>
@@ -53,20 +53,13 @@ const EnrollButton = ({
               Cancel
             </Button>
             <Button
+              variant="primary"
               as="a"
               href={MANAGEMENT_ENROLL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              bgGradient="linear(to-r, maroon.500, maroon.600)"
-              color="onAccent"
-              fontWeight="600"
               rightIcon={<ExternalLinkIcon />}
               onClick={() => setIsOpen(false)}
-              _hover={{
-                transform: 'translateY(-2px)',
-                boxShadow: '0 8px 24px rgba(130, 0, 0, 0.3)',
-              }}
-              transition="all 0.2s ease"
             >
               Continue to Application
             </Button>

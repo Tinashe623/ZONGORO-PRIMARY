@@ -48,18 +48,9 @@ const ActivitiesPage = () => {
               Enroll your child in any of our exciting activities and watch them grow
             </Text>
             <EnrollButton
-              bg="forest.500"
-              color="onAccent"
               size="lg"
               px={10}
               fontWeight="600"
-              borderRadius="full"
-              _hover={{
-                bg: 'forest.600',
-                transform: 'translateY(-2px)',
-                boxShadow: '0 10px 30px rgba(45, 106, 79, 0.3)'
-              }}
-              transition="all 0.3s ease"
             >
               Enroll Now
             </EnrollButton>

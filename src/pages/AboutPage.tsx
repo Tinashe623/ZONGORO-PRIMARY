@@ -666,12 +666,8 @@ bg="forest.500"
                 <EnrollButton
                   px={{ base: 6, md: 8 }}
                   py={{ base: 3, md: 4 }}
-                  bg="maroon.500"
-                  color="onAccent"
                   fontWeight="700"
                   fontSize={{ base: "md", md: "lg" }}
-                  borderRadius="xl"
-                  _hover={{ transform: 'translateY(-4px)', boxShadow: '0 12px 24px rgba(128, 0, 32, 0.3)' }}
                 >
                   Apply Now
                 </EnrollButton>
