@@ -67,7 +67,7 @@ const CommunityPage = () => {
         imageAlt="A bright day on the school grounds"
       />
       
-      <Box py={16} px={4} bg="cream.50" position="relative" overflow="hidden">
+      <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="cream.50" position="relative" overflow="hidden">
         <Box position="absolute" top={0} left={0} right={0} bottom={0} opacity={0.4}>
           <Box position="absolute" top="10%" right="5%" w="400px" h="400px" borderRadius="full" bg="maroon.500" opacity={0.03} filter="blur(100px)" />
           <Box position="absolute" bottom="10%" left="5%" w="300px" h="300px" borderRadius="full" bg="forest.500" opacity={0.03} filter="blur(80px)" />
@@ -92,14 +92,16 @@ const CommunityPage = () => {
                 borderRadius="2xl" 
                 overflow="hidden" 
                 bg="white" 
-                boxShadow="0 20px 60px rgba(128, 0, 32, 0.2)"
+                boxShadow="0 20px 60px rgba(130, 0, 0, 0.2)"
                 position="relative"
+                h={{ base: '350px', md: '480px', lg: 'full' }}
+                minH={{ lg: '480px' }}
               >
                 <Image 
                   src="/images/chief-image.jpg" 
                   alt="Chief James Mutasa"
                   w="100%"
-                  h={{ base: '350px', md: '450px' }}
+                  h="100%"
                   objectFit="cover"
                 />
                 <Box 
@@ -140,7 +142,7 @@ const CommunityPage = () => {
                 bg="maroon.500"
                 borderRadius="xl"
                 w="100%"
-                boxShadow="0 8px 30px rgba(128, 0, 32, 0.2)"
+                boxShadow="0 8px 30px rgba(130, 0, 0, 0.2)"
                 position="relative"
                 overflow="hidden"
               >
@@ -154,48 +156,66 @@ const CommunityPage = () => {
                 <Text color="whiteAlpha.700" fontSize="sm" mt={2}>— Chief James Mutasa</Text>
               </Box>
 
-              <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} w="100%">
+            </VStack>
+          </SimpleGrid>
+
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} w="100%" mt={{ base: 10, lg: 12 }}>
                 {communityHighlights.map((highlight) => (
-                  <Box 
+                  <Box
                     key={highlight.title}
-                    p={7} 
+                    p={6}
+                    h="100%"
                     bg="white"
                     borderRadius="2xl"
-                    boxShadow="0 8px 32px rgba(128, 0, 32, 0.1)"
-                    _hover={{ transform: 'translateY(-6px)', boxShadow: '0 16px 48px rgba(128, 0, 32, 0.18)' }}
-                    transition="all 0.35s cubic-bezier(0.4, 0, 0.2, 1)"
+                    border="1px solid"
+                    borderColor="gray.200"
+                    boxShadow="sm"
+                    position="relative"
+                    overflow="hidden"
+                    role="group"
+                    transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
+                    _hover={{ transform: 'translateY(-6px)', boxShadow: '0 16px 32px rgba(130, 0, 0, 0.12)', borderColor: 'maroon.200' }}
                   >
-                    <Flex direction="column" align="center" textAlign="center" gap={4}>
-                      <Box
-                        display="flex"
-                        alignItems="center"
-                        justifyContent="center"
-                        w="64px"
-                        h="64px"
-                        borderRadius="full"
+                    <Box
+                      position="absolute"
+                      top={0}
+                      left={0}
+                      right={0}
+                      h="4px"
+                      bg="maroon.500"
+                      transform="scaleX(0)"
+                      _groupHover={{ transform: 'scaleX(1)' }}
+                      transition="transform 0.3s ease"
+                      transformOrigin="left"
+                    />
+                    <VStack align="start" spacing={4}>
+                      <Flex
+                        align="center"
+                        justify="center"
+                        w="56px"
+                        h="56px"
+                        borderRadius="xl"
                         bg="maroon.500"
-                        boxShadow="0 6px 20px rgba(128, 0, 32, 0.3)"
+                        boxShadow="0 4px 14px rgba(130, 0, 0, 0.22)"
                       >
-                        <Icon as={highlight.icon} color="onAccent" fontSize="2xl" />
-                      </Box>
+                        <Icon as={highlight.icon} color="onAccent" fontSize="xl" />
+                      </Flex>
                       <Box>
-                        <Text color="gray.800" fontWeight="700" fontSize="lg" mb={2}>
+                        <Text color="gray.800" fontWeight="700" fontSize="md" mb={1.5}>
                           {highlight.title}
                         </Text>
-                        <Text color="gray.500" fontSize="sm" lineHeight="1.7">
+                        <Text color="gray.600" fontSize="sm" lineHeight="1.7">
                           {highlight.description}
                         </Text>
                       </Box>
-                    </Flex>
+                    </VStack>
                   </Box>
                 ))}
               </SimpleGrid>
-            </VStack>
-          </SimpleGrid>
         </Box>
       </Box>
 
-      <Box py={16} px={4} bg="cream.50" position="relative" overflow="hidden">
+      <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="cream.50" position="relative" overflow="hidden">
         <Box position="absolute" top={0} left={0} right={0} bottom={0} opacity={0.4}>
           <Box position="absolute" top="10%" right="5%" w="400px" h="400px" borderRadius="full" bg="maroon.500" opacity={0.03} filter="blur(100px)" />
           <Box position="absolute" bottom="10%" left="5%" w="300px" h="300px" borderRadius="full" bg="forest.500" opacity={0.03} filter="blur(80px)" />
@@ -221,8 +241,8 @@ const CommunityPage = () => {
                       bg="white"
                       border="1px solid"
                       borderColor="maroon.100"
-                      boxShadow="0 4px 20px rgba(128, 0, 32, 0.08)"
-                      _hover={{ borderColor: 'maroon.300', transform: 'translateY(-6px)', boxShadow: '0 12px 40px rgba(128, 0, 32, 0.15)' }}
+                      boxShadow="0 4px 20px rgba(130, 0, 0, 0.08)"
+                      _hover={{ borderColor: 'maroon.300', transform: 'translateY(-6px)', boxShadow: '0 12px 40px rgba(130, 0, 0, 0.15)' }}
                       transition="all 0.35s cubic-bezier(0.4, 0, 0.2, 1)"
                     >
                       {activity.type === 'video' && activity.videoId ? (
@@ -299,4 +319,4 @@ const CommunityPage = () => {
   );
 };
 
-export default CommunityPage;
+export default CommunityPage;
