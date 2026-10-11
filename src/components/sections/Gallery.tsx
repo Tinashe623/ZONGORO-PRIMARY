@@ -9,24 +9,37 @@ import {
   Tab,
   Badge,
   Flex,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalCloseButton,
+  ModalBody,
 } from '@chakra-ui/react';
+import { FaExpand } from 'react-icons/fa';
 import { galleryImages } from '../../data/gallery';
 import type { GalleryImage } from '../../data/gallery';
 import SectionHeading from '../ui/SectionHeading';
 
 const categories = ['All', 'School Activities', 'Church Events', 'Trips'];
 
-const ImageCard = ({ image }: { image: GalleryImage }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
+const ImageCard = ({
+  image,
+  onOpen,
+}: {
+  image: GalleryImage;
+  onOpen: (image: GalleryImage) => void;
+}) => {
   return (
     <Box
       position="relative"
       borderRadius="2xl"
       overflow="hidden"
       cursor="pointer"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onClick={() => onOpen(image)}
+      role="group"
+      boxShadow="0 4px 16px rgba(0,0,0,0.08)"
+      _hover={{ transform: 'translateY(-6px)', boxShadow: '0 16px 32px rgba(128, 0, 32, 0.14)' }}
+      transition="all 0.35s cubic-bezier(0.4, 0, 0.2, 1)"
     >
       <Image
         src={image.src}
@@ -34,30 +47,75 @@ const ImageCard = ({ image }: { image: GalleryImage }) => {
         w="100%"
         h="250px"
         objectFit="cover"
-        transition="transform 0.3s ease"
-        transform={isHovered ? 'scale(1.05)' : 'scale(1)'}
+        transition="transform 0.6s ease"
+        transform="scale(1.001)"
+        _groupHover={{ transform: 'scale(1.06)' }}
         loading="lazy"
       />
-      <Flex
+      <Box
         position="absolute"
         top={0}
         left={0}
         right={0}
         bottom={0}
-        bg="blackAlpha.600"
-        opacity={isHovered ? 1 : 0}
+        bgGradient="linear(to top, rgba(64, 4, 10, 0.9) 0%, rgba(64, 4, 10, 0.3) 40%, transparent 100%)"
         transition="opacity 0.3s ease"
-        align="center"
-        justify="center"
+      />
+      <Flex
+        position="absolute"
+        left={0}
+        right={0}
+        bottom={0}
+        p={5}
         direction="column"
-        p={4}
+        align="start"
+        gap={2}
       >
-        <Text color="onAccent" fontWeight="600" textAlign="center">
-          {image.alt}
-        </Text>
-        <Badge mt={2} colorScheme="whiteAlpha">
+        <Badge
+          colorScheme="whiteAlpha"
+          bg="rgba(255,255,255,0.18)"
+          backdropFilter="blur(6px)"
+          style={{ WebkitBackdropFilter: 'blur(6px)' }}
+          px={2.5}
+          py={0.5}
+          fontSize="xs"
+          fontWeight="700"
+          textTransform="uppercase"
+          letterSpacing="0.08em"
+        >
           {image.category}
         </Badge>
+        <Text
+          color="onAccent"
+          fontWeight="600"
+          textAlign="start"
+          lineHeight="1.35"
+          transform="translateY(0)"
+          transition="transform 0.3s ease"
+          _groupHover={{ color: 'white' }}
+        >
+          {image.alt}
+        </Text>
+      </Flex>
+      <Flex
+        position="absolute"
+        top={4}
+        right={4}
+        align="center"
+        justify="center"
+        w="38px"
+        h="38px"
+        borderRadius="full"
+        bg="rgba(255,255,255,0.2)"
+        backdropFilter="blur(6px)"
+        style={{ WebkitBackdropFilter: 'blur(6px)' }}
+        color="onAccent"
+        opacity={0}
+        transform={'translateY(6px)'}
+        transition="opacity 0.3s ease, transform 0.3s ease"
+        _groupHover={{ opacity: 1, transform: 'translateY(0)' }}
+      >
+        <FaExpand size={14} />
       </Flex>
     </Box>
   );
@@ -65,6 +123,7 @@ const ImageCard = ({ image }: { image: GalleryImage }) => {
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [activeImage, setActiveImage] = useState<GalleryImage | null>(null);
 
   const filteredImages =
     selectedCategory === 'All'
@@ -75,6 +134,7 @@ const Gallery = () => {
     <Box id="gallery" py={20} px={4}>
       <Box maxW="1200px" mx="auto">
           <SectionHeading
+            eyebrow="Our Moments"
             title="School Gallery"
             subtitle="Capturing moments of learning, faith, and community"
           />
@@ -90,7 +150,7 @@ const Gallery = () => {
               {categories.map((category) => (
                 <Tab
                   key={category}
-                  _selected={{ bg: 'maroon.500', color: 'onAccent' }}
+                  _selected={{ bg: 'maroon.500', color: 'onAccent', boxShadow: '0 4px 12px rgba(128, 0, 32, 0.25)' }}
                   px={6}
                 >
                   {category}
@@ -101,10 +161,54 @@ const Gallery = () => {
 
         <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={6}>
           {filteredImages.map((image, index) => (
-              <ImageCard key={index} image={image} />
+              <ImageCard key={index} image={image} onOpen={setActiveImage} />
           ))}
         </SimpleGrid>
       </Box>
+
+      <Modal
+        isOpen={activeImage !== null}
+        onClose={() => setActiveImage(null)}
+        isCentered
+        size="4xl"
+      >
+        <ModalOverlay bg="blackAlpha.800" backdropFilter="blur(8px)" style={{ WebkitBackdropFilter: 'blur(8px)' }} />
+        <ModalContent bg="transparent" boxShadow="none" overflow="hidden" borderRadius="2xl">
+          <ModalCloseButton color="white" bg="blackAlpha.400" _hover={{ bg: 'blackAlpha.600' }} zIndex={2} />
+          <ModalBody p={0}>
+            {activeImage && (
+              <Box position="relative">
+                <Image
+                  src={activeImage.src}
+                  alt={activeImage.alt}
+                  w="100%"
+                  maxH="80vh"
+                  objectFit="contain"
+                />
+                <Box
+                  position="absolute"
+                  left={0}
+                  right={0}
+                  bottom={0}
+                  p={4}
+                  bgGradient="linear(to top, rgba(0,0,0,0.75), transparent)"
+                >
+                  <Badge
+                    colorScheme="whiteAlpha"
+                    bg="rgba(255,255,255,0.2)"
+                    mb={1}
+                  >
+                    {activeImage.category}
+                  </Badge>
+                  <Text color="white" fontWeight="600" fontSize="md">
+                    {activeImage.alt}
+                  </Text>
+                </Box>
+              </Box>
+            )}
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 };

@@ -14,16 +14,16 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
-  Skeleton,
-  Button,
-  VStack,
   IconButton,
   Flex,
+  VStack,
 } from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
+import { FaExpand } from 'react-icons/fa';
 import { galleryImages } from '../data/gallery';
 import type { GalleryImage } from '../data/gallery';
 import PageHero from '../components/ui/PageHero';
+import SectionHeading from '../components/ui/SectionHeading';
 
 const categories = ['All', 'Classrooms', 'Chapel & Assembly', 'Campus', 'School Activities', 'Church Events', 'Sports', 'Projects', 'Activities', 'Achievements'];
 
@@ -33,76 +33,97 @@ interface ImageCardProps {
 }
 
 const ImageCard = memo(({ image, onClick }: ImageCardProps) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const shortDescription = image.description 
-    ? image.description.slice(0, 80) + (image.description.length > 80 ? '...' : '')
-    : '';
-
   return (
     <Box
+      position="relative"
       borderRadius="2xl"
       overflow="hidden"
       bg="white"
-      boxShadow="card"
-      transition="all 0.2s ease"
-      _hover={{
-        transform: 'translateY(-2px)',
-        boxShadow: 'cardHover',
+      cursor="pointer"
+      role="group"
+      tabIndex={0}
+      aria-label={`View ${image.alt}`}
+      boxShadow="0 4px 16px rgba(0,0,0,0.08)"
+      _hover={{ transform: 'translateY(-6px)', boxShadow: '0 16px 32px rgba(128, 0, 32, 0.14)' }}
+      _focus={{ outline: '2px solid', outlineColor: 'maroon.500' }}
+      transition="all 0.35s cubic-bezier(0.4, 0, 0.2, 1)"
+      onClick={onClick}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onClick();
+        }
       }}
     >
+      <Image
+        src={image.src}
+        alt={image.alt}
+        w="100%"
+        h="250px"
+        objectFit="cover"
+        loading="lazy"
+        decoding="async"
+        transition="transform 0.6s ease"
+        transform="scale(1.001)"
+        _groupHover={{ transform: 'scale(1.06)' }}
+      />
       <Box
-        cursor="pointer"
-        onClick={onClick}
-        role="button"
-        tabIndex={0}
-        aria-label={`View ${image.alt}`}
-        _focus={{ outline: '2px solid', outlineColor: 'maroon.500' }}
-      >
-        {!isLoaded && (
-          <Skeleton 
-            w="100%" 
-            h="250px" 
-            startColor="cream.50" 
-            endColor="gray.100" 
-          />
-        )}
-        <Image
-          src={image.src}
-          alt={image.alt}
-          w="100%"
-          h="250px"
-          objectFit="cover"
-          bg="cream.50"
-          loading="lazy"
-          decoding="async"
-          onLoad={() => setIsLoaded(true)}
-          opacity={isLoaded ? 1 : 0}
-        />
-      </Box>
-      <Box p={4} bg="gray.50" borderTop="1px" borderColor="gray.100">
+        position="absolute"
+        top={0}
+        left={0}
+        right={0}
+        bottom={0}
+        bgGradient="linear(to top, rgba(64, 4, 10, 0.9) 0%, rgba(64, 4, 10, 0.3) 40%, transparent 100%)"
+      />
+      <Box position="absolute" left={0} right={0} bottom={0} p={5}>
         <VStack align="start" spacing={2}>
-          <Text fontWeight="600" fontSize="md" color="gray.800">
+          <Badge
+            bg="rgba(255,255,255,0.18)"
+            color="onAccent"
+            backdropFilter="blur(6px)"
+            style={{ WebkitBackdropFilter: 'blur(6px)' }}
+            px={2.5}
+            py={0.5}
+            fontSize="xs"
+            fontWeight="700"
+            textTransform="uppercase"
+            letterSpacing="0.08em"
+          >
+            {image.category}
+          </Badge>
+          <Text
+            color="onAccent"
+            fontWeight="600"
+            fontSize="md"
+            lineHeight="1.35"
+            noOfLines={2}
+            _groupHover={{ color: 'white' }}
+          >
             {image.alt}
           </Text>
-          {image.description && (
-            <>
-              <Text fontSize="sm" color="gray.600" noOfLines={isExpanded ? undefined : 2}>
-                {isExpanded ? image.description : shortDescription}
-              </Text>
-              <Button 
-                size="xs" 
-                colorScheme="forest" 
-                variant="link" 
-                onClick={() => setIsExpanded(!isExpanded)}
-              >
-                {isExpanded ? 'Show less' : 'Read more'}
-              </Button>
-            </>
-          )}
         </VStack>
       </Box>
+      <Flex
+        position="absolute"
+        top={4}
+        right={4}
+        align="center"
+        justify="center"
+        w="38px"
+        h="38px"
+        borderRadius="full"
+        bg="rgba(255,255,255,0.2)"
+        backdropFilter="blur(6px)"
+        style={{ WebkitBackdropFilter: 'blur(6px)' }}
+        color="onAccent"
+        opacity={0}
+        transform="translateY(6px)"
+        transition="opacity 0.3s ease, transform 0.3s ease"
+        _groupHover={{ opacity: 1, transform: 'translateY(0)' }}
+        _groupFocus={{ opacity: 1, transform: 'translateY(0)' }}
+      >
+        <FaExpand size={14} />
+      </Flex>
     </Box>
   );
 });
@@ -162,6 +183,12 @@ const GalleryPage = () => {
       
       <Box py={16} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
+            <SectionHeading
+              eyebrow="Our Moments"
+              title="School Gallery"
+              subtitle="Browse life at St James Zongoro across the years"
+            />
+
             <Tabs
               variant="soft-rounded"
               colorScheme="maroon"
@@ -175,7 +202,7 @@ const GalleryPage = () => {
                     key={category}
                     bg="white"
                     color="gray.600"
-                    _selected={{ bg: 'maroon.500', color: 'onAccent' }}
+                    _selected={{ bg: 'maroon.500', color: 'onAccent', boxShadow: '0 4px 12px rgba(128, 0, 32, 0.25)' }}
                     _hover={{ bg: 'maroon.100', color: 'maroon.700' }}
                     px={6}
                     borderRadius="full"
@@ -202,25 +229,27 @@ const GalleryPage = () => {
 
       <Modal isOpen={isOpen} onClose={onClose} size="6xl" isCentered>
         <ModalOverlay bg="blackAlpha.800" backdropFilter="blur(5px)" />
-        <ModalContent bg="transparent" boxShadow="none">
+        <ModalContent bg="transparent" boxShadow="none" overflow="hidden" borderRadius="2xl">
           <ModalCloseButton 
-            color="gray.800" 
-            bg="white"
+            color="white" 
+            bg="blackAlpha.400"
             size="lg" 
             top={4}
             right={4}
             zIndex={10}
             borderRadius="full"
-            _hover={{ bg: 'gray.200' }}
+            _hover={{ bg: 'blackAlpha.600' }}
           />
-          <ModalBody p={0} display="flex" alignItems="center" justifyContent="center">
+          <ModalBody p={0}>
             {selectedImage && (
-              <Box position="relative" maxH="90vh" w="100%" display="flex" alignItems="center" justifyContent="center">
+              <Box position="relative" maxH="90vh" w="100%">
                 <IconButton
                   aria-label="Previous image"
                   icon={<ChevronLeftIcon boxSize={8} />}
                   position="absolute"
                   left={{ base: 2, md: 6 }}
+                  top="50%"
+                  transform="translateY(-50%)"
                   zIndex={10}
                   size="lg"
                   borderRadius="full"
@@ -232,16 +261,18 @@ const GalleryPage = () => {
                 <Image
                   src={selectedImage.src}
                   alt={selectedImage.alt}
+                  w="100%"
                   maxH="85vh"
-                  maxW="100%"
                   objectFit="contain"
-                  borderRadius="lg"
+                  bg="black"
                 />
                 <IconButton
                   aria-label="Next image"
                   icon={<ChevronRightIcon boxSize={8} />}
                   position="absolute"
                   right={{ base: 2, md: 6 }}
+                  top="50%"
+                  transform="translateY(-50%)"
                   zIndex={10}
                   size="lg"
                   borderRadius="full"
@@ -255,19 +286,28 @@ const GalleryPage = () => {
                   bottom={0}
                   left={0}
                   right={0}
-                  bg="blackAlpha.700"
-                  py={4}
-                  px={6}
-                  borderBottomRadius="lg"
+                  bgGradient="linear(to top, rgba(0,0,0,0.85), transparent)"
+                  pt={12}
+                  pb={{ base: 4, md: 6 }}
+                  px={{ base: 4, md: 6 }}
                 >
-                  <Flex align="center" gap={3} justify="space-between">
-                    <Text color="onAccent" fontWeight="600" fontSize="lg" flex={1} minW={0}>
-                      {selectedImage.alt}
-                    </Text>
+                  <Flex align="flex-start" gap={3} justify="space-between">
+                    <Box minW={0}>
+                      <Text color="onAccent" fontWeight="600" fontSize="lg" lineHeight="1.3" minW={0}>
+                        {selectedImage.alt}
+                      </Text>
+                      {selectedImage.description && (
+                        <Text color="whiteAlpha.800" fontSize="sm" mt={1} noOfLines={2}>
+                          {selectedImage.description}
+                        </Text>
+                      )}
+                    </Box>
                     <Badge
                       flexShrink={0}
-                      bg="forest.500"
+                      bg="rgba(255,255,255,0.2)"
                       color="onAccent"
+                      backdropFilter="blur(6px)"
+                      style={{ WebkitBackdropFilter: 'blur(6px)' }}
                       px={3}
                       py={1}
                       borderRadius="full"
@@ -277,7 +317,7 @@ const GalleryPage = () => {
                       {selectedImage.category}
                     </Badge>
                   </Flex>
-                  <Text color="whiteAlpha.700" fontSize="sm" mt={1}>
+                  <Text color="whiteAlpha.600" fontSize="sm" mt={2}>
                     {selectedIndex !== null ? `${selectedIndex + 1} / ${filteredImages.length}` : ''}
                   </Text>
                 </Box>
