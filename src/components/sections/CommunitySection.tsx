@@ -40,6 +40,7 @@ const CommunitySection = () => {
     <Box id="community" bg="cream.50" py={20} px={4}>
       <Box maxW="1200px" mx="auto">
           <SectionHeading
+            eyebrow="Partnership"
             title="Community Partnership"
             subtitle="Working together for our children's future"
           />

@@ -58,9 +58,13 @@ const FacilitiesSection = () => {
       <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
           <VStack spacing={12}>
             <VStack spacing={3} textAlign="center">
+              <Text fontSize="xs" fontWeight="700" letterSpacing="0.22em" textTransform="uppercase" color="cream.200">
+                Campus & Learning
+              </Text>
               <Heading fontSize={{ base: "lg", md: "xl" }} color="onAccent" fontWeight="800">
                 Our Facilities
               </Heading>
+              <Box w="72px" h="2px" bgGradient="linear(to-r, cream.200, forest.300)" borderRadius="full" />
               <Text color="whiteAlpha.800" fontSize={{ base: "md", md: "lg" }} maxW="500px">
                 Modern infrastructure supporting holistic education
               </Text>

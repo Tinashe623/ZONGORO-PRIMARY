@@ -105,6 +105,7 @@ const Announcements = () => {
     <Box id="announcements" bg="cream.50" py={20} px={4}>
       <Box maxW="1200px" mx="auto">
           <SectionHeading
+            eyebrow="Updates"
             title="Latest News & Announcements"
             subtitle="Stay updated with school activities and events"
             textAlign="left"
