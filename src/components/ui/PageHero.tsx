@@ -65,7 +65,7 @@ const PageHero = ({ title, subtitle, image, imageAlt }: PageHeroProps) => {
               left={0}
               right={0}
               bottom={0}
-              bgGradient="linear(90deg, rgba(96, 0, 16, 0.8) 0%, rgba(122, 12, 28, 0.52) 45%, rgba(21, 52, 36, 0.6) 100%)"
+              bgGradient="linear(90deg, rgba(96, 0, 16, 0.62) 0%, rgba(130, 0, 0, 0.4) 45%, rgba(27, 73, 53, 0.46) 100%)"
             />
           </>
         )}
@@ -99,7 +99,14 @@ const PageHero = ({ title, subtitle, image, imageAlt }: PageHeroProps) => {
             <Text as="span" color="onAccent">{currentLabel}</Text>
           </Flex>
         )}
-        <Heading fontSize={{ base: "xl", md: "3xl", lg: "4xl" }} color="onAccent" fontWeight="700" position="relative" zIndex={1}>
+        <Heading
+          fontSize={{ base: "xl", md: "3xl", lg: "4xl" }}
+          color="onAccent"
+          fontWeight="700"
+          textShadow="0 2px 16px rgba(6, 18, 12, 0.45)"
+          position="relative"
+          zIndex={1}
+        >
           {title}
         </Heading>
         {subtitle && (
