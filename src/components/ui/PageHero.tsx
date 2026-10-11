@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Flex, Image } from '@chakra-ui/react';
+import { Box, Heading, Text, Flex, Image, useColorModeValue } from '@chakra-ui/react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 
 interface PageHeroProps {
@@ -28,6 +28,10 @@ const BREADCRUMB_LABELS: Record<string, string> = {
 const PageHero = ({ title, subtitle, image, imageAlt }: PageHeroProps) => {
   const { pathname } = useLocation();
   const currentLabel = BREADCRUMB_LABELS[pathname];
+  const topFade = useColorModeValue(
+    'linear(180deg, rgba(250, 243, 224, 0.95) 0%, rgba(250, 243, 224, 0) 100%)',
+    'linear(180deg, rgba(23, 20, 18, 0.95) 0%, rgba(23, 20, 18, 0) 100%)'
+  );
 
   return (
     <Box position="relative">
@@ -65,6 +69,15 @@ const PageHero = ({ title, subtitle, image, imageAlt }: PageHeroProps) => {
             />
           </>
         )}
+        <Box
+          position="absolute"
+          top={0}
+          left={0}
+          right={0}
+          h="56px"
+          bgGradient={topFade}
+          pointerEvents="none"
+        />
         {currentLabel && (
           <Flex
             align="center"
