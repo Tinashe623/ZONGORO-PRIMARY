@@ -70,8 +70,8 @@ const Hero = () => {
         right={0}
         bottom={0}
         bgImage={{
-          base: "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.32) 14%, rgba(0, 0, 0, 0.26) 100%), radial-gradient(ellipse 120% 78% at 50% 54%, rgba(6, 18, 12, 0.24) 0%, rgba(6, 18, 12, 0.09) 55%, rgba(6, 18, 12, 0) 100%), linear-gradient(180deg, rgba(6, 18, 12, 0) 0%, rgba(6, 18, 12, 0.02) 22%, rgba(6, 18, 12, 0.04) 58%, rgba(6, 18, 12, 0.34) 100%), linear-gradient(115deg, rgba(130, 0, 0, 0.16) 0%, rgba(130, 0, 0, 0) 42%)",
-          md: "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.36) 13%, rgba(0, 0, 0, 0.26) 100%), radial-gradient(ellipse 95% 72% at 50% 50%, rgba(6, 18, 12, 0.3) 0%, rgba(6, 18, 12, 0.11) 55%, rgba(6, 18, 12, 0) 100%), linear-gradient(180deg, rgba(6, 18, 12, 0) 0%, rgba(6, 18, 12, 0.02) 20%, rgba(6, 18, 12, 0.04) 55%, rgba(6, 18, 12, 0.38) 100%), linear-gradient(115deg, rgba(130, 0, 0, 0.2) 0%, rgba(130, 0, 0, 0) 45%)"
+          base: "linear-gradient(180deg, rgba(6, 18, 12, 0.1) 0%, rgba(6, 18, 12, 0.55) 100%), radial-gradient(ellipse 120% 70% at 50% 45%, rgba(6, 18, 12, 0.25) 0%, transparent 70%)",
+          md: "linear-gradient(180deg, rgba(6, 18, 12, 0.08) 0%, rgba(6, 18, 12, 0.6) 100%), radial-gradient(ellipse 100% 70% at 50% 40%, rgba(6, 18, 12, 0.2) 0%, transparent 75%)"
         }}
       />
       <Box
@@ -121,7 +121,7 @@ const Hero = () => {
                       bg="forest.300"
                       boxShadow="0 0 0 4px rgba(45, 106, 79, 0.25)"
                     />
-                    <Text fontSize="sm" fontWeight="600" color="whiteAlpha.900">
+                    <Text fontSize="sm" fontWeight="600" color="white">
                       Now accepting {enrollingYear} enrolments
                     </Text>
                   </Flex>
@@ -138,7 +138,7 @@ const Hero = () => {
                     fontWeight="500"
                   >
                     <StarIcon color="maroon.300" />
-                    <Text>ECD to Grade 7</Text>
+                    <Text color="white">ECD to Grade 7</Text>
                   </Flex>
                 </HStack>
               </Box>
@@ -147,10 +147,10 @@ const Hero = () => {
                 <Heading
                   as="h1"
                   fontSize={{ base: "2xl", md: "5xl", lg: "6xl", xl: "5rem" }}
-                  color="onAccent"
+                  color="white"
                   lineHeight={{ base: "1.15", md: "1.05" }}
                   fontWeight="800"
-                  textShadow="0 2px 18px rgba(6, 18, 12, 0.5)"
+                  textShadow="0 8px 40px rgba(6, 18, 12, 0.6), 0 2px 8px rgba(6, 18, 12, 0.8)"
                 >
                   St James Zongoro{' '}
                   <Text as="span" color="cream.200">
@@ -162,11 +162,12 @@ const Hero = () => {
               <motion.div variants={fadeInUpItem}>
                 <Text
                   fontSize={{ base: "md", md: "lg" }}
-                  color="whiteAlpha.900"
+                  color="white"
                   fontWeight="500"
                   maxW="2xl"
                   mx="auto"
                   lineHeight="1.7"
+                  textShadow="0 4px 24px rgba(6, 18, 12, 0.7)"
                 >
                   Where academic excellence meets Anglican values, shaping future leaders through quality education and community spirit.
                 </Text>
@@ -189,9 +190,9 @@ const Hero = () => {
                     <Button
                       variant="outline"
                       borderWidth="1px"
-                      borderColor="whiteAlpha.400"
-                      bg="whiteAlpha.100"
-                      color="onAccent"
+                      borderColor="whiteAlpha.600"
+                      bg="whiteAlpha.150"
+                      color="white"
                       size="lg"
                       px={{ base: 6, md: 9 }}
                       fontWeight="600"
@@ -202,7 +203,7 @@ const Hero = () => {
                       transition="all 0.2s ease"
                       _hover={{
                         bg: 'whiteAlpha.200',
-                        borderColor: 'onAccent',
+                        borderColor: 'white',
                         transform: 'translateY(-2px)',
                       }}
                     >
