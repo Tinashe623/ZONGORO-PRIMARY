@@ -6,6 +6,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import ScrollProgress from '../ui/ScrollProgress';
 import WhatsAppButton from '../ui/WhatsAppButton';
+import BackToTop from '../ui/BackToTop';
 import { getPageMeta } from '../../lib/seo';
 
 interface LayoutProps {
@@ -58,6 +59,7 @@ const Layout = ({ children }: LayoutProps) => {
       </Box>
       <Footer />
       <WhatsAppButton />
+      <BackToTop />
     </Box>
   );
 };

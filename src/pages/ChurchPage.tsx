@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/react';
 import { FaCross, FaHeart, FaBook, FaPrayingHands, FaChurch, FaPlaceOfWorship } from 'react-icons/fa';
 import PageHero from '../components/ui/PageHero';
+import CTABanner from '../components/ui/CTABanner';
 
 const churchValues = [
   { icon: FaCross, text: 'Faith & Trust in God' },
@@ -94,7 +95,7 @@ const ChurchPage = () => {
                   boxShadow="0 4px 20px rgba(0,0,0,0.15)"
                 >
                   <Flex align="center" gap={3}>
-                    <Icon as={FaPlaceOfWorship} color="maroon.500" fontSize="xl" />
+                    <Icon as={FaPlaceOfWorship} color="brand" fontSize="xl" />
                     <Box>
                       <Text fontWeight="700" fontSize="sm" color="gray.800">St James Anglican Church</Text>
                       <Text fontSize="xs" color="gray.500">Zongoro</Text>
@@ -104,7 +105,7 @@ const ChurchPage = () => {
               </Box>
 
               <VStack align="start" spacing={6}>
-                <Heading size="xl" color="maroon.600" fontWeight="800">
+                <Heading size="xl" color="brandStrong" fontWeight="800">
                   Our Christian Foundation
                 </Heading>
                 <Box w="80px" h="3px" bg="maroon.500" borderRadius="full" />
@@ -140,7 +141,7 @@ const ChurchPage = () => {
                       objectFit="contain"
                     />
                     <Box flex={1}>
-                      <Text fontWeight="800" color="maroon.600" fontSize="xl" mb={2}>Responsible Authority</Text>
+                      <Text fontWeight="800" color="brandStrong" fontSize="xl" mb={2}>Responsible Authority</Text>
                       <Text color="gray.600" fontSize="md" lineHeight="1.8">
                         St James Zongoro Primary School is governed by the Anglican Diocese of Manicaland,
                         under the guidance of the Church. Our Christian values are embedded in
@@ -197,7 +198,7 @@ const ChurchPage = () => {
               </Box>
 
               <VStack align="start" spacing={6}>
-                <Heading size="xl" color="maroon.600" fontWeight="800">
+                <Heading size="xl" color="brandStrong" fontWeight="800">
                   Our Church Values
                 </Heading>
                 <Box w="80px" h="3px" bg="maroon.500" borderRadius="full" />
@@ -273,6 +274,13 @@ const ChurchPage = () => {
 </SimpleGrid>
         </Box>
       </Box>
+      <CTABanner
+        eyebrow="Anglican Heritage"
+        title="Worship and Learn With Our Community"
+        subtitle="Our doors are open to all families. Join us for Sunday school and experience our faith-centred approach to education."
+        buttonText="Plan a Visit"
+        buttonLink="/contact"
+      />
     </Box>
   );
 };

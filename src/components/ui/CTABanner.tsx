@@ -1,119 +1,161 @@
-import { Box, Heading, Text, Button, VStack } from '@chakra-ui/react';
+import { Box, Heading, Text, Button, VStack, Flex } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { FaArrowRight } from 'react-icons/fa';
+import Reveal from './Reveal';
+import EnrollButton from './EnrollButton';
 
 const MotionBox = motion(Box);
 
 interface CTABannerProps {
+  eyebrow?: string;
   title: string;
   subtitle?: string;
   buttonText?: string;
   buttonLink?: string;
+  enroll?: boolean;
+  secondaryText?: string;
+  secondaryLink?: string;
 }
 
-const CTABanner = ({ title, subtitle, buttonText = 'Contact Us', buttonLink = '/contact' }: CTABannerProps) => {
-  const isHashLink = buttonLink?.startsWith('#');
-  
-  const handleClick = () => {
+const CTABanner = ({
+  eyebrow,
+  title,
+  subtitle,
+  buttonText = 'Contact Us',
+  buttonLink = '/contact',
+  enroll = false,
+  secondaryText,
+  secondaryLink,
+}: CTABannerProps) => {
+  const isHashLink = buttonLink.startsWith('#');
+
+  const handleHashClick = () => {
     if (isHashLink) {
-      const sectionId = buttonLink.slice(1);
-      window.location.href = '/#' + sectionId;
+      window.location.href = '/#' + buttonLink.slice(1);
     }
   };
 
   return (
-    <Box position="relative" overflow="hidden" bg="maroon.500" py={20} px={4}>
-      {/* Decorative Orbs */}
+    <Box
+      position="relative"
+      overflow="hidden"
+      bgGradient="linear(160deg, maroon.800 0%, maroon.500 55%, forest.800 100%)"
+      py={{ base: 16, md: 24 }}
+      px={4}
+    >
       <MotionBox
         position="absolute"
-        top="-50px"
-        right="-50px"
-        w="200px"
-        h="200px"
+        top="-60px"
+        right="-60px"
+        w="280px"
+        h="280px"
         borderRadius="full"
-        bg="rgba(255,255,255,0.05)"
-        animate={{ 
-          scale: [1, 1.1, 1],
-          rotate: [0, 10, 0]
-        }}
-        transition={{ duration: 8, repeat: Infinity }}
+        bg="cream.100"
+        opacity={0.1}
+        filter="blur(90px)"
+        animate={{ scale: [1, 1.12, 1], rotate: [0, 12, 0] }}
+        transition={{ duration: 9, repeat: Infinity }}
       />
       <MotionBox
         position="absolute"
         bottom="-80px"
         left="-80px"
-        w="300px"
-        h="300px"
+        w="320px"
+        h="320px"
         borderRadius="full"
-        bg="rgba(45,106,79,0.05)"
-        animate={{ 
-          scale: [1.1, 1, 1.1],
-          rotate: [0, -15, 0]
-        }}
-        transition={{ duration: 10, repeat: Infinity }}
+        bg="forest.400"
+        opacity={0.14}
+        filter="blur(100px)"
+        animate={{ scale: [1.1, 1, 1.1], rotate: [0, -14, 0] }}
+        transition={{ duration: 11, repeat: Infinity }}
       />
-      
-      <Box maxW="800px" mx="auto" position="relative" zIndex={1} textAlign="center">
-        <VStack spacing={6}>
-          <Heading 
-            fontSize={{ base: "xl", md: "2xl", lg: "4xl" }}
-            color="onAccent"
-            fontWeight="700"
-            lineHeight="1.2"
-          >
-            {title}
-          </Heading>
-          {subtitle && (
-            <Text 
-              fontSize="lg" 
-              color="whiteAlpha.900" 
-              maxW="600px"
-              lineHeight="1.7"
-            >
-              {subtitle}
-            </Text>
-          )}
-          {isHashLink ? (
-            <Button
-              as={RouterLink}
-              to="/"
-              onClick={handleClick}
-              bg="forest.500"
+
+      <Box maxW="820px" mx="auto" position="relative" zIndex={1} textAlign="center">
+        <Reveal>
+          <VStack spacing={6}>
+            {eyebrow && (
+              <Text
+                fontSize="xs"
+                fontWeight="700"
+                letterSpacing="0.24em"
+                textTransform="uppercase"
+                color="cream.200"
+              >
+                {eyebrow}
+              </Text>
+            )}
+            <Heading
+              fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
               color="onAccent"
-              size="lg"
-              px={10}
-              fontWeight="600"
-              borderRadius="full"
-              _hover={{ 
-                bg: 'forest.600', 
-                transform: 'translateY(-2px)',
-                boxShadow: '0 10px 30px rgba(45,106,79,0.35)'
-              }}
-              transition="all 0.3s ease"
+              fontWeight="800"
+              letterSpacing="-0.02em"
+              lineHeight="1.15"
             >
-              {buttonText}
-            </Button>
-          ) : (
-            <Button
-              as={RouterLink}
-              to={buttonLink}
-              bg="forest.500"
-              color="onAccent"
-              size="lg"
-              px={10}
-              fontWeight="600"
-              borderRadius="full"
-              _hover={{ 
-                bg: 'forest.600', 
-                transform: 'translateY(-2px)',
-                boxShadow: '0 10px 30px rgba(45,106,79,0.35)'
-              }}
-              transition="all 0.3s ease"
+              {title}
+            </Heading>
+            {subtitle && (
+              <Text
+                fontSize={{ base: 'md', md: 'lg' }}
+                color="whiteAlpha.900"
+                maxW="620px"
+                lineHeight="1.7"
+              >
+                {subtitle}
+              </Text>
+            )}
+            <Flex
+              direction={{ base: 'column', sm: 'row' }}
+              gap={3}
+              pt={2}
+              w={{ base: '100%', sm: 'auto' }}
+              justify="center"
             >
-              {buttonText}
-            </Button>
-          )}
-        </VStack>
+              {enroll ? (
+                <EnrollButton
+                  variant="secondary"
+                  size="lg"
+                  px={10}
+                  rightIcon={<FaArrowRight />}
+                >
+                  {buttonText}
+                </EnrollButton>
+              ) : (
+                <Button
+                  as={isHashLink ? 'a' : RouterLink}
+                  {...(!isHashLink ? { to: buttonLink } : {})}
+                  onClick={handleHashClick}
+                  variant="secondary"
+                  size="lg"
+                  px={10}
+                  rightIcon={<FaArrowRight />}
+                >
+                  {buttonText}
+                </Button>
+              )}
+              {secondaryText && secondaryLink && (
+                <Button
+                  as={secondaryLink.startsWith('#') ? 'a' : RouterLink}
+                  {...(!secondaryLink.startsWith('#') ? { to: secondaryLink } : {})}
+                  onClick={() => {
+                    if (secondaryLink.startsWith('#')) {
+                      window.location.href = '/#' + secondaryLink.slice(1);
+                    }
+                  }}
+                  variant="outline"
+                  size="lg"
+                  px={10}
+                  borderWidth="2px"
+                  borderColor="whiteAlpha.400"
+                  color="onAccent"
+                  _hover={{ bg: 'whiteAlpha.200', borderColor: 'onAccent', transform: 'translateY(-2px)' }}
+                >
+                  {secondaryText}
+                </Button>
+              )}
+            </Flex>
+          </VStack>
+        </Reveal>
       </Box>
     </Box>
   );

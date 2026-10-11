@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { FaUsers, FaBus, FaGift, FaPlay } from 'react-icons/fa';
 import PageHero from '../components/ui/PageHero';
+import CTABanner from '../components/ui/CTABanner';
 
 const communityHighlights = [
   {
@@ -75,7 +76,7 @@ const CommunityPage = () => {
         
         <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
             <VStack spacing={8} maxW="800px" mx="auto" textAlign="center">
-              <Heading size="2xl" color="maroon.600" fontWeight="800">
+              <Heading size="2xl" color="brandStrong" fontWeight="800">
                 Our Community Connection
               </Heading>
               <Box w="80px" h="3px" bg="maroon.500" borderRadius="full" />
@@ -125,7 +126,7 @@ const CommunityPage = () => {
               </Box>
 
             <VStack align="start" spacing={6}>
-              <Heading size="xl" color="maroon.600" fontWeight="700">
+              <Heading size="xl" color="brandStrong" fontWeight="700">
                 Chief's Contributions
               </Heading>
               <Text color="gray.600" fontSize="md" lineHeight="1.8">
@@ -204,7 +205,7 @@ const CommunityPage = () => {
         <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
             <VStack spacing={10}>
               <Box textAlign="center">
-                <Heading size="xl" color="maroon.600" fontWeight="800">
+                <Heading size="xl" color="brandStrong" fontWeight="800">
                   Community Activities
                 </Heading>
                 <Text color="gray.500" fontSize="lg" mt={2}>
@@ -287,6 +288,13 @@ const CommunityPage = () => {
             </VStack>
         </Box>
       </Box>
+      <CTABanner
+        eyebrow="Stronger Together"
+        title="Partner With Our Community"
+        subtitle="From sponsorships to mentorship, there are many ways to support our pupils. Reach out and help shape the next generation."
+        buttonText="Get Involved"
+        buttonLink="/contact"
+      />
     </Box>
   );
 };

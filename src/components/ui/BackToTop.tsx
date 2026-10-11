@@ -28,23 +28,24 @@ const BackToTop = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0 }}
           position="fixed"
-          bottom={6}
-          right={6}
-          zIndex={999}
+          bottom={{ base: '4.5rem', lg: '6.5rem' }}
+          right={{ base: 1.5, lg: 6 }}
+          zIndex={1150}
         >
           <IconButton
             aria-label="Back to top"
             icon={<FaArrowUp />}
-            bg="maroon.500"
+            bgGradient="linear(to-br, maroon.500, forest.500)"
             color="onAccent"
             size="lg"
             borderRadius="full"
-            boxShadow="lg"
+            boxShadow="0 8px 24px rgba(130, 0, 0, 0.32)"
             onClick={scrollToTop}
             _hover={{
-              bg: 'maroon.600',
-              transform: 'translateY(-2px)',
+              bgGradient: 'linear(to-br, maroon.600, forest.600)',
+              transform: 'translateY(-3px)',
             }}
+            transition="all 0.2s ease"
           />
         </Box>
       )}

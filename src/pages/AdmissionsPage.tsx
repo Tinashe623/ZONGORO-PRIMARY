@@ -5,6 +5,7 @@ import AdmissionRequirements from '../components/sections/AdmissionRequirements'
 import ApplicationSteps from '../components/sections/ApplicationSteps';
 import DocumentsChecklist from '../components/sections/DocumentsChecklist';
 import FeesOverview from '../components/sections/FeesOverview';
+import CTABanner from '../components/ui/CTABanner';
 
 const AdmissionsPage = () => {
   useEffect(() => {
@@ -60,7 +61,7 @@ const AdmissionsPage = () => {
                   transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
                   height="100%"
                 >
-                  <Heading size="md" color="maroon.500" mb={3}>
+                  <Heading size="md" color="brand" mb={3}>
                     {item.title}
                   </Heading>
                   <Text color="gray.600" fontSize={{ base: "sm", md: "md" }}>
@@ -76,6 +77,15 @@ const AdmissionsPage = () => {
       <ApplicationSteps />
       <DocumentsChecklist />
       <FeesOverview />
+      <CTABanner
+        eyebrow="Ready to Join"
+        title="Start Your Child's Journey With Us"
+        subtitle="Applications are open for ECD to Grade 7. Our admissions team is ready to help you every step of the way."
+        buttonText="Apply Now"
+        enroll
+        secondaryText="Contact Admissions"
+        secondaryLink="/contact"
+      />
     </Box>
   );
 };

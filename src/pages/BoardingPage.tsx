@@ -5,6 +5,7 @@ import PageHero from '../components/ui/PageHero';
 import BoardingFacilities from '../components/sections/BoardingFacilities';
 import DailySchedule from '../components/sections/DailySchedule';
 import BoardingRules from '../components/sections/BoardingRules';
+import CTABanner from '../components/ui/CTABanner';
 import { boardingFees } from '../data/boarding';
 
 const BoardingPage = () => {
@@ -28,7 +29,7 @@ const BoardingPage = () => {
         <Box maxW="1200px" mx="auto">
           <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={12} alignItems="center">
               <VStack align="start" spacing={6}>
-                <Heading size="2xl" color="maroon.500" fontWeight="700">
+                <Heading size="2xl" color="brand" fontWeight="700">
                   Welcome to Our Boarding Institute
                 </Heading>
                 <Text color="gray.600" fontSize="lg" lineHeight="1.9">
@@ -59,7 +60,7 @@ const BoardingPage = () => {
                         align="center" 
                         justify="center"
                       >
-                        <Icon as={item.icon} color="maroon.500" fontSize="sm" />
+                        <Icon as={item.icon} color="brand" fontSize="sm" />
                       </Flex>
                       <Text color="dark.500" fontWeight="600" fontSize="sm">{item.text}</Text>
                     </Flex>
@@ -96,7 +97,7 @@ const BoardingPage = () => {
                 }}
                 transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
               >
-                <Heading size="md" color="maroon.500" mb={6}>
+                <Heading size="md" color="brand" mb={6}>
                   Boarding Fees
                 </Heading>
                 <VStack spacing={4}>
@@ -139,7 +140,7 @@ const BoardingPage = () => {
                             {fee.item}
                           </Text>
                           <Text
-                            color="maroon.500"
+                            color="brand"
                             fontWeight="700"
                             fontSize="lg"
                             bg="white"
@@ -198,7 +199,7 @@ const BoardingPage = () => {
                       >
                         <Text color="gray.700" fontWeight="500">{fee.item}</Text>
                         <Text
-                          color="maroon.500"
+                          color="brand"
                           fontWeight="700"
                           fontSize="lg"
                           bg="white"
@@ -228,6 +229,13 @@ const BoardingPage = () => {
       <BoardingFacilities />
       <DailySchedule />
       <BoardingRules />
+      <CTABanner
+        eyebrow="Boarding Enquiries"
+        title="Give Your Child a Home Away From Home"
+        subtitle="Speak to us about boarding placements, fees, and what a typical day looks like for our boarders."
+        buttonText="Enquire About Boarding"
+        buttonLink="/contact"
+      />
     </Box>
   );
 };

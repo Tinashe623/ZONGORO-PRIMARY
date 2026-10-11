@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import { Box, VStack, useColorModeValue, Heading, Text } from '@chakra-ui/react';
+import { Box, VStack, useColorModeValue } from '@chakra-ui/react';
 import PageHero from '../components/ui/PageHero';
 import ActivitiesGrid from '../components/sections/ActivitiesGrid';
 import Achievements from '../components/sections/Achievements';
-import EnrollButton from '../components/ui/EnrollButton';
+import CTABanner from '../components/ui/CTABanner';
 
 const ActivitiesPage = () => {
   useEffect(() => {
@@ -26,36 +26,15 @@ const ActivitiesPage = () => {
       <VStack spacing={0} w="full">
         <ActivitiesGrid />
         <Achievements />
-        <Box w="full" py={16} px={4} bg="maroon.500">
-          <Box maxW="1200px" mx="auto" textAlign="center">
-            <Heading
-              size="2xl"
-              color="onAccent"
-              fontWeight="700"
-              lineHeight="1.2"
-              mb={4}
-            >
-              Join Our Activities
-            </Heading>
-            <Text
-              fontSize="lg"
-              color="whiteAlpha.900"
-              maxW="600px"
-              mx="auto"
-              lineHeight="1.7"
-              mb={8}
-            >
-              Enroll your child in any of our exciting activities and watch them grow
-            </Text>
-            <EnrollButton
-              size="lg"
-              px={10}
-              fontWeight="600"
-            >
-              Enroll Now
-            </EnrollButton>
-          </Box>
-        </Box>
+        <CTABanner
+          eyebrow="Get Involved"
+          title="Join Our Activities"
+          subtitle="Enroll your child in any of our exciting activities and watch them grow."
+          buttonText="Enroll Now"
+          enroll
+          secondaryText="Learn More"
+          secondaryLink="/contact"
+        />
       </VStack>
     </Box>
   );
