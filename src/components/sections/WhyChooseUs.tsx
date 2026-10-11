@@ -7,10 +7,9 @@ import {
   Icon,
   Flex,
   Button,
-  Circle,
   Image,
 } from '@chakra-ui/react';
-import { FaGraduationCap, FaChurch, FaUsers, FaHeart, FaArrowRight, FaBus, FaHome, FaBullseye } from 'react-icons/fa';
+import { FaGraduationCap, FaChurch, FaUsers, FaArrowRight, FaBus, FaHome, FaBullseye } from 'react-icons/fa';
 import EnrollButton from '../ui/EnrollButton';
 import { Link as RouterLink } from 'react-router-dom';
 
@@ -64,16 +63,22 @@ const WhyChooseUs = () => {
             mb={14}
           >
             <Box flex={1}>
-              <Heading
-                size="xl"
-                bg="maroon.500"
-                bgClip="text"
-                fontWeight="700"
-                letterSpacing="-0.02em"
-              >
-                Why Choose St James Zongoro?
-              </Heading>
-              <Box w="60px" h="4px" bg="maroon.500" borderRadius="full" mt={3} />
+              <VStack align="start" spacing={3}>
+                <Text fontSize="xs" fontWeight="700" letterSpacing="0.22em" textTransform="uppercase" color="forest.600">
+                  Our Values
+                </Text>
+                <Heading
+                  fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                  bg="maroon.500"
+                  bgClip="text"
+                  fontWeight="800"
+                  letterSpacing="-0.03em"
+                  lineHeight="1.15"
+                >
+                  Why Choose St James Zongoro?
+                </Heading>
+                <Box w="72px" h="2px" bgGradient="linear(to-r, maroon.400, forest.400)" borderRadius="full" />
+              </VStack>
               <Text color="gray.700" fontSize="lg" fontWeight="500" mt={4} maxW="520px" lineHeight="1.7">
                 Discover what makes our school special — academic excellence, Christian
                 values, and a community that nurtures every child from ECD to Grade 7.
@@ -202,26 +207,9 @@ const WhyChooseUs = () => {
               <Heading fontSize={{ base: "lg", md: "xl" }} color="onAccent" fontWeight="700">
                 Start Your Child's Journey Today
               </Heading>
-              <Text color="onAccent" fontSize={{ base: "md", md: "lg" }} maxW="600px" fontWeight="semibold">
+              <Text color="onAccent" fontSize={{ base: "md", md: "xl" }} maxW="600px" fontWeight="semibold">
                 Join over 700 students who have built successful futures at St James Zongoro
               </Text>
-              
-              <SimpleGrid columns={{ base: 2, md: 4 }} spacing={6} w="100%" pt={4}>
-                {[
-                  { icon: FaGraduationCap, number: '88%', label: 'Pass Rate' },
-                  { icon: FaUsers, number: '711', label: 'Students' },
-                  { icon: FaChurch, number: '100+', label: 'Years Legacy' },
-                  { icon: FaHeart, number: '25+', label: 'Staff & Teachers' },
-                ].map((stat, index) => (
-                  <VStack key={index} spacing={1}>
-                    <Circle size="50px" bg="rgba(255,255,255,0.15)" color="onAccent">
-                      <Icon as={stat.icon} fontSize="xl" />
-                    </Circle>
-                    <Text color="onAccent" fontWeight="800" fontSize="2xl">{stat.number}</Text>
-                    <Text color="onAccent" fontWeight="semibold" fontSize="xs">{stat.label}</Text>
-                  </VStack>
-                ))}
-              </SimpleGrid>
 
               <Flex
                 direction={{ base: "column", md: "row" }}
