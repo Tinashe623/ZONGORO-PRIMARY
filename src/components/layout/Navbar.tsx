@@ -187,6 +187,9 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
   const activeBar = useColorModeValue('maroon.500', 'maroon.300');
   const activeText = useColorModeValue('maroon.500', 'maroon.300');
   const linkText = useColorModeValue('gray.700', 'gray.300');
+  const linkChipBg = useColorModeValue('rgba(255, 255, 255, 0.5)', 'rgba(255, 255, 255, 0.04)');
+  const linkChipBorder = useColorModeValue('maroon.100', 'whiteAlpha.200');
+  const linkArrow = useColorModeValue('maroon.400', 'maroon.300');
   const forestAccent = useColorModeValue('forest.500', 'forest.300');
   const contactColor = useColorModeValue('maroon.600', 'maroon.300');
   const contactBorder = useColorModeValue('maroon.200', 'maroon.400');
@@ -228,14 +231,25 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
     const active = isActive(link.to);
     return (
       <RouterLink to={link.to} onClick={onClose} style={{ textDecoration: 'none', display: 'block' }}>
-        <Box
+        <Flex
+          align="center"
+          justify="space-between"
+          gap={3}
           px={4}
           py={large ? 3 : 2.5}
           borderRadius="lg"
-          bg={active ? activeBg : 'transparent'}
-          borderLeftWidth="4px"
-          borderLeftColor={active ? activeBar : 'transparent'}
-          _hover={{ bg: hoverBg, transform: 'translateX(4px)' }}
+          border="1px solid"
+          borderColor={active ? activeBar : linkChipBorder}
+          borderLeftWidth={active ? '4px' : '1px'}
+          borderLeftColor={active ? activeBar : linkChipBorder}
+          bg={active ? activeBg : linkChipBg}
+          boxShadow={active ? '0 2px 12px rgba(130, 0, 0, 0.08)' : 'none'}
+          _hover={{
+            bg: hoverBg,
+            transform: 'translateX(4px)',
+            borderColor: active ? activeBar : 'maroon.200',
+            boxShadow: active ? '0 2px 12px rgba(130, 0, 0, 0.12)' : '0 2px 10px rgba(130, 0, 0, 0.06)',
+          }}
           _active={{ transform: 'translateX(4px)' }}
           transition="all 0.2s ease"
           cursor="pointer"
@@ -246,10 +260,17 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
             fontWeight="600"
             lineHeight="1.25"
             color={active ? activeText : linkText}
+            flex={1}
           >
             {link.name}
           </Text>
-        </Box>
+          <ArrowForwardIcon
+            boxSize={large ? 5 : 4}
+            color={active ? activeText : linkArrow}
+            opacity={active ? 1 : 0.5}
+            _hover={{ color: activeText, opacity: 1, transform: 'translateX(3px)', transition: 'all 0.2s ease' }}
+          />
+        </Flex>
       </RouterLink>
     );
   };
