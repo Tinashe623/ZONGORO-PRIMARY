@@ -286,13 +286,13 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
         mx="auto"
         py={{ base: 2.5, md: 3 }}
         px={{ base: 4, md: 6 }}
-        gap={{ base: 4, md: 6 }}
+        gap={{ base: 2, md: 6 }}
       >
-          <RouterLink to={homeLink.to} style={{ textDecoration: 'none' }}>
-            <Flex align="center" gap={4} cursor="pointer">
+          <RouterLink to={homeLink.to} style={{ textDecoration: 'none', minWidth: 0 }}>
+            <Flex align="center" gap={{ base: 2.5, md: 4 }} cursor="pointer" minW={0}>
               <Box
-                w="52px"
-                h="52px"
+                w={{ base: '44px', md: '52px' }}
+                h={{ base: '44px', md: '52px' }}
                 flexShrink={0}
               >
                 <Image
@@ -303,13 +303,14 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
                   objectFit="contain"
                 />
               </Box>
-              <Box flexShrink={0}>
+              <Box minW={0}>
                 <Text
-                  fontSize={{ base: 'lg', md: 'xl' }}
+                  fontSize={{ base: 'md', sm: 'lg', md: 'xl' }}
                   fontWeight="700"
                   color="maroon.500"
                   lineHeight="1.1"
                   letterSpacing="-0.02em"
+                  isTruncated
                 >
                   St James Zongoro
                 </Text>
@@ -462,18 +463,21 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
           </RouterLink>
         </HStack>
 
-        <HStack spacing={2}>
+        <HStack spacing={{ base: 1.5, md: 2 }} flexShrink={0}>
           <Button
             as="a"
             href={MANAGEMENT_LOGIN_URL}
             target="_blank"
             rel="noopener noreferrer"
             size="sm"
+            px={{ base: 2.5, md: 3 }}
             leftIcon={<LockIcon />}
             variant="outline"
             borderColor="maroon.200"
             fontWeight="600"
             color="maroon.600"
+            whiteSpace="nowrap"
+            flexShrink={0}
             _hover={{ color: 'maroon.500', bg: 'maroon.50', borderColor: 'maroon.300', transform: 'translateY(-1px)' }}
             _active={{ transform: 'translateY(0)' }}
           >
@@ -497,8 +501,9 @@ const Navbar = ({ scrollPosition, isScrolled: isScrolledProp }: NavbarProps) => 
             aria-controls={isOpen ? 'mobile-menu' : undefined}
             icon={<MenuGlyph turned={isOpen} />}
             variant="ghost"
-            size="lg"
+            size={{ base: 'md', sm: 'lg' }}
             color={hamburgerColor}
+            flexShrink={0}
             display={{ base: 'flex', lg: 'none' }}
             onClick={isOpen ? onClose : onOpen}
             _hover={{ bg: hamburgerHoverBg }}
