@@ -100,6 +100,7 @@ const PageHero = ({ title, subtitle, image, imageAlt }: PageHeroProps) => {
           </Flex>
         )}
         <Heading
+          as="h1"
           fontSize={{ base: "xl", md: "3xl", lg: "4xl" }}
           color="onAccent"
           fontWeight="700"

@@ -1,12 +1,9 @@
-import { Box, Flex, Text, IconButton, Link, Icon, useColorMode, HStack } from '@chakra-ui/react';
-import { FaPhone, FaEnvelope, FaFacebook, FaMapMarkerAlt, FaSun, FaMoon } from 'react-icons/fa';
+import { Box, Flex, Text, IconButton, Link, Icon, HStack } from '@chakra-ui/react';
+import { FaPhone, FaEnvelope, FaFacebook, FaMapMarkerAlt } from 'react-icons/fa';
 
 import { schoolContact } from '../../data/contact';
 
 const TopBar = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const isDark = colorMode === 'dark';
-
   return (
     <Box bg="forest.800" color="onAccent" py={{ base: 1.5, md: 1 }} px={{ base: 4, md: 6 }} position="fixed" top={0} left={0} right={0} zIndex={1100}>
       <Flex justify="space-between" align="center" maxW="1200px" mx="auto" gap={4}>
@@ -40,15 +37,6 @@ const TopBar = () => {
         </Flex>
 
 <HStack spacing={2} flexShrink={0}>
-          <IconButton
-            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-            icon={isDark ? <Icon as={FaSun} /> : <Icon as={FaMoon} />}
-            variant="ghost"
-            color="onAccent"
-            size="sm"
-            _hover={{ bg: 'whiteAlpha.200' }}
-            onClick={toggleColorMode}
-          />
           <Link
             href={schoolContact.facebook}
             isExternal

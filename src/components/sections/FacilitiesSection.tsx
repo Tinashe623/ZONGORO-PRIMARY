@@ -43,7 +43,7 @@ const facilities = [
     icon: FaBus,
     title: 'Transport',
     description: 'Reliable bus service',
-    image: '/images/school-bus.jpg',
+    image: '/images/school-bus.webp',
     alt: 'The St James Zongoro school bus',
   },
 ];

@@ -77,7 +77,7 @@ const TransportPage = () => {
       <PageHero
         title="School Transport"
         subtitle="Safe and reliable bus services for our students"
-        image="/images/school-bus.jpg"
+        image="/images/school-bus.webp"
         imageAlt="The St James Zongoro school bus"
       />
 
@@ -192,7 +192,7 @@ const TransportPage = () => {
                     overflow="hidden"
                   >
                     <Image
-                      src="/images/school-bus.jpg"
+                      src="/images/school-bus.webp"
                       alt="St James Zongoro School Bus – Available for Hire"
                       position="absolute"
                       top="0"

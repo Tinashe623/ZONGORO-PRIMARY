@@ -46,7 +46,7 @@ const HomePage = () => {
                   position="relative"
                 >
                   <Image
-                    src="/images/chief-image.jpg"
+                    src="/images/chief-image.webp"
                     alt="Chief Mutasa"
                     loading="lazy"
                     decoding="async"

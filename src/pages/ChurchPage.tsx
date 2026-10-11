@@ -78,7 +78,7 @@ const ChurchPage = () => {
                   boxShadow="0 4px 20px rgba(0,0,0,0.15)"
                 >
                   <Image 
-                    src="/images/anglican-logo.png" 
+                    src="/images/anglican-logo.webp" 
                     alt="Anglican Logo"
                     h="50px"
                     objectFit="contain"
@@ -135,7 +135,7 @@ const ChurchPage = () => {
                   <Box position="absolute" top={0} left={0} h="4px" w="100%" bg="maroon.500" />
                   <Flex direction={{ base: 'column', md: 'row' }} align="center" gap={6}>
                     <Image 
-                      src="/images/anglican-logo.png" 
+                      src="/images/anglican-logo.webp" 
                       alt="Anglican Logo"
                       h={{ base: '80px', md: '100px' }}
                       objectFit="contain"
@@ -218,7 +218,7 @@ const ChurchPage = () => {
                   <Box position="absolute" top={0} left={0} right={0} h="3px" bg="forest.400" />
                   <Flex direction={{ base: 'column', md: 'row' }} align="center" gap={4}>
                     <Image 
-                      src="/images/anglican-logo.png" 
+                      src="/images/anglican-logo.webp" 
                       alt="Anglican Logo"
                       h="40px"
                       objectFit="contain"

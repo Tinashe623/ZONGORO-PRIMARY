@@ -36,7 +36,7 @@ export const pageMeta: Record<string, PageMeta> = {
   '/community': {
     title: 'Our Community | St James Zongoro Primary School',
     description: 'St James Zongoro is rooted in the Ndorikanda community — partnering with local leaders, parents and villagers.',
-    image: img('/images/chief-image.jpg'),
+    image: img('/images/chief-image.webp'),
   },
   '/academics': {
     title: 'Academics | St James Zongoro Primary School',
@@ -71,7 +71,7 @@ export const pageMeta: Record<string, PageMeta> = {
   '/transport': {
     title: 'Transport | St James Zongoro Primary School',
     description: 'Reliable school transport services and routes offered by St James Zongoro Primary School.',
-    image: img('/images/school-bus.jpg'),
+    image: img('/images/school-bus.webp'),
   },
   '/gallery': {
     title: 'Gallery | St James Zongoro Primary School',

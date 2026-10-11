@@ -98,7 +98,7 @@ const CommunityPage = () => {
                 minH={{ lg: '480px' }}
               >
                 <Image 
-                  src="/images/chief-image.jpg" 
+                  src="/images/chief-image.webp" 
                   alt="Chief James Mutasa"
                   w="100%"
                   h="100%"

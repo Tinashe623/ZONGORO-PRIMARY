@@ -16,7 +16,7 @@ export const staffMembers: StaffMember[] = [
     name: 'Mr Chigumira',
     title: 'Head Teacher',
     specialisation: 'School Leadership',
-    image: '/images/gallery/head-master-inoffice.jpg',
+    image: '/images/gallery/head-master-inoffice.webp',
     qualifications: 'Coming Soon',
     yearsAtSchool: 15,
     bio: 'Committed to academic excellence and holistic development.',
