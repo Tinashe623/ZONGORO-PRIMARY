@@ -70,8 +70,8 @@ const Hero = () => {
         right={0}
         bottom={0}
         bgImage={{
-          base: "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.34) 14%, rgba(0, 0, 0, 0.3) 100%), radial-gradient(ellipse 120% 78% at 50% 54%, rgba(6, 18, 12, 0.44) 0%, rgba(6, 18, 12, 0.2) 55%, rgba(6, 18, 12, 0) 100%), linear-gradient(180deg, rgba(6, 18, 12, 0) 0%, rgba(6, 18, 12, 0.02) 22%, rgba(6, 18, 12, 0.08) 58%, rgba(6, 18, 12, 0.55) 100%), linear-gradient(115deg, rgba(130, 0, 0, 0.22) 0%, rgba(130, 0, 0, 0) 42%)",
-          md: "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 13%, rgba(0, 0, 0, 0.3) 100%), radial-gradient(ellipse 95% 72% at 50% 50%, rgba(6, 18, 12, 0.56) 0%, rgba(6, 18, 12, 0.26) 55%, rgba(6, 18, 12, 0) 100%), linear-gradient(180deg, rgba(6, 18, 12, 0) 0%, rgba(6, 18, 12, 0.03) 20%, rgba(6, 18, 12, 0.08) 55%, rgba(6, 18, 12, 0.68) 100%), linear-gradient(115deg, rgba(130, 0, 0, 0.3) 0%, rgba(130, 0, 0, 0) 45%)"
+          base: "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.32) 14%, rgba(0, 0, 0, 0.26) 100%), radial-gradient(ellipse 120% 78% at 50% 54%, rgba(6, 18, 12, 0.24) 0%, rgba(6, 18, 12, 0.09) 55%, rgba(6, 18, 12, 0) 100%), linear-gradient(180deg, rgba(6, 18, 12, 0) 0%, rgba(6, 18, 12, 0.02) 22%, rgba(6, 18, 12, 0.04) 58%, rgba(6, 18, 12, 0.34) 100%), linear-gradient(115deg, rgba(130, 0, 0, 0.16) 0%, rgba(130, 0, 0, 0) 42%)",
+          md: "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.36) 13%, rgba(0, 0, 0, 0.26) 100%), radial-gradient(ellipse 95% 72% at 50% 50%, rgba(6, 18, 12, 0.3) 0%, rgba(6, 18, 12, 0.11) 55%, rgba(6, 18, 12, 0) 100%), linear-gradient(180deg, rgba(6, 18, 12, 0) 0%, rgba(6, 18, 12, 0.02) 20%, rgba(6, 18, 12, 0.04) 55%, rgba(6, 18, 12, 0.38) 100%), linear-gradient(115deg, rgba(130, 0, 0, 0.2) 0%, rgba(130, 0, 0, 0) 45%)"
         }}
       />
       <Box
@@ -79,8 +79,9 @@ const Hero = () => {
         left={0}
         right={0}
         bottom={0}
-        h={{ base: 16, md: 24 }}
-        bgGradient="linear(to-t, chakra-body-bg, transparent)"
+        h={{ base: 8, md: 12 }}
+        bgGradient="linear(to-t, rgba(250, 243, 224, 0.22), rgba(250, 243, 224, 0))"
+        pointerEvents="none"
         zIndex={1}
       />
 
