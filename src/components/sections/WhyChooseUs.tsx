@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/react';
 import { FaGraduationCap, FaChurch, FaUsers, FaArrowRight, FaBus, FaHome, FaBullseye } from 'react-icons/fa';
 import EnrollButton from '../ui/EnrollButton';
+import Reveal from '../ui/Reveal';
 import { Link as RouterLink } from 'react-router-dom';
 
 const features = [
@@ -114,7 +115,8 @@ const WhyChooseUs = () => {
 
         <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} spacing={8}>
           {features.map((feature, index) => (
-              <Box key={index}
+              <Reveal key={index} delay={index * 0.08} style={{ height: '100%' }}>
+              <Box
                 p={8}
                 borderRadius="2xl"
                 bg="white"
@@ -168,6 +170,7 @@ const WhyChooseUs = () => {
                   </Text>
                 </VStack>
               </Box>
+              </Reveal>
           ))}
         </SimpleGrid>
 
@@ -220,17 +223,9 @@ const WhyChooseUs = () => {
               >
                 <EnrollButton
                   size="lg"
-                  bg="forest.500"
-                  color="onAccent"
-                  fontWeight="700"
                   px={{ base: 6, md: 8 }}
                   w={{ base: "100%", md: "auto" }}
                   minW={{ md: "160px" }}
-                  _hover={{
-                    bg: 'forest.600',
-                    transform: 'translateY(-2px)',
-                    boxShadow: '0 8px 20px rgba(45, 106, 79, 0.4)',
-                  }}
                   rightIcon={<FaArrowRight />}
                 >
                   Enroll Now

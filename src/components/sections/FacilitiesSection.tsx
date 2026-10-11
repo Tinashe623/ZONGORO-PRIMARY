@@ -1,6 +1,7 @@
 import { Box, SimpleGrid, VStack, Heading, Text, Icon, Flex, Image } from '@chakra-ui/react';
 import { FaBook, FaLaptop, FaTree, FaFutbol, FaMusic, FaBus } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
+import Reveal from '../ui/Reveal';
 
 const facilities = [
   {
@@ -71,8 +72,9 @@ const FacilitiesSection = () => {
             </VStack>
 
             <SimpleGrid columns={{ base: 2, md: 3 }} spacing={6} w="100%">
-              {facilities.map((item) => (
-                  <Box key={item.title}
+              {facilities.map((item, index) => (
+                  <Reveal key={item.title} delay={index * 0.08}>
+                  <Box
                     position="relative"
                     borderRadius="xl"
                     overflow="hidden"
@@ -136,6 +138,7 @@ const FacilitiesSection = () => {
                       </Box>
                     </Flex>
                   </Box>
+                  </Reveal>
               ))}
             </SimpleGrid>
 

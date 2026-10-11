@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react';
 import { FaUserGraduate, FaUserTie, FaCrown, FaQuoteLeft } from 'react-icons/fa';
 import { testimonials } from '../../data/testimonials';
+import Reveal from '../ui/Reveal';
 
 const getRoleIcon = (role: string) => {
   if (role.includes('Parent')) return FaUserTie;
@@ -131,7 +132,9 @@ const Testimonials = () => {
 
         <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
           {testimonials.map((testimonial, index) => (
-            <TestimonialCard key={index} testimonial={testimonial} />
+            <Reveal key={index} delay={index * 0.1} style={{ height: '100%' }}>
+              <TestimonialCard testimonial={testimonial} />
+            </Reveal>
           ))}
         </SimpleGrid>
       </Box>
