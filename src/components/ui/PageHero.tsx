@@ -65,7 +65,7 @@ const PageHero = ({ title, subtitle, image, imageAlt }: PageHeroProps) => {
               left={0}
               right={0}
               bottom={0}
-              bgGradient="linear(90deg, rgba(130, 0, 0, 0.9) 0%, rgba(130, 0, 0, 0.74) 55%, rgba(9, 38, 27, 0.78) 100%)"
+              bgGradient="linear(90deg, rgba(96, 0, 16, 0.8) 0%, rgba(122, 12, 28, 0.52) 45%, rgba(21, 52, 36, 0.6) 100%)"
             />
           </>
         )}
