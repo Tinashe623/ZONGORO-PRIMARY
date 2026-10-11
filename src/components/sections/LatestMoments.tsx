@@ -2,13 +2,14 @@ import { useRef } from 'react';
 import {
   Box,
   Heading,
-  Text,
   Image,
   IconButton,
   Flex,
   Badge,
+  Button,
+  useColorModeValue,
 } from '@chakra-ui/react';
-import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
+import { ChevronLeftIcon, ChevronRightIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 import { Link as RouterLink } from 'react-router-dom';
 import SectionHeading from '../ui/SectionHeading';
 
@@ -36,6 +37,7 @@ const LatestMoments = () => {
       <Box maxW="1200px" mx="auto">
         <Flex justify="space-between" align="flex-end" wrap="wrap" gap={4}>
             <SectionHeading
+              eyebrow="Our Moments"
               title="Latest Moments"
               subtitle="Fresh glimpses of life and learning at St James Zongoro"
               textAlign="left"
@@ -87,20 +89,26 @@ const LatestMoments = () => {
                   left={0}
                   right={0}
                   bottom={0}
-                  bgGradient="linear(to-t, rgba(0,0,0,0.55), transparent 55%)"
+                  bgGradient="linear(to-t, rgba(60, 0, 10, 0.72), rgba(9, 38, 27, 0.1) 55%, transparent)"
                 />
                 <Badge
                   position="absolute"
                   top={3}
                   left={3}
-                  bg="rgba(0,0,0,0.65)"
-                  color="white"
+                  bg="rgba(23, 20, 18, 0.5)"
+                  color="cream.50"
+                  border="1px solid"
+                  borderColor="whiteAlpha.300"
+                  backdropFilter="blur(10px)"
+                  style={{ WebkitBackdropFilter: 'blur(10px)' }}
                   px={3}
                   py={1}
                   borderRadius="full"
                   fontSize="xs"
+                  letterSpacing="0.08em"
                   textTransform="uppercase"
                   fontWeight="700"
+                  boxShadow="0 2px 12px rgba(0,0,0,0.25)"
                 >
                   {moment.tag}
                 </Badge>
@@ -119,25 +127,36 @@ const LatestMoments = () => {
             ))}
           </Box>
 
-        <Text textAlign="center" mt={6}>
-          <RouterLink to="/gallery">
-            <Box
-              as="span"
-              color="maroon.500"
-              fontWeight="700"
-              fontSize={{ base: 'sm', md: 'md' }}
-              _hover={{ textDecoration: 'underline' }}
-            >
-              View Full Gallery →
-            </Box>
-          </RouterLink>
-        </Text>
+        <Flex justify="center" mt={8}>
+          <Button
+            as={RouterLink}
+            to="/gallery"
+            bgGradient="linear(to-r, maroon.500, maroon.600)"
+            color="onAccent"
+            size="md"
+            px={7}
+            borderRadius="full"
+            fontWeight="600"
+            rightIcon={<ArrowForwardIcon />}
+            boxShadow="0 4px 18px rgba(130, 0, 0, 0.25)"
+            _hover={{
+              transform: 'translateY(-2px)',
+              boxShadow: '0 10px 28px rgba(130, 0, 0, 0.32)',
+              bgGradient: 'linear(to-r, maroon.600, maroon.700)',
+            }}
+            _active={{ transform: 'translateY(0)' }}
+            transition="all 0.2s ease"
+          >
+            View Full Gallery
+          </Button>
+        </Flex>
       </Box>
     </Box>
   );
 };
 
 const HStackButtons = ({ onPrev, onNext }: { onPrev: () => void; onNext: () => void }) => {
+  const bg = useColorModeValue('white', 'rgba(255, 255, 255, 0.06)');
   return (
     <Flex gap={2} mb={10}>
       <IconButton
@@ -146,10 +165,14 @@ const HStackButtons = ({ onPrev, onNext }: { onPrev: () => void; onNext: () => v
         onClick={onPrev}
         variant="outline"
         border="1px solid"
-        borderColor="gray.300"
-        color="gray.700"
-        _hover={{ bg: 'gray.100' }}
+        borderColor="maroon.200"
+        bg={bg}
+        color="maroon.500"
+        boxShadow="0 2px 10px rgba(130, 0, 0, 0.08)"
+        _hover={{ bg: 'maroon.500', color: 'white', borderColor: 'maroon.500', boxShadow: '0 6px 18px rgba(130, 0, 0, 0.28)' }}
+        _active={{ transform: 'scale(0.96)' }}
         borderRadius="full"
+        transition="all 0.2s ease"
       />
       <IconButton
         aria-label="Scroll moments right"
@@ -157,10 +180,14 @@ const HStackButtons = ({ onPrev, onNext }: { onPrev: () => void; onNext: () => v
         onClick={onNext}
         variant="outline"
         border="1px solid"
-        borderColor="gray.300"
-        color="gray.700"
-        _hover={{ bg: 'gray.100' }}
+        borderColor="maroon.200"
+        bg={bg}
+        color="maroon.500"
+        boxShadow="0 2px 10px rgba(130, 0, 0, 0.08)"
+        _hover={{ bg: 'maroon.500', color: 'white', borderColor: 'maroon.500', boxShadow: '0 6px 18px rgba(130, 0, 0, 0.28)' }}
+        _active={{ transform: 'scale(0.96)' }}
         borderRadius="full"
+        transition="all 0.2s ease"
       />
     </Flex>
   );
