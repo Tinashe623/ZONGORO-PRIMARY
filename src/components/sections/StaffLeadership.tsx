@@ -146,52 +146,6 @@ const StaffLeadership = () => {
           </SimpleGrid>
         </Box>
       </Box>
-
-      {/* ── Group Photo Section ─────────────────────────────── */}
-      <Box bg="maroon.50" py={{ base: 12, md: 20 }} px={{ base: 4, md: 6, lg: 8 }}>
-        <Box maxW="1200px" mx="auto">
-            <VStack spacing={3} textAlign="center" mb={{ base: 8, md: 12 }}>
-              <Heading
-                fontSize={{ base: 'lg', md: '2xl' }}
-                color="brandStrong"
-                fontWeight="700"
-              >
-                Our Staff Family
-              </Heading>
-              <Text
-                color="gray.500"
-                fontSize={{ base: 'sm', md: 'md' }}
-                maxW="560px"
-                lineHeight="1.8"
-              >
-                United by a shared passion for education and community — the people behind
-                every achievement at St James Zongoro.
-              </Text>
-            </VStack>
-
-            <Box
-              borderRadius="2xl"
-              overflow="hidden"
-              boxShadow="0 20px 60px rgba(0,0,0,0.12)"
-              bg="maroon.500"
-              position="relative"
-              minH={{ base: '200px', md: '300px' }}
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-            >
-              <Text
-                color="whiteAlpha.700"
-                fontSize={{ base: 'lg', md: '2xl' }}
-                fontWeight="600"
-                textAlign="center"
-                px={4}
-              >
-                School Teaching Staff Coming Soon
-              </Text>
-            </Box>
-        </Box>
-      </Box>
     </>
   );
 };

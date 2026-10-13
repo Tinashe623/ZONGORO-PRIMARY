@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Box } from '@chakra-ui/react';
 import PageHero from '../components/ui/PageHero';
 import StaffLeadership from '../components/sections/StaffLeadership';
+import StaffGrid from '../components/sections/StaffGrid';
 import CTABanner from '../components/ui/CTABanner';
 import { useBlock } from '../lib/blocks';
 import { staffPageBlock, type StaffPageBlock } from '../data/blocks/staffPage';
@@ -22,6 +23,7 @@ const StaffPage = () => {
         imageAlt={block.hero.imageAlt}
       />
       <StaffLeadership />
+      <StaffGrid />
       <CTABanner
         eyebrow={block.cta.eyebrow}
         title={block.cta.title}
