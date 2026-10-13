@@ -4,8 +4,12 @@ import PageHero from '../components/ui/PageHero';
 import ActivitiesGrid from '../components/sections/ActivitiesGrid';
 import Achievements from '../components/sections/Achievements';
 import CTABanner from '../components/ui/CTABanner';
+import { useBlock } from '../lib/blocks';
+import { activitiesBlock, type ActivitiesBlock } from '../data/blocks/activities';
 
 const ActivitiesPage = () => {
+  const block = useBlock<ActivitiesBlock>('pages.activities', activitiesBlock);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -18,22 +22,28 @@ const ActivitiesPage = () => {
   return (
     <Box bg={bgGradient} minH="100vh">
       <PageHero
-        title="Co-Curricular Activities"
-        subtitle="Discover your talents through our diverse range of sports, arts, and clubs"
-        image="/images/gallery/sports/vollyball.webp"
-        imageAlt="Pupils in a volleyball match"
+        title={block.hero.title}
+        subtitle={block.hero.subtitle}
+        image={block.hero.image}
+        imageAlt={block.hero.imageAlt}
       />
       <VStack spacing={0} w="full">
-        <ActivitiesGrid />
+        <ActivitiesGrid
+          activities={block.activities}
+          heading={block.intro.heading}
+          subtitle={block.intro.subtitle}
+          categories={block.categories}
+          cardLabels={block.card}
+        />
         <Achievements />
         <CTABanner
-          eyebrow="Get Involved"
-          title="Join Our Activities"
-          subtitle="Enroll your child in any of our exciting activities and watch them grow."
-          buttonText="Enroll Now"
+          eyebrow={block.cta.eyebrow}
+          title={block.cta.title}
+          subtitle={block.cta.subtitle}
+          buttonText={block.cta.buttonText}
           enroll
-          secondaryText="Learn More"
-          secondaryLink="/contact"
+          secondaryText={block.cta.secondaryText}
+          secondaryLink={block.cta.secondaryLink}
         />
       </VStack>
     </Box>

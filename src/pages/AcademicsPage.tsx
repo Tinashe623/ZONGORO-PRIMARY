@@ -14,21 +14,21 @@ import {
   Flex,
   Icon,
 } from '@chakra-ui/react';
-import { FaGraduationCap, FaBookOpen, FaLightbulb, FaStar, FaCheckCircle, FaGavel, FaTrophy, FaUtensils, FaLaptop } from 'react-icons/fa';
+import { FaStar, FaCheckCircle, FaGavel, FaTrophy } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import { academicCards } from '../data/academics';
 import PageHero from '../components/ui/PageHero';
 import EnrollButton from '../components/ui/EnrollButton';
+import { useBlock } from '../lib/blocks';
+import { getWebsiteIcon } from '../lib/websiteIcons';
+import { academicsBlock, type AcademicsBlock } from '../data/blocks/academics';
 
 const MotionBox = motion(Box);
 
-const iconMap: Record<string, React.ComponentType> = {
-  FaGraduationCap,
-  FaBookOpen,
-  FaLightbulb,
-};
+const statColors = ['brand', 'brandGreen', 'brandStrong', 'brandGreenStrong'];
 
 const AcademicsPage = () => {
+  const block = useBlock<AcademicsBlock>('pages.academics', academicsBlock);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -36,10 +36,10 @@ const AcademicsPage = () => {
   return (
     <Box>
       <PageHero 
-        title="Academic Excellence" 
-        subtitle="Quality education preparing students for success"
-        image="/images/moments/classroom-01.webp"
-        imageAlt="Classroom at St James Zongoro Primary School"
+        title={block.hero.title} 
+        subtitle={block.hero.subtitle}
+        image={block.hero.image}
+        imageAlt={block.hero.imageAlt}
       />
       
       {/* Main Content - Cream Background */}
@@ -47,17 +47,16 @@ const AcademicsPage = () => {
         <Box maxW="1200px" mx="auto">
             <VStack spacing={4} textAlign="center" mb={16}>
               <Heading size="2xl" color="brand" fontWeight="700">
-                Our Academic Programs
+                {block.programs.heading}
               </Heading>
               <Text color="gray.600" maxW="700px" fontSize="lg" lineHeight="1.8">
-                We offer a comprehensive curriculum from ECD to Grade 7, designed to nurture 
-                intellectual growth and critical thinking skills.
+                {block.programs.description}
               </Text>
             </VStack>
 
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
-            {academicCards.map((card, index) => {
-              const IconComponent = iconMap[card.icon];
+            {block.programs.cards.map((card, index) => {
+              const IconComponent = getWebsiteIcon(card.icon, FaStar);
               return (
                   <Card key={index}
                     bg="white"
@@ -132,16 +131,14 @@ const AcademicsPage = () => {
           <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={12} alignItems="center">
               <VStack align="start" spacing={6}>
                 <Heading size="2xl" color="brand" fontWeight="700">
-                  Why Academic Excellence Matters
+                  {block.why.heading}
                 </Heading>
                 <Text color="gray.600" fontSize="lg" lineHeight="1.9">
-                  Our curriculum is designed to develop not just knowledge, but critical thinking 
-                  skills, creativity, and a lifelong love for learning. We prepare students for 
-                  success in secondary school and beyond.
+                  {block.why.description}
                 </Text>
                 <Box pt={4}>
                   <SimpleGrid columns={2} spacing={4}>
-                    {['ZIMSEC Aligned', 'Experienced Teachers', 'Small Class Sizes', 'Holistic Development'].map((item, i) => (
+                    {block.why.highlights.map((item, i) => (
                       <Flex key={i} align="center" gap={2}>
                         <Icon as={FaStar} color="brandGreen" />
                         <Text fontWeight="600" color="dark.500">{item}</Text>
@@ -188,17 +185,10 @@ const AcademicsPage = () => {
                 />
                 <VStack spacing={6} position="relative">
                   <Heading size="md" color="brand" textAlign="center">
-                    Our Learning Goals
+                    {block.why.goalsHeading}
                   </Heading>
                   <VStack align="start" spacing={4} w="100%">
-                    {[
-                      'Develop strong literacy and numeracy skills',
-                      'Foster critical thinking and problem-solving',
-                      'Build confidence and self-esteem',
-                      'Encourage creativity and innovation',
-                      'Promote teamwork and collaboration',
-                      'Instill moral values and ethics',
-                    ].map((goal, i) => (
+                    {block.why.goals.map((goal, i) => (
                       <Flex key={i} align="start" gap={3}>
                         <Box 
                           w="8px" 
@@ -223,21 +213,16 @@ const AcademicsPage = () => {
         <Box maxW="1200px" mx="auto">
             <VStack spacing={4} textAlign="center" mb={16}>
               <Heading size="2xl" color="brand" fontWeight="700">
-                Tech-Voc Compliance & Achievements
+                {block.techVoc.heading}
               </Heading>
               <Text color="gray.600" fontSize="lg" maxW="700px" lineHeight="1.8">
-                Excellence in Technical and Vocational Education Implementation
+                {block.techVoc.subtitle}
               </Text>
             </VStack>
 
           {/* Hero Stats */}
           <SimpleGrid columns={{ base: 1, md: 4 }} spacing={6} mb={16}>
-            {[
-              { icon: FaGraduationCap, label: 'Program Started', value: '2007', color: 'brand' },
-              { icon: FaStar, label: 'Latest Achievements', value: '2024', color: 'brandGreen' },
-              { icon: FaLightbulb, label: 'Tech-Voc Subjects', value: '4', color: 'brandStrong' },
-              { icon: FaCheckCircle, label: 'SDGs Aligned', value: '✓', color: 'brandGreenStrong' },
-            ].map((stat, index) => (
+            {block.techVoc.stats.map((stat, index) => (
                 <Box key={index}
                   bg="white"
                   borderRadius="2xl"
@@ -264,9 +249,9 @@ const AcademicsPage = () => {
                     mb={4}
                     boxShadow="0 4px 15px rgba(0,0,0,0.08)"
                   >
-                    <Icon as={stat.icon} color={stat.color} fontSize="2xl" />
+                    <Icon as={getWebsiteIcon(stat.icon, FaStar)} color={statColors[index]} fontSize="2xl" />
                   </Flex>
-                  <Heading size="2xl" color={stat.color} fontWeight="800">
+                  <Heading size="2xl" color={statColors[index]} fontWeight="800">
                     {stat.value}
                   </Heading>
                   <Text color="gray.600" fontSize="sm" mt={1} fontWeight="600">
@@ -293,10 +278,10 @@ const AcademicsPage = () => {
                 </Box>
                 <Box>
                   <Heading size="lg" color="brandStrong" fontWeight="700">
-                    4.1 Policy and Legal Frameworks
+                    {block.techVoc.policy.heading}
                   </Heading>
                   <Text color="gray.500" fontSize="sm">
-                    Tech-Voc Education Implementation
+                    {block.techVoc.policy.subtitle}
                   </Text>
                 </Box>
               </Flex>
@@ -316,41 +301,14 @@ const AcademicsPage = () => {
                   fontSize="md"
                   whiteSpace="pre-line"
                 >
-{`The introduction of Tech-Voc education at St James Zongoro Primary School in 2007 was in compliance with the Zimbabwe's reviewed Technical and Vocational Education and Training (TVET) of 2005 towards the fulfilment of the recommendations of the Commission of Enquiry for Education and Training (CIET) of 1999 dubbed the Nziramasanga Commission. The advent of the Agenda 2063 and the SDGs on the international front and the Competency Based Curriculum buttressed the need to embrace Tech-Voc. Education and St James Zongoro Primary took it a notch higher by integrating it with Non-Formal Education (NFE). The Director's Circular Number 9 of 2016 the schools to vocationalize the curriculum through operationalising the implementation of Technical and Vocational Education. Even when the circular was cancelled and replaced by the Secretary's Circular of 2016 on Teacher Establishments, Tech-Voc Education became even more dominant and resonant.
-
-In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro Primary School has been integrated with Non-Formal Education such that those who did not benefit fully from the skills orientation program during their days at school are reintegrated into the Functional Literacy Program in compliance with the Secretary's Circular Number 13 of 2016. This has seen the school doing very well in the area and scooped the overall first position at the District NFE exhibitions in the year 2024. The ICT, Design and Technology of the same department has also emerged the 2025 Provincial Champions at the Provincial Literacy Commemorations at Mutare Boys High.`}
+                  {block.techVoc.policy.body}
                 </Text>
               </Box>
             </VStack>
 
           {/* Achievements Grid */}
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} mb={16}>
-            {[
-              {
-                icon: FaUtensils,
-                title: "Home-Grown Feeding Program",
-                description: "Producing high-value crops and implementing 'rainbow plate' concept with micro-nutrients for balanced meals.",
-                achievements: ["Kale, Kolrabhi, Parsley", "Swizz Chard, Brinjals, Basil", "Improved attendance rates"]
-              },
-              {
-                icon: FaBookOpen,
-                title: "Music Excellence",
-                description: "Professional music performances at state functions and national competitions.",
-                achievements: ["Manicaland Province representative", "Nhanga-Gota National Event", "Veld Fire Awareness campaigns"]
-              },
-              {
-                icon: FaLaptop,
-                title: "ICT & Design Technology",
-                description: "Leading digital literacy and technology education initiatives.",
-                achievements: ["2025 Provincial Champions", "Provincial Literacy Commemorations", "Modern tech integration"]
-              },
-              {
-                icon: FaGraduationCap,
-                title: "Agriculture Innovation",
-                description: "Sustainable farming practices supporting school feeding programs.",
-                achievements: ["High-value crop production", "Home-Grown Feeding Program", "Food security initiatives"]
-              }
-            ].map((achievement, index) => (
+            {block.techVoc.achievements.items.map((achievement, index) => (
                 <Box key={index}
                   bg="white"
                   borderRadius="2xl"
@@ -376,7 +334,7 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
                       justifyContent="center"
                       boxShadow="0 4px 15px rgba(130, 0, 0,0.3)"
                     >
-                      <Icon as={achievement.icon} color="onAccent" fontSize="lg" />
+                      <Icon as={getWebsiteIcon(achievement.icon, FaStar)} color="onAccent" fontSize="lg" />
                     </Box>
                     <Heading size="md" color="brandStrong" fontWeight="700">
                       {achievement.title}
@@ -389,9 +347,9 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
 
                   <VStack align="start" spacing={2}>
                     <Text color="brandGreenStrong" fontSize="sm" fontWeight="600">
-                      Key Achievements:
+                      {block.techVoc.achievements.label}
                     </Text>
-                    {achievement.achievements.map((item, i) => (
+                    {achievement.items.map((item, i) => (
                       <Flex key={i} align="center" gap={2}>
                         <Icon as={FaCheckCircle} color="brandGreen" fontSize="xs" />
                         <Text color="gray.700" fontSize="sm">{item}</Text>
@@ -419,10 +377,10 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
                 </Box>
                 <Box textAlign="center">
                   <Heading size="xl" color="brandGreenStrong" fontWeight="700">
-                    Conclusion
+                    {block.techVoc.conclusion.heading}
                   </Heading>
                   <Text color="gray.500" fontSize="sm">
-                    Sustained Excellence in Tech-Voc Education
+                    {block.techVoc.conclusion.subtitle}
                   </Text>
                 </Box>
               </Flex>
@@ -444,7 +402,7 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
                   textAlign="center"
                   whiteSpace="pre-line"
                 >
-{`St James Zongoro has four (4) specialised Tech-Voc Subject areas (Agriculture, Music, ICT and Home Economics) adopted through the then policy and legal frameworks of the year 2007 and upgraded through the subsequent policy developments which saw the school outperforming its own records and also outperforming its peers. Through the embracing and operationalization of the Tech-Voc Education program, the school was able to consolidate its ground through synergizing with structural systems, and in the process, creating life-support subsystems in the community which cannot be easily undone without hurting the greater part of the community. The implementation of the Heritage Based Curriculum and sustainability of the Home-Grown School Feeding Program at St James Zongoro Primary School is anchored on the school's Tech-Voc Subject specialisation.`}
+                  {block.techVoc.conclusion.body}
                 </Text>
               </Box>
 
@@ -498,7 +456,7 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
               fontWeight="700"
               textShadow="0 4px 20px rgba(0,0,0,0.3)"
             >
-              Ready to Enroll?
+              {block.cta.heading}
             </Heading>
             <Text 
               color="whiteAlpha.900" 
@@ -506,8 +464,7 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
               maxW="600px"
               lineHeight="1.8"
             >
-              Give your child the best start in education. Join our community of learners 
-              and watch them thrive academically and personally.
+              {block.cta.description}
             </Text>
             
             <Flex 
@@ -526,7 +483,7 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
                   fontWeight="700"
                   fontSize="lg"
                 >
-                  Apply Now
+                  {block.cta.primaryButtonText}
                 </EnrollButton>
               </MotionBox>
               
@@ -536,7 +493,7 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
               >
                 <Button
                   as="a"
-                  href="/contact"
+                  href={block.cta.secondaryButtonLink}
                   bg="transparent"
                   color="onAccent"
                   size="lg"
@@ -553,7 +510,7 @@ In the spirit of "Leaving No-one Behind", Tech-Voc Education at St James Zongoro
                   }}
                   transition="all 0.3s ease"
                 >
-                  Contact Us
+                  {block.cta.secondaryButtonText}
                 </Button>
               </MotionBox>
             </Flex>

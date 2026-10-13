@@ -8,8 +8,12 @@ import Announcements from '../components/sections/Announcements';
 import LatestMoments from '../components/sections/LatestMoments';
 import SchoolStats from '../components/sections/SchoolStats';
 import Testimonials from '../components/sections/Testimonials';
+import { useBlock } from '../lib/blocks';
+import { homeCommunityBlock, type HomeCommunityBlock } from '../data/blocks/homeCommunity';
 
 const HomePage = () => {
+  const community = useBlock<HomeCommunityBlock>('home.community', homeCommunityBlock);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -46,8 +50,8 @@ const HomePage = () => {
                   position="relative"
                 >
                   <Image
-                    src="/images/chief-image.webp"
-                    alt="Chief Mutasa"
+                    src={community.image}
+                    alt={community.imageAlt}
                     loading="lazy"
                     decoding="async"
                     w="100%"
@@ -74,10 +78,10 @@ const HomePage = () => {
                   boxShadow="0 4px 20px rgba(0,0,0,0.15)"
                 >
                   <Text color="brand" fontWeight="700" fontSize="sm">
-                    Chief Mutasa
+                    {community.leaderName}
                   </Text>
                   <Text color="gray.500" fontSize="xs">
-                    Community Leader
+                    {community.leaderRole}
                   </Text>
                 </Box>
               </Box>
@@ -88,21 +92,17 @@ const HomePage = () => {
                    bgClip="text"
                    fontWeight="700"
                  >
-                   Our Community Partnership
+                   {community.heading}
                  </Heading>
                  <Box w="60px" h="4px" bg="maroon.500" borderRadius="full" />
-<Text color="gray.700" lineHeight="1.8" fontSize={{ base: "md", md: "lg" }}>
-                    St James Zongoro Primary School is deeply rooted in the Ndorikanda community.
-                    Our partnership with local leaders, parents, and villagers creates a supportive
-                    environment where every child can succeed.
-                  </Text>
-                  <Text color="gray.700" lineHeight="1.8" fontSize={{ base: "md", md: "lg" }}>
-                   Together with Chief James Mutasa, we're building a brighter future for our children
-                   through quality education and community engagement.
-                 </Text>
+                  {community.paragraphs.map((paragraph, index) => (
+                    <Text key={index} color="gray.700" lineHeight="1.8" fontSize={{ base: "md", md: "lg" }}>
+                      {paragraph}
+                    </Text>
+                  ))}
                 <Button
                   as={RouterLink}
-                  to="/community"
+                  to={community.buttonLink}
                   bg="maroon.500"
                   color="onAccent"
                   size="lg"
@@ -110,7 +110,7 @@ const HomePage = () => {
                   mt={2}
                   _hover={{ bgGradient: 'linear(to-r, maroon.600, maroon.700)', transform: 'translateY(-2px)' }}
                 >
-                  Read More
+                  {community.buttonText}
                 </Button>
               </VStack>
             </SimpleGrid>

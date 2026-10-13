@@ -8,6 +8,7 @@ import ScrollProgress from '../ui/ScrollProgress';
 import WhatsAppButton from '../ui/WhatsAppButton';
 import BackToTop from '../ui/BackToTop';
 import { getPageMeta, SITE_URL, DEFAULT_OG_IMAGE } from '../../lib/seo';
+import { useWebsiteContent } from '../../context/WebsiteContentContext';
 interface LayoutProps {
   children: React.ReactNode;
 }
@@ -33,23 +34,27 @@ const Layout = ({ children }: LayoutProps) => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const { pathname } = useLocation();
+  const { content } = useWebsiteContent();
 
   useEffect(() => {
     const meta = getPageMeta(pathname);
     const url = `${SITE_URL}${pathname === '/' ? '/' : pathname}`;
-    const image = meta.image ?? DEFAULT_OG_IMAGE;
+    const useCmsSeo = pathname === '/' && content.source === 'cms';
+    const title = useCmsSeo ? content.seo.title : meta.title;
+    const description = useCmsSeo ? content.seo.description : meta.description;
+    const image = (useCmsSeo && content.seo.image) || meta.image || DEFAULT_OG_IMAGE;
 
-    document.title = meta.title;
+    document.title = title;
 
-    setMetaTag('meta[name="description"]', 'name', 'description', meta.description);
+    setMetaTag('meta[name="description"]', 'name', 'description', description);
 
-    setMetaTag('meta[property="og:title"]', 'property', 'og:title', meta.title);
-    setMetaTag('meta[property="og:description"]', 'property', 'og:description', meta.description);
+    setMetaTag('meta[property="og:title"]', 'property', 'og:title', title);
+    setMetaTag('meta[property="og:description"]', 'property', 'og:description', description);
     setMetaTag('meta[property="og:url"]', 'property', 'og:url', url);
     setMetaTag('meta[property="og:image"]', 'property', 'og:image', image);
 
-    setMetaTag('meta[name="twitter:title"]', 'name', 'twitter:title', meta.title);
-    setMetaTag('meta[name="twitter:description"]', 'name', 'twitter:description', meta.description);
+    setMetaTag('meta[name="twitter:title"]', 'name', 'twitter:title', title);
+    setMetaTag('meta[name="twitter:description"]', 'name', 'twitter:description', description);
     setMetaTag('meta[name="twitter:image"]', 'name', 'twitter:image', image);
 
     let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
@@ -59,7 +64,7 @@ const Layout = ({ children }: LayoutProps) => {
       document.head.appendChild(canonical);
     }
     canonical.setAttribute('href', url);
-  }, [pathname]);
+  }, [pathname, content]);
 
   const handleScroll = useCallback(() => {
     const position = window.scrollY;

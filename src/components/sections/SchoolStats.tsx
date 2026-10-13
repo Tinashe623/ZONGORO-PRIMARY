@@ -2,15 +2,21 @@ import { useEffect, useRef, useState } from 'react';
 import { Box, SimpleGrid, Text, Image } from '@chakra-ui/react';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { FaChurch, FaLayerGroup, FaBuilding, FaCamera } from 'react-icons/fa';
-
-const stats = [
-  { value: 1925, label: 'Founded', suffix: '' },
-  { value: 9, label: 'Levels Taught (ECD to Grade 7)', suffix: '' },
-  { value: 6, label: 'Modern Facilities', suffix: '' },
-  { value: 17, label: `Moments Captured in ${new Date().getFullYear()}`, suffix: '' },
-];
+import { useWebsiteContent } from '../../context/WebsiteContentContext';
+import type { WebsiteContent } from '../../types/website';
 
 const statIcons = [FaChurch, FaLayerGroup, FaBuilding, FaCamera];
+
+const buildStats = (content: WebsiteContent) => [
+  { value: content.stats.foundedYear, label: 'Founded', suffix: '' },
+  { value: content.stats.levels, label: 'Levels Taught (ECD to Grade 7)', suffix: '' },
+  { value: content.stats.facilities, label: 'Modern Facilities', suffix: '' },
+  {
+    value: content.stats.moments,
+    label: `Moments Captured in ${new Date().getFullYear()}`,
+    suffix: '',
+  },
+];
 
 const CountUp = ({ value, suffix }: { value: number; suffix: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -42,6 +48,9 @@ const CountUp = ({ value, suffix }: { value: number; suffix: string }) => {
 };
 
 const SchoolStats = () => {
+  const { content } = useWebsiteContent();
+  const stats = buildStats(content);
+
   return (
     <Box py={{ base: 14, md: 20 }} px={4} position="relative" overflow="hidden">
       <Image

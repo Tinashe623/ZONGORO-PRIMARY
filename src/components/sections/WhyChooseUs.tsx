@@ -9,45 +9,17 @@ import {
   Button,
   Image,
 } from '@chakra-ui/react';
-import { FaGraduationCap, FaChurch, FaUsers, FaArrowRight, FaBus, FaHome, FaBullseye } from 'react-icons/fa';
+import { FaArrowRight, FaGraduationCap } from 'react-icons/fa';
 import EnrollButton from '../ui/EnrollButton';
 import Reveal from '../ui/Reveal';
 import { Link as RouterLink } from 'react-router-dom';
-
-const features = [
-  {
-    icon: FaGraduationCap,
-    title: 'Academic Excellence',
-    description: 'Consistent Grade 7 pass rates above 90%, preparing students for success in secondary education and beyond.',
-  },
-  {
-    icon: FaChurch,
-    title: 'Christian Foundation',
-    description: 'Rooted in Anglican values and morals, fostering character development alongside academic achievement.',
-  },
-  {
-    icon: FaUsers,
-    title: 'Community Partnership',
-    description: 'Strong ties with local leadership and village community, creating a supportive learning environment.',
-  },
-  {
-    icon: FaBus,
-    title: 'Reliable Transport',
-    description: 'Safe daily school bus service ensuring all students can attend school reliably and safely.',
-  },
-  {
-    icon: FaHome,
-    title: 'Boarding Facilities',
-    description: 'Modern boarding institute with comfortable dormitories, supervised study, and nutritious meals.',
-  },
-  {
-    icon: FaBullseye,
-    title: 'Holistic Development',
-    description: 'Sports, arts, and extracurricular activities that develop well-rounded individuals.',
-  },
-];
+import { useWebsiteContent } from '../../context/WebsiteContentContext';
+import { getWebsiteIcon } from '../../lib/websiteIcons';
 
 const WhyChooseUs = () => {
+  const { content } = useWebsiteContent();
+  const features = content.features;
+
   return (
     <Box py={20} px={4} bg="cream.50" position="relative" overflow="hidden">
       <Box position="absolute" top={0} left={0} right={0} bottom={0} opacity={0.4}>
@@ -156,7 +128,7 @@ const WhyChooseUs = () => {
                     bg="maroon.500"
                     boxShadow="0 4px 14px rgba(130, 0, 0, 0.3)"
                   >
-                    <Icon as={feature.icon} color="onAccent" fontSize="xl" />
+                    <Icon as={getWebsiteIcon(feature.icon, FaGraduationCap)} color="onAccent" fontSize="xl" />
                   </Flex>
                   <Heading
                     size="md"

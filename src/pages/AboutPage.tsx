@@ -1,46 +1,29 @@
 import { useEffect } from 'react';
 import { Box, SimpleGrid, VStack, Heading, Text, Flex, Icon, Badge, Button, Image } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
-import { FaMedal, FaEye, FaBullseye, FaUsers, FaLightbulb, FaHeart, FaShieldAlt, FaStar, FaCalendarAlt, FaFire, FaAward, FaUserTie, FaGlobeAfrica, FaFlag } from 'react-icons/fa';
+import { FaBullseye, FaEye, FaFire, FaFlag, FaGlobeAfrica, FaUserTie } from 'react-icons/fa';
 import PageHero from '../components/ui/PageHero';
 import EnrollButton from '../components/ui/EnrollButton';
+import { useBlock } from '../lib/blocks';
+import { getWebsiteIcon } from '../lib/websiteIcons';
+import { aboutBlock, type AboutBlock } from '../data/blocks/about';
+
+const alumniIconFallbacks = [FaGlobeAfrica, FaUserTie, FaFlag];
 
 const AboutPage = () => {
+  const block = useBlock<AboutBlock>('pages.about', aboutBlock);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const schoolHistory = [
-    { year: '1925', icon: FaCalendarAlt, title: 'Founded', description: 'Opened by the Anglican Diocese of Mashonaland (now Diocese of Manicaland) under Father Baker, establishing a legacy of educational excellence.' },
-    { year: '1949', icon: FaFire, title: 'Trial by Fire', description: 'Dormitories destroyed in a suspected arson incident. Yet, from the ashes, our community grew stronger.' },
-    { year: 'Present', icon: FaAward, title: 'Excellence', description: 'Produced notable national leaders including Zimbabwe\'s Minister of Defence and distinguished Senators.' },
-  ];
-
-  const values = [
-    { icon: FaShieldAlt, title: 'Patriotism', description: 'Love and dedication to our nation' },
-    { icon: FaUsers, title: 'Inclusivity', description: 'Embracing diversity in all forms' },
-    { icon: FaHeart, title: 'Teamwork', description: 'Collaborating for greater impact' },
-    { icon: FaLightbulb, title: 'Innovation', description: 'Creative solutions for progress' },
-    { icon: FaStar, title: 'Commitment', description: 'Dedication to our mission' },
-    { icon: FaMedal, title: 'Efficiency', description: 'Maximizing resources effectively' },
-    { icon: FaEye, title: 'Transparency', description: 'Open and honest operations' },
-    { icon: FaShieldAlt, title: 'Accountability', description: 'Taking responsibility seriously' },
-    { icon: FaHeart, title: 'Integrity', description: 'Unwavering moral principles' },
-  ];
-
-  const alumni = [
-    { name: 'Cde Oppah Chamu Zvipange Muchinguri Kashiri', title: 'Minister of Defence', description: 'Zimbabwe', icon: FaGlobeAfrica },
-    { name: 'Hon. Irene Zindi', title: 'Senator', description: 'Zimbabwe', icon: FaUserTie },
-    { name: 'Hon. Senator Chief James Kurauone Ndorikanda Man\'ai Mutasa ', title: 'Senator', description: 'Zimbabwe', icon: FaFlag },
-  ];
-
   return (
     <Box>
       <PageHero 
-        title="About Our School" 
-        subtitle="A century of educational excellence rooted in Anglican heritage"
-        image="/images/about.webp"
-        imageAlt="St James Zongoro Primary School campus"
+        title={block.hero.title} 
+        subtitle={block.hero.subtitle}
+        image={block.hero.image}
+        imageAlt={block.hero.imageAlt}
       />
       
       <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="cream.50" position="relative" overflow="hidden">
@@ -52,13 +35,10 @@ const AboutPage = () => {
             <VStack spacing={16}>
               <Box textAlign="center" maxW="800px">
                 <Heading fontSize={{ base: "xl", md: "2xl" }} color="brandStrong" mb={4}>
-                  Our Legacy Since 1925
+                  {block.legacy.heading}
                 </Heading>
                 <Text color="gray.600" fontSize={{ base: "md", md: "lg" }} lineHeight="1.8">
-                  St James Zongoro Primary School stands as a testament to nearly a century of educational
-                  excellence in the heart of Ndorikanda Village, Mutasa District, Mutare, Zimbabwe.
-                  Founded by the Anglican Diocese and evolving through challenges, we continue to shape the future
-                  of generations to come.
+                  {block.legacy.paragraph}
                 </Text>
               </Box>
 
@@ -71,8 +51,8 @@ const AboutPage = () => {
                 position="relative"
               >
                 <Image
-                  src="/images/about-image.webp"
-                  alt="St James Zongoro Primary School Campus"
+                  src={block.legacy.image}
+                  alt={block.legacy.imageAlt}
                   loading="lazy"
                   decoding="async"
                   w="100%"
@@ -92,14 +72,14 @@ const AboutPage = () => {
                   pb={8}
                 >
                    <Box textAlign="center" color="onAccent">
-                     <Text fontSize={{ base: "lg", md: "2xl" }} fontWeight="700">St James Zongoro Primary School</Text>
-                     <Text fontSize={{ base: "sm", md: "md" }} opacity={0.9}>Established 1925</Text>
+                     <Text fontSize={{ base: "lg", md: "2xl" }} fontWeight="700">{block.legacy.imageTitle}</Text>
+                     <Text fontSize={{ base: "sm", md: "md" }} opacity={0.9}>{block.legacy.imageSubtitle}</Text>
                    </Box>
                 </Box>
               </Box>
 
               <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} w="100%" position="relative">
-                {schoolHistory.map((item) => (
+                {block.history.map((item) => (
                      <Box key={item.year}
                        position="relative"
                        p={0}
@@ -148,7 +128,7 @@ const AboutPage = () => {
                                  boxShadow: '0 6px 20px rgba(130, 0, 0, 0.22)'
                                }}
                              >
-                               <Icon as={item.icon} color="onAccent" fontSize={{ base: "lg", md: "xl" }} />
+                               <Icon as={getWebsiteIcon(item.icon, FaFire)} color="onAccent" fontSize={{ base: "lg", md: "xl" }} />
                              </Box>
                              <Badge
                                bg="gray.100"
@@ -209,7 +189,7 @@ const AboutPage = () => {
             <VStack spacing={12}>
               <Box textAlign="center" maxW="700px">
                 <Heading fontSize={{ base: "xl", md: "2xl" }} color="onAccent" mb={4}>
-                  Vision & Mission
+                  {block.visionMission.heading}
                 </Heading>
                 <Box w={{ base: "60px", md: "80px" }} h="3px" bg="cream.100" borderRadius="full" mx="auto" mb={6} />
               </Box>
@@ -257,14 +237,14 @@ bg="forest.500"
                            boxShadow: '0 6px 20px rgba(45, 106, 79, 0.4)'
                          }}
                        >
-                         <Icon as={FaEye} color="onAccent" fontSize={{ base: "lg", md: "xl" }} />
+                         <Icon as={getWebsiteIcon(block.visionMission.vision.icon, FaEye)} color="onAccent" fontSize={{ base: "lg", md: "xl" }} />
                        </Box>
                        <Heading fontSize={{ base: "md", md: "lg" }} color="onAccent" transition="color 0.3s ease" _groupHover={{ color: 'forest.300' }}>
-                         Vision
+                         {block.visionMission.vision.title}
                        </Heading>
                      </Flex>
                      <Text color="whiteAlpha.900" fontSize={{ base: "md", md: "lg" }} lineHeight="1.8" transition="color 0.3s ease" _groupHover={{ color: 'onAccent' }}>
-                       To be a prosperous, united, empowered, and life-giving school by 2030.
+                       {block.visionMission.vision.text}
                      </Text>
                    </Box>
 
@@ -310,14 +290,14 @@ bg="forest.500"
                            boxShadow: '0 6px 20px rgba(45, 106, 79, 0.4)'
                          }}
                        >
-                         <Icon as={FaBullseye} color="onAccent" fontSize={{ base: "lg", md: "xl" }} />
+                         <Icon as={getWebsiteIcon(block.visionMission.mission.icon, FaBullseye)} color="onAccent" fontSize={{ base: "lg", md: "xl" }} />
                        </Box>
                        <Heading fontSize={{ base: "md", md: "lg" }} color="onAccent" transition="color 0.3s ease" _groupHover={{ color: 'forest.300' }}>
-                         Mission
+                         {block.visionMission.mission.title}
                        </Heading>
                      </Flex>
                      <Text color="whiteAlpha.900" fontSize={{ base: "md", md: "lg" }} lineHeight="1.8" transition="color 0.3s ease" _groupHover={{ color: 'onAccent' }}>
-                       To roll out an inclusive, skills-oriented and heritage-based curriculum grounded on traditional culture, moral principles, value systems, sport, arts, science, innovation, design and technology.
+                       {block.visionMission.mission.text}
                      </Text>
                    </Box>
               </SimpleGrid>
@@ -331,15 +311,15 @@ bg="forest.500"
             <VStack spacing={16}>
               <Box textAlign="center">
                 <Heading fontSize={{ base: "xl", md: "2xl" }} color="brandStrong" mb={4} fontWeight="800">
-                  Our Core Values
+                  {block.coreValues.heading}
                 </Heading>
                 <Text color="gray.500" fontSize={{ base: "md", md: "lg" }} maxW="500px" mx="auto">
-                  The guiding principles that shape every aspect of our school community
+                  {block.coreValues.subtitle}
                 </Text>
               </Box>
 
               <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} w="100%">
-                {values.slice(0, 3).map((value) => (
+                {block.coreValues.items.slice(0, 3).map((value) => (
                     <Box key={value.title}
                       p={{ base: 6, md: 8 }}
                       borderRadius="2xl"
@@ -387,7 +367,7 @@ bg="forest.500"
                             boxShadow: '0 6px 20px rgba(130, 0, 0, 0.22)'
                           }}
                         >
-                          <Icon as={value.icon} color="onAccent" fontSize={{ base: "lg", md: "xl" }} />
+                          <Icon as={getWebsiteIcon(value.icon, FaEye)} color="onAccent" fontSize={{ base: "lg", md: "xl" }} />
                         </Box>
                         <Box minW={0} flex={1}>
                           <Heading
@@ -416,7 +396,7 @@ bg="forest.500"
               </SimpleGrid>
 
               <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} w="100%">
-                {values.slice(3, 6).map((value) => (
+                {block.coreValues.items.slice(3, 6).map((value) => (
                      <Box key={value.title}
                        p={{ base: 6, md: 8 }}
                        borderRadius="2xl"
@@ -464,7 +444,7 @@ bg="forest.500"
                              boxShadow: '0 6px 20px rgba(130, 0, 0, 0.22)'
                            }}
                          >
-                           <Icon as={value.icon} color="onAccent" fontSize={{ base: "lg", md: "xl" }} />
+                           <Icon as={getWebsiteIcon(value.icon, FaEye)} color="onAccent" fontSize={{ base: "lg", md: "xl" }} />
                          </Box>
                          <Box minW={0} flex={1}>
                            <Heading
@@ -493,7 +473,7 @@ bg="forest.500"
               </SimpleGrid>
 
               <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} w="100%">
-                {values.slice(6, 9).map((value) => (
+                {block.coreValues.items.slice(6, 9).map((value) => (
                      <Box key={value.title}
                        p={{ base: 6, md: 8 }}
                        borderRadius="2xl"
@@ -541,7 +521,7 @@ bg="forest.500"
                              boxShadow: '0 6px 20px rgba(130, 0, 0, 0.22)'
                            }}
                          >
-                           <Icon as={value.icon} color="onAccent" fontSize={{ base: "lg", md: "xl" }} />
+                           <Icon as={getWebsiteIcon(value.icon, FaEye)} color="onAccent" fontSize={{ base: "lg", md: "xl" }} />
                          </Box>
                          <Box minW={0} flex={1}>
                            <Heading
@@ -582,15 +562,15 @@ bg="forest.500"
             <VStack spacing={16}>
               <Box textAlign="center">
                 <Heading fontSize={{ base: "xl", md: "2xl" }} color="onAccent" mb={4} fontWeight="800">
-                  Notable Alumni
+                  {block.alumni.heading}
                 </Heading>
                 <Text color="whiteAlpha.800" fontSize={{ base: "md", md: "lg" }} maxW="600px" mx="auto">
-                  Distinguished leaders who began their journey at St James Zongoro
+                  {block.alumni.subtitle}
                 </Text>
               </Box>
 
               <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} w="100%">
-                {alumni.map((person) => (
+                {block.alumni.items.map((person, index) => (
                     <Box key={person.name}
                       p={{ base: 6, md: 10 }}
                       borderRadius="2xl"
@@ -627,7 +607,7 @@ bg="forest.500"
                           boxShadow="0 8px 32px rgba(0, 0, 0, 0.3)"
                           mb={6}
                         >
-                          <Icon as={person.icon} color="onAccent" fontSize={{ base: "2xl", md: "3xl" }} />
+                          <Icon as={getWebsiteIcon(person.icon, alumniIconFallbacks[index] ?? FaFlag)} color="onAccent" fontSize={{ base: "2xl", md: "3xl" }} />
                         </Box>
                         <Heading size="md" color="onAccent" mb={3} fontWeight="700" wordBreak="break-word">
                           {person.name}
@@ -656,11 +636,11 @@ bg="forest.500"
         <Box maxW="1200px" mx="auto" textAlign="center" position="relative" zIndex={1}>
             <VStack spacing={8}>
               <Heading fontSize={{ base: "xl", md: "2xl" }} color="brandStrong" fontWeight="800">
-                Join Our School Community
+                {block.cta.heading}
               </Heading>
               <Box w={{ base: "60px", md: "80px" }} h="3px" bg="maroon.500" borderRadius="full" />
               <Text color="gray.600" fontSize={{ base: "md", md: "lg" }} maxW="600px" mx="auto" lineHeight="1.8">
-                Enroll your child today and give them the opportunity to thrive in an environment that values academic excellence, heritage, and holistic development.
+                {block.cta.description}
               </Text>
               <Flex gap={{ base: 3, md: 4 }} flexWrap="wrap" justify="center" mt={4}>
                 <EnrollButton
@@ -669,11 +649,11 @@ bg="forest.500"
                   fontWeight="700"
                   fontSize={{ base: "md", md: "lg" }}
                 >
-                  Apply Now
+                  {block.cta.primaryButtonText}
                 </EnrollButton>
                 <Button
                   as={RouterLink}
-                  to="/contact"
+                  to={block.cta.secondaryButtonLink}
                   px={{ base: 6, md: 8 }}
                   py={{ base: 3, md: 4 }}
                   variant="outline"
@@ -684,7 +664,7 @@ bg="forest.500"
                   borderColor="maroon.500"
                   _hover={{ bg: 'maroon.500', color: 'onAccent' }}
                 >
-                  Contact Us
+                  {block.cta.secondaryButtonText}
                 </Button>
               </Flex>
             </VStack>

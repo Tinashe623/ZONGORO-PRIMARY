@@ -34,10 +34,14 @@ import {
   FaLightbulb,
   FaBookOpen,
   FaBook,
+  FaStar,
 } from 'react-icons/fa';
-import { activities } from '../../data/activities';
+import type { IconType } from 'react-icons';
+import { getWebsiteIcon } from '../../lib/websiteIcons';
+import type { Activity } from '../../data/activities';
+import type { ActivitiesBlock } from '../../data/blocks/activities';
 
-const iconMap: Record<string, React.ComponentType> = {
+const iconMap: Record<string, IconType> = {
   FaFutbol,
   FaBasketballBall,
   FaRunning,
@@ -65,11 +69,20 @@ const categoryColors: Record<string, string> = {
   academic: 'blue',
 };
 
-const categories = ['All', 'Sports', 'Arts & Culture', 'Clubs', 'Academic'];
+// Internal filter keys. The user-facing tab labels come from the content block;
+// only the filtering behaviour lives in code so labels stay editable.
+const CATEGORY_FILTERS = ['all', 'sports', 'arts', 'clubs', 'academic'] as const;
+type CategoryFilter = (typeof CATEGORY_FILTERS)[number];
 
-const ActivityCard = ({ activity }: { activity: typeof activities[0] }) => {
+const ActivityCard = ({
+  activity,
+  cardLabels,
+}: {
+  activity: Activity;
+  cardLabels: ActivitiesBlock['card'];
+}) => {
   const [isHovered, setIsHovered] = useState(false);
-  const IconComponent = iconMap[activity.icon];
+  const IconComponent = getWebsiteIcon(activity.icon, iconMap[activity.icon] ?? FaStar);
 
   const isAcademic = activity.category === 'academic';
   const academicCardBg = useColorModeValue(
@@ -159,7 +172,7 @@ const ActivityCard = ({ activity }: { activity: typeof activities[0] }) => {
             >
               <Box w="100%" pt={2} borderTop="1px" borderColor="gray.100">
                 <Text color="gray.500" fontSize="xs" fontWeight="600" mb={1}>
-                  Achievements:
+                  {cardLabels.achievementsLabel}
                 </Text>
                 {activity.achievements.map((a, i) => (
                   <Text key={i} color={isAcademic ? academicText : 'brandGreen'} fontSize="xs">
@@ -190,7 +203,7 @@ const ActivityCard = ({ activity }: { activity: typeof activities[0] }) => {
               backdropFilter="blur(4px)"
               display={{ base: "block", md: "none" }}
             >
-              👆 Tap to expand
+              {cardLabels.tapHint}
             </Box>
           )}
 
@@ -214,7 +227,7 @@ const ActivityCard = ({ activity }: { activity: typeof activities[0] }) => {
               backdropFilter="blur(4px)"
               display={{ base: "none", md: "block" }}
             >
-              🖱️ Hover to view
+              {cardLabels.hoverHint}
             </Box>
           )}
         </VStack>
@@ -223,18 +236,26 @@ const ActivityCard = ({ activity }: { activity: typeof activities[0] }) => {
   );
 };
 
-const ActivitiesGrid = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
+interface ActivitiesGridProps {
+  activities: Activity[];
+  heading: string;
+  subtitle: string;
+  categories: string[];
+  cardLabels: ActivitiesBlock['card'];
+}
 
-  const filteredActivities = selectedCategory === 'All'
+const ActivitiesGrid = ({
+  activities,
+  heading,
+  subtitle,
+  categories,
+  cardLabels,
+}: ActivitiesGridProps) => {
+  const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>('all');
+
+  const filteredActivities = selectedCategory === 'all'
     ? activities
-    : activities.filter(activity => {
-        if (selectedCategory === 'Sports') return activity.category === 'sports';
-        if (selectedCategory === 'Arts & Culture') return activity.category === 'arts';
-        if (selectedCategory === 'Clubs') return activity.category === 'clubs';
-        if (selectedCategory === 'Academic') return activity.category === 'academic';
-        return true;
-      });
+    : activities.filter((activity) => activity.category === selectedCategory);
 
   return (
     <Box
@@ -263,18 +284,18 @@ const ActivitiesGrid = () => {
                 bg="brand"
                 bgClip="text"
               >
-                Explore Our Activities
+                {heading}
               </Heading>
               <Text color="gray.600" fontSize="lg" maxW="600px">
-                Choose from our diverse range of co-curricular activities designed to nurture talents and build character
+                {subtitle}
               </Text>
             </VStack>
 
             <Tabs
               variant="soft-rounded"
               colorScheme="maroon"
-              index={categories.indexOf(selectedCategory)}
-              onChange={(index) => setSelectedCategory(categories[index])}
+              index={CATEGORY_FILTERS.indexOf(selectedCategory)}
+              onChange={(index) => setSelectedCategory(CATEGORY_FILTERS[index])}
               size="lg"
             >
               <TabList
@@ -286,9 +307,9 @@ const ActivitiesGrid = () => {
                 borderRadius="2xl"
                 boxShadow="0 4px 20px rgba(0,0,0,0.08)"
               >
-                {categories.map((category) => (
+                {categories.map((category, index) => (
                   <Tab
-                    key={category}
+                    key={CATEGORY_FILTERS[index] ?? index}
                     _selected={{
                       bg: 'maroon.500',
                       color: 'onAccent',
@@ -309,7 +330,7 @@ const ActivitiesGrid = () => {
 
         <SimpleGrid columns={{ base: 1, sm: 2, lg: 3, xl: 4 }} spacing={8}>
           {filteredActivities.map((activity) => (
-              <ActivityCard key={activity.id} activity={activity} />
+              <ActivityCard key={activity.id} activity={activity} cardLabels={cardLabels} />
           ))}
         </SimpleGrid>
       </Box>

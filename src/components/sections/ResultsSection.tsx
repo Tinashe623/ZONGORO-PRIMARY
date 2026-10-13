@@ -10,8 +10,8 @@ import {
   Badge,
   Flex,
 } from '@chakra-ui/react';
-import { gradeSevenResults } from '../../data/results';
 import SectionHeading from '../ui/SectionHeading';
+import { useWebsiteContent } from '../../context/WebsiteContentContext';
 
 const ResultCard = ({ year, passRate, students }: { year: number; passRate: number; students: number }) => {
   const [displayRate, setDisplayRate] = useState(0);
@@ -61,6 +61,9 @@ const ResultCard = ({ year, passRate, students }: { year: number; passRate: numb
 };
 
 const ResultsSection = () => {
+  const { content } = useWebsiteContent();
+  const gradeSevenResults = content.results.grade7;
+
   return (
     <Box id="results" bg="cream.50" py={20} px={4}>
       <Box maxW="1200px" mx="auto">

@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, memo } from 'react';
+import { useEffect, useMemo, useState, useCallback, memo } from 'react';
 import {
   Box,
   SimpleGrid,
@@ -20,15 +20,15 @@ import {
 } from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { FaExpand } from 'react-icons/fa';
-import { galleryImages } from '../data/gallery';
-import type { GalleryImage } from '../data/gallery';
 import PageHero from '../components/ui/PageHero';
 import SectionHeading from '../components/ui/SectionHeading';
-
-const categories = ['All', 'Classrooms', 'Chapel & Assembly', 'Campus', 'School Activities', 'Church Events', 'Sports', 'Projects', 'Activities', 'Achievements'];
+import { useWebsiteContent } from '../context/WebsiteContentContext';
+import { useBlock } from '../lib/blocks';
+import { galleryPageBlock, type GalleryPageBlock } from '../data/blocks/galleryPage';
+import type { WebsiteGalleryItem } from '../types/website';
 
 interface ImageCardProps {
-  image: GalleryImage;
+  image: WebsiteGalleryItem;
   onClick: () => void;
 }
 
@@ -131,15 +131,24 @@ const ImageCard = memo(({ image, onClick }: ImageCardProps) => {
 ImageCard.displayName = 'ImageCard';
 
 const GalleryPage = () => {
+  const { content } = useWebsiteContent();
+  const block = useBlock<GalleryPageBlock>('pages.gallery', galleryPageBlock);
+  const galleryImages = content.gallery;
+  const allCategory = block.filters.allLabel;
+  const categories = useMemo(
+    () => [allCategory, ...Array.from(new Set(galleryImages.map((image) => image.category)))],
+    [galleryImages, allCategory]
+  );
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState(allCategory);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const filteredImages = selectedCategory === 'All'
+  const filteredImages = selectedCategory === allCategory
     ? galleryImages
     : galleryImages.filter((img) => img.category === selectedCategory);
 
@@ -151,8 +160,8 @@ const GalleryPage = () => {
   }, [onOpen]);
 
   const handleCategoryChange = useCallback((index: number) => {
-    setSelectedCategory(categories[index]);
-  }, []);
+    setSelectedCategory(categories[index] ?? allCategory);
+  }, [categories, allCategory]);
 
   const showPrevious = useCallback(() => {
     setSelectedIndex((prev) => (prev === null || filteredImages.length === 0 ? prev : (prev - 1 + filteredImages.length) % filteredImages.length));
@@ -175,18 +184,18 @@ const GalleryPage = () => {
   return (
     <Box>
       <PageHero 
-        title="School Gallery" 
-        subtitle="Capturing moments of learning, faith, and community"
-        image="/images/moments/chapel-04.webp"
-        imageAlt="The school gathered for assembly"
+        title={block.hero.title} 
+        subtitle={block.hero.subtitle}
+        image={block.hero.image}
+        imageAlt={block.hero.imageAlt}
       />
       
       <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
             <SectionHeading
-              eyebrow="Our Moments"
-              title="School Gallery"
-              subtitle="Browse life at St James Zongoro across the years"
+              eyebrow={block.intro.eyebrow}
+              title={block.intro.title}
+              subtitle={block.intro.subtitle}
             />
 
             <Tabs
@@ -224,7 +233,7 @@ const GalleryPage = () => {
             </Tabs>
 
           <Text textAlign="center" color="gray.500" fontSize="sm" mb={6}>
-            Click on any image to view full screen
+            {block.viewHint}
           </Text>
 
           <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={6}>

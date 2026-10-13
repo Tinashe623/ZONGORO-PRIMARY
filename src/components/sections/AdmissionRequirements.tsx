@@ -10,24 +10,27 @@ import {
   SimpleGrid,
 } from '@chakra-ui/react';
 import { FaCheckCircle } from 'react-icons/fa';
-import { admissionRequirements } from '../../data/admissions';
+import type { AdmissionsBlock } from '../../data/blocks/admissions';
 
-const AdmissionRequirements = () => {
+interface AdmissionRequirementsProps {
+  content: AdmissionsBlock['requirements'];
+}
+
+const AdmissionRequirements = ({ content }: AdmissionRequirementsProps) => {
   return (
     <Box py={20} px={4} bg="white" id="requirements">
       <Box maxW="1200px" mx="auto">
           <VStack spacing={4} textAlign="center" mb={16}>
             <Heading size="2xl" color="brand" fontWeight="700">
-              Admission Requirements
+              {content.heading}
             </Heading>
             <Text color="gray.600" fontSize="lg" maxW="700px" lineHeight="1.8">
-              We welcome students from ECD to Grade 7. Each grade level has specific 
-              requirements to ensure appropriate placement.
+              {content.subtitle}
             </Text>
           </VStack>
 
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
-          {admissionRequirements.map((req, index) => (
+          {content.items.map((req, index) => (
               <Box key={index}
                 bg="white"
                 borderRadius="2xl"
@@ -55,7 +58,7 @@ const AdmissionRequirements = () => {
                         {req.grade}
                       </Badge>
                       <Text color="gray.500" fontSize="md" mt={2} fontWeight="500">
-                        Age: {req.ageRange}
+                        {content.ageLabel} {req.ageRange}
                       </Text>
                     </Box>
                     <List spacing={3}>

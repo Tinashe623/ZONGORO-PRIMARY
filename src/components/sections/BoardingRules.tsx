@@ -14,7 +14,8 @@ import {
   Flex,
 } from '@chakra-ui/react';
 import { FaCheckCircle, FaSchool, FaUserShield, FaClock, FaHeart } from 'react-icons/fa';
-import { boardingRules } from '../../data/boarding';
+import { useBlock } from '../../lib/blocks';
+import { boardingBlock, type BoardingBlock } from '../../data/blocks/boarding';
 
 const categoryIcons: Record<string, React.ComponentType> = {
   'General Rules': FaSchool,
@@ -23,21 +24,28 @@ const categoryIcons: Record<string, React.ComponentType> = {
   'Social & Pastoral': FaHeart,
 };
 
-const BoardingRules = () => {
+interface BoardingRulesProps {
+  rules?: BoardingBlock['rules'];
+}
+
+const BoardingRules = ({ rules }: BoardingRulesProps) => {
+  const block = useBlock<BoardingBlock>('pages.boarding', boardingBlock);
+  const { heading, subtitle, items } = rules ?? block.rules;
+
   return (
     <Box py={20} px={4} bg="white">
       <Box maxW="900px" mx="auto">
           <VStack spacing={4} textAlign="center" mb={16}>
             <Heading size="2xl" color="brandStrong" fontWeight="800">
-              Boarding Rules & Expectations
+              {heading}
             </Heading>
             <Text color="gray.600" fontSize="lg" maxW="700px" lineHeight="1.8">
-              Our boarding community operates on principles of respect, discipline, and personal growth.
+              {subtitle}
             </Text>
           </VStack>
 
           <Accordion allowMultiple>
-            {boardingRules.map((rule, index) => {
+            {items.map((rule, index) => {
               const CategoryIcon = categoryIcons[rule.category] || FaSchool;
               return (
                 <AccordionItem

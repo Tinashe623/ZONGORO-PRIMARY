@@ -17,13 +17,24 @@ import {
 } from '@chakra-ui/react';
 import { FaUsers, FaChartLine, FaArrowUp } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import { enrollmentData, passRateData, enrollmentComment, passRateComment } from '../data/assessment';
 import PageHero from '../components/ui/PageHero';
 import EnrollButton from '../components/ui/EnrollButton';
+import { useWebsiteContent } from '../context/WebsiteContentContext';
+import { useBlock } from '../lib/blocks';
+import { assessmentPageBlock, type AssessmentPageBlock } from '../data/blocks/assessmentPage';
 
 const MotionBox = motion(Box);
 
 const AssessmentPage = () => {
+  const { content } = useWebsiteContent();
+  const block = useBlock<AssessmentPageBlock>('pages.assessment', assessmentPageBlock);
+  const {
+    enrollment: enrollmentData,
+    passRates: passRateData,
+    enrollmentComment,
+    passRateComment,
+  } = content.results;
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -36,10 +47,10 @@ const AssessmentPage = () => {
   return (
     <Box>
       <PageHero
-        title="Assessment & Analysis"
-        subtitle="Comprehensive evaluation of school performance and growth"
-        image="/images/moments/classroom-07.webp"
-        imageAlt="Teaching and learning at St James Zongoro"
+        title={block.hero.title}
+        subtitle={block.hero.subtitle}
+        image={block.hero.image}
+        imageAlt={block.hero.imageAlt}
       />
 
       {/* School Enrolment Section - Cream Background */}
@@ -47,19 +58,19 @@ const AssessmentPage = () => {
         <Box maxW="1200px" mx="auto">
             <VStack spacing={4} textAlign="center" mb={16}>
               <Heading size="2xl" color="brand" fontWeight="700">
-                School Enrolment
+                {block.enrollment.heading}
               </Heading>
               <Text color="gray.600" fontSize="lg" maxW="700px" lineHeight="1.8">
-                A comprehensive overview of student enrollment trends across all grades
+                {block.enrollment.subtitle}
               </Text>
             </VStack>
 
           {/* Stats Row */}
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} mb={12}>
             {[
-              { icon: FaUsers, label: `Total Enrollment (${latestEnrollment.year})`, value: latestEnrollment.total.toString(), color: 'brand' },
-              { icon: FaArrowUp, label: `Growth since ${firstEnrollment.year}`, value: `${growthPercent}%`, color: parseFloat(growthPercent) >= 0 ? 'forest.500' : 'gray.500' },
-              { icon: FaChartLine, label: 'Projected by 2028', value: '1000', color: 'brandGreen' },
+              { icon: FaUsers, label: `${block.enrollment.stats.totalLabel} (${latestEnrollment.year})`, value: latestEnrollment.total.toString(), color: 'brand' },
+              { icon: FaArrowUp, label: `${block.enrollment.stats.growthLabel} ${firstEnrollment.year}`, value: `${growthPercent}%`, color: parseFloat(growthPercent) >= 0 ? 'forest.500' : 'gray.500' },
+              { icon: FaChartLine, label: block.enrollment.stats.projectedLabel, value: block.enrollment.stats.projectedValue, color: 'brandGreen' },
             ].map((stat, index) => (
                 <Box key={index}
                   bg="white"
@@ -109,7 +120,7 @@ const AssessmentPage = () => {
                 px={6}
               >
                 <Heading size="md" color="onAccent" fontWeight="600">
-                  Enrollment by Year
+                  {block.enrollment.table.heading}
                 </Heading>
               </Box>
               <Box overflowX="auto">
@@ -125,7 +136,7 @@ const AssessmentPage = () => {
                         borderBottom="2px solid"
                         borderColor="maroon.200"
                       >
-                        YEAR
+                        {block.enrollment.table.columns.year}
                       </Th>
                       <Th
                         color="brand"
@@ -136,7 +147,7 @@ const AssessmentPage = () => {
                         borderBottom="2px solid"
                         borderColor="maroon.200"
                       >
-                        MALE
+                        {block.enrollment.table.columns.male}
                       </Th>
                       <Th
                         color="brand"
@@ -147,7 +158,7 @@ const AssessmentPage = () => {
                         borderBottom="2px solid"
                         borderColor="maroon.200"
                       >
-                        FEMALE
+                        {block.enrollment.table.columns.female}
                       </Th>
                       <Th
                         color="brandGreen"
@@ -158,7 +169,7 @@ const AssessmentPage = () => {
                         borderBottom="2px solid"
                         borderColor="forest.200"
                       >
-                        TOTAL
+                        {block.enrollment.table.columns.total}
                       </Th>
                     </Tr>
                   </Thead>
@@ -246,7 +257,7 @@ const AssessmentPage = () => {
         <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
             <VStack spacing={8} align="start">
               <Heading size="xl" color="onAccent" fontWeight="700">
-                Assessment and Analysis
+                {block.analysis.heading}
               </Heading>
 
               <Box
@@ -259,7 +270,7 @@ const AssessmentPage = () => {
                 borderLeftColor="forest.500"
               >
                 <Heading size="md" color="brandStrong" mb={4}>
-                  3.1 School Enrolment
+                  {block.analysis.cardHeading}
                 </Heading>
                 <Text
                   color="gray.700"
@@ -267,7 +278,7 @@ const AssessmentPage = () => {
                   fontSize="md"
                   whiteSpace="pre-line"
                 >
-{`This document contains an assessment and analysis of St James Zongoro Primary School, specifically focusing on enrollment trends and academic performance.
+{`${block.analysis.intro}
 
 ${enrollmentComment}`}
                 </Text>
@@ -281,10 +292,10 @@ ${enrollmentComment}`}
         <Box maxW="1200px" mx="auto">
             <VStack spacing={4} textAlign="center" mb={16}>
               <Heading size="2xl" color="brand" fontWeight="700">
-                ZIMSEC National Grade 7 Pass-rate
+                {block.passRate.heading}
               </Heading>
               <Text color="gray.600" fontSize="lg" maxW="700px" lineHeight="1.8">
-                Consistent academic performance and improvement over the years
+                {block.passRate.subtitle}
               </Text>
             </VStack>
 
@@ -305,7 +316,7 @@ ${enrollmentComment}`}
                 px={6}
               >
                 <Heading size="md" color="onAccent" fontWeight="600">
-                  Pass Rate Trends
+                  {block.passRate.tableHeading}
                 </Heading>
               </Box>
               <Box overflowX="auto">
@@ -321,7 +332,7 @@ ${enrollmentComment}`}
                         borderBottom="2px solid"
                         borderColor="maroon.200"
                       >
-                        YEAR
+                        {block.passRate.columns.year}
                       </Th>
                       <Th
                         color="brandGreen"
@@ -332,7 +343,7 @@ ${enrollmentComment}`}
                         borderBottom="2px solid"
                         borderColor="forest.200"
                       >
-                        PASS-RATE (%)
+                        {block.passRate.columns.rate}
                       </Th>
                     </Tr>
                   </Thead>
@@ -384,7 +395,7 @@ ${enrollmentComment}`}
               mx="auto"
             >
               <Heading size="md" color="brandGreenStrong" mb={4}>
-                3.2 ZIMSEC National Grade 7 Pass-rate
+                {block.passRate.cardHeading}
               </Heading>
               <Text
                 color="gray.700"
@@ -432,11 +443,10 @@ ${enrollmentComment}`}
         <Box maxW="800px" mx="auto" textAlign="center" position="relative" zIndex={1}>
           <VStack spacing={6}>
             <Heading size="2xl" color="onAccent" fontWeight="700">
-              Join Our Learning Community
+              {block.cta.heading}
             </Heading>
             <Text color="whiteAlpha.900" fontSize="lg" maxW="600px" lineHeight="1.8">
-              Enroll your child at St James Zongoro Primary School and give them
-              the opportunity to excel academically and grow in faith.
+              {block.cta.subtitle}
             </Text>
             <Flex gap={4} mt={4} direction={{ base: 'column', md: 'row' }}>
               <EnrollButton
@@ -444,11 +454,11 @@ ${enrollmentComment}`}
                 px={10}
                 fontWeight="700"
               >
-                Apply Now
+                {block.cta.primaryButtonText}
               </EnrollButton>
               <Button
                 as="a"
-                href="/contact"
+                href={block.cta.secondaryButtonLink}
                 bg="transparent"
                 color="onAccent"
                 size="lg"
@@ -460,7 +470,7 @@ ${enrollmentComment}`}
                 _hover={{ bg: 'whiteAlpha.200', borderColor: 'onAccent' }}
                 transition="all 0.3s ease"
               >
-                Contact Us
+                {block.cta.secondaryButtonText}
               </Button>
             </Flex>
           </VStack>

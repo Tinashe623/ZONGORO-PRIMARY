@@ -1,22 +1,22 @@
 import { Box, SimpleGrid, VStack, Heading, Text, List, ListItem, ListIcon } from '@chakra-ui/react';
 import { FaCheck } from 'react-icons/fa';
 import SectionHeading from '../ui/SectionHeading';
+import { useWebsiteContent } from '../../context/WebsiteContentContext';
 
 const About = () => {
-  const coreValues = [
-    'Academic Excellence',
-    'Christian Values',
-    'Community Service',
-    'Respect & Integrity',
-    'Inclusive Education',
-  ];
+  const { content } = useWebsiteContent();
+  const { history, vision, mission, coreValues } = content.about;
+  const historyParagraphs = history
+    .split('\n\n')
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
 
   return (
     <Box id="about" bg="cream.50" py={20} px={4}>
       <Box maxW="1200px" mx="auto">
           <SectionHeading
             title="About Our School"
-            subtitle="Building a legacy of educational excellence since 1985"
+            subtitle="Building a legacy of educational excellence since 1925"
           />
 
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={12} alignItems="start">
@@ -24,34 +24,23 @@ const About = () => {
               <Heading size="lg" color="brand">
                 Our History
               </Heading>
-              <Text color="gray.600" lineHeight="1.8">
-                St James Zongoro Primary School was established in 1925 by the 
-                Anglican Diocese serving Ndorikanda Village in Mutasa District, 
-                Mutare Province. What began as a modest initiative has grown into a
-                respected institution that has produced generations of successful
-                students.
-              </Text>
-              <Text color="gray.600" lineHeight="1.8">
-                Founded in partnership with the Anglican Church and the local chief, our
-                school has maintained its commitment to providing quality education while
-                preserving our cultural heritage and Christian values.
-              </Text>
+              {historyParagraphs.map((paragraph, index) => (
+                <Text key={index} color="gray.600" lineHeight="1.8">
+                  {paragraph}
+                </Text>
+              ))}
             </VStack>
 
             <VStack align="start" spacing={6}>
               <Box>
                 <Heading size="lg" color="brand" mb={4}>
-                  Vision & Mission
+                  Vision &amp; Mission
                 </Heading>
                 <Text color="gray.600" mb={4} lineHeight="1.8">
-                  <strong>Vision:</strong> To be a center of academic excellence and
-                  Christian leadership that empowers students to become responsible
-                  citizens who contribute positively to their communities.
+                  <strong>Vision:</strong> {vision}
                 </Text>
                 <Text color="gray.600" lineHeight="1.8">
-                  <strong>Mission:</strong> To provide quality, affordable education
-                  grounded in Anglican principles, fostering holistic development of
-                  every child through innovative teaching and community partnership.
+                  <strong>Mission:</strong> {mission}
                 </Text>
               </Box>
 

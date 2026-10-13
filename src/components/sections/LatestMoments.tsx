@@ -12,19 +12,11 @@ import {
 import { ChevronLeftIcon, ChevronRightIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 import { Link as RouterLink } from 'react-router-dom';
 import SectionHeading from '../ui/SectionHeading';
-
-const moments = [
-  { src: '/images/moments/campus-01.webp', caption: 'Our Campus', tag: 'Campus' },
-  { src: '/images/moments/classroom-02.webp', caption: 'Learning in Action', tag: 'Classrooms' },
-  { src: '/images/moments/chapel-01.webp', caption: 'Faith & Fellowship', tag: 'Chapel & Assembly' },
-  { src: '/images/moments/classroom-05.webp', caption: 'Classroom Moments', tag: 'Classrooms' },
-  { src: '/images/moments/campus-02.webp', caption: 'School Grounds', tag: 'Campus' },
-  { src: '/images/moments/chapel-03.webp', caption: 'Assembly Time', tag: 'Chapel & Assembly' },
-  { src: '/images/moments/classroom-08.webp', caption: 'Focused Learners', tag: 'Classrooms' },
-  { src: '/images/moments/campus-03.webp', caption: 'A Bright Future', tag: 'Campus' },
-];
+import { useWebsiteContent } from '../../context/WebsiteContentContext';
 
 const LatestMoments = () => {
+  const { content } = useWebsiteContent();
+  const moments = content.moments;
   const scrollerRef = useRef<HTMLDivElement>(null);
 
   const scrollBy = (dir: 1 | -1) => {

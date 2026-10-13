@@ -27,47 +27,16 @@ import {
 } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
 import PageHero from '../components/ui/PageHero';
+import { useBlock } from '../lib/blocks';
+import { getWebsiteIcon } from '../lib/websiteIcons';
+import { transportBlock, type TransportBlock } from '../data/blocks/transport';
 
-const features = [
-  {
-    icon: FaBus,
-    title: '72-Seater Capacity',
-    description: 'Spacious 2025 bus seating up to 72 passengers with comfortable seating.',
-  },
-  {
-    icon: FaMapMarkedAlt,
-    title: 'Event Transportation',
-    description: 'Specialized transport for sports, trips, church events, and school activities.',
-  },
-  {
-    icon: FaShieldAlt,
-    title: 'Safety First',
-    description: 'Professional drivers, safety equipment, and full insurance coverage.',
-  },
-  {
-    icon: FaCalendarAlt,
-    title: 'Flexible Hiring',
-    description: 'Available for hire by schools, churches, and organizations across Zimbabwe.',
-  },
-];
-
-const services = [
-  'School sports team transportation to competitions',
-  'Educational trips and excursions',
-  'Church and community group travel',
-  'Private hire for events and functions',
-  'Inter-city and regional travel available',
-  'Professional driver and fuel included',
-];
-
-const hireInfo = [
-  { label: 'Year Acquired', value: '2025', icon: FaCalendarAlt },
-  { label: 'Availability', value: 'Open for Hire', icon: FaClock },
-  { label: 'Service Area', value: 'Nationwide', icon: FaMapMarkedAlt },
-  { label: 'Capacity', value: '72 Passengers', icon: FaUsers },
-];
+const featureIconFallbacks = [FaBus, FaMapMarkedAlt, FaShieldAlt, FaCalendarAlt];
+const hireIconFallbacks = [FaCalendarAlt, FaClock, FaMapMarkedAlt, FaUsers];
 
 const TransportPage = () => {
+  const block = useBlock<TransportBlock>('pages.transport', transportBlock);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -75,10 +44,10 @@ const TransportPage = () => {
   return (
     <Box>
       <PageHero
-        title="School Transport"
-        subtitle="Safe and reliable bus services for our students"
-        image="/images/school-bus.webp"
-        imageAlt="The St James Zongoro school bus"
+        title={block.hero.title}
+        subtitle={block.hero.subtitle}
+        image={block.hero.image}
+        imageAlt={block.hero.imageAlt}
       />
 
       {/* ── Introduction Section ───────────────────────────────────── */}
@@ -102,7 +71,7 @@ const TransportPage = () => {
                   letterSpacing="0.08em"
                   textTransform="uppercase"
                 >
-                  Est. 2025 Fleet
+                  {block.intro.badge}
                 </Badge>
 
                 <Heading
@@ -111,7 +80,7 @@ const TransportPage = () => {
                   fontWeight="700"
                   lineHeight="1.2"
                 >
-                  Transport Services for All Occasions
+                  {block.intro.heading}
                 </Heading>
 
                 <Text
@@ -119,14 +88,11 @@ const TransportPage = () => {
                   fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
                   lineHeight="1.9"
                 >
-                  St James Zongoro Primary School operates a 72-seater bus acquired in 2025,
-                  providing professional transportation services for school sports events,
-                  educational trips, church outings, and community activities. The bus is also
-                  available for hire by schools, churches, and organizations throughout Zimbabwe.
+                  {block.intro.paragraph}
                 </Text>
 
                 <List spacing={{ base: 2, md: 3 }} pt={1} w="100%">
-                  {services.map((service, index) => (
+                  {block.intro.services.map((service, index) => (
                     <ListItem
                       key={index}
                       display="flex"
@@ -192,8 +158,8 @@ const TransportPage = () => {
                     overflow="hidden"
                   >
                     <Image
-                      src="/images/school-bus.webp"
-                      alt="St James Zongoro School Bus – Available for Hire"
+                      src={block.intro.image}
+                      alt={block.intro.imageAlt}
                       position="absolute"
                       top="0"
                       left="0"
@@ -233,7 +199,7 @@ const TransportPage = () => {
                         color="dark.500"
                         fontSize={{ base: 'xs', md: 'sm', lg: 'md' }}
                       >
-                        2025 School Bus
+                        {block.intro.caption}
                       </Text>
                     </HStack>
                     <Badge
@@ -244,7 +210,7 @@ const TransportPage = () => {
                       fontSize="xs"
                       fontWeight="700"
                     >
-                      Available for Hire
+                      {block.intro.availableBadge}
                     </Badge>
                   </Flex>
                 </Box>
@@ -262,7 +228,7 @@ const TransportPage = () => {
                 color="brand"
                 fontWeight="700"
               >
-                Why Choose Our Transport Services
+                {block.features.heading}
               </Heading>
               <Text
                 color="gray.600"
@@ -270,7 +236,7 @@ const TransportPage = () => {
                 maxW="680px"
                 lineHeight="1.8"
               >
-                Professional transportation for school events, sports, and private hire across Zimbabwe.
+                {block.features.subtitle}
               </Text>
             </VStack>
 
@@ -278,7 +244,7 @@ const TransportPage = () => {
             columns={{ base: 1, sm: 2, lg: 4 }}
             spacing={{ base: 4, md: 5, lg: 6 }}
           >
-            {features.map((feature, index) => (
+            {block.features.items.map((feature, index) => (
                 <Flex key={index}
                   direction="column"
                   align="center"
@@ -309,7 +275,7 @@ const TransportPage = () => {
                     flexShrink={0}
                   >
                     <Icon
-                      as={feature.icon}
+                      as={getWebsiteIcon(feature.icon, featureIconFallbacks[index] ?? FaBus)}
                       color="onAccent"
                       fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
                     />
@@ -344,7 +310,7 @@ const TransportPage = () => {
                 color="brand"
                 fontWeight="700"
               >
-                Bus Hire Services
+                {block.hire.heading}
               </Heading>
               <Text
                 color="gray.600"
@@ -352,8 +318,7 @@ const TransportPage = () => {
                 maxW="680px"
                 lineHeight="1.8"
               >
-                Our modern bus is available for hire by schools, churches, organizations, and
-                private groups throughout Zimbabwe.
+                {block.hire.subtitle}
               </Text>
             </VStack>
 
@@ -374,7 +339,7 @@ const TransportPage = () => {
                       color="brandStrong"
                       fontWeight="700"
                     >
-                      Fleet Details
+                      {block.hire.fleetHeading}
                     </Heading>
 
                   {/* Stats grid: 1 col on xs, 2 cols from sm up */}
@@ -383,7 +348,7 @@ const TransportPage = () => {
                     spacing={{ base: 3, md: 4 }}
                     w="100%"
                   >
-                    {hireInfo.map((item, idx) => (
+                    {block.hire.fleetItems.map((item, idx) => (
                       <Box
                         key={idx}
                         p={{ base: 3, md: 4 }}
@@ -393,7 +358,7 @@ const TransportPage = () => {
                         borderColor="gray.100"
                       >
                         <Flex align="center" gap={2} mb={1} flexWrap="wrap">
-                          <Icon as={item.icon} color="brand" fontSize="sm" flexShrink={0} />
+                          <Icon as={getWebsiteIcon(item.icon, hireIconFallbacks[idx] ?? FaUsers)} color="brand" fontSize="sm" flexShrink={0} />
                           <Text
                             fontSize="xs"
                             fontWeight="600"
@@ -436,7 +401,7 @@ const TransportPage = () => {
                     py={1}
                     borderRadius="full"
                   >
-                    Hire Conditions
+                    {block.hire.conditionsBadge}
                   </Badge>
 
                   <Text
@@ -444,17 +409,11 @@ const TransportPage = () => {
                     fontSize={{ base: 'sm', md: 'md' }}
                     lineHeight="1.8"
                   >
-                    Our bus hire services are available for:
+                    {block.hire.conditionsIntro}
                   </Text>
 
                   <VStack align="start" spacing={{ base: 2, md: 3 }} w="100%">
-                    {[
-                      'School sporting events and competitions',
-                      'Educational excursions and field trips',
-                      'Church conferences, retreats, and outings',
-                      'Corporate events and team building',
-                      'Private group tours and travel',
-                    ].map((condition, idx) => (
+                    {block.hire.conditions.map((condition, idx) => (
                       <Flex key={idx} align="flex-start" gap={3}>
                         <Box
                           w="8px"
@@ -488,8 +447,7 @@ const TransportPage = () => {
                       fontSize={{ base: 'xs', md: 'sm' }}
                       lineHeight="1.7"
                     >
-                      ✦ Professional driver and fuel charges included in hire rates. Contact us
-                      for a customized quote.
+                      {block.hire.note}
                     </Text>
                   </Box>
                 </VStack>
@@ -542,7 +500,7 @@ const TransportPage = () => {
               letterSpacing="0.1em"
               textTransform="uppercase"
             >
-              Open for Bookings
+              {block.cta.badge}
             </Badge>
 
             <Heading
@@ -551,7 +509,7 @@ const TransportPage = () => {
               fontWeight="700"
               lineHeight="1.2"
             >
-              Book Our Bus for Your Next Event
+              {block.cta.heading}
             </Heading>
 
             <Text
@@ -561,13 +519,12 @@ const TransportPage = () => {
               lineHeight="1.8"
               px={{ base: 2, md: 0 }}
             >
-              Available for hire across Zimbabwe for school sports, trips, church events, and
-              organizational functions. Contact us for rates and availability.
+              {block.cta.description}
             </Text>
 
             <Button
               as={RouterLink}
-              to="/contact"
+              to={block.cta.buttonLink}
               bg="forest.500"
               color="onAccent"
               size="lg"
@@ -585,7 +542,7 @@ const TransportPage = () => {
               transition="all 0.3s ease"
               mt={{ base: 1, md: 2 }}
             >
-              Enquire Now
+              {block.cta.buttonText}
             </Button>
           </VStack>
         </Box>

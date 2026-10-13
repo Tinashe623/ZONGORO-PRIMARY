@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 import theme from './theme'
 import App from './App.tsx'
 import ErrorBoundary from './components/ui/ErrorBoundary'
+import { WebsiteContentProvider } from './context/WebsiteContentContext'
 import './index.css'
 
 const lightOnlyManager = {
@@ -18,7 +19,9 @@ createRoot(document.getElementById('root')!).render(
     <ChakraProvider theme={theme} colorModeManager={lightOnlyManager}>
       <ErrorBoundary>
         <BrowserRouter>
-          <App />
+          <WebsiteContentProvider>
+            <App />
+          </WebsiteContentProvider>
         </BrowserRouter>
       </ErrorBoundary>
     </ChakraProvider>

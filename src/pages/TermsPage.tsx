@@ -1,12 +1,16 @@
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 import { Box, Text, VStack, Container, Button, Flex } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import PageHero from '../components/ui/PageHero';
 import NeonDivider from '../components/ui/NeonDivider';
 import SectionHeading from '../components/ui/SectionHeading';
+import { useBlock } from '../lib/blocks';
+import { termsBlock, type TermsBlock } from '../data/blocks/terms';
 
 const TermsPage = () => {
+  const block = useBlock<TermsBlock>('pages.terms', termsBlock);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -14,68 +18,34 @@ const TermsPage = () => {
   return (
     <Box>
       <PageHero 
-        title="Terms of Service" 
-        subtitle="Please read these terms carefully"
+        title={block.hero.title} 
+        subtitle={block.hero.subtitle}
       />
       <NeonDivider />
       
       <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="white">
         <Container maxW="900px">
           <VStack spacing={8} align="start">
-            <Box>
-              <SectionHeading variant="sub" title="Acceptance of Terms" />
-              <Text color="gray.600" lineHeight="1.8">
-                By accessing and using the St James Zongoro Primary School website, you accept and 
-                agree to be bound by the terms and provisions of this agreement.
-              </Text>
-            </Box>
-
-            <Box>
-              <SectionHeading variant="sub" title="Website Purpose" />
-              <Text color="gray.600" lineHeight="1.8">
-                This website is an informational platform operated by St James Zongoro Primary School. 
-                It provides general information about our educational programs, admission procedures, 
-                school policies, and contact information.
-              </Text>
-            </Box>
-
-            <Box>
-              <SectionHeading variant="sub" title="Information Accuracy" />
-              <Text color="gray.600" lineHeight="1.8">
-                While we strive to provide accurate and up-to-date information, we make no 
-                representations or warranties of any kind, express or implied, about the completeness, 
-                accuracy, reliability, or suitability of the information contained on this website.
-              </Text>
-            </Box>
-
-            <Box>
-              <SectionHeading variant="sub" title="Use of Website" />
-              <Text color="gray.600" lineHeight="1.8">
-                You agree to use this website only for lawful purposes and in a manner that does not 
-                infringe upon the rights of others or restrict their use of the website.
-              </Text>
-            </Box>
-
-            <Box>
-              <SectionHeading variant="sub" title="Intellectual Property" />
-              <Text color="gray.600" lineHeight="1.8">
-                All content on this website, including logos, images, text, and design elements, 
-                are the intellectual property of St James Zongoro Primary School. Unauthorized 
-                reproduction or distribution is prohibited.
-              </Text>
-            </Box>
-
-            <Box>
-              <SectionHeading variant="sub" title="Contact Information" />
-              <Text color="gray.600" lineHeight="1.8">
-                For questions about these Terms of Service, please contact us at:
-              </Text>
-              <Text color="gray.600" mt={2}>
-                Email: zongoro.primary@gmail.com<br />
-                Phone: +263 77 321 1929 / +263 71 854 6070<br />
-                Address: St James Zongoro Primary School, P.O.Box 313, Mutare, Zimbabwe
-              </Text>
-            </Box>
+            {block.sections.map((section) => (
+              <Box key={section.heading}>
+                <SectionHeading variant="sub" title={section.heading} />
+                {section.paragraphs.map((paragraph, index) => (
+                  <Text key={index} color="gray.600" lineHeight="1.8">
+                    {paragraph}
+                  </Text>
+                ))}
+                {section.details ? (
+                  <Text color="gray.600" mt={2}>
+                    {section.details.map((line, index, lines) => (
+                      <Fragment key={index}>
+                        {line}
+                        {index < lines.length - 1 ? <br /> : null}
+                      </Fragment>
+                    ))}
+                  </Text>
+                ) : null}
+              </Box>
+            ))}
 
             <Flex pt={4} w="100%" justify="center">
               <Button
@@ -86,12 +56,12 @@ const TermsPage = () => {
                 color="onAccent"
                 _hover={{ bgGradient: 'linear(to-r, maroon.600, maroon.700)' }}
               >
-                Back to Home
+                {block.footer.backButtonText}
               </Button>
             </Flex>
 
             <Text color="gray.500" fontSize="sm">
-              Last updated: April 2026
+              {block.footer.lastUpdatedLabel} {block.footer.lastUpdatedValue}
             </Text>
           </VStack>
         </Container>

@@ -11,8 +11,8 @@ import {
   Icon,
 } from '@chakra-ui/react';
 import { FaGraduationCap, FaClock } from 'react-icons/fa';
-import { staffMembers } from '../../data/staff';
-import type { StaffMember } from '../../data/staff';
+import { useWebsiteContent } from '../../context/WebsiteContentContext';
+import type { WebsiteTeamMember } from '../../types/website';
 
 /* ── Category filter config ───────────────────────── */
 const categories = [
@@ -23,7 +23,7 @@ const categories = [
 ];
 
 /* ── Individual staff card ───────────────────────── */
-const StaffCard = ({ member }: { member: StaffMember }) => (
+const StaffCard = ({ member }: { member: WebsiteTeamMember }) => (
   <Box
     bg="white"
     borderRadius="2xl"
@@ -110,6 +110,8 @@ const StaffCard = ({ member }: { member: StaffMember }) => (
 
 /* ── Main StaffGrid component ────────────────────── */
 const StaffGrid = () => {
+  const { content } = useWebsiteContent();
+  const staffMembers = content.team;
   const [active, setActive] = useState('all');
 
   const filtered =

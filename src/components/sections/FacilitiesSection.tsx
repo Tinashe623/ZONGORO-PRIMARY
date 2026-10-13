@@ -1,54 +1,14 @@
 import { Box, SimpleGrid, VStack, Heading, Text, Icon, Flex, Image } from '@chakra-ui/react';
-import { FaBook, FaLaptop, FaTree, FaFutbol, FaMusic, FaBus } from 'react-icons/fa';
+import { FaBook } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
 import Reveal from '../ui/Reveal';
-
-const facilities = [
-  {
-    icon: FaBook,
-    title: 'Library',
-    description: 'Well-stocked resource center',
-    image: '/images/moments/classroom-09.webp',
-    alt: 'Pupils during study time at St James Zongoro',
-  },
-  {
-    icon: FaLaptop,
-    title: 'Computer Lab',
-    description: 'Modern tech hub',
-    image: '/images/new/07.webp',
-    alt: 'Learning with technology at St James Zongoro',
-  },
-  {
-    icon: FaTree,
-    title: 'Green Campus',
-    description: 'Lush learning environment',
-    image: '/images/moments/campus-02.webp',
-    alt: 'The school grounds at St James Zongoro',
-  },
-  {
-    icon: FaFutbol,
-    title: 'Sports Field',
-    description: 'Athletic development',
-    image: '/images/gallery/sports/vollyball.webp',
-    alt: 'Volleyball match on the school sports field',
-  },
-  {
-    icon: FaMusic,
-    title: 'Music Room',
-    description: 'Arts & creativity',
-    image: '/images/gallery/marimba-club.webp',
-    alt: 'Marimba club performance at St James Zongoro',
-  },
-  {
-    icon: FaBus,
-    title: 'Transport',
-    description: 'Reliable bus service',
-    image: '/images/school-bus.webp',
-    alt: 'The St James Zongoro school bus',
-  },
-];
+import { useWebsiteContent } from '../../context/WebsiteContentContext';
+import { getWebsiteIcon } from '../../lib/websiteIcons';
 
 const FacilitiesSection = () => {
+  const { content } = useWebsiteContent();
+  const facilities = content.facilities;
+
   return (
     <Box py={16} px={4} bg="maroon.500" position="relative" overflow="hidden">
       <Box position="absolute" top={0} left={0} right={0} bottom={0} opacity={0.1}>
@@ -89,7 +49,7 @@ const FacilitiesSection = () => {
                   >
                     <Image
                       src={item.image}
-                      alt={item.alt}
+                      alt={item.imageAlt ?? item.title}
                       loading="lazy"
                       decoding="async"
                       w="100%"
@@ -126,7 +86,7 @@ const FacilitiesSection = () => {
                         backdropFilter="blur(4px)"
                         style={{ WebkitBackdropFilter: 'blur(4px)' }}
                       >
-                        <Icon as={item.icon} color="onAccent" fontSize="md" />
+                        <Icon as={getWebsiteIcon(item.icon, FaBook)} color="onAccent" fontSize="md" />
                       </Flex>
                       <Box minW={0}>
                         <Heading size="sm" color="onAccent" fontWeight="700" lineHeight="1.2">

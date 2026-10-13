@@ -6,8 +6,12 @@ import ApplicationSteps from '../components/sections/ApplicationSteps';
 import DocumentsChecklist from '../components/sections/DocumentsChecklist';
 import FeesOverview from '../components/sections/FeesOverview';
 import CTABanner from '../components/ui/CTABanner';
+import { useBlock } from '../lib/blocks';
+import { admissionsBlock, type AdmissionsBlock } from '../data/blocks/admissions';
 
 const AdmissionsPage = () => {
+  const block = useBlock<AdmissionsBlock>('pages.admissions', admissionsBlock);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -15,21 +19,17 @@ const AdmissionsPage = () => {
   return (
     <Box>
       <PageHero 
-        title="Admissions" 
-        subtitle="Join the St James Zongoro family and give your child the gift of quality education"
-        image="/images/moments/campus-01.webp"
-        imageAlt="The campus of St James Zongoro Primary School"
+        title={block.hero.title}
+        subtitle={block.hero.subtitle}
+        image={block.hero.image}
+        imageAlt={block.hero.imageAlt}
       />
       
       {/* Why Choose Us - Cream Background */}
       <Box py={{ base: 16, md: 20 }} px={4} bg="cream.50">
         <Box maxW="1200px" mx="auto">
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 6, md: 8 }}>
-            {[
-              { title: 'Quality Education', desc: 'ZIMSEC-aligned curriculum with experienced teachers' },
-              { title: 'Holistic Development', desc: 'Sports, music, and spiritual growth programs' },
-              { title: 'Safe Environment', desc: 'Secure campus with caring staff' },
-            ].map((item, index) => (
+            {block.highlights.map((item, index) => (
               <Box
                 key={index}
                 bg="white"
@@ -73,18 +73,18 @@ const AdmissionsPage = () => {
         </Box>
       </Box>
 
-      <AdmissionRequirements />
-      <ApplicationSteps />
-      <DocumentsChecklist />
-      <FeesOverview />
+      <AdmissionRequirements content={block.requirements} />
+      <ApplicationSteps content={block.applicationSteps} />
+      <DocumentsChecklist content={block.documents} />
+      <FeesOverview content={block.fees} />
       <CTABanner
-        eyebrow="Ready to Join"
-        title="Start Your Child's Journey With Us"
-        subtitle="Applications are open for ECD to Grade 7. Our admissions team is ready to help you every step of the way."
-        buttonText="Apply Now"
+        eyebrow={block.cta.eyebrow}
+        title={block.cta.title}
+        subtitle={block.cta.subtitle}
+        buttonText={block.cta.buttonText}
         enroll
-        secondaryText="Contact Admissions"
-        secondaryLink="/contact"
+        secondaryText={block.cta.secondaryText}
+        secondaryLink={block.cta.secondaryLink}
       />
     </Box>
   );

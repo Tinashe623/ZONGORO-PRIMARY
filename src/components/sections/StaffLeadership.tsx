@@ -10,10 +10,11 @@ import {
   Icon,
 } from '@chakra-ui/react';
 import { FaStar } from 'react-icons/fa';
-import { staffMembers } from '../../data/staff';
+import { useWebsiteContent } from '../../context/WebsiteContentContext';
 
 const StaffLeadership = () => {
-  const leadership = staffMembers.filter(m => m.category === 'leadership');
+  const { content } = useWebsiteContent();
+  const leadership = content.team.filter((m) => m.category === 'leadership');
 
   return (
     <>

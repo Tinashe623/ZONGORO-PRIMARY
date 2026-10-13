@@ -13,47 +13,15 @@ import {
 import { FaUsers, FaBus, FaGift, FaPlay } from 'react-icons/fa';
 import PageHero from '../components/ui/PageHero';
 import CTABanner from '../components/ui/CTABanner';
+import { useBlock } from '../lib/blocks';
+import { getWebsiteIcon } from '../lib/websiteIcons';
+import { communityBlock, type CommunityBlock } from '../data/blocks/community';
 
-const communityHighlights = [
-  {
-    icon: FaBus,
-    title: 'School Transport',
-    description: 'Chief James Mutasa Mobilized community funds to purchase a school bus for safe student transportation.',
-  },
-  {
-    icon: FaGift,
-    title: 'Donations & Support',
-    description: 'Regularly supports students with learning materials, uniforms, and daily necessities.',
-  },
-  {
-    icon: FaUsers,
-    title: 'Community Events',
-    description: 'Organizes school events and encourages parent participation in educational activities.',
-  },
-];
-
-const activities = [
-  {
-    title: 'Drama & Performance',
-    description: 'Students showcase their talents through plays and performances celebrating our community heritage.',
-    type: 'video',
-    videoId: 'RO3Te5m1ZBQ',
-  },
-  {
-    title: 'Fundraising Events',
-    description: 'Community comes together to raise funds for school developments and student needs.',
-    type: 'placeholder',
-    placeholder: 'Video Content Coming Soon',
-  },
-  {
-    title: 'Mentorship Programs',
-    description: 'Chief Mutasa mentors students, instilling values of leadership and service.',
-    type: 'placeholder',
-    placeholder: 'Video Content Coming Soon',
-  },
-];
+const highlightIconFallbacks = [FaBus, FaGift, FaUsers];
 
 const CommunityPage = () => {
+  const block = useBlock<CommunityBlock>('pages.community', communityBlock);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -61,10 +29,10 @@ const CommunityPage = () => {
   return (
     <Box>
       <PageHero 
-        title="Community Partnership" 
-        subtitle="Working together for our children's future"
-        image="/images/moments/campus-03.webp"
-        imageAlt="A bright day on the school grounds"
+        title={block.hero.title} 
+        subtitle={block.hero.subtitle}
+        image={block.hero.image}
+        imageAlt={block.hero.imageAlt}
       />
       
       <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="cream.50" position="relative" overflow="hidden">
@@ -77,13 +45,11 @@ const CommunityPage = () => {
         <Box maxW="1200px" mx="auto" position="relative" zIndex={1}>
             <VStack spacing={8} maxW="800px" mx="auto" textAlign="center">
               <Heading size="2xl" color="brandStrong" fontWeight="800">
-                Our Community Connection
+                {block.intro.heading}
               </Heading>
               <Box w="80px" h="3px" bg="maroon.500" borderRadius="full" />
               <Text color="gray.600" fontSize="lg" lineHeight="1.9">
-                St James Zongoro Primary School is deeply rooted in the Ndorikanda community. 
-                Our partnership with Chief James Mutasa, local leaders, parents, and villagers creates a supportive 
-                environment where every child can succeed.
+                {block.intro.paragraph}
               </Text>
             </VStack>
 
@@ -98,8 +64,8 @@ const CommunityPage = () => {
                 minH={{ lg: '480px' }}
               >
                 <Image 
-                  src="/images/chief-image.webp" 
-                  alt="Chief James Mutasa"
+                  src={block.chief.image} 
+                  alt={block.chief.imageAlt}
                   w="100%"
                   h="100%"
                   objectFit="cover"
@@ -122,19 +88,17 @@ const CommunityPage = () => {
                   py={3}
                   boxShadow="0 4px 20px rgba(0,0,0,0.15)"
                 >
-                  <Text fontWeight="800" fontSize="lg" color="gray.800">Chief James Mutasa</Text>
-                  <Text fontSize="sm" color="gray.500">Community Leader & School Patron</Text>
+                  <Text fontWeight="800" fontSize="lg" color="gray.800">{block.chief.name}</Text>
+                  <Text fontSize="sm" color="gray.500">{block.chief.role}</Text>
                 </Box>
               </Box>
 
             <VStack align="start" spacing={6}>
               <Heading size="xl" color="brandStrong" fontWeight="700">
-                Chief's Contributions
+                {block.chief.contributionsHeading}
               </Heading>
               <Text color="gray.600" fontSize="md" lineHeight="1.8">
-                Chief James Mutasa has been instrumental in transforming our school. His dedication 
-                to education has mobilised the entire community, leading initiatives that ensure every 
-                child has access to quality learning.
+                {block.chief.contributionsParagraph}
               </Text>
               
               <Box 
@@ -148,19 +112,16 @@ const CommunityPage = () => {
               >
                 <Box position="absolute" top={0} left={0} right={0} h="3px" bg="forest.400" />
                 <Text color="onAccent" fontSize="md" fontStyle="italic" fontWeight="500" lineHeight="1.7" mt={1}>
-                  "Our partnership with St James Zongoro Primary School has
-                  transformed our community. Education is the key to our village's
-                  future, and together we are building something special for the
-                  next generation."
+                  {block.chief.quote}
                 </Text>
-                <Text color="whiteAlpha.700" fontSize="sm" mt={2}>— Chief James Mutasa</Text>
+                <Text color="whiteAlpha.700" fontSize="sm" mt={2}>{block.chief.quoteAttribution}</Text>
               </Box>
 
             </VStack>
           </SimpleGrid>
 
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} w="100%" mt={{ base: 10, lg: 12 }}>
-                {communityHighlights.map((highlight) => (
+                {block.highlights.map((highlight, index) => (
                   <Box
                     key={highlight.title}
                     p={6}
@@ -198,7 +159,7 @@ const CommunityPage = () => {
                         bg="maroon.500"
                         boxShadow="0 4px 14px rgba(130, 0, 0, 0.22)"
                       >
-                        <Icon as={highlight.icon} color="onAccent" fontSize="xl" />
+                        <Icon as={getWebsiteIcon(highlight.icon, highlightIconFallbacks[index] ?? FaUsers)} color="onAccent" fontSize="xl" />
                       </Flex>
                       <Box>
                         <Text color="gray.800" fontWeight="700" fontSize="md" mb={1.5}>
@@ -226,15 +187,15 @@ const CommunityPage = () => {
             <VStack spacing={10}>
               <Box textAlign="center">
                 <Heading size="xl" color="brandStrong" fontWeight="800">
-                  Community Activities
+                  {block.activitiesSection.heading}
                 </Heading>
                 <Text color="gray.500" fontSize="lg" mt={2}>
-                  Highlights of Chief's involvement in school life
+                  {block.activitiesSection.subtitle}
                 </Text>
               </Box>
 
               <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} w="100%">
-                {activities.map((activity) => (
+                {block.activities.map((activity) => (
                     <Box key={activity.title} 
                       borderRadius="2xl" 
                       overflow="hidden" 
@@ -267,10 +228,10 @@ const CommunityPage = () => {
                           >
                             <Icon as={FaPlay} color="onAccent" fontSize="3xl" mb={2} opacity={0.9} />
                             <Text color="onAccent" fontWeight="700" fontSize="sm" textAlign="center">
-                              Watch on YouTube
+                              {block.activitiesSection.watchLabel}
                             </Text>
                             <Text color="whiteAlpha.700" fontSize="xs" mt={2} textAlign="center" maxW="200px">
-                              Click to view the drama performance
+                              {block.activitiesSection.watchHint}
                             </Text>
                           </Box>
                         </Link>
@@ -290,7 +251,7 @@ const CommunityPage = () => {
                             {activity.placeholder}
                           </Text>
                           <Text color="whiteAlpha.700" fontSize="xs" mt={2} textAlign="center" maxW="200px">
-                            We're partnering with the school to capture authentic content. School videos will be featured here once available.
+                            {block.activitiesSection.placeholderHint}
                           </Text>
                         </Box>
                       )}
@@ -309,11 +270,11 @@ const CommunityPage = () => {
         </Box>
       </Box>
       <CTABanner
-        eyebrow="Stronger Together"
-        title="Partner With Our Community"
-        subtitle="From sponsorships to mentorship, there are many ways to support our pupils. Reach out and help shape the next generation."
-        buttonText="Get Involved"
-        buttonLink="/contact"
+        eyebrow={block.cta.eyebrow}
+        title={block.cta.title}
+        subtitle={block.cta.subtitle}
+        buttonText={block.cta.buttonText}
+        buttonLink={block.cta.buttonLink}
       />
     </Box>
   );

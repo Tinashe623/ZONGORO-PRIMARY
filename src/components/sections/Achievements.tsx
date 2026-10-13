@@ -6,15 +6,14 @@ import {
   Text,
   Icon,
 } from '@chakra-ui/react';
-import { FaTrophy, FaMedal, FaStar } from 'react-icons/fa';
-
-const achievements = [
-  { icon: FaTrophy, count: 12, label: 'District Titles' },
-  { icon: FaMedal, count: 28, label: 'Provincial Medals' },
-  { icon: FaStar, count: 8, label: 'National Competitions' },
-];
+import { FaTrophy } from 'react-icons/fa';
+import { useWebsiteContent } from '../../context/WebsiteContentContext';
+import { getWebsiteIcon } from '../../lib/websiteIcons';
 
 const Achievements = () => {
+  const { content } = useWebsiteContent();
+  const achievements = content.achievements;
+
   return (
     <Box bg="maroon.500" py={16} px={4} w="full">
       <Box maxW="1200px" mx="auto">
@@ -40,7 +39,7 @@ const Achievements = () => {
                     transition="all 0.3s ease"
                     _hover={{ bg: 'whiteAlpha.300', transform: 'translateY(-4px)' }}
                   >
-                    <Icon as={item.icon} color="onAccent" fontSize="3xl" />
+                    <Icon as={getWebsiteIcon(item.icon, FaTrophy)} color="onAccent" fontSize="3xl" />
                     <Heading size="3xl" color="onAccent">
                       {item.count}+
                     </Heading>

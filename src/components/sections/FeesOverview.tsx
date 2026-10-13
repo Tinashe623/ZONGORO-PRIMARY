@@ -14,30 +14,31 @@ import {
   SimpleGrid,
   useBreakpointValue,
 } from '@chakra-ui/react';
-import { FaMoneyBillWave, FaClock, FaCalendarAlt } from 'react-icons/fa';
-import { feeStructure } from '../../data/admissions';
+import { FaMoneyBillWave } from 'react-icons/fa';
+import { getWebsiteIcon } from '../../lib/websiteIcons';
+import type { AdmissionsBlock } from '../../data/blocks/admissions';
 
-const FeesOverview = () => {
+interface FeesOverviewProps {
+  content: AdmissionsBlock['fees'];
+}
+
+const FeesOverview = ({ content }: FeesOverviewProps) => {
   const isMobile = useBreakpointValue({ base: true, md: false });
   return (
     <Box py={20} px={4} bg="cream.50">
       <Box maxW="900px" mx="auto">
           <VStack spacing={4} textAlign="center" mb={16}>
             <Heading size="2xl" color="brand" fontWeight="700">
-              Fee Structure
+              {content.heading}
             </Heading>
             <Text color="gray.600" fontSize="lg" maxW="700px" lineHeight="1.8">
-              Transparent and affordable fees with flexible payment options for all families.
+              {content.subtitle}
             </Text>
           </VStack>
 
         {/* Quick Stats */}
         <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} mb={12}>
-          {[
-            { icon: FaMoneyBillWave, label: 'Affordable Fees', value: 'Z$', color: 'brand' },
-            { icon: FaClock, label: 'Payment Plans', value: 'Available', color: 'brandGreen' },
-            { icon: FaCalendarAlt, label: 'Per Term', value: '3/Year', color: 'brand' },
-          ].map((stat, index) => (
+          {content.stats.map((stat, index) => (
               <Flex key={index} 
                 bg="white" 
                 p={6} 
@@ -56,7 +57,7 @@ const FeesOverview = () => {
                   borderRadius="full" 
                   bg="cream.50"
                 >
-                  <Icon as={stat.icon} color={stat.color} fontSize="xl" />
+                  <Icon as={getWebsiteIcon(stat.icon, FaMoneyBillWave)} color={stat.color} fontSize="xl" />
                 </Flex>
                 <Box>
                   <Text color="gray.500" fontSize="sm">{stat.label}</Text>
@@ -68,7 +69,7 @@ const FeesOverview = () => {
 
           {isMobile ? (
             <VStack spacing={4} align="stretch">
-              {feeStructure.map((fee, index) => (
+              {content.items.map((fee, index) => (
                 <Box
                   key={index}
                   bg="white"
@@ -104,7 +105,7 @@ const FeesOverview = () => {
                     </Heading>
                     <Flex align="center" gap={4} w="100%">
                       <Box flex={1}>
-                        <Text color="gray.500" fontSize="sm" mb={1}>Amount</Text>
+                        <Text color="gray.500" fontSize="sm" mb={1}>{content.labels.amount}</Text>
                         <Text
                           bg={index === 0 ? 'forest.50' : 'cream.50'}
                           color="brandGreen"
@@ -127,7 +128,7 @@ const FeesOverview = () => {
                         </Text>
                       </Box>
                       <Box flex={1}>
-                        <Text color="gray.500" fontSize="sm" mb={1}>Period</Text>
+                        <Text color="gray.500" fontSize="sm" mb={1}>{content.labels.period}</Text>
                         <Text color="brandStrong" fontWeight="600" fontSize="md">
                           {fee.period}
                         </Text>
@@ -158,20 +159,20 @@ const FeesOverview = () => {
                 px={8}
               >
                 <Heading size="md" color="onAccent" fontWeight="600">
-                  Fee Categories
+                  {content.tableHeading}
                 </Heading>
               </Box>
               <Box overflowX="auto">
                 <Table variant="simple" size="lg">
                   <Thead bg="cream.50">
                     <Tr>
-                      <Th color="brand" fontWeight="700" fontSize="md" py={5} borderBottom="2px solid" borderColor="maroon.200">Category</Th>
-                      <Th color="brandGreen" fontWeight="700" fontSize="md" py={5} textAlign="center" borderBottom="2px solid" borderColor="forest.200">Amount</Th>
-                      <Th color="brand" fontWeight="700" fontSize="md" py={5} textAlign="center" borderBottom="2px solid" borderColor="maroon.200">Period</Th>
+                      <Th color="brand" fontWeight="700" fontSize="md" py={5} borderBottom="2px solid" borderColor="maroon.200">{content.labels.category}</Th>
+                      <Th color="brandGreen" fontWeight="700" fontSize="md" py={5} textAlign="center" borderBottom="2px solid" borderColor="forest.200">{content.labels.amount}</Th>
+                      <Th color="brand" fontWeight="700" fontSize="md" py={5} textAlign="center" borderBottom="2px solid" borderColor="maroon.200">{content.labels.period}</Th>
                     </Tr>
                   </Thead>
                   <Tbody>
-                    {feeStructure.map((fee, index) => (
+                    {content.items.map((fee, index) => (
                       <Tr
                         key={index}
                         _hover={{ bg: 'cream.50' }}
@@ -239,7 +240,7 @@ const FeesOverview = () => {
           transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
         >
           <Text color="gray.600" fontSize="md" textAlign="center">
-            * Fees are subject to change. Please contact the school office for the most current fee structure and payment plan options.
+            {content.note}
           </Text>
         </Box>
       </Box>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import {
   Box,
   SimpleGrid,
@@ -16,18 +16,16 @@ import {
   ModalBody,
 } from '@chakra-ui/react';
 import { FaExpand } from 'react-icons/fa';
-import { galleryImages } from '../../data/gallery';
-import type { GalleryImage } from '../../data/gallery';
 import SectionHeading from '../ui/SectionHeading';
-
-const categories = ['All', 'School Activities', 'Church Events', 'Trips'];
+import { useWebsiteContent } from '../../context/WebsiteContentContext';
+import type { WebsiteGalleryItem } from '../../types/website';
 
 const ImageCard = ({
   image,
   onOpen,
 }: {
-  image: GalleryImage;
-  onOpen: (image: GalleryImage) => void;
+  image: WebsiteGalleryItem;
+  onOpen: (image: WebsiteGalleryItem) => void;
 }) => {
   return (
     <Box
@@ -122,8 +120,14 @@ const ImageCard = ({
 };
 
 const Gallery = () => {
+  const { content } = useWebsiteContent();
+  const galleryImages = content.gallery;
+  const categories = useMemo(
+    () => ['All', ...Array.from(new Set(galleryImages.map((image) => image.category)))],
+    [galleryImages]
+  );
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [activeImage, setActiveImage] = useState<GalleryImage | null>(null);
+  const [activeImage, setActiveImage] = useState<WebsiteGalleryItem | null>(null);
 
   const filteredImages =
     selectedCategory === 'All'

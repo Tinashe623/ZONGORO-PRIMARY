@@ -5,8 +5,12 @@ import { FaArrowLeft } from 'react-icons/fa';
 import PageHero from '../components/ui/PageHero';
 import NeonDivider from '../components/ui/NeonDivider';
 import SectionHeading from '../components/ui/SectionHeading';
+import { useBlock } from '../lib/blocks';
+import { privacyBlock, type PrivacyBlock } from '../data/blocks/privacy';
 
 const PrivacyPage = () => {
+  const block = useBlock<PrivacyBlock>('pages.privacy', privacyBlock);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -14,55 +18,24 @@ const PrivacyPage = () => {
   return (
     <Box>
       <PageHero 
-        title="Privacy Policy" 
-        subtitle="Your privacy is important to us"
+        title={block.hero.title} 
+        subtitle={block.hero.subtitle}
       />
       <NeonDivider />
       
       <Box py={{ base: 'sectionTight', md: 'section' }} px={4} bg="white">
         <Container maxW="900px">
           <VStack spacing={8} align="start">
-            <Box>
-              <SectionHeading variant="sub" title="Data Collection Notice" />
-              <Text color="gray.600" lineHeight="1.8">
-                St James Zongoro Primary School website is an informative platform designed to provide 
-                information about our school to parents, students, and the community. We do not 
-                collect, store, or process any personal data from visitors to this website.
-              </Text>
-            </Box>
-
-            <Box>
-              <SectionHeading variant="sub" title="No Personal Information Collected" />
-              <Text color="gray.600" lineHeight="1.8">
-                This website does not use cookies, tracking mechanisms, or any form of data collection 
-                tools. You can browse our website anonymously without providing any personal information.
-              </Text>
-            </Box>
-
-            <Box>
-              <SectionHeading variant="sub" title="Information We Provide" />
-              <Text color="gray.600" lineHeight="1.8">
-                The information on this website includes general details about our school's history, 
-                academic programs, admission procedures, and contact information. This content is 
-                provided for informational purposes only.
-              </Text>
-            </Box>
-
-            <Box>
-              <SectionHeading variant="sub" title="Third-Party Links" />
-              <Text color="gray.600" lineHeight="1.8">
-                Our website may contain links to external websites. Please note that we are not 
-                responsible for the privacy practices or content of these third-party sites.
-              </Text>
-            </Box>
-
-            <Box>
-              <SectionHeading variant="sub" title="Contact Us" />
-              <Text color="gray.600" lineHeight="1.8">
-                If you have any questions about this Privacy Policy, please contact us at 
-                zongoro.primary@gmail.com or call +263 77 321 1929 / +263 71 854 6070.
-              </Text>
-            </Box>
+            {block.sections.map((section) => (
+              <Box key={section.heading}>
+                <SectionHeading variant="sub" title={section.heading} />
+                {section.paragraphs.map((paragraph, index) => (
+                  <Text key={index} color="gray.600" lineHeight="1.8">
+                    {paragraph}
+                  </Text>
+                ))}
+              </Box>
+            ))}
 
             <Flex pt={4} w="100%" justify="center">
               <Button
@@ -73,12 +46,12 @@ const PrivacyPage = () => {
                 color="onAccent"
                 _hover={{ bgGradient: 'linear(to-r, maroon.600, maroon.700)' }}
               >
-                Back to Home
+                {block.footer.backButtonText}
               </Button>
             </Flex>
 
             <Text color="gray.500" fontSize="sm">
-              Last updated: April 2026
+              {block.footer.lastUpdatedLabel} {block.footer.lastUpdatedValue}
             </Text>
           </VStack>
         </Container>

@@ -17,31 +17,36 @@ import {
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaPaperPlane, FaClock } from 'react-icons/fa';
 import PageHero from '../components/ui/PageHero';
 import { CONTACT_API_URL } from '../config';
-import { schoolContact } from '../data/contact';
+import { useWebsiteContent } from '../context/WebsiteContentContext';
+import { useBlock } from '../lib/blocks';
+import { contactPageBlock, type ContactPageBlock } from '../data/blocks/contactPage';
 
 const ContactInfo = () => {
+  const { content } = useWebsiteContent();
+  const block = useBlock<ContactPageBlock>('pages.contact', contactPageBlock);
+  const schoolContact = content.contact;
   const contactItems = [
     {
       icon: FaMapMarkerAlt,
-      title: 'Address',
+      title: block.infoLabels.address,
       content: schoolContact.address,
       color: 'brand',
     },
     {
       icon: FaPhone,
-      title: 'Phone',
+      title: block.infoLabels.phone,
       content: schoolContact.phoneInternational,
       color: 'brandGreen',
     },
     {
       icon: FaEnvelope,
-      title: 'Email',
+      title: block.infoLabels.email,
       content: schoolContact.email,
       color: 'brand',
     },
     {
       icon: FaClock,
-      title: 'Office Hours',
+      title: block.infoLabels.officeHours,
       content: schoolContact.officeHours,
       color: 'brandGreen',
     },
@@ -91,6 +96,7 @@ const ContactInfo = () => {
 
 const ContactForm = () => {
   const toast = useToast();
+  const block = useBlock<ContactPageBlock>('pages.contact', contactPageBlock);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
 
@@ -115,8 +121,8 @@ const ContactForm = () => {
 
       if (!res.ok) {
         toast({
-          title: 'Message failed to send',
-          description: data?.error || 'Something went wrong. Please try again later.',
+          title: block.toast.errorTitle,
+          description: data?.error || block.toast.errorDescription,
           status: 'error',
           duration: 5000,
           isClosable: true,
@@ -126,8 +132,8 @@ const ContactForm = () => {
       }
 
       toast({
-        title: 'Message sent!',
-        description: 'We will get back to you soon.',
+        title: block.toast.successTitle,
+        description: block.toast.successDescription,
         status: 'success',
         duration: 5000,
         isClosable: true,
@@ -136,8 +142,8 @@ const ContactForm = () => {
       setForm({ name: '', email: '', subject: '', message: '' });
     } catch {
       toast({
-        title: 'Message failed to send',
-        description: 'Network error. Please try again later.',
+        title: block.toast.errorTitle,
+        description: block.toast.networkErrorDescription,
         status: 'error',
         duration: 5000,
         isClosable: true,
@@ -163,7 +169,7 @@ const ContactForm = () => {
         px={{ base: 6, md: 8 }}
       >
         <Heading fontSize={{ base: "sm", md: "md" }} color="onAccent" fontWeight="600">
-          Send us a Message
+          {block.form.heading}
         </Heading>
       </Box>
       <Box p={{ base: 6, md: 8 }}>
@@ -171,14 +177,14 @@ const ContactForm = () => {
           <VStack spacing={6}>
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5} w="100%">
               <FormControl isRequired>
-                <FormLabel color="dark.500" fontWeight="600">Full Name</FormLabel>
+                <FormLabel color="dark.500" fontWeight="600">{block.form.nameLabel}</FormLabel>
                 <Input
                   name="name"
                   type="text"
                   autoComplete="name"
                   value={form.name}
                   onChange={handleChange}
-                  placeholder="Enter your name"
+                  placeholder={block.form.namePlaceholder}
                   borderRadius="xl"
                   borderColor="gray.200"
                   bg="cream.50"
@@ -189,14 +195,14 @@ const ContactForm = () => {
               </FormControl>
 
               <FormControl isRequired>
-                <FormLabel color="dark.500" fontWeight="600">Email</FormLabel>
+                <FormLabel color="dark.500" fontWeight="600">{block.form.emailLabel}</FormLabel>
                 <Input
                   name="email"
                   type="email"
                   autoComplete="email"
                   value={form.email}
                   onChange={handleChange}
-                  placeholder="Enter your email"
+                  placeholder={block.form.emailPlaceholder}
                   borderRadius="xl"
                   borderColor="gray.200"
                   bg="cream.50"
@@ -208,13 +214,13 @@ const ContactForm = () => {
             </SimpleGrid>
 
             <FormControl isRequired>
-              <FormLabel color="dark.500" fontWeight="600">Subject</FormLabel>
+              <FormLabel color="dark.500" fontWeight="600">{block.form.subjectLabel}</FormLabel>
               <Input
                 name="subject"
                 type="text"
                 value={form.subject}
                 onChange={handleChange}
-                placeholder="Enter subject"
+                placeholder={block.form.subjectPlaceholder}
                 borderRadius="xl"
                 borderColor="gray.200"
                 bg="cream.50"
@@ -225,12 +231,12 @@ const ContactForm = () => {
             </FormControl>
 
             <FormControl isRequired>
-              <FormLabel color="dark.500" fontWeight="600">Message</FormLabel>
+              <FormLabel color="dark.500" fontWeight="600">{block.form.messageLabel}</FormLabel>
               <Textarea
                 name="message"
                 value={form.message}
                 onChange={handleChange}
-                placeholder="Enter your message..."
+                placeholder={block.form.messagePlaceholder}
                 borderRadius="xl"
                 borderColor="gray.200"
                 bg="cream.50"
@@ -257,7 +263,7 @@ const ContactForm = () => {
               }}
               transition="all 0.3s ease"
             >
-              Send Message
+              {block.form.submitText}
             </Button>
           </VStack>
         </form>
@@ -267,6 +273,8 @@ const ContactForm = () => {
 };
 
 const ContactPage = () => {
+  const block = useBlock<ContactPageBlock>('pages.contact', contactPageBlock);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -274,10 +282,10 @@ const ContactPage = () => {
   return (
     <Box>
       <PageHero 
-        title="Contact Us" 
-        subtitle="We'd love to hear from you"
-        image="/images/new/08.webp"
-        imageAlt="St James Zongoro Primary School"
+        title={block.hero.title} 
+        subtitle={block.hero.subtitle}
+        image={block.hero.image}
+        imageAlt={block.hero.imageAlt}
       />
       
       {/* Contact Section - Cream Background */}
@@ -287,12 +295,10 @@ const ContactPage = () => {
               <VStack align="start" spacing={8}>
                 <Box>
                   <Heading fontSize={{ base: "xl", md: "2xl" }} color="brand" fontWeight="700" mb={4}>
-                    Get in Touch
+                    {block.intro.heading}
                   </Heading>
                   <Text color="gray.600" fontSize={{ base: "md", md: "lg" }} lineHeight="1.9">
-                    Have questions about admissions, academics, or our school? Feel
-                    free to reach out to us using the form or contact information below.
-                    Our team is here to help!
+                    {block.intro.paragraph}
                   </Text>
                 </Box>
                 <ContactInfo />

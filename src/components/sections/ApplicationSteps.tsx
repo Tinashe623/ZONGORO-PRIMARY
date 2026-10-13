@@ -8,18 +8,15 @@ import {
   SimpleGrid,
   useBreakpointValue,
 } from '@chakra-ui/react';
-import { FaClipboardList, FaFileAlt, FaPencilAlt, FaClipboardCheck, FaCheckCircle } from 'react-icons/fa';
-import { applicationSteps } from '../../data/admissions';
+import { FaPencilAlt } from 'react-icons/fa';
+import { getWebsiteIcon } from '../../lib/websiteIcons';
+import type { AdmissionsBlock } from '../../data/blocks/admissions';
 
-const iconMap: Record<number, React.ComponentType> = {
-  1: FaClipboardList,
-  2: FaFileAlt,
-  3: FaPencilAlt,
-  4: FaClipboardCheck,
-  5: FaCheckCircle,
-};
+interface ApplicationStepsProps {
+  content: AdmissionsBlock['applicationSteps'];
+}
 
-const ApplicationSteps = () => {
+const ApplicationSteps = ({ content }: ApplicationStepsProps) => {
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   return (
@@ -27,16 +24,16 @@ const ApplicationSteps = () => {
       <Box maxW="1200px" mx="auto">
           <VStack spacing={4} textAlign="center" mb={16}>
             <Heading size="2xl" color="brand" fontWeight="700">
-              Application Process
+              {content.heading}
             </Heading>
             <Text color="gray.600" fontSize="lg" maxW="700px" lineHeight="1.8">
-              Our simple 5-step application process makes enrolling your child easy and straightforward.
+              {content.subtitle}
             </Text>
           </VStack>
 
         {isMobile ? (
           <VStack spacing={6} align="stretch">
-            {applicationSteps.map((step) => (
+            {content.items.map((step) => (
                 <Flex key={step.step}
                   bg="white"
                   borderRadius="2xl"
@@ -57,11 +54,11 @@ const ApplicationSteps = () => {
                     boxShadow="0 3px 10px rgba(130, 0, 0, 0.2)"
                     flexShrink={0}
                   >
-                    <Icon as={iconMap[step.step]} color="onAccent" fontSize="2xl" />
+                    <Icon as={getWebsiteIcon(step.icon, FaPencilAlt)} color="onAccent" fontSize="2xl" />
                   </Flex>
                   <Box>
                     <Text color="brand" fontWeight="700" fontSize="sm" mb={1}>
-                      Step {step.step}
+                      {content.stepLabel} {step.step}
                     </Text>
                     <Heading size="md" color="dark.500" mb={2}>
                       {step.title}
@@ -75,7 +72,7 @@ const ApplicationSteps = () => {
           </VStack>
         ) : (
           <SimpleGrid columns={5} spacing={4}>
-              {applicationSteps.map((step) => (
+              {content.items.map((step) => (
                   <VStack key={step.step} spacing={4} position="relative" zIndex={1}>
                     <Flex
                       align="center"
@@ -86,7 +83,7 @@ const ApplicationSteps = () => {
                       bg="maroon.500"
                       boxShadow="0 8px 25px rgba(130, 0, 0, 0.22)"
                     >
-                      <Icon as={iconMap[step.step]} color="onAccent" fontSize="2xl" />
+                      <Icon as={getWebsiteIcon(step.icon, FaPencilAlt)} color="onAccent" fontSize="2xl" />
                     </Flex>
                     <Box 
                       bg="white" 
@@ -99,7 +96,7 @@ const ApplicationSteps = () => {
                       transition="all 0.3s ease"
                     >
                       <Text color="brand" fontWeight="700" fontSize="sm" mb={2}>
-                        Step {step.step}
+                        {content.stepLabel} {step.step}
                       </Text>
                       <Heading size="sm" color="dark.500" mb={3}>
                         {step.title}

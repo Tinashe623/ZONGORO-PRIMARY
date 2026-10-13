@@ -7,33 +7,29 @@ import {
   Icon,
   VStack,
 } from '@chakra-ui/react';
-import { FaFileAlt, FaFilePdf, FaBirthdayCake, FaHome, FaUserMd, FaIdCard } from 'react-icons/fa';
-import { requiredDocuments } from '../../data/admissions';
+import { FaBirthdayCake } from 'react-icons/fa';
+import { getWebsiteIcon } from '../../lib/websiteIcons';
+import type { AdmissionsBlock } from '../../data/blocks/admissions';
 
-const iconMap: Record<string, React.ComponentType> = {
-  'Birth Certificate': FaBirthdayCake,
-  'Application Form': FaFileAlt,
-  'Immunization Records': FaUserMd,
-  'Proof of Residence': FaHome,
-  'Previous Records': FaFilePdf,
-  'Parent ID': FaIdCard,
-};
+interface DocumentsChecklistProps {
+  content: AdmissionsBlock['documents'];
+}
 
-const DocumentsChecklist = () => {
+const DocumentsChecklist = ({ content }: DocumentsChecklistProps) => {
   return (
     <Box py={20} px={4} bg="white">
       <Box maxW="1200px" mx="auto">
           <VStack spacing={4} textAlign="center" mb={16}>
             <Heading size="2xl" color="brand" fontWeight="700">
-              Required Documents
+              {content.heading}
             </Heading>
             <Text color="gray.600" fontSize="lg" maxW="700px" lineHeight="1.8">
-              Please gather all required documents before submitting your application.
+              {content.subtitle}
             </Text>
           </VStack>
 
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
-          {requiredDocuments.map((doc, index) => (
+          {content.items.map((doc, index) => (
               <Flex key={index}
                 bg="cream.50"
                 borderRadius="2xl"
@@ -54,7 +50,7 @@ const DocumentsChecklist = () => {
                   boxShadow="0 4px 15px rgba(130, 0, 0, 0.3)"
                   flexShrink={0}
                 >
-                  <Icon as={iconMap[doc.name] || FaFileAlt} color="onAccent" fontSize="xl" />
+                  <Icon as={getWebsiteIcon(doc.icon, FaBirthdayCake)} color="onAccent" fontSize="xl" />
                 </Flex>
                 <Box>
                   <Heading size="md" color="dark.500" mb={1}>
@@ -77,7 +73,7 @@ const DocumentsChecklist = () => {
           borderLeftColor="maroon.500"
         >
           <Text color="gray.700" fontSize="md" textAlign="center" fontWeight="500">
-            * Application forms can be collected from the school office or contact us to request a digital copy.
+            {content.note}
           </Text>
         </Box>
       </Box>

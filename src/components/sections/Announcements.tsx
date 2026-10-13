@@ -14,9 +14,9 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
-import { announcements } from '../../data/announcements';
 import SectionHeading from '../ui/SectionHeading';
 import Reveal from '../ui/Reveal';
+import { useWebsiteContent } from '../../context/WebsiteContentContext';
 
 interface Announcement {
   date: string;
@@ -162,7 +162,8 @@ const AnnouncementCard = ({
 };
 
 const Announcements = () => {
-  const sorted = [...announcements].sort(
+  const { content } = useWebsiteContent();
+  const sorted = [...content.news].sort(
     (a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime()
   );
 

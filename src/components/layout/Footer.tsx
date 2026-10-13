@@ -14,10 +14,13 @@ import {
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaFacebook, FaCode } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
 import { MANAGEMENT_LOGIN_URL } from '../../config';
-import { schoolContact } from '../../data/contact';
 import EnrollButton from '../ui/EnrollButton';
+import { useWebsiteContent } from '../../context/WebsiteContentContext';
 
 const Footer = () => {
+  const { content } = useWebsiteContent();
+  const schoolContact = content.contact;
+
   return (
     <Box
       bg="maroon.800"

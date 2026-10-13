@@ -1,15 +1,17 @@
 import { useEffect } from 'react';
 import { Box, SimpleGrid, VStack, Heading, Text, Flex, Icon, useBreakpointValue } from '@chakra-ui/react';
-import { FaGraduationCap, FaUsers, FaHeart, FaShieldAlt } from 'react-icons/fa';
 import PageHero from '../components/ui/PageHero';
 import BoardingFacilities from '../components/sections/BoardingFacilities';
 import DailySchedule from '../components/sections/DailySchedule';
 import BoardingRules from '../components/sections/BoardingRules';
 import CTABanner from '../components/ui/CTABanner';
-import { boardingFees } from '../data/boarding';
+import { useBlock } from '../lib/blocks';
+import { getWebsiteIcon } from '../lib/websiteIcons';
+import { boardingBlock, type BoardingBlock } from '../data/blocks/boarding';
 
 const BoardingPage = () => {
   const isMobile = useBreakpointValue({ base: true, md: false });
+  const block = useBlock<BoardingBlock>('pages.boarding', boardingBlock);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -18,10 +20,10 @@ const BoardingPage = () => {
   return (
     <Box>
       <PageHero 
-        title="Boarding" 
-        subtitle="Our modern boarding institute provides a safe, supportive home away from home"
-        image="/images/new/02.webp"
-        imageAlt="Boarding life at St James Zongoro"
+        title={block.hero.title} 
+        subtitle={block.hero.subtitle}
+        image={block.hero.image}
+        imageAlt={block.hero.imageAlt}
       />
       
       {/* Introduction - Cream Background */}
@@ -30,27 +32,17 @@ const BoardingPage = () => {
           <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={12} alignItems="center">
               <VStack align="start" spacing={6}>
                 <Heading size="2xl" color="brand" fontWeight="700">
-                  Welcome to Our Boarding Institute
+                  {block.intro.heading}
                 </Heading>
-                <Text color="gray.600" fontSize="lg" lineHeight="1.9">
-                  St James Zongoro Primary School is proud to offer a modern boarding facility 
-                  that provides a safe, nurturing environment for students. Our boarding 
-                  community fosters independence, discipline, and lifelong friendships.
-                </Text>
-                <Text color="gray.600" fontSize="lg" lineHeight="1.9">
-                  With comfortable dormitories, nutritious meals, supervised study sessions, 
-                  and engaging recreational activities, our boarders thrive academically 
-                  and personally.
-                </Text>
+                {block.intro.paragraphs.map((paragraph, index) => (
+                  <Text key={index} color="gray.600" fontSize="lg" lineHeight="1.9">
+                    {paragraph}
+                  </Text>
+                ))}
                 
                 {/* Benefits */}
                 <SimpleGrid columns={2} spacing={4} pt={4} w="100%">
-                  {[
-                    { icon: FaShieldAlt, text: 'Safe & Secure' },
-                    { icon: FaGraduationCap, text: 'Study Support' },
-                    { icon: FaUsers, text: 'Community' },
-                    { icon: FaHeart, text: 'Pastoral Care' },
-                  ].map((item, index) => (
+                  {block.intro.benefits.map((item, index) => (
                     <Flex key={index} align="center" gap={3}>
                       <Flex 
                         w="35px" 
@@ -60,7 +52,7 @@ const BoardingPage = () => {
                         align="center" 
                         justify="center"
                       >
-                        <Icon as={item.icon} color="brand" fontSize="sm" />
+                        <Icon as={getWebsiteIcon(item.icon)} color="brand" fontSize="sm" />
                       </Flex>
                       <Text color="dark.500" fontWeight="600" fontSize="sm">{item.text}</Text>
                     </Flex>
@@ -98,10 +90,10 @@ const BoardingPage = () => {
                 transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
               >
                 <Heading size="md" color="brand" mb={6}>
-                  Boarding Fees
+                  {block.intro.fees.heading}
                 </Heading>
                 <VStack spacing={4}>
-                  {boardingFees.map((fee, index) => (
+                  {block.intro.fees.items.map((fee, index) => (
                     isMobile ? (
                       <Box
                         key={index}
@@ -226,15 +218,15 @@ const BoardingPage = () => {
         </Box>
       </Box>
 
-      <BoardingFacilities />
-      <DailySchedule />
-      <BoardingRules />
+      <BoardingFacilities facilities={block.facilities} />
+      <DailySchedule schedule={block.schedule} />
+      <BoardingRules rules={block.rules} />
       <CTABanner
-        eyebrow="Boarding Enquiries"
-        title="Give Your Child a Home Away From Home"
-        subtitle="Speak to us about boarding placements, fees, and what a typical day looks like for our boarders."
-        buttonText="Enquire About Boarding"
-        buttonLink="/contact"
+        eyebrow={block.cta.eyebrow}
+        title={block.cta.title}
+        subtitle={block.cta.subtitle}
+        buttonText={block.cta.buttonText}
+        buttonLink={block.cta.buttonLink}
       />
     </Box>
   );

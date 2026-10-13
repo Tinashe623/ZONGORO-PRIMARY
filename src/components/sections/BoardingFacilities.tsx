@@ -7,34 +7,34 @@ import {
   Flex,
   Icon,
 } from '@chakra-ui/react';
-import { FaBed, FaUtensils, FaBook, FaHospital, FaRunning, FaShieldAlt } from 'react-icons/fa';
-import { boardingFacilities } from '../../data/boarding';
+import { FaBed } from 'react-icons/fa';
+import { useBlock } from '../../lib/blocks';
+import { getWebsiteIcon } from '../../lib/websiteIcons';
+import { boardingBlock, type BoardingBlock } from '../../data/blocks/boarding';
 
-const iconMap: Record<string, React.ComponentType> = {
-  FaBed,
-  FaUtensils,
-  FaBook,
-  FaHospital,
-  FaRunning,
-  FaShieldAlt,
-};
+interface BoardingFacilitiesProps {
+  facilities?: BoardingBlock['facilities'];
+}
 
-const BoardingFacilities = () => {
+const BoardingFacilities = ({ facilities }: BoardingFacilitiesProps) => {
+  const block = useBlock<BoardingBlock>('pages.boarding', boardingBlock);
+  const { heading, subtitle, items } = facilities ?? block.facilities;
+
   return (
     <Box py={20} px={4} bg="white">
       <Box maxW="1200px" mx="auto">
           <VStack spacing={4} textAlign="center" mb={16}>
             <Heading size="2xl" color="brand" fontWeight="700">
-              Boarding Facilities
+              {heading}
             </Heading>
             <Text color="gray.600" fontSize="lg" maxW="700px" lineHeight="1.8">
-              Our boarding facility is equipped with modern amenities to ensure comfort and safety.
+              {subtitle}
             </Text>
           </VStack>
 
         <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} spacing={8}>
-          {boardingFacilities.map((facility, index) => {
-            const IconComponent = iconMap[facility.icon];
+          {items.map((facility, index) => {
+            const IconComponent = getWebsiteIcon(facility.icon, FaBed);
             return (
                 <Box key={index}
                   bg="white"

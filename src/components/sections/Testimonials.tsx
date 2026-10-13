@@ -14,8 +14,9 @@ import {
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { FaUserGraduate, FaUserTie, FaCrown, FaQuoteLeft } from 'react-icons/fa';
-import { testimonials } from '../../data/testimonials';
 import Reveal from '../ui/Reveal';
+import { useWebsiteContent } from '../../context/WebsiteContentContext';
+import type { WebsiteTestimonial } from '../../types/website';
 
 const AUTOPLAY_MS = 6000;
 
@@ -25,7 +26,7 @@ const getRoleIcon = (role: string) => {
   return FaUserGraduate;
 };
 
-const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] }) => {
+const TestimonialCard = ({ testimonial }: { testimonial: WebsiteTestimonial }) => {
   return (
     <Box
       position="relative"
@@ -97,6 +98,8 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
 };
 
 const Testimonials = () => {
+  const { content } = useWebsiteContent();
+  const testimonials = content.testimonials;
   const reduceMotion = useReducedMotion();
   const isDesktop = useBreakpointValue({ base: false, md: true }) ?? false;
   const [active, setActive] = useState(0);

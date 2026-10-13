@@ -7,12 +7,19 @@ import {
   Grid,
   GridItem,
 } from '@chakra-ui/react';
-import { dailySchedule } from '../../data/boarding';
+import { useBlock } from '../../lib/blocks';
+import { boardingBlock, type BoardingBlock } from '../../data/blocks/boarding';
 
-const DailySchedule = () => {
-  const morningItems = dailySchedule.slice(0, 4);
-  const afternoonItems = dailySchedule.slice(4, 8);
-  const eveningItems = dailySchedule.slice(8);
+interface DailyScheduleProps {
+  schedule?: BoardingBlock['schedule'];
+}
+
+const DailySchedule = ({ schedule }: DailyScheduleProps) => {
+  const block = useBlock<BoardingBlock>('pages.boarding', boardingBlock);
+  const { heading, subtitle, items } = schedule ?? block.schedule;
+  const morningItems = items.slice(0, 4);
+  const afternoonItems = items.slice(4, 8);
+  const eveningItems = items.slice(8);
 
   const isMealTime = (activity: string) => {
     return activity.toLowerCase().includes('breakfast') || 
@@ -25,10 +32,10 @@ const DailySchedule = () => {
       <Box maxW="1200px" mx="auto">
           <VStack spacing={4} textAlign="center" mb={16}>
             <Heading size="2xl" color="brand" fontWeight="700">
-              Daily Schedule
+              {heading}
             </Heading>
             <Text color="gray.600" fontSize="lg" maxW="700px" lineHeight="1.8">
-              Our structured daily routine ensures a balanced mix of studies, meals, and recreation.
+              {subtitle}
             </Text>
           </VStack>
 

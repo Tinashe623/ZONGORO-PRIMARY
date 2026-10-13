@@ -15,8 +15,17 @@ import { useRef } from 'react';
 import { PhoneIcon, StarIcon } from '@chakra-ui/icons';
 import { Link as RouterLink } from 'react-router-dom';
 import EnrollButton from '../ui/EnrollButton';
+import { useWebsiteContent } from '../../context/WebsiteContentContext';
 
 const MotionImage = motion(Image);
+
+function splitHeading(heading: string) {
+  const marker = 'Primary School';
+  if (heading.endsWith(marker) && heading.length > marker.length) {
+    return { lead: heading.slice(0, -marker.length), accent: marker };
+  }
+  return { lead: heading, accent: '' };
+}
 
 const staggerContainer: Variants = {
   hidden: { opacity: 0 },
@@ -39,6 +48,9 @@ const fadeInUpItem: Variants = {
 };
 
 const Hero = () => {
+  const { content } = useWebsiteContent();
+  const hero = content.hero;
+  const { lead, accent } = splitHeading(hero.heading);
   const reduceMotion = useReducedMotion();
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -47,13 +59,14 @@ const Hero = () => {
   });
   const parallaxY = useTransform(scrollYProgress, [0, 1], [0, 70]);
   const enrollingYear = new Date().getFullYear() + 1;
+  const primaryUrl = hero.primaryCta.url;
+  const primaryIsInternal = primaryUrl.startsWith('/');
 
   return (
     <Box id="home" ref={heroRef} position="relative" overflow="hidden">
       <MotionImage
-        src="/images/hero-2026.webp"
-        alt=""
-        role="presentation"
+        src={hero.image}
+        alt={hero.imageAlt}
         position="absolute"
         top={-1}
         left={0}
@@ -122,7 +135,7 @@ const Hero = () => {
                       boxShadow="0 0 0 4px rgba(45, 106, 79, 0.25)"
                     />
                     <Text fontSize="sm" fontWeight="600" color="white">
-                      Now accepting {enrollingYear} enrolments
+                      {hero.badge.replace(/\{year\}/g, String(enrollingYear))}
                     </Text>
                   </Flex>
                   <Flex
@@ -138,7 +151,7 @@ const Hero = () => {
                     fontWeight="500"
                   >
                     <StarIcon color="maroon.300" />
-                    <Text color="white">ECD to Grade 7</Text>
+                    <Text color="white">{hero.secondaryBadge}</Text>
                   </Flex>
                 </HStack>
               </Box>
@@ -152,10 +165,12 @@ const Hero = () => {
                   fontWeight="800"
                   textShadow="0 8px 40px rgba(6, 18, 12, 0.6), 0 2px 8px rgba(6, 18, 12, 0.8)"
                 >
-                  St James Zongoro{' '}
-                  <Text as="span" color="cream.200">
-                    Primary School
-                  </Text>
+                  {lead}
+                  {accent && (
+                    <Text as="span" color="cream.200">
+                      {accent}
+                    </Text>
+                  )}
                 </Heading>
               </motion.div>
 
@@ -169,7 +184,7 @@ const Hero = () => {
                   lineHeight="1.7"
                   textShadow="0 4px 24px rgba(6, 18, 12, 0.7)"
                 >
-                  Where academic excellence meets Anglican values, shaping future leaders through quality education and community spirit.
+                  {hero.subheading}
                 </Text>
               </motion.div>
 
@@ -179,14 +194,31 @@ const Hero = () => {
                   flexWrap="wrap" 
                   justify="center"
                 >
-                  <EnrollButton
-                    size="lg"
-                    px={{ base: 6, md: 9 }}
-                    fontWeight="600"
-                  >
-                    Apply Now
-                  </EnrollButton>
-                  <RouterLink to="/contact" style={{ textDecoration: 'none' }}>
+                  {primaryUrl && primaryIsInternal ? (
+                    <RouterLink to={primaryUrl} style={{ textDecoration: 'none' }}>
+                      <Button variant="primary" size="lg" px={{ base: 6, md: 9 }} fontWeight="600">
+                        {hero.primaryCta.label}
+                      </Button>
+                    </RouterLink>
+                  ) : primaryUrl ? (
+                    <Button
+                      as="a"
+                      href={primaryUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variant="primary"
+                      size="lg"
+                      px={{ base: 6, md: 9 }}
+                      fontWeight="600"
+                    >
+                      {hero.primaryCta.label}
+                    </Button>
+                  ) : (
+                    <EnrollButton size="lg" px={{ base: 6, md: 9 }} fontWeight="600">
+                      {hero.primaryCta.label}
+                    </EnrollButton>
+                  )}
+                  <RouterLink to={hero.secondaryCta.url || '/contact'} style={{ textDecoration: 'none' }}>
                     <Button
                       variant="outline"
                       borderWidth="1px"
@@ -207,7 +239,7 @@ const Hero = () => {
                         transform: 'translateY(-2px)',
                       }}
                     >
-                      Contact Us
+                      {hero.secondaryCta.label}
                     </Button>
                   </RouterLink>
                 </HStack>
